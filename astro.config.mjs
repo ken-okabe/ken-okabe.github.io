@@ -17,7 +17,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			// General site title (can be overridden per locale if needed, but often set in default language)
-			title: 'My Awesome Documentation',
+			title: 'Experience Quality Code',
 			sidebar: enSidebar,  // Assign the imported English sidebar
 
 			// Define the locales (languages) your site supports.
