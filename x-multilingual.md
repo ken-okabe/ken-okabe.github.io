@@ -1,5 +1,3 @@
- 
-
 **Multilingual Setup Manual for Starlight (en/ja)**
 
 This document outlines the manual configurations needed to enable English and Japanese language support in your Astro Starlight project.
@@ -157,7 +155,6 @@ JSON
     };
     
     ```
-    
 
 **Step 4: Verify Output Directory Structure**
 
@@ -177,5 +174,3 @@ While the script modification itself is separate, its usage is part of this manu
     -   For Japanese (once `_book-ja/` is ready): `TARGET_LANG=ja node your-script-name.js`
 
 This will populate `src/content/docs/en/` and `src/content/docs/ja/` respectively, and generate `astro.sidebar.en.ts` and `astro.sidebar.ja.ts` (or similarly named files based on your script's adaptation).
-
- 

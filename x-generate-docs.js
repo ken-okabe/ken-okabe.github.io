@@ -1,8 +1,9 @@
 // x-generate-docs.js
 // Node.js script (ES Module format)
-// Processes content for 'en' and 'ja' languages.
-// Generates a single sidebar configuration file (starlight-generated-sidebar.js)
-// with an empty top-level 'label' and 'translations' for 'en' and 'ja' labels.
+// Processes content for 'en' and 'ja' from '_site-en' and '_site-ja'.
+// Generates a single topics configuration file (starlight-generated-topics.js).
+// Topic labels are {en: "...", ja: "..."},
+// Item labels within topics are "" with a 'translations' object.
 
 import fs from 'fs-extra';
 import path from 'path';
@@ -16,11 +17,15 @@ const CWD = process.cwd();
 
 const LANG_EN = 'en';
 const LANG_JA = 'ja';
-const SUPPORTED_LANGS = [LANG_EN, LANG_JA]; // For fetching translations
-const PRIMARY_STRUCTURE_LANG = LANG_EN; // Structure is based on 'en' _book
+const SUPPORTED_LANGS = [LANG_EN, LANG_JA];
+const PRIMARY_STRUCTURE_LANG = LANG_EN;
 
 const CONTENT_OUTPUT_BASE_DIR = path.join(CWD, `src/content/docs`);
-const SIDEBAR_CONFIG_FILE_NAME = `starlight-generated-sidebar.js`;
+const SIDEBAR_CONFIG_FILE_NAME = `starlight-generated-topics.js`;
+
+function stripNumericPrefix(name) {
+    return name.replace(/^\d+-/, '');
+}
 
 // --- Helper Functions ---
 async function getH1TitleFromFile(filePath) {
@@ -30,9 +35,7 @@ async function getH1TitleFromFile(filePath) {
         const tree = unified().use(remarkParse).parse(content);
         const firstH1Node = tree.children.find(node => node.type === 'heading' && node.depth === 1);
         return firstH1Node ? mdastToString(firstH1Node).trim() : null;
-    } catch (error) {
-        return null;
-    }
+    } catch (error) { return null; }
 }
 
 async function getDescriptionFromFile(filePath) {
@@ -51,16 +54,12 @@ async function getDescriptionFromFile(filePath) {
             }
         }
         return null;
-    } catch (error) {
-        return null;
-    }
+    } catch (error) { return null; }
 }
 
 async function getSortedDirEntries(dirPath) {
     try {
-        if (!await fs.pathExists(dirPath)) {
-            return [];
-        }
+        if (!await fs.pathExists(dirPath)) return [];
         const entries = await fs.readdir(dirPath);
         return entries.sort();
     } catch (error) {
@@ -71,13 +70,11 @@ async function getSortedDirEntries(dirPath) {
 }
 
 async function processAndCopyMarkdownFile(inputFilePath, outputFilePath, langForFrontmatter) {
+    if (!await fs.pathExists(inputFilePath)) return;
     const originalContent = await fs.readFile(inputFilePath, 'utf-8');
     const title = await getH1TitleFromFile(inputFilePath);
     const description = await getDescriptionFromFile(inputFilePath);
-    const frontmatter = {
-        title: title || '',
-        description: description || '',
-    };
+    const frontmatter = { title: title || '', description: description || '' };
     let contentWithoutH1 = originalContent;
     if (title) {
         try {
@@ -96,7 +93,7 @@ async function processAndCopyMarkdownFile(inputFilePath, outputFilePath, langFor
                 contentWithoutH1 = originalContent.replace(h1Regex, '');
             }
         } catch (error) {
-            // Error during H1 removal
+            console.warn(`Warning: Failed to remove H1 from ${inputFilePath}. Error: ${error.message}`);
         }
     }
     const newFileContent = matter.stringify(contentWithoutH1, frontmatter);
@@ -104,99 +101,108 @@ async function processAndCopyMarkdownFile(inputFilePath, outputFilePath, langFor
     await fs.writeFile(outputFilePath, newFileContent);
 }
 
-async function getLabelsForTranslations(relativePathFromBookRoot, entryName, isDir) {
+async function getLabelsForTranslations(itemPathRelativeToSiteLangRoot, isDirLabelFile) {
     const translations = {};
-    // Get English label
-    const enBookDir = path.join(CWD, `_book-${LANG_EN}`);
-    const enItemPath = path.join(enBookDir, relativePathFromBookRoot, entryName);
-    let enLabel;
-    if (isDir) {
-        enLabel = await getH1TitleFromFile(path.join(enItemPath, '_label.md'));
-        if (!enLabel) enLabel = entryName; // Fallback to directory name if _label.md or its H1 is missing
-    } else { // is a file
-        enLabel = await getH1TitleFromFile(enItemPath);
-        if (!enLabel) enLabel = entryName.replace(/\.md$/, ''); // Fallback to filename
-    }
-    if (enLabel) { // Only add 'en' if a label was found or fallback generated
-        translations[LANG_EN] = enLabel;
-    }
+    for (const lang of SUPPORTED_LANGS) {
+        const langSiteDir = path.join(CWD, `_site-${lang}`);
+        let actualFilePath;
+        if (isDirLabelFile) { // For a directory group, label comes from its _label.md
+            actualFilePath = path.join(langSiteDir, itemPathRelativeToSiteLangRoot, '_label.md');
+        } else { // For a file item, label comes from H1 of the file itself
+            actualFilePath = path.join(langSiteDir, itemPathRelativeToSiteLangRoot);
+        }
 
-
-    // Get Japanese label
-    const jaBookDir = path.join(CWD, `_book-${LANG_JA}`);
-    const jaItemPath = path.join(jaBookDir, relativePathFromBookRoot, entryName);
-    let jaLabel;
-    if (isDir) {
-        jaLabel = await getH1TitleFromFile(path.join(jaItemPath, '_label.md'));
-    } else { // is a file
-        jaLabel = await getH1TitleFromFile(jaItemPath);
+        const label = await getH1TitleFromFile(actualFilePath);
+        if (label) {
+            translations[lang] = label;
+        }
     }
-    if (jaLabel) {
-        translations[LANG_JA] = jaLabel;
-    }
-    // If jaLabel is not found, the 'ja' key will be omitted.
-
-    return translations; // { en: "English Label", ja: "日本語ラベル" (if found) }
+    // If no labels found at all (e.g., primary lang label is missing), 
+    // return an empty object or a minimal one to avoid errors downstream.
+    // The calling function will need to handle fallbacks for display if translations are sparse.
+    return translations;
 }
 
-async function processDirectoryRecursiveForSidebar(currentRelativePathFromBookRoot) {
+async function generateSidebarItemsForSection(sectionDirName, currentRelativePathWithinSection) {
     const sidebarItems = [];
-    const primaryLangScanDir = path.join(CWD, `_book-${PRIMARY_STRUCTURE_LANG}`, currentRelativePathFromBookRoot);
-    const entries = await getSortedDirEntries(primaryLangScanDir);
+    const primaryLangSectionScanDir = path.join(CWD, `_site-${PRIMARY_STRUCTURE_LANG}`, sectionDirName, currentRelativePathWithinSection);
+    const entries = await getSortedDirEntries(primaryLangSectionScanDir);
 
     for (const entryName of entries) {
-        if (entryName === '_label.md') {
+        if (entryName === '_label.md' || (currentRelativePathWithinSection === '' && entryName === 'index.md')) {
             continue;
         }
 
-        const itemPathInPrimaryBook = path.join(primaryLangScanDir, entryName);
+        const itemPathInPrimaryBook = path.join(primaryLangSectionScanDir, entryName);
         if (!await fs.pathExists(itemPathInPrimaryBook)) continue;
 
         const stat = await fs.stat(itemPathInPrimaryBook);
-        const nextRelativePathFromBookRoot = path.join(currentRelativePathFromBookRoot, entryName).replace(/\\/g, '/');
+        const nextRelativePathWithinSection = path.join(currentRelativePathWithinSection, entryName).replace(/\\/g, '/');
+        const strippedSectionDirName = stripNumericPrefix(sectionDirName);
+        const pathForLink = path.join(strippedSectionDirName, nextRelativePathWithinSection).replace(/\\/g, '/');
+        // pathToItemForTranslations is relative to _site-{lang}/{sectionDirName}/
+        const pathToItemInSpecificSection = path.join(sectionDirName, nextRelativePathWithinSection);
+
 
         if (stat.isDirectory()) {
-            const translations = await getLabelsForTranslations(currentRelativePathFromBookRoot, entryName, true);
+            // For sub-directories (groups), translations come from their _label.md
+            const translations = await getLabelsForTranslations(pathToItemInSpecificSection, true);
 
-            if (entryName === 'section-0') {
-                const itemsFromSection0 = await processDirectoryRecursiveForSidebar(nextRelativePathFromBookRoot);
+            if (entryName === 'section-0') { // Flatten section-0
+                const itemsFromSection0 = await generateSidebarItemsForSection(sectionDirName, nextRelativePathWithinSection);
                 sidebarItems.push(...itemsFromSection0);
             } else {
-                const nestedItems = await processDirectoryRecursiveForSidebar(nextRelativePathFromBookRoot);
-                if (nestedItems.length > 0) {
+                const nestedItems = await generateSidebarItemsForSection(sectionDirName, nextRelativePathWithinSection);
+                // Only add group if it has items and at least one translation for its label
+                if (nestedItems.length > 0 && Object.keys(translations).length > 0) {
                     sidebarItems.push({
-                        label: "", // Set top-level label to empty string
+                        label: "", // As per user's specified format
                         translations: translations,
+                        items: nestedItems,
+                    });
+                } else if (nestedItems.length > 0) { // Fallback if no translations for group label
+                    sidebarItems.push({
+                        label: "",
+                        translations: { [PRIMARY_STRUCTURE_LANG]: entryName }, // Fallback label for group
                         items: nestedItems,
                     });
                 }
             }
         } else if (entryName.endsWith('.md')) {
-            const translations = await getLabelsForTranslations(currentRelativePathFromBookRoot, entryName, false);
+            // For files, translations come from the H1 of the file itself.
+            const translations = await getLabelsForTranslations(pathToItemInSpecificSection, false);
 
-            sidebarItems.push({
-                label: "", // Set top-level label to empty string
-                translations: translations,
-                link: nextRelativePathFromBookRoot.replace(/\.md$/, ''),
-            });
+            // Only add item if at least one translation for its label was found
+            if (Object.keys(translations).length > 0) {
+                sidebarItems.push({
+                    label: "", // As per user's specified format
+                    translations: translations,
+                    link: pathForLink.replace(/\.md$/, ''),
+                });
+            } else { // Fallback if no translations for file label
+                sidebarItems.push({
+                    label: "",
+                    translations: { [PRIMARY_STRUCTURE_LANG]: entryName.replace(/\.md$/, '') }, // Fallback label for item
+                    link: pathForLink.replace(/\.md$/, ''),
+                });
+            }
         }
     }
     return sidebarItems;
 }
 
-async function generateSidebarFile(sidebarTree) {
+async function generateSidebarFile(topicsArray) {
     const sidebarConfigPath = path.join(CWD, SIDEBAR_CONFIG_FILE_NAME);
-    const langListForComment = SUPPORTED_LANGS.join(', ');
     const content = `// This file is auto-generated by the x-generate-docs.js script.
-// Sidebar structure is based on '${PRIMARY_STRUCTURE_LANG}' content (_book-${PRIMARY_STRUCTURE_LANG}).
-// Translations for labels are sourced from _book-${LANG_EN} and _book-${LANG_JA}.
-// The top-level 'label' property is intentionally empty; display labels are in 'translations'.
+// Contains the 'topics' array for starlight-sidebar-topics plugin.
+// Topic labels are objects like { en: "...", ja: "..." }.
+// Item labels within each topic's sidebar are empty (""), with actual labels in 'translations'.
 
-export const generatedSidebar = ${JSON.stringify(sidebarTree, null, 2)};
+export const generatedTopics = ${JSON.stringify(topicsArray, null, 2)};
 `;
     try {
         await fs.writeFile(sidebarConfigPath, content);
-        console.log(`Generated ${SIDEBAR_CONFIG_FILE_NAME} successfully with translations for [${langListForComment}].`);
+        console.log(`Generated ${SIDEBAR_CONFIG_FILE_NAME} successfully.`);
     } catch (error) {
         console.error(`Error writing ${SIDEBAR_CONFIG_FILE_NAME}:`, error);
         throw error;
@@ -206,82 +212,106 @@ export const generatedSidebar = ${JSON.stringify(sidebarTree, null, 2)};
 // --- Main Execution ---
 async function main() {
     console.log(`Processing content for languages: ${SUPPORTED_LANGS.join(', ')}.`);
-    console.log(`Sidebar structure will be based on: ${PRIMARY_STRUCTURE_LANG} (_book-${PRIMARY_STRUCTURE_LANG}).`);
+    console.log(`Sidebar structure will be based on: ${PRIMARY_STRUCTURE_LANG} (_site-${PRIMARY_STRUCTURE_LANG}).`);
     console.log(`Sidebar configuration output file: ${SIDEBAR_CONFIG_FILE_NAME}`);
 
     for (const lang of SUPPORTED_LANGS) {
-        const langBookDir = path.join(CWD, `_book-${lang}`);
+        const langSiteDir = path.join(CWD, `_site-${lang}`);
         const langContentOutputDir = path.join(CONTENT_OUTPUT_BASE_DIR, lang);
-        if (!await fs.pathExists(langBookDir)) {
-            console.warn(`Warning: Input directory for language '${lang}' not found: ${langBookDir}. Skipping content processing for this language.`);
+        if (!await fs.pathExists(langSiteDir)) {
+            console.warn(`Input directory for lang '${lang}' not found: ${langSiteDir}.`);
             continue;
         }
         if (await fs.pathExists(langContentOutputDir)) {
-            console.log(`Cleaning existing content output directory for ${lang}: ${langContentOutputDir}`);
             await fs.remove(langContentOutputDir);
         }
         await fs.ensureDir(langContentOutputDir);
-        console.log(`Processing content for ${lang} from ${langBookDir} to ${langContentOutputDir}...`);
-        async function copyAndProcessDir(inputDir, outputDir) {
-            const entries = await getSortedDirEntries(inputDir);
-            for (const entryName of entries) {
-                if (entryName === '_label.md') continue;
-                const currentInputPath = path.join(inputDir, entryName);
-                if (!await fs.pathExists(currentInputPath)) continue;
-                const currentOutputPath = path.join(outputDir, entryName);
-                const stat = await fs.stat(currentInputPath);
-                if (stat.isDirectory()) {
-                    await fs.ensureDir(currentOutputPath);
-                    await copyAndProcessDir(currentInputPath, currentOutputPath);
-                } else if (entryName.endsWith('.md')) {
-                    await processAndCopyMarkdownFile(currentInputPath, currentOutputPath, lang);
+        console.log(`Processing content for ${lang} from ${langSiteDir} to ${langContentOutputDir}...`);
+
+        const rootIndexInputPath = path.join(langSiteDir, 'index.md');
+        if (await fs.pathExists(rootIndexInputPath)) {
+            const rootIndexOutputPath = path.join(langContentOutputDir, 'index.md');
+            await processAndCopyMarkdownFile(rootIndexInputPath, rootIndexOutputPath, lang);
+        }
+
+        const sectionEntriesInLangDir = await getSortedDirEntries(langSiteDir);
+        for (const sectionEntryName of sectionEntriesInLangDir) {
+            const sectionInputPath = path.join(langSiteDir, sectionEntryName);
+            if (!await fs.pathExists(sectionInputPath)) continue; // Ensure section source path exists
+            const stat = await fs.stat(sectionInputPath);
+
+            if (stat.isDirectory()) {
+                const strippedSectionName = stripNumericPrefix(sectionEntryName);
+                const sectionContentOutputDir = path.join(langContentOutputDir, strippedSectionName);
+                await fs.ensureDir(sectionContentOutputDir);
+                async function copyAndProcessDir(inputSubDir, outputSubDir) {
+                    const entries = await getSortedDirEntries(inputSubDir);
+                    for (const entryName of entries) {
+                        const currentInputPath = path.join(inputSubDir, entryName);
+                        if (!await fs.pathExists(currentInputPath)) continue;
+                        const currentOutputPath = path.join(outputSubDir, entryName);
+                        const innerStat = await fs.stat(currentInputPath);
+                        if (innerStat.isDirectory()) {
+                            await fs.ensureDir(currentOutputPath);
+                            await copyAndProcessDir(currentInputPath, currentOutputPath);
+                        } else if (entryName.endsWith('.md')) {
+                            if (entryName === '_label.md') continue;
+                            await processAndCopyMarkdownFile(currentInputPath, currentOutputPath, lang);
+                        }
+                    }
                 }
+                await copyAndProcessDir(sectionInputPath, sectionContentOutputDir);
             }
         }
-        await copyAndProcessDir(langBookDir, langContentOutputDir);
         console.log(`Content for ${lang} processed.`);
     }
 
-    console.log(`Building sidebar structure based on ${PRIMARY_STRUCTURE_LANG} and collecting translations...`);
-    const primaryBookDirExists = await fs.pathExists(path.join(CWD, `_book-${PRIMARY_STRUCTURE_LANG}`));
-    if (!primaryBookDirExists) {
-        console.error(`Error: Primary book directory _book-${PRIMARY_STRUCTURE_LANG} not found. Cannot generate sidebar.`);
-        process.exit(1);
-    }
-    const originalGeneratedTree = await processDirectoryRecursiveForSidebar('');
-
-    const rootEnLabel = await getH1TitleFromFile(path.join(CWD, `_book-${LANG_EN}`, 'index.md')) || "Home";
-    const rootJaLabel = await getH1TitleFromFile(path.join(CWD, `_book-${LANG_JA}`, 'index.md'));
-    const customRootLinkTranslations = { [LANG_EN]: rootEnLabel };
-    if (rootJaLabel) {
-        customRootLinkTranslations[LANG_JA] = rootJaLabel;
-    }
-
-    const customRootLink = {
-        label: "", // Set top-level label to empty string
-        translations: customRootLinkTranslations,
-        link: "/"
-    };
-
-    let finalSidebarTree = [customRootLink];
-    let firstRealGroupProcessed = false;
-
-    for (const item of originalGeneratedTree) {
-        if (item.link && (item.link === "index" || item.link === "./index" || item.link === "/index") && !item.items) {
-            continue;
+    console.log(`Building topics array for sidebar based on ${PRIMARY_STRUCTURE_LANG}...`);
+    const topicsArray = [];
+    const primarySiteContentDir = path.join(CWD, `_site-${PRIMARY_STRUCTURE_LANG}`);
+    const topLevelEntries = await getSortedDirEntries(primarySiteContentDir);
+    const sectionDirNames = [];
+    for (const entryName of topLevelEntries) {
+        if (entryName === 'index.md') continue;
+        const entryPath = path.join(primarySiteContentDir, entryName);
+        if (await fs.pathExists(entryPath) && (await fs.stat(entryPath)).isDirectory()) {
+            sectionDirNames.push(entryName);
         }
-        if (item.items && Array.isArray(item.items) && item.items.length > 0) {
-            if (!firstRealGroupProcessed) {
-                item.collapsed = false;
-                firstRealGroupProcessed = true;
-            } else {
-                item.collapsed = true;
+    }
+
+    for (const sectionName of sectionDirNames) {
+        // Topic label from section's index.md H1 for each language
+        const topicTranslations = {};
+        const sectionEnIndexH1 = await getH1TitleFromFile(path.join(CWD, `_site-${LANG_EN}`, sectionName, 'index.md'));
+        topicTranslations[LANG_EN] = sectionEnIndexH1 || stripNumericPrefix(sectionName);
+
+        const sectionJaIndexH1 = await getH1TitleFromFile(path.join(CWD, `_site-${LANG_JA}`, sectionName, 'index.md'));
+        if (sectionJaIndexH1) {
+            topicTranslations[LANG_JA] = sectionJaIndexH1;
+        }
+
+        let sectionItems = await generateSidebarItemsForSection(sectionName, '');
+        let firstRealGroupInSectionProcessed = false;
+        sectionItems = sectionItems.map(item => {
+            const newItem = { ...item };
+            if (newItem.items && Array.isArray(newItem.items) && newItem.items.length > 0) {
+                if (!firstRealGroupInSectionProcessed) {
+                    newItem.collapsed = false;
+                    firstRealGroupInSectionProcessed = true;
+                } else {
+                    newItem.collapsed = true;
+                }
             }
-        }
-        finalSidebarTree.push(item);
-    }
+            return newItem;
+        });
 
-    await generateSidebarFile(finalSidebarTree);
+        topicsArray.push({
+            label: topicTranslations, // Topic label IS the translation object
+            link: `/${stripNumericPrefix(sectionName)}/`,
+            items: sectionItems,
+        });
+    }
+    await generateSidebarFile(topicsArray);
     console.log(`Multilingual documentation generation finished successfully!`);
 }
 
