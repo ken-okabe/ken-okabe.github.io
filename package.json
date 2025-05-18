@@ -7,8 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "gh-pages -d dist"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.3",
@@ -22,7 +21,6 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "rehype-mathjax": "^7.1.0",
     "remark-math": "^6.0.0"
   }
