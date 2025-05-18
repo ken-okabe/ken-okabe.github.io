@@ -1,6 +1,6 @@
-# 💡 Experience Quality Code ✨
+# 💡 Experience Quality Coding ✨
 
-Welcome to Experience Quality Code! This book explores functional programming (FP) by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
+Welcome to Experience Quality Coding! This book explores functional programming (FP) by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
 
 ## Special edition and your next generation AI could copy
 
@@ -57,3 +57,4 @@ Due to these factors, my understanding of FP, the consistency in my code generat
 The circumstances highlighted by the dialogue with the AI above are my main impetus for authoring this book. Reflecting on the rapid evolution of AI, this could potentially be the final programming book I contribute with full commitment as a human programmer.
 
 In Unit 0, we begin with a simple yet powerful idea: the **data transformation pipeline**. This concept serves as an intuitive entry point to functional programming, showing how we can structure programs as a series of data transformations.
+(temp edit)
