@@ -12,7 +12,7 @@ export default defineConfig({
     },
     integrations: [
         starlight({
-            title: 'Experience Quality Code',
+            title: 'Experience Quality Coding',
             defaultLocale: 'en',
             locales: {
                 en: { label: 'English', lang: 'en' },

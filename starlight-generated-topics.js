@@ -6,8 +6,8 @@
 export const generatedTopics = [
   {
     "label": {
-      "en": "Experience Quality Code",
-      "ja": "Experience Quality Code"
+      "en": "Experience Quality Coding",
+      "ja": "Experience Quality Coding"
     },
     "link": "/book/",
     "icon": "open-book",
@@ -22,8 +22,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "💡 Experience Quality Code ✨",
-              "ja": "💡 Experience Quality Code ✨"
+              "en": "💡 Experience Quality Coding ✨",
+              "ja": "💡 Experience Quality Coding ✨"
             },
             "link": "book/unit-0/section-0/0-about-unit"
           },

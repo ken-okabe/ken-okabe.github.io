@@ -4,6 +4,6 @@ icon: open-book
 
 ---
 
-# Experience Quality Code
+# Experience Quality Coding
 
 ToDo
