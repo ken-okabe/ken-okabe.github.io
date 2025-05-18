@@ -1,1 +1,1 @@
-# Pipeline Philosophy
+# パイプライン哲学 (Pipeline Philosophy)
