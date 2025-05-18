@@ -1,5 +1,5 @@
 ---
-title: Timeline library
+title: Timeline FRP library
 description: ToDo
 ---
 

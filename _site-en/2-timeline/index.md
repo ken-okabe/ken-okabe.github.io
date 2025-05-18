@@ -1,8 +1,8 @@
 ---
 
-title: Landing Page
+title: seti:clock
 ---
 
-# Timeline library
+# Timeline FRP library
 
 ToDo

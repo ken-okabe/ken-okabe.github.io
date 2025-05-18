@@ -2,8 +2,8 @@
 // Node.js script (ES Module format)
 // Processes content for 'en' and 'ja' from '_site-en' and '_site-ja'.
 // Generates a single topics configuration file (starlight-generated-topics.js).
-// Topic labels are {en: "...", ja: "..."},
-// Item labels within topics are "" with a 'translations' object.
+// Topic labels are {en: "...", ja: "..."}, potentially with an 'icon'.
+// Item labels within topics are "FALLBACK" with a 'translations' object.
 
 import fs from 'fs-extra';
 import path from 'path';
@@ -36,6 +36,24 @@ async function getH1TitleFromFile(filePath) {
         const firstH1Node = tree.children.find(node => node.type === 'heading' && node.depth === 1);
         return firstH1Node ? mdastToString(firstH1Node).trim() : null;
     } catch (error) { return null; }
+}
+
+// NEW Helper Function to get title from original frontmatter
+async function getOriginalFrontmatterTitle(filePath) {
+    if (!await fs.pathExists(filePath)) {
+        return null;
+    }
+    try {
+        const fileContent = await fs.readFile(filePath, 'utf-8');
+        const { data } = matter(fileContent); // Extracts frontmatter
+        if (data && typeof data.title === 'string' && data.title.trim() !== '') {
+            return data.title.trim();
+        }
+        return null; // No title or empty title in frontmatter
+    } catch (error) {
+        console.warn(`Warning: Could not read or parse frontmatter from ${filePath} for icon. Error: ${error.message}`);
+        return null;
+    }
 }
 
 async function getDescriptionFromFile(filePath) {
@@ -72,7 +90,7 @@ async function getSortedDirEntries(dirPath) {
 async function processAndCopyMarkdownFile(inputFilePath, outputFilePath, langForFrontmatter) {
     if (!await fs.pathExists(inputFilePath)) return;
     const originalContent = await fs.readFile(inputFilePath, 'utf-8');
-    const title = await getH1TitleFromFile(inputFilePath);
+    const title = await getH1TitleFromFile(inputFilePath); // This H1 is used for the copied file's frontmatter
     const description = await getDescriptionFromFile(inputFilePath);
     const frontmatter = { title: title || '', description: description || '' };
     let contentWithoutH1 = originalContent;
@@ -106,9 +124,9 @@ async function getLabelsForTranslations(itemPathRelativeToSiteLangRoot, isDirLab
     for (const lang of SUPPORTED_LANGS) {
         const langSiteDir = path.join(CWD, `_site-${lang}`);
         let actualFilePath;
-        if (isDirLabelFile) { // For a directory group, label comes from its _label.md
+        if (isDirLabelFile) {
             actualFilePath = path.join(langSiteDir, itemPathRelativeToSiteLangRoot, '_label.md');
-        } else { // For a file item, label comes from H1 of the file itself
+        } else {
             actualFilePath = path.join(langSiteDir, itemPathRelativeToSiteLangRoot);
         }
 
@@ -117,9 +135,6 @@ async function getLabelsForTranslations(itemPathRelativeToSiteLangRoot, isDirLab
             translations[lang] = label;
         }
     }
-    // If no labels found at all (e.g., primary lang label is missing), 
-    // return an empty object or a minimal one to avoid errors downstream.
-    // The calling function will need to handle fallbacks for display if translations are sparse.
     return translations;
 }
 
@@ -140,49 +155,43 @@ async function generateSidebarItemsForSection(sectionDirName, currentRelativePat
         const nextRelativePathWithinSection = path.join(currentRelativePathWithinSection, entryName).replace(/\\/g, '/');
         const strippedSectionDirName = stripNumericPrefix(sectionDirName);
         const pathForLink = path.join(strippedSectionDirName, nextRelativePathWithinSection).replace(/\\/g, '/');
-        // pathToItemForTranslations is relative to _site-{lang}/{sectionDirName}/
         const pathToItemInSpecificSection = path.join(sectionDirName, nextRelativePathWithinSection);
 
 
         if (stat.isDirectory()) {
-            // For sub-directories (groups), translations come from their _label.md
             const translations = await getLabelsForTranslations(pathToItemInSpecificSection, true);
 
-            if (entryName === 'section-0') { // Flatten section-0
+            if (entryName === 'section-0') {
                 const itemsFromSection0 = await generateSidebarItemsForSection(sectionDirName, nextRelativePathWithinSection);
                 sidebarItems.push(...itemsFromSection0);
             } else {
                 const nestedItems = await generateSidebarItemsForSection(sectionDirName, nextRelativePathWithinSection);
-                // Only add group if it has items and at least one translation for its label
                 if (nestedItems.length > 0 && Object.keys(translations).length > 0) {
                     sidebarItems.push({
-                        label: "", // As per user's specified format
+                        label: "FALLBACK",
                         translations: translations,
                         items: nestedItems,
                     });
-                } else if (nestedItems.length > 0) { // Fallback if no translations for group label
+                } else if (nestedItems.length > 0) {
                     sidebarItems.push({
-                        label: "",
-                        translations: { [PRIMARY_STRUCTURE_LANG]: entryName }, // Fallback label for group
+                        label: "FALLBACK",
+                        translations: { [PRIMARY_STRUCTURE_LANG]: entryName },
                         items: nestedItems,
                     });
                 }
             }
         } else if (entryName.endsWith('.md')) {
-            // For files, translations come from the H1 of the file itself.
             const translations = await getLabelsForTranslations(pathToItemInSpecificSection, false);
-
-            // Only add item if at least one translation for its label was found
             if (Object.keys(translations).length > 0) {
                 sidebarItems.push({
-                    label: "", // As per user's specified format
+                    label: "FALLBACK",
                     translations: translations,
                     link: pathForLink.replace(/\.md$/, ''),
                 });
-            } else { // Fallback if no translations for file label
+            } else {
                 sidebarItems.push({
-                    label: "",
-                    translations: { [PRIMARY_STRUCTURE_LANG]: entryName.replace(/\.md$/, '') }, // Fallback label for item
+                    label: "FALLBACK",
+                    translations: { [PRIMARY_STRUCTURE_LANG]: entryName.replace(/\.md$/, '') },
                     link: pathForLink.replace(/\.md$/, ''),
                 });
             }
@@ -195,8 +204,8 @@ async function generateSidebarFile(topicsArray) {
     const sidebarConfigPath = path.join(CWD, SIDEBAR_CONFIG_FILE_NAME);
     const content = `// This file is auto-generated by the x-generate-docs.js script.
 // Contains the 'topics' array for starlight-sidebar-topics plugin.
-// Topic labels are objects like { en: "...", ja: "..." }.
-// Item labels within each topic's sidebar are empty (""), with actual labels in 'translations'.
+// Topic labels are objects like { en: "...", ja: "..." }, and may include an 'icon' property.
+// Item labels within each topic's sidebar are "FALLBACK", with actual labels in 'translations'.
 
 export const generatedTopics = ${JSON.stringify(topicsArray, null, 2)};
 `;
@@ -237,7 +246,7 @@ async function main() {
         const sectionEntriesInLangDir = await getSortedDirEntries(langSiteDir);
         for (const sectionEntryName of sectionEntriesInLangDir) {
             const sectionInputPath = path.join(langSiteDir, sectionEntryName);
-            if (!await fs.pathExists(sectionInputPath)) continue; // Ensure section source path exists
+            if (!await fs.pathExists(sectionInputPath)) continue;
             const stat = await fs.stat(sectionInputPath);
 
             if (stat.isDirectory()) {
@@ -280,7 +289,6 @@ async function main() {
     }
 
     for (const sectionName of sectionDirNames) {
-        // Topic label from section's index.md H1 for each language
         const topicTranslations = {};
         const sectionEnIndexH1 = await getH1TitleFromFile(path.join(CWD, `_site-${LANG_EN}`, sectionName, 'index.md'));
         topicTranslations[LANG_EN] = sectionEnIndexH1 || stripNumericPrefix(sectionName);
@@ -289,6 +297,11 @@ async function main() {
         if (sectionJaIndexH1) {
             topicTranslations[LANG_JA] = sectionJaIndexH1;
         }
+
+        // Get icon value from original frontmatter title of the section's index.md for the PRIMARY_STRUCTURE_LANG
+        const originalIndexMdPath = path.join(CWD, `_site-${PRIMARY_STRUCTURE_LANG}`, sectionName, 'index.md');
+        const iconTitleFromFrontmatter = await getOriginalFrontmatterTitle(originalIndexMdPath);
+        const iconValue = iconTitleFromFrontmatter || "warning"; // Default to "warning"
 
         let sectionItems = await generateSidebarItemsForSection(sectionName, '');
         let firstRealGroupInSectionProcessed = false;
@@ -306,8 +319,9 @@ async function main() {
         });
 
         topicsArray.push({
-            label: topicTranslations, // Topic label IS the translation object
+            label: topicTranslations,
             link: `/${stripNumericPrefix(sectionName)}/`,
+            icon: iconValue, // ADDED icon property
             items: sectionItems,
         });
     }

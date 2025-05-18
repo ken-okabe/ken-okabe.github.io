@@ -1,8 +1,8 @@
 ---
 
-title: Landing Page
+title: seti:javascript
 ---
 
-# Timeline-Van FRP
+# Timeline for 🍦VanJS
 
 ToDo

@@ -12,7 +12,7 @@ export default defineConfig({
     },
     integrations: [
         starlight({
-            title: 'My Awesome Documentation',
+            title: 'Experience Quality Code',
             defaultLocale: 'en',
             locales: {
                 en: { label: 'English', lang: 'en' },

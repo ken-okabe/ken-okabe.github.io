@@ -1,6 +1,6 @@
 ---
 
-title: Landing Page
+title: github
 ---
 
 # About

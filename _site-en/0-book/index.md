@@ -1,6 +1,6 @@
 ---
 
-title: Landing Page
+title: open-book
 ---
 
 # Experience Quality Code

@@ -1,6 +1,6 @@
 ---
 
-title: Landing Page
+title: rocket
 ---
 
 # F# Development Starter Kit for Firebase Studio
