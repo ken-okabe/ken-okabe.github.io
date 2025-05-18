@@ -1,2 +1,1 @@
 # Pipeline Philosophy
-(temp edit)

@@ -57,4 +57,3 @@ Due to these factors, my understanding of FP, the consistency in my code generat
 The circumstances highlighted by the dialogue with the AI above are my main impetus for authoring this book. Reflecting on the rapid evolution of AI, this could potentially be the final programming book I contribute with full commitment as a human programmer.
 
 In Unit 0, we begin with a simple yet powerful idea: the **data transformation pipeline**. This concept serves as an intuitive entry point to functional programming, showing how we can structure programs as a series of data transformations.
-(temp edit)
