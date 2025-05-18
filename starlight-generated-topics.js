@@ -16,14 +16,14 @@ export const generatedTopics = [
         "label": "FALLBACK",
         "translations": {
           "en": "🔷Unit 0🔷 Introduction to Quality Code",
-          "ja": "🔷Unit 0🔷 Introduction to Quality Code"
+          "ja": "🔷Unit 0🔷 高品質コードへの招待"
         },
         "items": [
           {
             "label": "FALLBACK",
             "translations": {
               "en": "💡 Experience Quality Coding ✨",
-              "ja": "💡 Experience Quality Coding ✨"
+              "ja": "💡 最高のコーディング体験 ✨"
             },
             "link": "book/unit-0/section-0/0-about-unit"
           },
@@ -31,14 +31,14 @@ export const generatedTopics = [
             "label": "FALLBACK",
             "translations": {
               "en": "Pipeline Philosophy",
-              "ja": "Pipeline Philosophy"
+              "ja": "パイプライン哲学 (Pipeline Philosophy)"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Core Concept: The Data Transformation Pipeline",
-                  "ja": "Core Concept: The Data Transformation Pipeline"
+                  "ja": "中核概念：データ変換パイプライン (Data Transformation Pipeline)"
                 },
                 "link": "book/unit-0/section-1/0-pipeline"
               },
@@ -46,7 +46,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Other Fundamental Programming Concepts",
-                  "ja": "Other Fundamental Programming Concepts"
+                  "ja": "その他の基本的なプログラミング概念 (Other Fundamental Programming Concepts)"
                 },
                 "link": "book/unit-0/section-1/1-other-concepts"
               },
@@ -54,7 +54,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "The Unifying Potential of the Functional Pipeline",
-                  "ja": "The Unifying Potential of the Functional Pipeline"
+                  "ja": "関数型パイプラインの統一的な可能性 (The Unifying Potential of the Functional Pipeline)"
                 },
                 "link": "book/unit-0/section-1/2-unifying-power"
               }
@@ -856,6 +856,6 @@ export const generatedTopics = [
     "link": "/about/",
     "icon": "github",
     "items": [],
-    "badge": "GiHub Star!"
+    "badge": "⭐Star on GitHub"
   }
 ];

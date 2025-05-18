@@ -1,9 +1,9 @@
 ---
 title: "\U0001F4A1 Experience Quality Coding ✨"
 description: >-
-  Welcome to Experience Quality Coding! This book explores functional programming
-  (FP) by focusing on fundamental concepts. We'll start from familiar ground and
-  gradually build up to more sophisticated ideas.
+  Welcome to Experience Quality Coding! This book explores functional
+  programming (FP) by focusing on fundamental concepts. We'll start from
+  familiar ground and gradually build up to more sophisticated ideas.
 ---
 Welcome to Experience Quality Coding! This book explores functional programming (FP) by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
 

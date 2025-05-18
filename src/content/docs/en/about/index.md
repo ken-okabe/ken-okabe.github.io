@@ -1,6 +1,6 @@
 ---
 icon: github
-badge: GiHub Star!
+badge: ⭐Star on GitHub
 title: About
 description: ToDo
 ---
