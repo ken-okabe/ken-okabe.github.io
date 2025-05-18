@@ -13,7 +13,7 @@ import rehypeMathjax from 'rehype-mathjax';
 export default defineConfig({
   // GitHub Pages configuration
   site: 'https://ken-okabe.github.io',
-  base: '/eqc-beta/',
+  base: '/eqc-beta',
   // Existing routing configuration
   routing: {
     prefixDefaultLocale: true,
