@@ -1,6 +1,7 @@
 ---
 
-title: github
+icon: github
+badge: GiHub Star!
 ---
 
 # About

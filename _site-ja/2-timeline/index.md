@@ -1,6 +1,6 @@
 ---
 
-title: seti:clock
+icon: seti:clock
 ---
 
 # Timeline FRP library

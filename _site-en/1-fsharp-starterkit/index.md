@@ -1,6 +1,6 @@
 ---
 
-title: rocket
+icon: rocket
 ---
 
 # F# Development Starter Kit for Firebase Studio

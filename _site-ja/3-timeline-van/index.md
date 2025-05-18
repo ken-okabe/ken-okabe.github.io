@@ -1,6 +1,6 @@
 ---
 
-title: seti:javascript
+icon: seti:javascript
 ---
 
 # Timeline for 🍦VanJS

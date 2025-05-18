@@ -1,6 +1,7 @@
 ---
 
-title: open-book
+icon: open-book
+
 ---
 
 # Experience Quality Code
