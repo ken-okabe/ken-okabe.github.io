@@ -12,3 +12,4 @@
 ![Functional programming pipeline image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449300196.png)
 
 **関数型プログラミング (Functional Programming)** は、このデータ変換という中核的な原則を包含するプログラミングパラダイムです。
+<!-- minor update -->
