@@ -6,11 +6,15 @@ import { generatedTopics } from './starlight-generated-topics.js';
 // Change this import from named to default
 import starlightSidebarTopics from 'starlight-sidebar-topics';
 
-// MathJax プラグインのインポートを追加
+// Import MathJax plugins
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
 
 export default defineConfig({
+  // GitHub Pages configuration
+  site: 'https://ken-okabe.github.io',
+  base: '/eqc-beta/',
+  // Existing routing configuration
   routing: {
     prefixDefaultLocale: true,
   },
@@ -20,7 +24,7 @@ export default defineConfig({
       defaultLocale: 'en',
       locales: {
         en: { label: 'English', lang: 'en' },
-        ja: { label: '日本語', lang: 'ja' },
+        ja: { label: '日本語', lang: 'ja' }, // Label for language picker can be in Japanese
       },
       plugins: [
         // Call the imported plugin as a function
@@ -33,7 +37,7 @@ export default defineConfig({
       ],
     }),
   ],
-  // Astro のグローバル Markdown 設定
+  // Global Markdown configuration for Astro
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [
