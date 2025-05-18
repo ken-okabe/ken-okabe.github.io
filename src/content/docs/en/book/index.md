@@ -1,6 +1,6 @@
 ---
 icon: open-book
-title: Experience Quality Code
+title: Experience Quality Coding
 description: ToDo
 ---
 
