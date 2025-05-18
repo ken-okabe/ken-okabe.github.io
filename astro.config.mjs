@@ -14,6 +14,8 @@ export default defineConfig({
   // GitHub Pages configuration
   site: 'https://ken-okabe.github.io',
   base: '/',
+  trailingSlash: 'never', // この行を追加
+
   // Existing routing configuration
   routing: {
     prefixDefaultLocale: true,
