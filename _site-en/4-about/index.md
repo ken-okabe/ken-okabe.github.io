@@ -1,7 +1,7 @@
 ---
 
 icon: github
-badge: GiHub Star!
+badge: ⭐Star on GitHub
 ---
 
 # About
