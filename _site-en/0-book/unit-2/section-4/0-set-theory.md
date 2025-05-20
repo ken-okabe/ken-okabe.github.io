@@ -17,19 +17,12 @@ let toString x = x.ToString() // Maps any type → string
 ```
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745577833678.png)
+*(This diagram illustrates a function f mapping elements from Set X (Domain, corresponding to an input Type X) to Set Y (Codomain, corresponding to an output Type Y).)*
 
-In this diagram,
-
--  **Set X**  is the input  **Type: X**  
--  **Set Y**  is the output  **Type: Y**
-
-This connection between sets and functions is fundamental - it's the same connection we saw in Section 1 between types and functions in our pipelines.
+This connection between sets and functions is fundamental. The lambda calculus, the theoretical foundation of functional programming, was developed to formalize these mappings.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745553771606.png)
-
-The lambda calculus, which forms the theoretical foundation of functional programming, was originally developed as a formal system for studying these mappings in set theory:
-
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+*(This image often depicts a function as a transformation or a "black box" that takes input from one set and produces output in another, consistent with the set-theoretic view of functions.)*
 
 ```fsharp
 // Mathematical λx.x becomes:
@@ -43,164 +36,120 @@ let add = fun x -> fun y -> x + y
 
 Set theory builds our understanding from the ground up:
 
-1. First, we have elements - the basic building blocks
-   ```fsharp
-   // Elements can be anything:
-   let x = 42        // A number
-   let s = "hello"   // A string
-   let b = true      // A boolean
-   ```
+1.  **Elements**: The basic building blocks.
+    ```fsharp
+    let x = 42        // A number
+    let s = "hello"   // A string
+    let b = true      // A boolean
+    ```
+    *(These are individual members of their respective sets/types.)*
 
-2. These elements form sets:
-   ```fsharp
-   // Sets are collections:
-   type Numbers = int        // The set of all integers
-   type Strings = string    // The set of all possible strings
-   type Booleans = bool     // The set {true, false}
-   ```
+2.  **Sets (Types)**: Collections of elements.
+    ```fsharp
+    type Numbers = int        // The set of all integers
+    type Strings = string    // The set of all possible strings
+    type Booleans = bool     // The set {true, false}
+    ```
+    ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564518303.png)
+    *(This diagram visually groups elements into their respective sets: int, string, bool.)*
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564518303.png)
+3.  **Structured Types (e.g., Lists as Sets of Elements of a Given Type)**:
+    Types can also define structures that group elements. For instance, `List<int>` is the type representing all possible lists of integers.
+    ```fsharp
+    let intList: List<int> = [1; 2; 3] // An element of the type List<int>
+    ```
+    The concept of "sets of sets" can be seen in how types like `List<List<int>>` (a list of integer lists) are formed.
+    ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564670846.png)
+    *(Visualizing a list as a container holding elements, e.g., `[1,2,3]`.)*
+    ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564700292.png)
+    *(Illustrating a list of lists, e.g., `[[1,2],[3]]`, where each inner list is an element of the outer list.)*
 
-3. Sets themselves can be elements of other sets:   ```fsharp   // A set containing other sets   type SetOfSets = List<int>  // e.g., [1; 2; 3]   ```
-
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564670846.png)
-
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564700292.png)
-
-This approach mirrors how we naturally understand collections in the real world. Consider a library organization:
-
+This approach mirrors how we naturally understand collections. Consider a library organization:
 ```fsharp
 type Book = { title: string; isbn: string }
-type Shelf = List<Book>           // A set of books
-type Section = List<Shelf>        // A set of shelves
-type Library = List<Section>      // A set of sections
+type Shelf = List<Book>           // A type whose values are lists of Books
+type Section = List<Shelf>        // A type whose values are lists of Shelves
+type Library = List<Section>      // A type whose values are lists of Sections
 ```
-
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745541695708.png)
+*(This illustrates a hierarchical structure: a library contains sections, sections contain shelves, and shelves contain books.)*
 
 ## The Relative Nature of Sets and Elements
 
-A crucial insight from set theory is that sets and elements are relative concepts. In our library example:
-
-1. A book is an element in a shelf
-2. That shelf is an element in a section
-3. That section is an element in the library
+A crucial insight from set theory is that the distinction between "elements" and "sets" is relative. In our library example:
+1.  A `Book` is an element of type `Shelf`.
+2.  A `Shelf` (which is a set/collection of `Book`s) is an element of type `Section`.
+3.  A `Section` is an element of type `Library`.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
-
 This relativity is fundamental:
-
-- Elements can be sets themselves
-- Sets can be elements of larger sets
-- There's no absolute distinction between "elements" and "sets"
-
-This mirrors how types work in programming:
-
-- Values are elements of types
-- Types can be elements of higher types
-- The distinction is relative, not absolute
-
+- Values are instances (elements) of their types (sets).
+- Complex types (like `List<Book>`) define sets whose elements are themselves collections or structured data.
+This mirrors how types work in programming.
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
 ## Types of Types: A Natural Progression
 
-This relative nature of sets leads naturally to increasingly sophisticated type systems:
+This relative nature leads to a hierarchy of type constructions:
 
-1. Simple Types (Basic Sets):
-   ```fsharp
-   let n: int = 42              // int is a set of integers
-   let b: bool = true           // bool is a set of two values
-   ```
+1.  **Simple Types (Basic Sets):**
+    ```fsharp
+    let n: int = 42      // int is a set of integers
+    let b: bool = true   // bool is the set {true, false}
+    ```
+2.  **Constructed Types (e.g., Lists, Tuples):** These types are formed by applying type constructors to other types.
+    ```fsharp
+    let numbers: List<int> = [1; 2; 3]      // List<int> is a type: the set of all lists of integers.
+    let pair: int * int = (1, 2)          // int * int is a type: the set of all pairs of integers.
+    ```
+3.  **Type Constructors (like Functions from Types to Types):**
+    These are not types themselves, but "recipes" to create types.
+    `List<'T>` is a type constructor: given a type `'T'`, it produces the type `List<'T>`.
+    `Option<'T>` is another: given `'T'`, it produces `Option<'T>` (a type representing an optional value of `'T'`).
 
-2. Container Types (Sets of Sets):
-   ```fsharp
-   let numbers: List<int> = [1; 2; 3]      // A set of integers
-   let pairs: List<int * int> = [(1, 2)]   // A set of integer pairs
-   ```
-
-3. Type Constructors (Functions between Sets):
-   ```fsharp
-   type List<'T>    // Takes any set and makes a new set
-   type Option<'T>  // Takes any set and adds a "none" element
-   ```
-
-## Values as Singleton Sets: Breaking Down Barriers
-
-An interesting perspective from set theory is that individual values can be viewed as singleton sets:
-
+## Values as Singleton Sets: Blurring Lines
+An interesting perspective is that individual values can be conceptually viewed as types that contain only one element (singleton sets).
 ```fsharp
-// These three concepts are closely related:
-type One = 1             // A type with exactly one value
-let one = 1              // A value
-type DiceFace = 1 | 2 | 3 | 4 | 5 | 6  // A type with exactly 6 values
+// Conceptually:
+// The value 1 can be seen as an instance of a type "TheNumberOne" which only contains 1.
+let one = 1
+// A discriminated union defines a type with a small, fixed set of possible constructors/values.
+type DiceFace = One | Two | Three | Four | Five | Six // Defines the set {One, Two, ..., Six}
 ```
-
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564856679.png)
+*(This diagram illustrates that a value (like 1) can be thought of as a set containing only itself, and a type (like DiceFace) is a set of specific, enumerated values.)*
 
-This reveals something profound:
-
-- Every value can be seen as a type (a singleton set)
-- Every type is a set of values
-- The distinction between types and values is not absolute
+This perspective suggests that the distinction between "a value" and "a type (as a set)" is not always absolute.
 
 ## The Limitations of Simple Type Systems
-
-Now that we understand the relative nature of types and values, let's look at some limitations of current type systems. In F#, we can't directly express certain sets that seem natural:
-
+Current mainstream type systems, like F#'s, are powerful but have limitations in directly expressing sets defined by arbitrary properties of values:
 ```fsharp
-// We cannot express these directly in F#:
-type PositiveInt     // The set of positive integers
-type ByteRange       // The set of integers from 0 to 255
-type EvenNumber      // The set of even numbers
+// We cannot directly define these as distinct static types in F#
+// without runtime checks or more advanced type system features:
+// type PositiveInt     // The set of integers n where n > 0
+// type ByteRange       // The set of integers n where 0 <= n <= 255
+// type EvenNumber      // The set of integers n where n % 2 = 0
 ```
-
-Why not? Because these types need to check properties of values:
-
-- Is this number positive?
-- Is this number within a range?
-- Does this number satisfy a mathematical property?
-
-Current type systems maintain a strict separation between compile-time types and runtime values.
+This is because such "subset types" or "refined types" often require types to depend on runtime values, blurring the compile-time/runtime distinction.
 
 ## Dependent Types: The Natural Evolution
-
-This is where dependent types come in, allowing types to depend on values:
-
+Dependent types are a more advanced feature in some type systems (not standard F#) that allow types to be dependent on values.
 ```fsharp
 // Hypothetical dependent type syntax (not valid F#)
-type PositiveInt = n: int where n > 0
-type ByteRange = n: int where 0 <= n && n <= 255
-type EvenNumber = n: int where n % 2 = 0
+// type PositiveInt = (n: int) where n > 0
+// type ByteRange = (n: int) where 0 <= n && n <= 255
 ```
-
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
-
 This evolution follows naturally from set theory:
-
-1. Simple types (fixed sets like int, bool)
-2. Generic types (functions from sets to sets, like List<T>)
-3. Dependent types (sets defined by predicates on values)
-
+1. Simple types (fixed sets like `int`).
+2. Generic types / Type constructors (functions from sets to sets, like `List<T>`).
+3. Dependent types (sets defined by predicates on values).
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
 ## Looking Forward: Impact on Programming
+Our journey through set theory reveals that types and values are deeply intertwined. This understanding helps us:
+- Appreciate why current type systems have certain expressive capabilities and limitations.
+- See how algebraic structures arise naturally from these concepts.
+- Understand the direction of programming language design towards more expressive type systems.
 
-Our journey through set theory reveals that:
-
-1. Types and values are not fundamentally different
-2. They are relative concepts, just like sets and elements
-3. More powerful type systems embrace this reality
-
-This understanding helps us:
-
-- Appreciate why current type systems have certain limitations
-- See how algebraic structures arise naturally from these concepts
-- Understand where programming language design is heading
-
-In practice, this means:
-
-- Better type safety through more precise types
-- Fewer runtime checks needed as types become more expressive
-- More mathematical guarantees about our code's behavior
-
-The key insight is that the seemingly rigid barrier between types and values is artificial - it's a simplification that makes programming easier to understand and implement, but not a fundamental truth about computation or mathematics.
+These concepts of types as sets, and especially **type constructors** that operate on these sets (like `List<'T>`), provide the essential groundwork for understanding **Functors**, which we will explore next. Functors, in essence, are type constructors equipped with a way to apply functions "inside" the structure they define, while preserving that structure.

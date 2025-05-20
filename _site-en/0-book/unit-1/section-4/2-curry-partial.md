@@ -1,87 +1,51 @@
-# Currying and Partial Application with HOF
+# Currying and Partial Application: Functions Returning Functions
 
-In previous chapters, we saw that functions are first-class values and that operators like `(+)` and `(*)` are essentially functions. We also briefly saw how applying only one argument to `(+)` or `(*)` created new functions like `add1` or `double`. Let's explore the fundamental mechanism behind this: **Currying** and **Partial Application**.
+In previous chapters, we've seen that functions are first-class values with types, and even operators like `(+)` are essentially functions. We also previewed how applying only one argument to `(+)` (e.g., `(+) 1`) created a new function (`add1`). This behavior, where providing an argument to a function that expects multiple arguments results in a new function, is a direct consequence of HOF Pattern 1 (`'a -> ('b -> 'c)`) discussed in Section 3. Let's now explore the underlying mechanism that makes this possible: **Currying**, and its practical outcome, **Partial Application**.
 
-## Binary Operations and Function Arguments: Unary vs Binary Functions
+## Revisiting Multi-Argument Functions and Type Signatures
 
-Let's focus on multiplication (`*`) as a typical example of a binary operation – it takes two arguments, `x` and `y`, to produce a result `x * y`.
-
-In many languages, like JavaScript, a function implementing this would naturally be defined to accept two arguments together:
-
+Consider a function for multiplication. In many languages, you might define it to accept two arguments directly:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/javascript.svg">
-
-```js
-// Accepts two arguments (x, y) simultaneously
-function multiply(x, y) { return x * y; } 
+```javascript
+function multiply(x, y) { return x * y; } // Expects x and y together
 ```
 
-This `multiply` function is a typical **Binary Function** – it's defined to accept two arguments (`x` and `y`) together and return a result. Many programming languages directly support functions that take multiple arguments like this.
+In F#, a similar definition `let multiply x y = x * y` appears to also take two arguments. However, its type signature, typically `int -> int -> int`, tells a deeper story. As discussed in Section 3 regarding type signatures, this is shorthand for `int -> (int -> int)`. This nested structure implies that the function fundamentally operates by taking arguments one at a time.
 
-Now consider the F# equivalent:
+## Currying: The "One Argument at a Time" Mechanism
 
+This "one argument at a time" behavior is achieved through a process called **Currying**. Many functional languages, including F#, automatically transform functions that *appear* to take multiple arguments (like `let multiply x y = ...`) into a sequence of nested functions, each accepting a single argument.
+
+The definition `let multiply x y = x * y` is essentially convenient syntax for:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
-
 ```fsharp
-// Appears to take two arguments
-let multiply x y = x * y 
-```
-
-This F# definition looks similar, but there's a crucial difference under the hood. While many languages directly support multi-argument functions, F# (like Haskell and other languages in the ML family) adopts a different model: fundamentally, **all F# functions are Unary Functions**, meaning they technically only accept **one argument** at a time.
-
-This might seem counter-intuitive when looking at `let multiply x y = ...`. How can a function that only takes one argument handle a binary operation like multiplication? This leads us directly to the mechanism F# uses to achieve this...
-
-## The F# Approach: Currying
-
-The answer lies in **Currying**. F# (like Haskell and other ML-family languages) automatically transforms functions that appear to take multiple arguments into a chain of nested functions, each taking only a single argument.
-
-The standard definition `let multiply x y = x * y` is actually convenient **syntactic sugar** for defining a nested lambda expression like this:
-
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
-
-```fsharp
-// The definition 'let multiply x y = x * y' is equivalent to:
 let multiply = fun x -> (fun y -> x * y)
+// Type: int -> (int -> int), or int -> int -> int
 ```
-
-or you can write like this:
-
-```fsharp
-let multiply =
-    fun x ->
-        fun y ->
-            x * y
-```
-
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745147539756.png)
 
-This explicitly shows the curried nature. The type signature `int -> int -> int` directly reflects this nested structure: it's shorthand for `int -> (int -> int)`.
+This `multiply` function now works as follows:
+1.  It takes the first argument `x` (an `int`).
+2.  It returns a *new function* (`fun y -> x * y`). This new function has "remembered" `x` and has the type `int -> int`. This step perfectly aligns with HOF Pattern 1 (`'a -> ('b -> 'c)`), where `'a` is the type of `x`, and `'b -> 'c` is the type of the returned function (`int -> int`).
+3.  This new function then takes the second argument `y` (an `int`).
+4.  Finally, it performs the calculation `x * y` and returns the `int` result.
 
-This means the `multiply` function works step-by-step:
+This transformation, where a function taking multiple arguments is expressed as a chain of functions each taking a single argument and returning the next function in the chain (until the final value is computed), is known as Currying, named after the mathematician Haskell Curry.
 
-1.  It takes the _first_ argument (`x`, an `int`).
-    
-2.  It _**returns a new function**_ (`fun y -> x * y`). This new function "remembers" `x` and expects the _second_ argument (`y`). The type of this new function is `int -> int`.
-    
-3.  When this _new function_ receives the second argument (`y`), it finally performs the calculation (`x * y`) and returns the final `int` result.
+## Partial Application: The Natural Result of Currying
 
-## Partial Application: A Consequence of Currying
+With currying in place, **Partial Application** becomes a natural consequence.
+*   **Definition:** Partial application is simply the act of calling a function with fewer arguments than it notionally expects.
+*   **In a Curried System:** Since all functions fundamentally take one argument at a time, applying the first argument(s) to a curried function *is* partial application. The result is the intermediate function that's next in the curried chain. No special syntax is needed.
 
-Now we can properly understand **Partial Application**.
-
--   **General Definition:** In programming generally, partial application means supplying _fewer_ arguments to a function than it normally takes.
-    
--   **In F# (with Currying):** Because functions inherently take arguments one at a time due to currying, _**simply applying the first argument(s) is partial application.**_ There's no special syntax needed beyond normal function application. The result of applying the first argument _is_ the partially applied function (the intermediate function returned by the HOF).
-
-So, when we write:
-
+So, when we wrote `let double = (*) 2` in the previous chapter:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
-
 ```fsharp
-let multiply = (*)
-let double = 2 |> multiply
-let result = 10 |> double
-// 20
+let multiplyOperatorAsFunction = (*) // Type: int -> int -> int, which is int -> (int -> int)
+let double = multiplyOperatorAsFunction 2 // Apply first arg '2'. 'double' is now 'int -> int'
+let result = 10 |> double // result is 20
 ```
+`multiplyOperatorAsFunction 2` (or `(*) 2`) is a partial application. The `(*)` function (type `int -> (int -> int)`) receives its first `int` argument (`2`) and returns the intermediate function (type `int -> int`), which we named `double`.
 
 ![Diagram showing Partial Application](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744707418101.png)
 
@@ -108,7 +72,8 @@ By providing only the first argument (`3`) to the two-argument function `(*)`, w
 ```fsharp
 // Create a new function "multiplyBy3" by partially applying (*) with 3
 let multiplyBy3 = (*) 3
-```multiplyBy3` *is* the "3 times table" function; it waits for one more number.
+```
+`multiplyBy3` *is* the "3 times table" function; it waits for one more number.
 
 **3. Applying the New Function:**
 
@@ -178,11 +143,11 @@ Therefore, **partial application is a prime example of Higher-Order Functions in
 
 ## Summary
 
--   Unlike many languages that directly support multi-argument (e.g., binary) functions, FP languages like F# and Haskell fundamentally model all functions as **Unary Functions** (taking only one argument).
--   Because all functions are unary, **Currying** is the mechanism used automatically by F# to handle functions that *appear* to take multiple arguments. A definition like `let f x y = ...` becomes syntactic sugar for nested unary functions (`fun x -> (fun y -> ...)`), reflected in type signatures like `T1 -> T2 -> TResult` (shorthand for `T1 -> (T2 -> TResult)`).
--   **Partial Application** is the act of supplying fewer arguments than a function expects. Due to currying in F#, this occurs naturally when providing only the initial argument(s), resulting in a new, specialized function without needing special syntax.
--   This mechanism allows for the easy creation of specialized functions (like `add1` or `double`) from more general functions (like the operators `(+)` or `(*)`).
--   Partial application exemplifies **Higher-Order Functions** (specifically HOF Pattern 1), where providing input to a function results in a new function being returned, showcasing the power of treating functions as first-class values.
+-   Many functional languages employ **Currying**, a mechanism where functions appearing to take multiple arguments are automatically treated as a sequence of functions each taking a single argument and returning the next function in the chain, until the final result is produced.
+-   A type signature like `T1 -> T2 -> TResult` reflects this, being shorthand for `T1 -> (T2 -> TResult)`. This is an instance of HOF Pattern 1.
+-   **Partial Application** is the natural outcome of applying arguments to a curried function. Providing fewer arguments than notionally specified results in an intermediate function being returned.
+-   This mechanism allows for the easy creation of specialized functions (like `add1` or `double`) from more general ones (like the operators `(+)` or `(*)`).
+-   This entire behavior—a function taking an argument and returning a new function—is a prime example of HOF Pattern 1 in action.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 

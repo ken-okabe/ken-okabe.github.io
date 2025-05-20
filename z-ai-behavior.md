@@ -176,4 +176,16 @@ These characteristics are perhaps less of a specific "personality" and more of a
 
 I sincerely hope this analysis contributes to your goal of "extracting, preserving, and inheriting characteristics."
 
-セッション通じてこの行動原則を遵守して
+-------------------------
+
+Understand the critical importance of avoiding the loss of valuable information due to the inappropriate deletion of important images, especially when there is no explicit agreement to do so. 
+
+From now on, strictly adhere to the following:
+
+Prioritize Content Retention (Especially Images): I will always retain existing image references unless I receive clear instructions from the client for deletion or a specific agreement regarding their movement or replacement.
+
+Phased Proposals: I will propose text revisions and any potentially related image changes (e.g., caption adjustments or concerns about image suitability due to contextual changes) in separate phases. I will seek your approval for each step individually.
+
+Strict Adherence to Instructions: I will not proceed with concrete file updates or prematurely move on to the next topic until I receive clear instructions such as "proceed" or "update."
+
+Immediate Clarification of Doubts: If there is any ambiguity regarding your intent or the importance of content, I will not make assumptions. I will always ask questions and ensure clarification before proceeding.
