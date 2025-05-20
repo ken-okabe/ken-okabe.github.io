@@ -1,5 +1,7 @@
 # Section 1: List Functor and Monad
 
+TODO 
+
 List is one of the most fundamental Functors and Monads. It is a container for handling multiple values, enabling function application and chained computations via `map` and `flatMap` (also called `bind`).
 
 - Functor: You can apply a function to each element of a List (`map`).
