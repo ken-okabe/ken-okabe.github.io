@@ -67,6 +67,8 @@ This relates to the general concept of placeholders seen elsewhere:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747690692185.png)
 
+![Conceptual diagram of 'a -> 'b mapping with various types](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747692002560.png)
+
 ---
 
 ### Placeholder for Values 
