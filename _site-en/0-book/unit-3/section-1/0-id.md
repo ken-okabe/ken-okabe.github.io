@@ -1,4 +1,4 @@
-# Section 1: List Functor and Monad
+# Section 1: Identity Functor and Monad
 
 TODO  
 

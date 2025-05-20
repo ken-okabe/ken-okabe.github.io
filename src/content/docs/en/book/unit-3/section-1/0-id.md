@@ -1,5 +1,5 @@
 ---
-title: 'Section 1: List Functor and Monad'
+title: 'Section 1: Identity Functor and Monad'
 description: TODO
 ---
 TODO  

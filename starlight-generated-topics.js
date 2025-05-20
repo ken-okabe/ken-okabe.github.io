@@ -485,7 +485,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 1: List Functor and Monad",
+                  "en": "Section 1: Identity Functor and Monad",
                   "ja": "Section 1: List Functor and Monad"
                 },
                 "link": "book/unit-3/section-1/0-id"
