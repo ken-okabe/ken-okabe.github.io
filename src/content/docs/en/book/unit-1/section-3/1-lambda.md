@@ -51,11 +51,11 @@ This confirms that its structure matches the conceptual Identity function `a -> 
 
 The `'a` in the type signature `'a -> 'a` is important. It's a **generic type parameter**, acting as a **placeholder** for any type. This means `id` is a function value that works for any type `T`, having the type `T -> T`.
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745569160992.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747691642903.png)
 
 This relates to the general concept of placeholders seen elsewhere:
 
-web forms:
+### Placeholder for Web Forms
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745381798686.png)
 
@@ -63,23 +63,21 @@ web forms:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745382163946.png)
 
-type placeholders:
+### Placeholder for Types = Generic Type
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745382883047.png)
-
----
-
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745382601165.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747690692185.png)
 
 ---
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745569083188.png)
+### Placeholder for Values 
 
-or even function arguments `x` in `f(x)`.
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747694536104.png)
+
+function arguments `x` in `f(x)`.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
-Generics make function values like `id` highly reusable across different data types.
+Generics, like the `'a` in `id : 'a -> 'a`, make function values highly reusable. The concept of generic types, especially where input and output types can differ (e.g., `'a -> 'b`), is fundamental and will be explored in detail in the next chapter.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 

@@ -182,6 +182,20 @@ export const generatedTopics = [
                   "ja": "First-Class Functions and Lambda Expressions"
                 },
                 "link": "book/unit-1/section-3/1-lambda"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Generic Function Types: The Power of 'a -> 'b"
+                },
+                "link": "book/unit-1/section-3/2-generic-function"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Deconstructing HOF Types: From 'a -> 'b to Complex Signatures"
+                },
+                "link": "book/unit-1/section-3/3-hof-types"
               }
             ]
           },
@@ -211,7 +225,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Currying and Partial Application with HOF",
+                  "en": "Currying and Partial Application: Functions Returning Functions",
                   "ja": "Currying and Partial Application with HOF"
                 },
                 "link": "book/unit-1/section-4/2-curry-partial"
@@ -304,7 +318,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Identity Elements",
+                  "en": "Identity Elements: The Neutral Value in Operations",
                   "ja": "Identity Elements"
                 },
                 "link": "book/unit-2/section-2/2-identity-element"
@@ -312,7 +326,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Monoids: Semigroups with Identity",
+                  "en": "Monoids: Semigroups with an Identity Element",
                   "ja": "Monoids: Semigroups with Identity"
                 },
                 "link": "book/unit-2/section-2/3-monoid"
@@ -354,7 +368,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Container Types: Sets in Programming",
+                  "en": "Container Types: Packaging Values with Context",
                   "ja": "Container Types: Sets in Programming"
                 },
                 "link": "book/unit-2/section-4/1-container"
