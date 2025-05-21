@@ -29,7 +29,9 @@ Now, let's look at the F# pipeline operator (`|>`) again:
 ```fsharp
 // double is inferred to be of type: int -> int
 let double x = x * 2 
-let result = 5 |> double // 5 (int) is passed to double (int -> int), result is 10 (int)
+let result = 5 |> double 
+// 5 (int) is passed to double (int -> int)
+// result is 10 (int)
 ```
 
 Can we view the expression `5 |> double` as a binary operation? Let's examine its parts:
@@ -59,7 +61,8 @@ let add1 x = x + 1
 // 5 (int) |> double (int -> int) --> 10 (int)
 // 10 (int) |> add1 (int -> int) --> 11 (int)
 // 11 (int) |> double (int -> int) --> 22 (int)
-let result = 5 |> double |> add1 |> double // result is 22 (int)
+let result = 5 |> double |> add1 |> double 
+// result is 22 (int)
 ```
 
 Each `|>` step applies this binary operation, taking the result from the left (e.g., an `int`) as the first operand for the next step, and applying a function (e.g., an `int -> int` function) to it. The output type of one function must match the input type of the next for the pipeline to be valid, a concept central to statically-typed functional programming.

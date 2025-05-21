@@ -24,24 +24,22 @@ This is visually represented below, where the abstract generic type `'a -> 'b` i
 
 This "placeholder" concept for types is analogous to how placeholders are used in web forms, or even how `x` acts as a placeholder for a value in a mathematical function `f(x)`.
 
-*(The following diagram, previously used to illustrate placeholders, also helps visualize the general `'a -> 'b` mapping where a set of possible input types `'a` can be mapped to a set of possible output types `'b` by a function `f`.)*
+*(The following diagram, previously used to illustrate placeholders, also helps visualize the general `'a -> 'b` mapping where a set of possible input types `'a` can be mapped to a set of possible output types `'b`.)*
 
 ![Conceptual diagram of 'a -> 'b mapping with various types](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747692002560.png)
 
 
 ## Why `'a -> 'b` is Fundamental
 
-Understanding the `'a -> 'b` generic function type is a cornerstone for grasping many advanced concepts in functional programming and for writing truly reusable and versatile code. This is because `'a -> 'b` represents the most general form of a function that takes one input and produces one output.
+Understanding the `'a -> 'b` generic function type is a cornerstone for grasping many advanced concepts in functional programming and for writing truly reusable and versatile code. 
 
-It's important to recognize that even the identity function's type, `'a -> 'a` (where the input and output types are the same), is simply a special case of `'a -> 'b` where type `'b` happens to be identical to type `'a`. By viewing `'a -> 'b` as the fundamental structure, we can see how functions might either preserve a type (like `id`) or transform it into a completely new one (like a `stringToIntLength` function having type `string -> int`), all under a single, unified generic concept. This flexibility is a key reason why generic types are so powerful.
+This is because **`'a -> 'b` represents the most general form of a function that takes one input and produces one outpu**t.
+
+It's important to recognize that even the identity function's type, `'a -> 'a` (where the input and output types are the same), is simply a special case of `'a -> 'b` where type `'b` happens to be identical to type `'a`. 
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747691642903.png)
 
-This fundamental understanding is a very important piece of basic knowledge for the chapters and units that follow. Grasping `'a -> 'b` allows us to:
-
-1.  **Define Abstract Operations:** We can describe the *shape* of a function (it takes one type and returns another) without committing to specific types.
-2.  **Build Highly Reusable Components:** Functions defined with `'a -> 'b` can be applied in a multitude of contexts with different concrete types. For instance, a `map` function, which we will encounter later, often has a type like `('a -> 'b) -> list<'a> -> list<'b>`. It takes a function of type `'a -> 'b` to transform elements from type `'a` to type `'b`.
-3.  **Enhance Type Safety with Flexibility:** The type system still ensures that once `'a` and `'b` are instantiated with concrete types in a specific usage, those types are respected, but the function definition itself remains general.
+By viewing `'a -> 'b` as the fundamental structure, we can see how functions might either preserve a type (like `id`) or transform it into a completely new one (like a `stringToIntLength` function having type `string -> int`), all under a single, unified generic concept. This flexibility is a key reason why generic types are so powerful.
 
 The ability to work with functions at this level of abstraction, where types themselves can be parameters (placeholders like `'a` and `'b`), is a hallmark of statically-typed functional programming languages. It underpins many powerful patterns and techniques that contribute to robust and maintainable software.
 

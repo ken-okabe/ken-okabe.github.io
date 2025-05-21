@@ -137,7 +137,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Pipelines, Expressions, and Functions as Values",
+                  "en": "Pipelines and Expressions as Values",
                   "ja": "Pipelines, Expressions, and Functions as Values"
                 },
                 "link": "book/unit-1/section-2/0-expression"
@@ -485,7 +485,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 1: Identity Functor and Monad",
+                  "en": "Identity Functor and Identity Monad",
                   "ja": "Section 1: List Functor and Monad"
                 },
                 "link": "book/unit-3/section-1/0-id"

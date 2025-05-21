@@ -22,9 +22,12 @@ let add1 x = x + 1
 
 let result =
     5         // Input is an integer
-    |> double // double must accept an integer, returns an integer (10)
-    |> add1   // add1 must accept an integer, returns an integer (11)
-    |> double // double must accept an integer, returns an integer (22)
+    |> double // double must accept an integer 
+    // returns an integer (10)
+    |> add1   // add1 must accept an integer
+    // returns an integer (11)
+    |> double // double must accept an integer
+    // returns an integer (22)
 ```
 
 For data to flow smoothly through this pipeline without errors, a fundamental requirement must be met: **the output of one function must be compatible with the input of the next function.**

@@ -1,4 +1,4 @@
-# Pipelines, Expressions, and Functions as Values
+# Pipelines and Expressions as Values
 
 In the previous chapter, we saw how functional programming uses pipelines to transform data sequentially. Let's delve deeper into why this approach feels natural and powerful, connecting it to familiar concepts and introducing core functional ideas.
 

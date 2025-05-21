@@ -1,5 +1,5 @@
 ---
-title: 'Pipelines, Expressions, and Functions as Values'
+title: Pipelines and Expressions as Values
 description: >-
   In the previous chapter, we saw how functional programming uses pipelines to
   transform data sequentially. Let's delve deeper into why this approach feels

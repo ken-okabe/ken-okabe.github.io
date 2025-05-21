@@ -1,6 +1,6 @@
 # First-Class Functions and Lambda Expressions
 
-In the previous chapter ["Types: Ensuring Smooth Pipelines"], we saw that functions, like other data, have **types** (e.g., `int -> int`, `'a -> 'a`) that define their inputs and outputs, ensuring our pipelines connect correctly. This understanding of functions having types naturally leads us to explore how we can work with these function values directly.
+In the previous chapter, we saw that functions, like other data, have **types** (e.g., `int -> int`) that define their inputs and outputs, ensuring our pipelines connect correctly. This understanding of functions having types naturally leads us to explore how we can work with these function values directly.
 
 ## Lambda Expressions: Anonymous Functions
 
@@ -42,7 +42,9 @@ This confirms that its structure matches the conceptual Identity function `a -> 
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-The `'a` in the type signature `'a -> 'a` is important. It's a **generic type parameter**, acting as a **placeholder** for any type. This means `id` is a function value that works for any type `T`, having the type `T -> T`.
+The `'a` in the type signature `'a -> 'a` is important. 
+
+It's a **generic type parameter**, acting as a **placeholder** for any type. This means `id` is a function value that works for any type `T`, having the type `T -> T`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747691642903.png)
 
@@ -78,8 +80,10 @@ Generics, like the `'a` in `id : 'a -> 'a`, make function values highly reusable
 
 ```fsharp
 // val id: x:'a -> 'a (Generic type 'a -> 'a)
-let resultNum = id 3 // 'a becomes int, result is 3 (int)
-let resultStr = id "hello" // 'a becomes string, result is "hello" (string)
+let resultNum = id 3 
+// 'a becomes int, result is 3 (int)
+let resultStr = id "hello" 
+// 'a becomes string, result is "hello" (string)
 ```
 
 _(JS equivalent requires manual definition):_
@@ -106,22 +110,21 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 -   Adds 1:
     
     ```fsharp
-    fun x -> x + 1 // This expression has type: int -> int
+    fun x -> x + 1 
     ```
     
 -   Converts string to uppercase:
     
     ```fsharp
-    fun s -> s.ToUpper() // This expression has type: string -> string
+    fun s -> s.ToUpper() 
     ```
     
 -   Adds two numbers:
     
     ```fsharp
-    fun a b -> a + b // This expression has type: int -> int -> int
+    fun a b -> a + b
     ```
-    
-    It's important to note that F# functions are automatically _curried_. This means a function that appears to take multiple arguments, like `fun a b -> a + b` (with type `int -> int -> int`), can also be seen as `fun a -> (fun b -> a + b)`. In this view, the function takes the _first_ argument (`a` of type `int`) and returns a _new function_ (`fun b -> a + b`, which has the type `int -> int`). Viewed this way, the lambda `fun a b -> a + b` actually fits **HOF Pattern (`Input |> Function = Function`)** because applying it to the first argument (`a`) results in a function being returned.
+
 
 These directly define function _values_ with specific _types_.
 

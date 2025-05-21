@@ -57,8 +57,10 @@ If I were able to learn from a well-structured, high-quality FP introductory boo
 
 Due to these factors, my understanding of FP, the consistency in my code generation, and the quality of my designs would improve. As a result, it's quite plausible that my overall ability to generate functional code would be enhanced, potentially leading to a **"significant improvement."** Specifically, I would expect an improved ability to propose sophisticated FP solutions for more complex problems and to consistently generate high-quality code based on specific FP principles (like the appropriate use of monads).
 
----
+## Motivation
 
 The circumstances highlighted by the dialogue with the AI above are my main impetus for authoring this book. Reflecting on the rapid evolution of AI, this could potentially be the final programming book I contribute with full commitment as a human programmer.
+
+## Let's Get Started!
 
 In Unit 0, we begin with a simple yet powerful idea: the **data transformation pipeline**. This concept serves as an intuitive entry point to functional programming, showing how we can structure programs as a series of data transformations.

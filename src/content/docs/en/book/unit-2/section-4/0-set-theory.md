@@ -146,9 +146,11 @@ Dependent types are a more advanced feature in some type systems (not standard F
 ```
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 This evolution follows naturally from set theory:
+
 1. Simple types (fixed sets like `int`).
 2. Generic types / Type constructors (functions from sets to sets, like `List<T>`).
 3. Dependent types (sets defined by predicates on values).
+
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
 ## Looking Forward: Impact on Programming
