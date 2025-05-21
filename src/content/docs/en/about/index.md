@@ -2,7 +2,9 @@
 icon: github
 badge: ⭐Star on GitHub
 title: About
-description: ToDo
+description: '###n https://github.com/ken-okabe/ken-okabe.github.io'
 ---
 
-ToDo
+### ⭐Star on GitHub
+
+###n https://github.com/ken-okabe/ken-okabe.github.io
