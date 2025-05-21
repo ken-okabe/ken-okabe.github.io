@@ -8,4 +8,4 @@ badge: ⭐Star on GitHub
 
 ### ⭐Star on GitHub
 
-###n https://github.com/ken-okabe/ken-okabe.github.io
+### https://github.com/ken-okabe/ken-okabe.github.io
