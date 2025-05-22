@@ -4,7 +4,9 @@ description: image
 ---
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474702812.png)
 
-**Iteration** (also known as looping or repetition) allows programs to execute a block of code multiple times. This is essential for processing collections of data (like lists or arrays) or repeating a task until a condition is met. Let's compare how imperative and functional styles handle a common iteration task: calculating the sum of numbers in a list.
+**Iteration** (also known as looping or repetition) allows programs to execute a block of code multiple times. This is essential for processing collections of data (like lists or arrays) or repeating a task until a condition is met.
+
+Let's compare how imperative and functional styles handle a common iteration task: calculating the sum of numbers in a list.
 
 ## The Imperative Way: Explicit Loops
 
@@ -127,7 +129,7 @@ $$
 let generator (state: int) =
     if state < 6 then
         // If state is less than 6, yield 'state' and the next state is 'state + 1'
-        Some (state, state + 1) 
+        Some (state, state + 1)
     else
         // If state is 6 or more, stop generation
         None
@@ -182,5 +184,5 @@ This demonstrates how functional programming allows generating the data needed f
 Both styles achieve the same result for iteration over a collection.
 
 -   The **imperative style** uses explicit **loops** (like `for`) and often manages state with **mutable variables** (like `sum` and the loop counter `i`).
-    
+
 -   The **functional style** uses **higher-order functions** (like `map`, `sum`, `filter`, `fold`) combined in **pipelines** to declaratively process collections, often avoiding explicit loops and mutable state. It also provides powerful ways to **generate** the data sequences needed.

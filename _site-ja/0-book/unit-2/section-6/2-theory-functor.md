@@ -2,7 +2,11 @@
 
 In the previous section, we established that the concept of "structure preservation" is central to understanding robust abstractions in functional programming. We saw how Category Theory itself is founded on Monoid-like principles of composition and identity. This chapter delves into **Functors**, illustrating how the Functor Laws are precisely the requirements ensuring that the `map` operation preserves the natural **Monoid structure of function composition**.
 
-Our core theme here is that a Functor's `map` operation isn't just any higher-order function that iterates over a container; it's a special kind of transformation that must respect the algebraic properties (associativity of composition and the role of identity) inherent in the functions it lifts. We will explore why such preservation is crucial, how it's formally defined by the Functor Laws, the practical challenges of verification, and the theoretical guarantees (like Parametricity) that often allow us to trust common `map` implementations. Our journey will confirm that a Functor's `map` is fundamentally about maintaining the integrity of the function composition Monoid as we move between the world of regular functions and the world of functions operating on containers.
+Our core theme here is that a Functor's `map` operation isn't just any higher-order function that iterates over a container; it's a special kind of transformation that must respect the algebraic properties (associativity of composition and the role of identity) inherent in the functions it lifts.
+
+We will explore why such preservation is crucial, how it's formally defined by the Functor Laws, the practical challenges of verification, and the theoretical guarantees (like Parametricity) that often allow us to trust common `map` implementations.
+
+Our journey will confirm that a Functor's `map` is fundamentally about maintaining the integrity of the function composition Monoid as we move between the world of regular functions and the world of functions operating on containers.
 
 ## Re-contextualized for Monoid Preservation
 
@@ -36,7 +40,7 @@ A `map` operation is a **Functor `map`** if it ensures these two distinct proces
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747203975841.png)
 
 - *Monoid Interpretation:* The `map` must map the **identity element (`id`)** of the function composition Monoid to the **identity operation** in the world of container transformations. It preserves the identity.
- 
+
 - *Conceptual Verification with Code (using `map_List`):*
 
 ```fsharp
@@ -98,7 +102,11 @@ Standard library functions like `List.map` and `Option.map` are designed paramet
 
 ### Summary
 
-The diagrams illustrate the core issue: `map (f >> g)` and `(map f) >> (map g)` are, by definition, distinct computational processes. A **Functor `map` operation** is specifically one where these two processes are *defined* to be extensionally equivalent. This equivalence is mandated by the **Functor Laws** (Identity and Composition), which collectively ensure that `map` **preserves the Monoid structure of function composition** (`id` as identity, `>>` as composition). The integrated diagram (Figure 3) is valid only under this assumption of Monoid preservation. The practical concern of verifying these laws is significantly alleviated by **Parametricity ("Theorems for free\!")**, which suggests that parametrically implemented generic `map` functions will naturally satisfy these laws. Thus, typical "non-hacky" generic `map` implementations can be reliably treated as structure-preserving Functors.
+The diagrams illustrate the core issue: `map (f >> g)` and `(map f) >> (map g)` are, by definition, distinct computational processes. A **Functor `map` operation** is specifically one where these two processes are *defined* to be extensionally equivalent.
+
+This equivalence is mandated by the **Functor Laws** (Identity and Composition), which collectively ensure that `map` **preserves the Monoid structure of function composition** (`id` as identity, `>>` as composition). The integrated diagram (Figure 3) is valid only under this assumption of Monoid preservation.
+
+The practical concern of verifying these laws is significantly alleviated by **Parametricity ("Theorems for free\!")**, which suggests that parametrically implemented generic `map` functions will naturally satisfy these laws. Thus, typical "non-hacky" generic `map` implementations can be reliably treated as structure-preserving Functors.
 
 -----
 

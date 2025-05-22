@@ -21,7 +21,7 @@ Perhaps the most central concept is that **functions are treated as regular valu
 The ability for functions to be defined by expressions and treated as **values** is a key feature of functional **languages** and the minimum requirement for a language to be functional. Mastering this feature unlocks the potential power of functional programming.
 
 -   Pass functions _into_ other functions as arguments.
-    
+
 -   Have functions _return_ new functions as their result.
 
 Understanding this concept – that functions can be treated as data – is the crucial next step. It allows us to fully explore the power of functional programming, starting with a proper introduction to **First-Class Functions** in the following sections.

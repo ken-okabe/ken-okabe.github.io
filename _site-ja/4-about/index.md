@@ -6,4 +6,6 @@ badge: ⭐Star on GitHub
 
 # About
 
-ToDo
+### ⭐Star on GitHub
+
+### https://github.com/ken-okabe/ken-okabe.github.io

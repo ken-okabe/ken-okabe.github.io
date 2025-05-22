@@ -2,7 +2,9 @@
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474652773.png)
 
-**Selection** (also known as branching or conditional logic) is a fundamental concept in programming. It allows programs to make decisions and execute different code paths based on whether certain conditions are true or false. Let's compare how imperative and functional styles typically handle selection, using a simple example of assigning a grade based on a score.
+**Selection** (also known as branching or conditional logic) is a fundamental concept in programming. It allows programs to make decisions and execute different code paths based on whether certain conditions are true or false.
+
+Let's compare how imperative and functional styles typically handle selection, using a simple example of assigning a grade based on a score.
 
 ## The Imperative Way: `if/else` Statements
 
@@ -15,33 +17,34 @@ Here's a JavaScript example:
 ```js
 // Function to determine a letter grade based on a numeric score
 function getGrade(score) {
-  let grade; // Declare a variable to hold the resulting grade
+  let grade;
 
   // Use if/else if/else statements to check conditions sequentially
   if (score >= 90) {
-    grade = 'A'; // Assign 'A' if score is 90 or above
+    grade = 'A';
   } else if (score >= 80) {
-    grade = 'B'; // Assign 'B' if score is 80 or above (and not >= 90)
+    grade = 'B';
   } else if (score >= 70) {
-    grade = 'C'; // Assign 'C' if score is 70 or above (and not >= 80)
+    grade = 'C';
   } else {
-    grade = 'F'; // Assign 'F' for all other scores
+    grade = 'F';
   }
-
   // Return the final value assigned to the grade variable
   return grade;
 }
 
-console.log(`Score 92 gets grade: ${getGrade(92)}`); // Output: Score 92 gets grade: A
-console.log(`Score 75 gets grade: ${getGrade(75)}`); // Output: Score 75 gets grade: C
+console.log(`Score 92 gets grade: ${getGrade(92)}`);
+// Output: Score 92 gets grade: A
+console.log(`Score 75 gets grade: ${getGrade(75)}`);
+// Output: Score 75 gets grade: C
 ```
 
 In this imperative style:
 
 -   We use statements (`if`, `else if`, `else`) to direct the flow.
-    
+
 -   We use a mutable variable (`grade`) which gets assigned a value inside the appropriate block.
-    
+
 -   The function executes a sequence of checks and assignments.
 
 ## The Functional Way: Expressions and Pattern Matching
@@ -58,25 +61,27 @@ Here's how the same logic might look in F#:
 // Function to determine grade based on score using a match expression
 let getGrade score =
     match score with // Match the input 'score' against patterns/conditions
-    | s when s >= 90 -> 'A' // If score >= 90, the expression evaluates to 'A'
-    | s when s >= 80 -> 'B' // If score >= 80, it evaluates to 'B'
-    | s when s >= 70 -> 'C' // If score >= 70, it evaluates to 'C'
-    | _ -> 'F'              // Otherwise (default case), it evaluates to 'F'
+    | s when s >= 90 -> 'A'
+    | s when s >= 80 -> 'B'
+    | s when s >= 70 -> 'C'
+    | _ -> 'F'
 
 // The entire 'match' expression returns a single value ('A', 'B', 'C', or 'F')
 
-printfn "Score 92 gets grade: %c" (getGrade 92) // Output: Score 92 gets grade: A
-printfn "Score 75 gets grade: %c" (getGrade 75) // Output: Score 75 gets grade: C
+printfn "Score 92 gets grade: %c" (getGrade 92)
+// Output: Score 92 gets grade: A
+printfn "Score 75 gets grade: %c" (getGrade 75)
+// Output: Score 75 gets grade: C
 ```
 
 In this functional style (using `match`):
 
 -   The `match` construct is a single **expression** that evaluates to a result.
-    
+
 -   It checks the input (`score`) against several cases (`|`). The `when` keyword adds conditions (guards).
-    
+
 -   The code associated with the first matching case (`-> 'A'`, `-> 'B'`, etc.) provides the result of the entire `match` expression.
-    
+
 -   There's no need for intermediate mutable variables like `grade` for assignment; the expression _is_ the value. This resembles mathematical case definitions.
 
 Alternatively, F# also supports `if-then-else` as an _expression_ that evaluates to a value:
@@ -99,5 +104,5 @@ Notice that, similar to `match`, the entire `if-then-else` structure here is a s
 Both styles achieve conditional logic.
 
 -   The **imperative style** typically uses control flow **statements** (`if/else`) to execute different blocks of code, often involving assignments to mutable variables.
-    
+
 -   The **functional style** often uses conditional **expressions** (like F#'s `match` or `if-then-else expressions`) that directly evaluate to a result based on the input, avoiding intermediate assignments and aligning closely with mathematical definitions.

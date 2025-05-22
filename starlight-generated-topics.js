@@ -16,14 +16,14 @@ export const generatedTopics = [
         "label": "FALLBACK",
         "translations": {
           "en": "🔷Unit 0🔷 Introduction to Quality Code",
-          "ja": "🔷Unit 0🔷 高品質コードへの招待"
+          "ja": "🔷Unit 0🔷 Introduction to Quality Code"
         },
         "items": [
           {
             "label": "FALLBACK",
             "translations": {
               "en": "💡 Experience Quality Coding ✨",
-              "ja": "💡 最高のコーディング体験 ✨"
+              "ja": "💡 Experience Quality Coding ✨"
             },
             "link": "book/unit-0/section-0/0-about-unit"
           },
@@ -31,14 +31,14 @@ export const generatedTopics = [
             "label": "FALLBACK",
             "translations": {
               "en": "Pipeline Philosophy",
-              "ja": "パイプライン哲学 (Pipeline Philosophy)"
+              "ja": "Pipeline Philosophy"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Core Concept: The Data Transformation Pipeline",
-                  "ja": "中核概念：データ変換パイプライン (Data Transformation Pipeline)"
+                  "ja": "Core Concept: The Data Transformation Pipeline"
                 },
                 "link": "book/unit-0/section-1/0-pipeline"
               },
@@ -46,7 +46,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Other Fundamental Programming Concepts",
-                  "ja": "その他の基本的なプログラミング概念 (Other Fundamental Programming Concepts)"
+                  "ja": "Other Fundamental Programming Concepts"
                 },
                 "link": "book/unit-0/section-1/1-other-concepts"
               },
@@ -54,7 +54,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "The Unifying Potential of the Functional Pipeline",
-                  "ja": "関数型パイプラインの統一的な可能性 (The Unifying Potential of the Functional Pipeline)"
+                  "ja": "The Unifying Potential of the Functional Pipeline"
                 },
                 "link": "book/unit-0/section-1/2-unifying-power"
               }
@@ -138,7 +138,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Pipelines and Expressions as Values",
-                  "ja": "Pipelines, Expressions, and Functions as Values"
+                  "ja": "Pipelines and Expressions as Values"
                 },
                 "link": "book/unit-1/section-2/0-expression"
               },
@@ -186,14 +186,16 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Generic Function Types: The Power of 'a -> 'b"
+                  "en": "Generic Function Types: The Power of 'a -> 'b",
+                  "ja": "Generic Function Types: The Power of 'a -> 'b"
                 },
                 "link": "book/unit-1/section-3/2-generic-function"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Deconstructing HOF Types: From 'a -> 'b to Complex Signatures"
+                  "en": "Deconstructing HOF Types: From 'a -> 'b to Complex Signatures",
+                  "ja": "Deconstructing HOF Types: From 'a -> 'b to Complex Signatures"
                 },
                 "link": "book/unit-1/section-3/3-hof-types"
               }
@@ -203,7 +205,7 @@ export const generatedTopics = [
             "label": "FALLBACK",
             "translations": {
               "en": "Binary Operation",
-              "ja": "Function Composition"
+              "ja": "Binary Operation"
             },
             "items": [
               {
@@ -226,7 +228,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Currying and Partial Application: Functions Returning Functions",
-                  "ja": "Currying and Partial Application with HOF"
+                  "ja": "Currying and Partial Application: Functions Returning Functions"
                 },
                 "link": "book/unit-1/section-4/2-curry-partial"
               },
@@ -244,34 +246,38 @@ export const generatedTopics = [
             "label": "FALLBACK",
             "translations": {
               "en": "Dependency Graph",
-              "ja": "Terms and Concepts"
+              "ja": "Dependency Graph"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "How to Drive Your Code?"
+                  "en": "How to Drive Your Code?",
+                  "ja": "How to Drive Your Code?"
                 },
                 "link": "book/unit-1/section-5/0-how-to-drive"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Code Driven by Dependency Graph"
+                  "en": "Code Driven by Dependency Graph",
+                  "ja": "Code Driven by Dependency Graph"
                 },
                 "link": "book/unit-1/section-5/1-driven-by-dependency-graph"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Self-Referential Structures on Dependency Graphs"
+                  "en": "Self-Referential Structures on Dependency Graphs",
+                  "ja": "Self-Referential Structures on Dependency Graphs"
                 },
                 "link": "book/unit-1/section-5/2-loop-dependency-graph"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Pure vs. Impure Functional Languages"
+                  "en": "Pure vs. Impure Functional Languages",
+                  "ja": "Pure vs. Impure Functional Languages"
                 },
                 "link": "book/unit-1/section-5/3-pure-functional-language"
               }
@@ -280,13 +286,15 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Terms and Concepts"
+              "en": "Terms and Concepts",
+              "ja": "Terms and Concepts"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Understanding Functional Programming Terminology"
+                  "en": "Understanding Functional Programming Terminology",
+                  "ja": "Understanding Functional Programming Terminology"
                 },
                 "link": "book/unit-1/section-6/0-terminology"
               }
@@ -354,7 +362,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Identity Elements: The Neutral Value in Operations",
-                  "ja": "Identity Elements"
+                  "ja": "Identity Elements: The Neutral Value in Operations"
                 },
                 "link": "book/unit-2/section-2/2-identity-element"
               },
@@ -362,7 +370,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Monoids: Semigroups with an Identity Element",
-                  "ja": "Monoids: Semigroups with Identity"
+                  "ja": "Monoids: Semigroups with an Identity Element"
                 },
                 "link": "book/unit-2/section-2/3-monoid"
               }
@@ -521,7 +529,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Identity Functor and Identity Monad",
-                  "ja": "Section 1: List Functor and Monad"
+                  "ja": "Identity Functor and Identity Monad"
                 },
                 "link": "book/unit-3/section-1/0-id"
               }
