@@ -4,14 +4,11 @@ description: >-
   As we delve deeper into functional programming, we encounter several key terms
   frequently used to describe its characteristics, such as 'Pure Function',
   'Side Effect', and 'Immutability'. However, simply listing these terms can be
-  misleading. This chapter critically examines the context and origin of this
-  common FP terminology. We will explore why these terms, while seemingly
-  convenient, can be confusing for learners. We will also see how they often
-  arise in contrast to imperative programming rather than from pure mathematics,
-  and why understanding this background is crucial for truly grasping the
-  functional approach.
+  misleading.
 ---
-As we delve deeper into functional programming, we encounter several key terms frequently used to describe its characteristics, such as 'Pure Function', 'Side Effect', and 'Immutability'. However, simply listing these terms can be misleading. This chapter critically examines the context and origin of this common FP terminology. We will explore why these terms, while seemingly convenient, can be confusing for learners. We will also see how they often arise in contrast to imperative programming rather than from pure mathematics, and why understanding this background is crucial for truly grasping the functional approach.
+As we delve deeper into functional programming, we encounter several key terms frequently used to describe its characteristics, such as 'Pure Function', 'Side Effect', and 'Immutability'. However, simply listing these terms can be misleading.
+
+This chapter critically examines the context and origin of this common FP terminology. We will explore why these terms, while seemingly convenient, can be confusing for learners. We will also see how they often arise in contrast to imperative programming rather than from pure mathematics, and why understanding this background is crucial for truly grasping the functional approach.
 
 ## Key Terms Often Encountered in FP
 

@@ -28,8 +28,8 @@ Now, let's look at the F# pipeline operator (`|>`) again:
 
 ```fsharp
 // double is inferred to be of type: int -> int
-let double x = x * 2 
-let result = 5 |> double 
+let double x = x * 2
+let result = 5 |> double
 // 5 (int) is passed to double (int -> int)
 // result is 10 (int)
 ```
@@ -37,9 +37,9 @@ let result = 5 |> double
 Can we view the expression `5 |> double` as a binary operation? Let's examine its parts:
 
 -   Operand 1: `5` (an `int` value)
-    
+
 -   Operator: `|>`
-    
+
 -   Operand 2: `double` (a function of type `int -> int`)
 
 Yes! The pipeline operator `|>` acts as a **binary operator**. What's unique here is that its **second operand is a function value**.
@@ -56,12 +56,12 @@ This allows us to chain these operations together seamlessly, ensuring type comp
 
 ```fsharp
 // add1 is also inferred as: int -> int
-let add1 x = x + 1 
+let add1 x = x + 1
 
 // 5 (int) |> double (int -> int) --> 10 (int)
 // 10 (int) |> add1 (int -> int) --> 11 (int)
 // 11 (int) |> double (int -> int) --> 22 (int)
-let result = 5 |> double |> add1 |> double 
+let result = 5 |> double |> add1 |> double
 // result is 22 (int)
 ```
 
@@ -70,7 +70,7 @@ Each `|>` step applies this binary operation, taking the result from the left (e
 ## Summary
 
 -   A **binary operation** combines two operands with an operator to produce a result (e.g., `5 + 3`).
-    
+
 -   The pipeline operator (`|>`) acts as a binary operation where the structure is `Value |> Function`. The type of the `Value` must align with the input type of the `Function`.
-    
+
 -   This is enabled by **first-class functions**, allowing functions (which have types) to be used as operands (data).

@@ -1,10 +1,10 @@
 # Currying and Partial Application: Functions Returning Functions
 
-In previous chapters, we've seen that functions are first-class values with types, and even operators like `(+)` are essentially functions. 
+In previous chapters, we've seen that functions are first-class values with types, and even operators like `(+)` are essentially functions.
 
-We also previewed how applying only one argument to `(+)` (e.g., `(+) 1`) created a new function (`add1`). 
+We also previewed how applying only one argument to `(+)` (e.g., `(+) 1`) created a new function (`add1`).
 
-This behavior, where providing an argument to a function that expects multiple arguments results in a new function, is a direct consequence of HOF Pattern 1 (`'a -> ('b -> 'c)`) discussed in Section 3. 
+This behavior, where providing an argument to a function that expects multiple arguments results in a new function, is a direct consequence of HOF Pattern 1 (`'a -> ('b -> 'c)`) discussed in Section 3.
 
 Let's now explore the underlying mechanism that makes this possible: **Currying**, and its practical outcome, **Partial Application**.
 
@@ -13,11 +13,11 @@ Let's now explore the underlying mechanism that makes this possible: **Currying*
 Consider a function for multiplication. In many languages, you might define it to accept two arguments directly:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/javascript.svg">
 ```javascript
-function multiply(x, y) { return x * y; } 
+function multiply(x, y) { return x * y; }
 // Expects x and y together
 ```
 
-In F#, a similar definition `let multiply x y = x * y` appears to also take two arguments. However, its type signature, typically `int -> int -> int`, tells a deeper story. 
+In F#, a similar definition `let multiply x y = x * y` appears to also take two arguments. However, its type signature, typically `int -> int -> int`, tells a deeper story.
 
 As discussed in Section 3 regarding type signatures, this is shorthand for `int -> (int -> int)`. This nested structure implies that the function fundamentally operates by taking arguments one at a time.
 
@@ -51,14 +51,14 @@ With currying in place, **Partial Application** becomes a natural consequence.
 So, when we wrote `let double = (*) 2` in the previous chapter:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 ```fsharp
-let multiplyOperatorAsFunction = (*) 
+let multiplyOperatorAsFunction = (*)
 // Type: int -> int -> int
 // or    int -> (int -> int)
-let double = multiplyOperatorAsFunction 2 
+let double = multiplyOperatorAsFunction 2
 // Apply first arg '2'
-// 'double' is now 
+// 'double' is now
 // 'int -> int'
-let result = 10 |> double 
+let result = 10 |> double
 // result is 20
 ```
 `multiplyOperatorAsFunction 2` (or `(*) 2`) is a partial application. The `(*)` function (type `int -> (int -> int)`) receives its first `int` argument (`2`) and returns the intermediate function (type `int -> int`), which we named `double`.
@@ -75,7 +75,7 @@ Let's visualize this using the familiar multiplication table.
 
 (Requires two inputs, like  `(*) 3 4` )
 
-**2. Fixing One Argument (Partial Application):** Now, what happens if we _partially apply_ the multiplication function by fixing the first number, say, to 3? 
+**2. Fixing One Argument (Partial Application):** Now, what happens if we _partially apply_ the multiplication function by fixing the first number, say, to 3?
 
 In F#, we write this as `(*) 3`. This is like selecting just _one row_ from the table – the "3 times" row:
 
@@ -83,16 +83,16 @@ In F#, we write this as `(*) 3`. This is like selecting just _one row_ from the 
 
 (Represents the function  `(*) 3` )
 
-By providing only the first argument (`3`) to the two-argument function `(*)`, we've created a _new function_. 
+By providing only the first argument (`3`) to the two-argument function `(*)`, we've created a _new function_.
 
-Let's call it `multiplyBy3`. 
+Let's call it `multiplyBy3`.
 
 This new function only needs _one_ more argument (the number for the column) and corresponds to this specific row.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
-// Create a new function "multiplyBy3" 
+// Create a new function "multiplyBy3"
 // by partially applying (*) with 3
 let multiplyBy3 = (*) 3
 ```
@@ -100,7 +100,7 @@ let multiplyBy3 = (*) 3
 
 **3. Applying the New Function:**
 
-Once we have our specialized function `multiplyBy3`, we can give it the final argument. 
+Once we have our specialized function `multiplyBy3`, we can give it the final argument.
 
 For example, applying it to `4` (`multiplyBy3 4`) is like looking up the 4th column in the 3rd row to find the result  `12` :
 
@@ -147,7 +147,7 @@ This perfectly matches **HOF Pattern 1:**
 let double = 2 |> (*)
 
 // Create an 'add 1' function from (+)
-let add1 = 1 |> (+) 
+let add1 = 1 |> (+)
 ```
 
 ---
@@ -176,7 +176,7 @@ Therefore, **partial application is a prime example of Higher-Order Functions in
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-It might seem that F#'s unary function model makes it awkward to pass multiple related pieces of data (like coordinates `(x, y)`) compared to JavaScript's multi-argument functions (`f(x, y)`). 
+It might seem that F#'s unary function model makes it awkward to pass multiple related pieces of data (like coordinates `(x, y)`) compared to JavaScript's multi-argument functions (`f(x, y)`).
 
 While currying handles functions that logically take multiple *independent* arguments step-by-step, what if you simply want to pass a single, grouped piece of data containing multiple components?
 
@@ -189,19 +189,19 @@ Because a tuple like `(x, y)` is considered a single value, it can be passed as 
 ```fsharp
 // Define a function that takes ONE argument: a tuple of two integers
 let addCoordinates (coords: int * int) =
-    let (x, y) = coords 
+    let (x, y) = coords
     // Deconstruct the tuple inside the function
     x + y
 
-// Call the unary function, 
+// Call the unary function,
 // passing the tuple as the single argument
-let result = addCoordinates (3, 4) 
+let result = addCoordinates (3, 4)
 // result is 7
 ```
 
-Notice that the function call `addCoordinates (3, 4)` *looks* syntactically similar to a JavaScript call `addCoordinates(3, 4)` which might take two separate arguments. 
+Notice that the function call `addCoordinates (3, 4)` *looks* syntactically similar to a JavaScript call `addCoordinates(3, 4)` which might take two separate arguments.
 
-However, in F#, `addCoordinates` is still a unary function accepting a single tuple value. 
+However, in F#, `addCoordinates` is still a unary function accepting a single tuple value.
 
 This provides a convenient syntax for working with grouped data within the unary function model, offering another example of F#'s pragmatic and expressive design.
 

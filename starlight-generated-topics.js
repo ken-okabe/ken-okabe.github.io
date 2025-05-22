@@ -202,7 +202,7 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Function Composition",
+              "en": "Binary Operation",
               "ja": "Function Composition"
             },
             "items": [
@@ -243,17 +243,52 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Terms and Concepts",
+              "en": "Dependency Graph",
               "ja": "Terms and Concepts"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Understanding Functional Programming Terminology",
-                  "ja": "Understanding Functional Programming Terminology"
+                  "en": "How to Drive Your Code?"
                 },
-                "link": "book/unit-1/section-5/0-terminology"
+                "link": "book/unit-1/section-5/0-how-to-drive"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Code Driven by Dependency Graph"
+                },
+                "link": "book/unit-1/section-5/1-driven-by-dependency-graph"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Self-Referential Structures on Dependency Graphs"
+                },
+                "link": "book/unit-1/section-5/2-loop-dependency-graph"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Pure vs. Impure Functional Languages"
+                },
+                "link": "book/unit-1/section-5/3-pure-functional-language"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Terms and Concepts"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Understanding Functional Programming Terminology"
+                },
+                "link": "book/unit-1/section-6/0-terminology"
               }
             ]
           }
@@ -368,7 +403,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Container Types: Packaging Values with Context",
+                  "en": "Container Types: Sets in Programming",
                   "ja": "Container Types: Sets in Programming"
                 },
                 "link": "book/unit-2/section-4/1-container"

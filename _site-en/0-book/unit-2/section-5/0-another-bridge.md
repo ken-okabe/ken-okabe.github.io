@@ -16,4 +16,4 @@ This Functor pattern has proven incredibly useful, allowing us to lift our regul
 
 There exists another approach, less widely understood but often more powerful. An approach that offers a different perspective on how we can connect these two worlds. This alternative bridge is known as a **Monad**.
 
-In the next chapters, we'll uncover this mysterious second bridge and see how it provides a completely different way to think about transforming functions. We'll discover why both bridges are necessary and how they complement each other in ways that might surprise you.
+In the next chapters, we'll uncover this mysterious second bridge and see how it provides a completely different way to think about transforming functions. We'll discover why both bridges are necessary and how they complement each other in ways that might surprise you. 

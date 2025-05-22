@@ -52,13 +52,14 @@ Takes and Returns a Function as input and also returns a function as output.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695992437.png)
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745696911713.png)
+
 
 ## Mapper function of Container Type
 
 Type expression `'a -> 'b` using generic type parameters represents any possible function - it's the most general form of function type that maps from any type `'a` to any type `'b`.
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745569083188.png)
+![Conceptual diagram of 'a -> 'b mapping with various types](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747692002560.png)
 
 For visual clarity, we can represent these generic type parameters using shapes - a circle for any input type and a square for any output type:
 
@@ -69,7 +70,8 @@ In this context, a typical scenario is when we already have a well-understood fu
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
-let double = fun a -> a * 2  // Takes a number, returns twice that number
+let double = fun a -> a * 2
+// Takes a number, returns twice that number
 ```
 
 When working with a list container like `[1; 2; 3]`, we often want to preserve this same doubling relationship. If `double` maps 1 to 2, we want a **mapper function** (= g) that can transform the entire list `[1; 2; 3]` to `[2; 4; 6]`, maintaining the same doubling relationship for each element in the container.
@@ -88,9 +90,11 @@ The `map` function itself is a HOF. Its role is to take two arguments:
 
 And it returns a new container `F<'b>` of the same structure, but with the inner values transformed by `f`.
 The type signature for `map` associated with a Functor `F` is typically:
+
 **`map: ('a -> 'b) -> F<'a> -> F<'b>`**
 
 Or, if we consider `map` as a function that first takes the function `f` and then returns a *new function* that operates on the container (aligning with HOF Pattern 3), its curried type signature would be:
+
 **`map: ('a -> 'b) -> (F<'a> -> F<'b>)`**
 
 This `map` function is the defining characteristic of a Functor. It provides the "bridge" that allows us to lift ordinary functions into the context of the container type.
@@ -98,9 +102,10 @@ This `map` function is the defining characteristic of a Functor. It provides the
 To obtain this mapper function g (that operates on the container, e.g., `List<'a> -> List<'b>`), what we need is this special `map` function that can transform our well-known function f (e.g., `'a -> 'b`) into g:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
+
 *(Here, `map` is the HOF that takes `f` and produces `g`)*
 
-And here's where things get fascinating - this `map` function, when viewed as `('a -> 'b) -> (F<'a> -> F<'b>)`, aligns with the idea of a Functor being a mapping between (sets of) functions that we touched upon with `img_1745577612988.png`. It takes a function `f` and returns a new function `g` that operates on the container. This also fits HOF Pattern 3.
+
 
 As we confirmed in the first half of this chapter, this is precisely what a Functor is - a mapping between sets of functions that preserves their relationships. In other words, this `map` function that transforms our familiar function f into a container mapper function g is itself a Functor.
 

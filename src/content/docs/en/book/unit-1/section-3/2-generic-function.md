@@ -38,11 +38,11 @@ This "placeholder" concept for types is analogous to how placeholders are used i
 
 ## Why `'a -> 'b` is Fundamental
 
-Understanding the `'a -> 'b` generic function type is a cornerstone for grasping many advanced concepts in functional programming and for writing truly reusable and versatile code. 
+Understanding the `'a -> 'b` generic function type is a cornerstone for grasping many advanced concepts in functional programming and for writing truly reusable and versatile code.
 
 This is because **`'a -> 'b` represents the most general form of a function that takes one input and produces one outpu**t.
 
-It's important to recognize that even the identity function's type, `'a -> 'a` (where the input and output types are the same), is simply a special case of `'a -> 'b` where type `'b` happens to be identical to type `'a`. 
+It's important to recognize that even the identity function's type, `'a -> 'a` (where the input and output types are the same), is simply a special case of `'a -> 'b` where type `'b` happens to be identical to type `'a`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747691642903.png)
 

@@ -17,16 +17,19 @@ In imperative programming, you typically write a sequence of commands that modif
 const number = 5;
 
 // Step 1: Double the number
-const step1Result = number * 2; // step1Result is 10
+const step1Result = number * 2;
+// step1Result is 10
 
 // Step 2: Add 1 to the result
-const step2Result = step1Result + 1; // step2Result is 11
+const step2Result = step1Result + 1;
+// step2Result is 11
 
 // Step 3: Double the result again
-const result = step2Result * 2; // result is 22
+const result = step2Result * 2;
+// result is 22
 
 // Display the final result
-console.log(`The result is: ${result}`); 
+console.log(`The result is: ${result}`);
 // Output: The result is: 22
 ```
 
@@ -55,31 +58,34 @@ let number = 5
 // Start with the input number and pipe it through transformations
 let result =
     number
-    |> double // Apply the double function -> 10
-    |> add1   // Apply the add1 function -> 11
-    |> double // Apply the double function again -> 22
+    |> double
+// Apply the double function -> 10
+    |> add1
+// Apply the add1 function -> 11
+    |> double
+// Apply the double function again -> 22
 
 // Display the final result
-printfn "The result is: %d" result 
+printfn "The result is: %d" result
 // Output: The result is: 22
 ```
 
 In this F# code:
 
 -   We define helper functions `double` and `add1` first.
-    
+
 -   We start with the input `5`.
-    
+
 -   The `|>` operator pipes `5` into the `double` function, resulting in `10`.
-    
+
 -   The result `10` is then piped into the `add1` function, resulting in `11`.
-    
+
 -   The result `11` is piped into the `double` function again, resulting in `22`.
-    
+
 -   The final result `22` is assigned to the `result` variable.
-    
+
 -   Finally, `printfn` is called separately to display the value of `result`.
-    
+
 -   The calculation pipeline itself remains a single expression without intermediate variables for the steps.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
@@ -104,7 +110,7 @@ $$
 Both the imperative JavaScript code and the functional F# code achieve the same sequential result for this calculation.
 
 -   The **imperative style** uses explicit steps and intermediate variables.
-    
+
 -   The **functional pipeline style** emphasizes composing functions/operations to create a flow of data transformations, calculating the final result often as a single expression before potentially using it (like printing).
 
 Understanding this pipeline concept is fundamental to grasping the functional approach to programming.
@@ -146,7 +152,7 @@ printfn "The result is: %d" result // Output: The result is: 22
 In this F# code:
 
 1.  The line `let result = ...` binds the final value (`22`) of the pipeline expression to the name `result`.
-    
+
 2.  The subsequent line, `printfn "The result is: %d" result`, performs an action (printing to the console) that explicitly uses the `result` value.
 
 F# **does** execute these bindings and actions in the top-to-bottom order they are written. The `result` must be calculated and bound _before_ the `printfn` function can be called with its value. This sequential execution is familiar from imperative programming.

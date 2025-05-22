@@ -13,8 +13,10 @@ In the previous sections, we learned about the **Monoid** as an algebraic struct
 
 We often "concatenate" or "chain" functions in our data transformation pipelines. For example, if `double` is a function of type `int -> int` and `add1` is also `int -> int`, we might write:
 ```fsharp
-let composedFuncExample = double >> add1 >> double // Creates a new function, also of type int -> int
-// When applied to an input 'x', composedFuncExample behaves as x |> double |> add1 |> double
+let composedFuncExample = double >> add1 >> double 
+// Creates a new function, also of type int -> int
+// When applied to an input 'x', 
+// composedFuncExample behaves as x |> double |> add1 |> double
 ```
 Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`. The general type signature for this operator is `('a -> 'b) -> ('b -> 'c) -> ('a -> 'c)`. It takes a function from `'a` to `'b`, and a function from `'b` to `'c`, and returns a new function from `'a` to `'c`.
 

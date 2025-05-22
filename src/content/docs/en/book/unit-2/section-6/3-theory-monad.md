@@ -20,30 +20,26 @@ First, let's recall **Kleisli arrows** from Unit 2, Section 5. These are the spe
 
 ## The `bind` Operation
 
-The primary mechanism Monads provide for sequencing Kleisli arrows is the `bind` operation. In F#, a common function that embodies the `bind` concept for lists is `List.collect`.
+The primary mechanism Monads provide for sequencing Kleisli arrows is the `bind` operation. Often represented by the infix operator `>>=`, `bind` allows us to chain computations where the next step (a Kleisli arrow) depends on the result produced within the monadic context by the previous step.
 
-The type signature for such a `bind` operation, which takes a Kleisli arrow (a function producing a monadic value) and a monadic value itself, and then applies the function to the contents of the monadic value, is generally:
-**`bind : ('a -> M<'b>) -> M<'a> -> M<'b>`**
+Its signature, using the pipeline style we favor, is:
 
-This means `bind` takes:
-1.  A Kleisli arrow `k: 'a -> M<'b>` (a function that takes a plain `'a` and returns a monadic `'b\`).
-2.  A monadic value `mVal: M<'a>` (a value of type `'a` already wrapped in the monadic context `M`).
-And it returns a new monadic value `M<'b>`.
+`bind : ('a -> M<'b>) -> M<'a> -> M<'b>`
 
-### List Monad is `List.collect` in F#
-F#'s `List.collect` function is a prime example of a `bind` operation for the List monad.
+### List Monad is `list.collect` in F#
+
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745804453086.png)
-Its type `('a -> 'b list) -> 'a list -> 'b list` perfectly matches our `bind` signature where `M` is `list`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745804937535.png)
-*(This image shows `List.collect` taking a function `int -> int list` and an `int list`, producing an `int list`)*
 
-Usage often looks like: `List.collect kleisliArrowF monadicValueA`.
-Alternatively, Haskell's `>>=` infix operator has the signature `m a -> (a -> m b) -> m b`, which is `M<'a> -> ('a -> M<'b>) -> M<'b>`. The core idea is combining `M<'a>` and `'a -> M<'b>` to get `M<'b>`. For our discussion focusing on how `bind` facilitates Kleisli composition, the `('a -> M<'b>) -> M<'a> -> M<'b>` form (like `List.collect`) is convenient.
+Or, written infix:
+`(>>=) : M<'a> -> ('a -> M<'b>) -> M<'b>`
+
+Usage looks like: `monadicValueA |> bind kleisliArrowF`. This takes the result(s) from `monadicValueA`, feeds them into `kleisliArrowF`, and returns the resulting `M<'b>`.
 
 ## Understanding the Monad Laws: The Kleisli Monoid Approach
 
-How do we ensure that chaining operations with `bind` is well-behaved? This is where the Monad Laws come in. Typically, three laws involving `bind` and an identity operation (which we'll call `ID` or `return`/`unit`) are presented.
+How do we ensure that chaining operations with `bind` is well-behaved? This is where the Monad Laws come in. Typically, three laws involving `bind` and an identity operation (which we'll call `ID`) are presented.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205671216.png)
 
@@ -66,42 +62,39 @@ Therefore, in this chapter, we will verify the Monad structure by demonstrating 
 
 ## Definitions for General Monad `M`
 
-Let `M` represent any type constructor that forms a valid Monad. We define `bind` with the F#-like signature for consistency with `List.collect`.
+Let `M` represent any type constructor that forms a valid Monad.
 
 * **Kleisli Arrow (Monadic Function):** A function with the signature:
     `'a -> M<'b>`
-* **Identity Kleisli Arrow (`ID` or `return` or `unit`):** The function that lifts a plain value `a` into the minimal monadic context `M`.
+* **Identity Kleisli Arrow (`ID`):** The function that lifts a plain value `a` into the minimal monadic context `M`.
     `val ID<'a> : 'a -> M<'a>`
-* **`bind` operation:**
-    `val bind : ('a -> M<'b>) -> M<'a> -> M<'b>`
 * **Kleisli Composition (`>>>`):** An operator to compose two Kleisli arrows, defined using `bind`.
     `val inline (>>>) : ('a -> M<'b>) -> ('b -> M<'c>) -> ('a -> M<'c>)`
-    The definition, using our chosen `bind` signature, is: 
-    `let (>>>) f g = fun a_val -> bind g (f a_val)`
-    *(Read as: Apply Kleisli arrow `f` to `a_val` (yielding an `M<'b>`). Then, pass this `M<'b>` as the second argument to `bind`, with the Kleisli arrow `g` as the first argument.)*
+    The definition is: `let (>>>) f g = fun a -> (f a) |> bind g`
+    *(Read as: Apply Kleisli arrow `f` to `a`, yielding an `M<'b>`, then pipe this result into `bind` with the next Kleisli arrow `g`.)*
 
 ## Setup for Examples (Generic)
 
-Let's define some generic Kleisli arrows for illustration, assuming `M` is a valid Monad providing `M.ID` and a `bind` function (with signature `('x -> M<'y>) -> M<'x> -> M<'y>`).
+Let's define some generic Kleisli arrows for illustration, assuming `M` is a valid Monad providing `M.ID` and a `bind` function.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
-// Assume M is a valid Monad with M.ID and bind defined as:
-// val bind : ('k_in -> M<'k_out>) -> M<'k_in> -> M<'k_out>
+// Assume M is a valid Monad with M.ID and bind defined.
 
 // Sample Kleisli Arrows
-let f_kleisli: int -> M<string> = fun i -> M.ID (sprintf "f(%d)" i)
-let g_kleisli: string -> M<float> = fun s -> M.ID (float s.Length)
-let h_kleisli: float -> M<bool> = fun fl -> M.ID (fl > 10.0)
+let f: int -> M<string> = fun i -> M.ID (sprintf "f(%d)" i)
+let g: string -> M<float> = fun s -> M.ID (float s.Length)
+let h: float -> M<bool> = fun fl -> M.ID (fl > 10.0) // Example: check if float > 10.0
 
-// Initial Value for testing compositions
-let initialSimpleValue = 5
+// Initial Monadic Value
+let initialValue = 5
+let initialMonadValue : M<int> = M.ID initialValue
 ```
 
 ## Verification of Kleisli Monoid Laws (via Standard Monad Laws)
 
-We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy the standard Monad laws), then the Kleisli composition `>>>` (defined via `bind` as `fun a -> bind g (f a)`) necessarily satisfies the Monoid laws with `ID`.
+We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy the standard Monad laws), then the Kleisli composition `>>>` (defined via `bind`) necessarily satisfies the Monoid laws with `ID`.
 
 ---
 
@@ -109,24 +102,29 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747204989154.png)
 
-* **Equation:** `(f_kleisli >>> g_kleisli) >>> h_kleisli = f_kleisli >>> (g_kleisli >>> h_kleisli)`
-* **Goal:** Show that composing Kleisli arrows `f_kleisli`, `g_kleisli`, and `h_kleisli` is associative. This means applying the differently grouped compositions to an initial value `a` should yield identical results in the context `M`.
-* **Illustrative Code Structure (Conceptual LHS applied to `a_val`):**
+* **Equation:** `(f >>> g) >>> h = f >>> (g >>> h)`
+* **Goal:** Show that composing Kleisli arrows `f`, `g`, and `h` is associative. This means applying the differently grouped compositions to an initial value `a` should yield identical results in the context `M`.
+* **Illustrative Code Structure (Conceptual):**
     ```fsharp
-    // ( (f_kleisli >>> g_kleisli) >>> h_kleisli ) a_val
-    // = bind h_kleisli ( (f_kleisli >>> g_kleisli) a_val )             // Def of outer >>>
-    // = bind h_kleisli ( bind g_kleisli (f_kleisli a_val) )            // Def of inner >>>
+    // Let's apply both sides to an initial value 'a'
+
+    // --- LHS applied to 'a' ---
+    // ( (f >>> g) >>> h ) a
+    // = ( fun intermediate_value -> ((f >>> g) intermediate_value) |> bind h ) a // Definition of >>>
+    // = ( (fun input_f -> (f input_f) |> bind g) >>> h ) a
+    // = ( (f a) |> bind g ) |> bind h                       // Applying definitions
+
+    // --- RHS applied to 'a' ---
+    // ( f >>> (g >>> h) ) a
+    // = ( fun intermediate_value -> (f intermediate_value) |> bind (g >>> h) ) a // Definition of >>>
+    // = (f a) |> bind (fun x -> (g x) |> bind h)            // Applying definitions
+
+    // We need to show:
+    // ( (f a) |> bind g ) |> bind h   IS EQUIVALENT TO   (f a) |> bind (fun x -> (g x) |> bind h)
+    // Let m = f a. We need to show:
+    // ( m |> bind g ) |> bind h       IS EQUIVALENT TO   m |> bind (fun x -> g x |> bind h)
     ```
-* **Illustrative Code Structure (Conceptual RHS applied to `a_val`):**
-    ```fsharp
-    // ( f_kleisli >>> (g_kleisli >>> h_kleisli) ) a_val
-    // = bind (g_kleisli >>> h_kleisli) (f_kleisli a_val)               // Def of outer >>>
-    // Let m_intermediate = f_kleisli a_val. 
-    // This becomes: bind (fun b_val -> bind h_kleisli (g_kleisli b_val)) m_intermediate 
-    ```
-* **Equivalence Explanation:** The required equivalence is:
-  `bind h_kleisli ( bind g_kleisli m_intermediate )` must be equivalent to `bind (fun x -> bind h_kleisli (g_kleisli x)) m_intermediate` (where `m_intermediate = f_kleisli a_val`).
-  This is precisely the **associativity law of the `bind` operation** itself (one of the three standard Monad laws). If `bind` has the signature `('k_in -> M<'k_out>) -> M<'k_in> -> M<'k_out>`, the law is often stated as: `bind k2 (bind k1 m) = bind (fun x -> bind k2 (k1 x)) m`. Our expressions match this structure.
+* **Equivalence Explanation:** The required equivalence, `(m |> bind g) |> bind h = m |> bind (fun x -> g x |> bind h)`, is precisely the **associativity law of the `bind` operation** itself (one of the three standard Monad laws). By definition, for `M` to be a Monad, its `bind` operation *must* be associative. This associativity of `bind` directly guarantees the associativity of the Kleisli composition `>>>` derived from it.
     **Therefore, the Associativity Law holds for `>>>` (guaranteed by `bind`'s associativity).**
 
 ---
@@ -135,42 +133,61 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205208301.png)
 
-* **Equation:** `ID >>> f_kleisli = f_kleisli`
-* **Goal:** Show that composing the identity Kleisli arrow `ID` before `f_kleisli` has no effect.
-* **Illustrative Code Structure (Conceptual LHS applied to `a_val`):**
+* **Equation:** `ID >>> f = f`
+* **Goal:** Show that composing the identity Kleisli arrow `ID` before `f` has no effect; the result is equivalent to `f` itself.
+* **Illustrative Code Structure (Conceptual):**
     ```fsharp
-    // ( ID >>> f_kleisli ) a_val
-    // = bind f_kleisli ( ID a_val )                          // Def of >>>
+    // Let's apply both sides to an initial value 'a'
+
+    // --- LHS applied to 'a' ---
+    // ( ID >>> f ) a
+    // = ( fun intermediate_value -> (ID intermediate_value) |> bind f ) a // Definition of >>>
+    // = ( ID a ) |> bind f                                 // Applying definitions
+
+    // --- RHS applied to 'a' ---
+    // f a
+
+    // We need to show:
+    // ( ID a ) |> bind f   IS EQUIVALENT TO   f a
     ```
-* **RHS applied to `a_val` is `f_kleisli a_val`.**
-* **Equivalence Explanation:** The required equivalence `bind f_kleisli ( ID a_val ) = f_kleisli a_val` is precisely the **left identity law for `bind`** (another standard Monad law). (Often stated as: `bind f (return a) = f a`, where `return` is our `ID`).
-    **Therefore, the Left Identity Law holds for `>>>`.**
+* **Equivalence Explanation:** The required equivalence, `(ID a) |> bind f = f a`, is precisely the **left identity law for the `bind` operation** (another standard Monad law). By definition, for `M` to be a Monad, its `bind` and `ID` operations *must* satisfy this law. This directly guarantees that `ID` acts as the left identity for the derived Kleisli composition `>>>`.
+    **Therefore, the Left Identity Law holds for `>>>` (guaranteed by `bind`'s left identity).**
 
 ---
 
 ### **Law 3: Right Identity**
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205208301.png) 
-*(Note: The image for right identity should ideally show f >>> ID)*
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205208301.png)
 
-* **Equation:** `f_kleisli >>> ID = f_kleisli`
-* **Goal:** Show that composing `f_kleisli` with `ID` afterwards has no effect.
-* **Illustrative Code Structure (Conceptual LHS applied to `a_val`):**
+* **Equation:** `f >>> ID = f`
+* **Goal:** Show that composing `f` with the identity Kleisli arrow `ID` afterwards has no effect; the result is equivalent to `f` itself.
+* **Illustrative Code Structure (Conceptual):**
     ```fsharp
-    // ( f_kleisli >>> ID ) a_val
-    // = bind ID ( f_kleisli a_val )                          // Def of >>>
+    // Let's apply both sides to an initial value 'a'
+
+    // --- LHS applied to 'a' ---
+    // ( f >>> ID ) a
+    // = ( fun intermediate_value -> (f intermediate_value) |> bind ID ) a // Definition of >>>
+    // = ( f a ) |> bind ID                                  // Applying definitions
+
+    // --- RHS applied to 'a' ---
+    // f a
+
+    // We need to show:
+    // ( f a ) |> bind ID   IS EQUIVALENT TO   f a
+    // Let m = f a. We need to show:
+    // m |> bind ID          IS EQUIVALENT TO   m
     ```
-* **RHS applied to `a_val` is `f_kleisli a_val`.**
-* **Equivalence Explanation:** The required equivalence `bind ID ( f_kleisli a_val ) = f_kleisli a_val`. Let `m_val = f_kleisli a_val` (which is of type `M<'b>`). We need to show `bind ID m_val = m_val`. This is precisely the **right identity law for `bind`** (the third standard Monad law). (Often stated as: `m >>= return = m`, where `return` is our `ID`).
-    **Therefore, the Right Identity Law holds for `>>>`.**
+* **Equivalence Explanation:** The required equivalence, `m |> bind ID = m`, is precisely the **right identity law for the `bind` operation** (the third standard Monad law). By definition, for `M` to be a Monad, its `bind` and `ID` operations *must* satisfy this law. This directly guarantees that `ID` acts as the right identity for the derived Kleisli composition `>>>`.
+    **Therefore, the Right Identity Law holds for `>>>` (guaranteed by `bind`'s right identity).**
 
 ## Conclusion
 
-We have demonstrated that the standard Monad Laws, typically expressed in terms of `bind` and `ID` (or `return`/`unit`), are mathematically equivalent to requiring that **Kleisli composition (`>>>`) forms a Monoid with `ID` as its identity element**.
+We have demonstrated that the standard Monad Laws, typically expressed in terms of `bind` and `ID`, are mathematically equivalent to requiring that **Kleisli composition (`>>>`) forms a Monoid with `ID` as its identity element**.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747204849057.png)
 
-If a type constructor `M` along with its `ID` and `bind` (signature `('a -> M<'b>) -> M<'a> -> M<'b>`) operations satisfy the three standard Monad laws, then its associated Kleisli composition `>>>` (defined as `fun a -> bind g (f a)`) is guaranteed to be associative and have `ID` as its identity.
+If a type constructor `M` along with its `ID` and `bind` operations satisfy the three standard Monad laws (left identity, right identity, associativity of `bind`), then its associated Kleisli composition `>>>` is guaranteed to be associative and have `ID` as its identity.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747206323768.png)
 

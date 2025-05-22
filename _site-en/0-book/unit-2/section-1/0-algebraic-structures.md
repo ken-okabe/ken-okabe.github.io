@@ -37,7 +37,7 @@ For example:
 // For integers, 'a' becomes 'int', so the type is: int -> int -> int
 let add = (+)    // The addition operator is a function
 
-// For integers, 'a' becomes 'int', so the type is: int -> int -> int          
+// For integers, 'a' becomes 'int', so the type is: int -> int -> int
 let mult = (*)   // The multiplication operator is a function
 ```
 These binary operations are functions that:
@@ -60,7 +60,7 @@ Each of these types can be thought of as a set:
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-This connection between types (in programming) and sets (in mathematics) forms the foundation for understanding algebraic structures in a programming context. Each type defines a set of possible values upon which operations (functions) can be defined.
+This connection between **types** (in programming) and **sets** (in mathematics) forms the foundation for understanding algebraic structures in a programming context. Each type defines a set of possible values upon which operations (functions) can be defined.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
@@ -77,8 +77,8 @@ This pattern is precisely what mathematicians study as **algebraic structures**.
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
 The parallel between programming and mathematics becomes clear:
-- (Type, Function) pairs in our pipelines.
-- (Set, Operation) pairs in algebraic structures.
+- `(Type, Function)` pairs in our **pipelines**.
+- `(Set, Operation)` pairs in **algebraic structures**.
 
 These are not just similar; they represent equivalent ways of expressing the same fundamental ideas about structured data and transformations. This equivalence helps explain why functional programming, with its emphasis on types and functions, often feels mathematically elegant and robust.
 

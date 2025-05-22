@@ -4,20 +4,23 @@ description: >-
   This chapter delves into some deep foundational concepts of functional
   programming theory, including potentially advanced topics like fixed-point
   combinators discussed later. These aspects can go beyond everyday practical
-  application and might feel challenging. Beginners, in particular, should not
-  feel obligated to grasp every theoretical detail immediately. If you find
-  parts of this section difficult or overly abstract, please feel free to skim
-  or skip ahead to the next practical topic.
+  application and might feel challenging.
 ---
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-*This chapter delves into some deep foundational concepts of functional programming theory, including potentially advanced topics like fixed-point combinators discussed later. These aspects can go beyond everyday practical application and might feel challenging. Beginners, in particular, should not feel obligated to grasp every theoretical detail immediately. If you find parts of this section difficult or overly abstract, please feel free to skim or skip ahead to the next practical topic.*
+*This chapter delves into some deep foundational concepts of functional programming theory, including potentially advanced topics like fixed-point combinators discussed later. These aspects can go beyond everyday practical application and might feel challenging.*
+
+*Beginners, in particular, should not feel obligated to grasp every theoretical detail immediately. If you find parts of this section difficult or overly abstract, please feel free to skim or skip ahead to the next practical topic.*
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
+---
+
 In the previous section, we saw how functional programming tackles iteration using higher-order functions (HOFs) like `fold` (or `reduce`) and sequence generation functions like `unfold`, often combined elegantly with pipelines. This approach focuses on *what* transformation to apply to a collection or sequence.
 
-While the previous section focused on HOFs for iteration, this section explores  **Recursion**  as the fundamental mechanism in functional programming for achieving repetition, mirroring imperative loops. The core idea underlying recursion is  **self-reference** —the concept of something referring to or containing itself—and a function calling itself is just one common implementation of this principle.
+While the previous section focused on HOFs for iteration, this section explores  **Recursion**  as the fundamental mechanism in functional programming for achieving repetition, mirroring imperative loops.
+
+The core idea underlying recursion is  **self-reference** —the concept of something referring to or containing itself—and a function calling itself is just one common implementation of this principle.
 
 ## The Concept of Self-Reference
 
@@ -54,7 +57,8 @@ let rec sumUpTo n =
     else
         n + sumUpTo (n - 1)
 
-let resultNaive = sumUpTo 5 // 5 + 4 + 3 + 2 + 1 = 15
+let resultNaive = sumUpTo 5
+// 5 + 4 + 3 + 2 + 1 = 15
 printfn "Naive recursive sum up to 5: %d" resultNaive
 ```
 
@@ -101,7 +105,9 @@ printfn "Tail recursive sum up to 5: %d" resultTailRec
 
 In `sumUpToTailRecursive`, the actual recursion happens in the inner `loop` function. Crucially, the recursive call `loop (accumulator + currentN) (currentN - 1)` is the very last operation in the `else` branch. There's no calculation (like `n + ...`) waiting to happen *after* the recursive call returns.
 
-F# (and many other functional languages) performs **Tail Call Optimization (TCO)**. When the compiler detects a tail-recursive call, it compiles it not as a standard function call (which pushes a new stack frame) but as an efficient **jump**, similar to how an imperative loop works. This means tail-recursive functions can run indefinitely without consuming stack space, making them a viable and efficient way to implement any kind of loop.
+F# (and many other functional languages) performs **Tail Call Optimization (TCO)**. When the compiler detects a tail-recursive call, it compiles it not as a standard function call (which pushes a new stack frame) but as an efficient **jump**, similar to how an imperative loop works.
+
+This means tail-recursive functions can run indefinitely without consuming stack space, making them a viable and efficient way to implement any kind of loop.
 
 ## Higher-Order Functions: Abstracting Recursion
 

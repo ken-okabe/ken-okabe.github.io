@@ -7,7 +7,7 @@ Building on the idea that functions are first-class values, we can now explore a
 As we just discussed, the core idea of First-Class Functions means we can:
 
 -   Pass functions _into_ other functions as arguments.
-    
+
 -   Have functions _return_ new functions as their result.
 
 These two capabilities define what makes a function a Higher-Order Function (HOF). We can visualize the basic patterns that emerge from this definition using the following diagram:

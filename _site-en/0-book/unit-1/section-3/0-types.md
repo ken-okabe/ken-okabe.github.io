@@ -16,7 +16,7 @@ let add1 x = x + 1
 
 let result =
     5         // Input is an integer
-    |> double // double must accept an integer 
+    |> double // double must accept an integer
     // returns an integer (10)
     |> add1   // add1 must accept an integer
     // returns an integer (11)
@@ -27,9 +27,9 @@ let result =
 For data to flow smoothly through this pipeline without errors, a fundamental requirement must be met: **the output of one function must be compatible with the input of the next function.**
 
 -   `double` takes a number and produces a number.
-    
+
 -   `add1` must accept the _kind_ of number `double` produced, and it also produces a number.
-    
+
 -   The second `double` must accept the _kind_ of number `add1` produced.
 
 This concept of "what kind of data" a function accepts or returns is formalized by **Types**.
@@ -41,13 +41,13 @@ A **Type** is essentially a **classification of data**. It tells the compiler an
 Common examples include:
 
 -   `int`: Integer numbers (e.g., `5`, `22`)
-    
+
 -   `string`: Text data (e.g., `"Hello"`)
-    
+
 -   `bool`: Boolean values (`true`, `false`)
-    
+
 -   `int -> int`: A function that takes an `int` as input and returns an `int` as output (like our `double` and `add1` functions).
-    
+
 -   `'a -> 'a`: A generic function that takes a value of _any_ type `'a` and returns a value of that same type (like the `id` function).
 
 Types are essential for **program correctness**. They prevent errors by ensuring that operations are only performed on compatible data. For instance, you can't meaningfully apply the `double` function (which expects an `int`) to the string `"hello"`. The type system catches such mistakes, often before you even run the program.
@@ -63,9 +63,9 @@ In many statically-typed languages (like Java or C++), you often have to explici
 **Type Inference** is the ability of the compiler to automatically deduce the types of expressions, variables, and functions based on how they are used, _without_ requiring explicit type annotations from the programmer.
 
 -   When the F# compiler sees `let double x = x * 2`, it knows that the `(*)` operator typically works on `int`s by default, so it infers that `x` must be an `int` and the function returns an `int`. Thus, `double` is inferred to have the type `int -> int`.
-    
+
 -   Similarly, `add1` is inferred as `int -> int`.
-    
+
 -   For `let result = 5 |> double |> add1 |> double`, the compiler knows `5` is `int`, `double` returns `int`, `add1` returns `int`, and the final `double` returns `int`, so it infers that `result` must be an `int`.
 
 **The Role of IDEs (like VSCode):**
@@ -82,7 +82,7 @@ let result =
     5
     |> double
     |> add1
-    |> double 
+    |> double
 ```
 
 #### VSCode IDE Screenshot
@@ -112,9 +112,9 @@ While AI tools can assist significantly with TypeScript typing nowadays, it stil
 ## Summary
 
 -   **Types** classify data and define the expected inputs and outputs of functions.
-    
+
 -   They are crucial for ensuring data flows correctly through **pipelines**, matching output types to subsequent input types.
-    
+
 -   **Type Inference**, especially when combined with IDE support (like in F# with VSCode), automatically determines and displays types, providing strong guarantees and developer assistance without requiring extensive manual annotations.
-    
+
 -   This powerful inference is a key feature supporting the functional programming style, contrasting with languages where type specification is often more manual.

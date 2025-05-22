@@ -19,15 +19,15 @@ Early programming, often referred to as simple **Imperative Programming**, invol
 The cornerstone of structured programming is the **Structured Program Theorem** (proven by Böhm and Jacopini). This theorem states that any computable algorithm, regardless of its complexity, can be implemented using only three basic control structures:
 
 1.  **Sequence:** This is the default control structure. Instructions are executed one after another in the order they are written.
-    
+
     -   **Rationale:** Represents the fundamental, linear progression of tasks.
-        
+
 2.  **Selection (or Branching/Conditional):** This structure allows the program to choose between two or more different paths of execution based on a specific condition. Common implementations are `if-then-else` or `switch/case` statements.
-    
+
     -   **Rationale:** Essential for implementing decision-making logic within algorithms. Allows programs to react differently to different situations or data inputs.
-        
+
 3.  **Iteration (or Repetition/Looping):** This structure allows a block of code to be executed repeatedly as long as a certain condition holds true (like `while`, `do-while` loops) or for a specific number of times (like `for` loops).
-    
+
     -   **Rationale:** Handles repetitive tasks efficiently without needing to write the same code block multiple times. Crucial for processing collections of data or performing tasks until a goal is reached.
 
 ## Why These Three?

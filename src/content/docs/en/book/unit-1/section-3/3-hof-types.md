@@ -35,16 +35,16 @@ Let's break down the three HOF patterns and their corresponding generic type sig
 
    Therefore, the HOF itself, which performs this transformation from an `'a` to a function of type `'b -> 'c`, has **`'a -> ('b -> 'c)`**
 
-   In many functional programming languages, the `->` operator in type signatures is right-associative. 
-   
-   This means that 
-   
+   In many functional programming languages, the `->` operator in type signatures is right-associative.
+
+   This means that
+
    `'a -> ('b -> 'c)`
 
    is often written more concisely as:
-   
+
    **`'a -> 'b -> 'c`**
-   
+
    This notation signifies a function that takes an `'a` and returns a function of type `'b -> 'c`. The mechanics of how functions can accept arguments sequentially, leading to such type structures (often related to a concept called currying), will be explored in detail in Section 4.
 
 ### Pattern 2: HOF Takes a Function (and Returns a Value)
@@ -57,7 +57,7 @@ Let's break down the three HOF patterns and their corresponding generic type sig
    1.  Takes a "Function" as one of its inputs. Let's say this input function has the type `'a -> 'b`.
 
    2.  May take other regular "Values" as input.
-   
+
    3.  Returns a regular "Value" as its final output (not another function). Let this output value have type `'c`.
 
    The most general type signature for this pattern, where a HOF takes an input function and potentially other arguments to produce a final value, can be broadly represented as:
@@ -110,10 +110,10 @@ These two types (`'a -> 'b -> 'c` and `('a -> 'b) -> 'c`) describe functions tha
 
    *   However, just like in Pattern 2, the parentheses around the *input function type* `('a -> 'b)` are structurally essential. They indicate that the HOF's first argument is itself a function of type `'a -> 'b`. These parentheses cannot be omitted or re-associated without changing the meaning (i.e., it's not `'a -> 'b -> 'c -> 'd'`, which would imply a different sequence of non-function arguments initially).
 
-   So, the type `('a -> 'b) -> 'c -> 'd` correctly represents this HOF that: 
-   
-   - takes a function `('a -> 'b)` 
-   
+   So, the type `('a -> 'b) -> 'c -> 'd` correctly represents this HOF that:
+
+   - takes a function `('a -> 'b)`
+
    - returns a new function `'c -> 'd`.
 
 ## Conclusion: HOF Types as Natural Extensions

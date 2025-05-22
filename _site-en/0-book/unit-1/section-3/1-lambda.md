@@ -15,7 +15,7 @@ In the previous chapter, we saw that functions have types, often written with an
 The lambda syntax `fun parameter -> expression` allows us to define this function value directly where it's needed. Notice the structural similarity:
 
 -   **Type Notation:** `input_type -> output_type` (e.g., `int -> int`)
-    
+
 -   **Lambda Syntax:** `fun input_parameter -> output_expression` (e.g., `fun x -> x * x`)
 
 The arrow `->` appears in both, visually connecting the input to the output. Lambda expressions provide a direct, inline syntax that is **consistent with the function types** used to describe them. This syntactic consistency is a primary motivation for using lambdas – they are the natural way to write down an expression whose _value_ has a function type, especially for simple, one-off functions passed to other functions.
@@ -42,7 +42,7 @@ This confirms that its structure matches the conceptual Identity function `a -> 
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-The `'a` in the type signature `'a -> 'a` is important. 
+The `'a` in the type signature `'a -> 'a` is important.
 
 It's a **generic type parameter**, acting as a **placeholder** for any type. This means `id` is a function value that works for any type `T`, having the type `T -> T`.
 
@@ -66,7 +66,7 @@ This relates to the general concept of placeholders seen elsewhere:
 
 ---
 
-### Placeholder for Values 
+### Placeholder for Values
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747694536104.png)
 
@@ -80,9 +80,9 @@ Generics, like the `'a` in `id : 'a -> 'a`, make function values highly reusable
 
 ```fsharp
 // val id: x:'a -> 'a (Generic type 'a -> 'a)
-let resultNum = id 3 
+let resultNum = id 3
 // 'a becomes int, result is 3 (int)
-let resultStr = id "hello" 
+let resultStr = id "hello"
 // 'a becomes string, result is "hello" (string)
 ```
 
@@ -108,19 +108,19 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 -   Adds 1:
-    
+
     ```fsharp
-    fun x -> x + 1 
+    fun x -> x + 1
     ```
-    
+
 -   Converts string to uppercase:
-    
+
     ```fsharp
-    fun s -> s.ToUpper() 
+    fun s -> s.ToUpper()
     ```
-    
+
 -   Adds two numbers:
-    
+
     ```fsharp
     fun a b -> a + b
     ```
@@ -150,14 +150,14 @@ F#'s `fun` keyword might feel verbose and inferior for a functional language, bu
 ```fsharp
 let bind =
     fun monadf timelineA ->
-        let timelineB = timelineA._last |> monadf // Create new timeline with monadF
-        let newFn =                    // Create function to propagate future updates
+        let timelineB = timelineA._last |> monadf
+        let newFn =
             fun a ->
                 let timeline = a |> monadf
                 timelineB |> next timeline._last
 
-        timelineA._fns <- timelineA._fns @ [ newFn ] // Register new function
-        timelineB                                    // Return new timeline
+        timelineA._fns <- timelineA._fns @ [ newFn ]
+        timelineB
 ```
 
 The consistent 4-character width (`let` and `fun` ) helps maintain visual alignment for function bodies and arguments, contributing to code readability in F#.
@@ -171,7 +171,6 @@ The consistent 4-character width (`let` and `fun` ) helps maintain visual alignm
 You can assign lambda expressions (function values) to names using let.
 
 ```fsharp
-// Assign the lambda value to 'double'
 let double = fun a -> a * 2 // double has type: int -> int
 let result = double 1       // result is 2 (int)
 ```
@@ -180,7 +179,12 @@ let result = double 1       // result is 2 (int)
 
 A primary use is passing simple logic directly to Higher-Order Functions (HOFs) like List.map, avoiding separate let bindings. (More on HOFs later).
 
-```fsharplet squares = [1; 2; 3; 4] |> List.map (fun x -> x * x)  // Result: [1; 4; 9; 16]```
+```fsharp
+let squares =
+    [1; 2; 3; 4]
+    |> List.map (fun x -> x * x)
+// Result: [1; 4; 9; 16]
+```
 
 3. Lambdas in Pipelines:
 
@@ -188,9 +192,9 @@ Useful for inline transformation steps.
 
 ```fsharp
 " john smith " // Type: string
-|> fun str -> str.ToUpper() // Lambda type: string -> string. Output: string
-|> fun str -> str.Trim()    // Lambda type: string -> string. Output: string
-|> sprintf "Hello, %s!"   // Function type: string -> string. Output: string
+|> fun str -> str.ToUpper() // string -> string. Output: string
+|> fun str -> str.Trim()    // string -> string. Output: string
+|> sprintf "Hello, %s!"     // string -> string. Output: string
 ```
 
 Each lambda expression evaluates to a function value, which is then applied via the pipeline.
@@ -198,7 +202,7 @@ Each lambda expression evaluates to a function value, which is then applied via 
 ## Summary
 
 -   **First-Class Functions:** The core idea that functions are values, just like numbers or strings, with specific **types**. They can be assigned, passed, and returned. This is a key feature of functional **languages**.
-    
+
 -   **Lambda Expressions:** A concise syntax (`fun ->` in F#) for creating anonymous function values inline, directly representing function logic as typed data, consistent with function **type notation**.
-    
+
 -   **Primary Use:** Defining simple functions directly where needed, especially for passing as arguments to Higher-Order Functions or within data transformation pipelines, relying on type compatibility.
