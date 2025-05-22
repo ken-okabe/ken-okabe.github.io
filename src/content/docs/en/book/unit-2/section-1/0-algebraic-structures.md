@@ -21,17 +21,9 @@ Our journey through functional programming has revealed several key insights:
     *   This naturally leads us to work with (Type, Function) pairs.
 
 2.  **Functions and Operators**:
-    *   As explored in Unit 1, Section 4, we discovered that familiar arithmetic operators (`+`, `*`, etc.) are, in fact, **functions**. For example, `(+)` can be seen as a function, often with a generic type like `'a -> 'a -> 'a` for operations on a single type, or more specifically `int -> int -> int` for integer addition.
+    *   As explored in Unit 1, Section 4, we discovered that familiar arithmetic operators (`+`, `*`, etc.) are, in fact, **functions**. For example, `(+)` can be seen as a function. Its type is often generic, like `'a -> 'a -> 'a` for operations on a single type, or more specific, like `int -> int -> int` for integer addition.
     *   This unification helps us treat all transformations consistently.
     *   Both functions and operators (which are functions) represent ways to combine or transform values.
-
-3.  **The Mathematical Connection**:
-    *   In mathematics, a pair consisting of a **Set** and one or more **Operations** defined on that set is known as an **algebraic structure**.
-    *   These algebraic structures are fundamental:
-        *   Sets define what values we can work with.
-        *   Operations (typically functions, often binary) define how we can combine or transform these values.
-
-These parallel structures – (Type, Function) in programming and (Set, Operation) in mathematics – arise naturally. The striking similarities hint at a deeper connection.
 
 ## Binary Operations: Functions in Disguise
 
@@ -69,27 +61,44 @@ This connection between **types** (in programming) and **sets** (in mathematics)
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
-## The Fundamental Pattern: From Pipelines to Algebraic Structures
+## From Pipelines to Algebraic Structures
 
-Our work with pipelines has revealed a fundamental pattern: we always work with pairs of:
-- A **Type** (defining what values we can work with – our Set)
-- **Functions** (defining what operations we can perform on those values – our Operations)
+We've seen that types are like sets, and operations (including operators) are functions. With this understanding, we can now see a fundamental pattern. This pattern connects our programming pipelines to mathematical algebraic structures.
 
-This pattern is precisely what mathematicians study as **algebraic structures**. Mathematically, an algebraic structure is often described as a pair `(A, R)` where:
-- `A` is a set (corresponding to our Type).
-- `R` is a collection of operations (functions) defined on the set `A`.
+In mathematics, a pair consisting of a **Set** and one or more **Operations** defined on that set is known as an **algebraic structure**. These are fundamental:
+*   Sets define the values we can use.
+*   Operations (typically binary functions) define how to combine or transform these values.
+
+This is precisely the pattern mathematicians study. An algebraic structure is often described as a pair: `(Set, Operation)`:
+- The **Set** component is the collection of values we are working with. In programming, this directly corresponds to our **Type**, as discussed.
+- The **Operation** component is one or more functions defined on that Set. This corresponds to our **Functions** that operate on types.
+
+The parallel between programming and mathematics is clear:
+
+-   Our **pipelines** use `(Type, Function)` pairs.
+-   **Algebraic structures** use `(Set, Operation)` pairs.
+
+To make this concrete, let's consider an example using integers and addition:
+
+-   **From our programming pipeline perspective:**
+    *   We have a **Type**: `int` (representing all integers).
+    *   We have a **Function**: `+` (the addition operation).
+    *   This forms the pair `(int, +)`.
+
+-   **From the mathematical algebraic structure perspective:**
+    *   The **Type** `int` corresponds to a **Set**: the set of all integers.
+    *   The **Function** `+` corresponds to an **Operation**: addition, defined on that set.
+    *   This forms the pair (Set of Integers, Addition Operation).
+
+Thus, the `(int, +)` pair we use in programming is a direct instance of an algebraic structure. It's the same fundamental concept: a collection of items and a way to combine or operate on them.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-The parallel between programming and mathematics becomes clear:
-- `(Type, Function)` pairs in our **pipelines**.
-- `(Set, Operation)` pairs in **algebraic structures**.
-
-These are not just similar; they represent equivalent ways of expressing the same fundamental ideas about structured data and transformations. This equivalence helps explain why functional programming, with its emphasis on types and functions, often feels mathematically elegant and robust.
+These are not just similar; they are equivalent ways to express core ideas about structured data and its transformations. This equivalence helps explain why functional programming, with its emphasis on types and functions, often feels mathematically elegant and robust.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
-An **operation** in this context is typically a function, especially a binary operation that takes elements from the set (type) and returns an element also within that set. This property of closure, combined with other rules like associativity (which we'll see next), is what gives these structures their power.
+An **operation** here is typically a function. Often, it's a binary operation. It takes elements from the set (type) and returns an element also within that same set. This property is called "closure"—the operation keeps results within the same set/type. Closure, along with other rules like associativity (which we'll see next), gives these structures their power.
 
 ## Looking Ahead: Mathematical Structures in Programming
 
