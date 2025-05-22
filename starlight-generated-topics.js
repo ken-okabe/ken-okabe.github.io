@@ -673,8 +673,8 @@ export const generatedTopics = [
       {
         "label": "FALLBACK",
         "translations": {
-          "en": "🔷Unit 4🔷 Timeline FRP",
-          "ja": "🔷Unit 4🔷 Timeline FRP"
+          "en": "🔷Unit 4🔷 Parallel Computing/Concurrency",
+          "ja": "🔷Unit 4🔷 Parallel Computing/Concurrency"
         },
         "items": [
           {
@@ -684,6 +684,40 @@ export const generatedTopics = [
               "ja": "🔍 Overview - Unit 4"
             },
             "link": "book/unit-4/section-0/0-about-unit"
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Hard-to-come-by Information",
+              "ja": "Hard-to-come-by Information"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "0-hard-to-come-by"
+                },
+                "link": "book/unit-4/section-1/0-hard-to-come-by"
+              }
+            ]
+          }
+        ],
+        "collapsed": true
+      },
+      {
+        "label": "FALLBACK",
+        "translations": {
+          "en": "🔷Unit 5🔷 Timeline FRP",
+          "ja": "🔷Unit 5🔷 Timeline FRP"
+        },
+        "items": [
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "🔍 Overview - Unit 5",
+              "ja": "🔍 Overview - Unit 5"
+            },
+            "link": "book/unit-5/section-0/0-about-unit"
           },
           {
             "label": "FALLBACK",
@@ -698,7 +732,7 @@ export const generatedTopics = [
                   "en": "Chapter 0: Immutable World",
                   "ja": "Chapter 0: Immutable World"
                 },
-                "link": "book/unit-4/section-1/0-immutable-world"
+                "link": "book/unit-5/section-1/0-immutable-world"
               },
               {
                 "label": "FALLBACK",
@@ -706,7 +740,7 @@ export const generatedTopics = [
                   "en": "Chapter 1: FRP is like Spreadsheet",
                   "ja": "Chapter 1: FRP is like Spreadsheet"
                 },
-                "link": "book/unit-4/section-1/1-frp-spreadsheet"
+                "link": "book/unit-5/section-1/1-frp-spreadsheet"
               },
               {
                 "label": "FALLBACK",
@@ -714,7 +748,7 @@ export const generatedTopics = [
                   "en": "Chapter 2: Understanding Timeline<'a> and FRP Implementation",
                   "ja": "Chapter 2: Understanding Timeline<'a> and FRP Implementation"
                 },
-                "link": "book/unit-4/section-1/2-timeline"
+                "link": "book/unit-5/section-1/2-timeline"
               },
               {
                 "label": "FALLBACK",
@@ -722,7 +756,7 @@ export const generatedTopics = [
                   "en": "Chapter 3: Transforming Timelines and Introducing the Dependency Graph",
                   "ja": "Chapter 3: Transforming Timelines and Introducing the Dependency Graph"
                 },
-                "link": "book/unit-4/section-1/3-map"
+                "link": "book/unit-5/section-1/3-map"
               },
               {
                 "label": "FALLBACK",
@@ -730,7 +764,7 @@ export const generatedTopics = [
                   "en": "Chapter 4: Handling I/O: Extending the Block Universe Model",
                   "ja": "Chapter 4: Handling I/O: Extending the Block Universe Model"
                 },
-                "link": "book/unit-4/section-1/4-timeline-eco"
+                "link": "book/unit-5/section-1/4-timeline-eco"
               },
               {
                 "label": "FALLBACK",
@@ -738,7 +772,7 @@ export const generatedTopics = [
                   "en": "Chapter 5: Robustness Through Algebraic Structure",
                   "ja": "Chapter 5: Robustness Through Algebraic Structure"
                 },
-                "link": "book/unit-4/section-1/5-functor-monad"
+                "link": "book/unit-5/section-1/5-functor-monad"
               },
               {
                 "label": "FALLBACK",
@@ -746,7 +780,7 @@ export const generatedTopics = [
                   "en": "Chapter 6: Dynamic Dependency Management and Automatic Resource Cleanup",
                   "ja": "Chapter 6: Dynamic Dependency Management and Automatic Resource Cleanup"
                 },
-                "link": "book/unit-4/section-1/6-dynamic-dependency"
+                "link": "book/unit-5/section-1/6-dynamic-dependency"
               },
               {
                 "label": "FALLBACK",
@@ -754,7 +788,7 @@ export const generatedTopics = [
                   "en": "Chapter 7: Full Automatic Resource Management via bind with AI Assistance",
                   "ja": "Chapter 7: Full Automatic Resource Management via bind with AI Assistance"
                 },
-                "link": "book/unit-4/section-1/7-full-managment-ai"
+                "link": "book/unit-5/section-1/7-full-managment-ai"
               }
             ]
           }
@@ -764,17 +798,17 @@ export const generatedTopics = [
       {
         "label": "FALLBACK",
         "translations": {
-          "en": "🔷Unit 5🔷 Combining Timelines",
-          "ja": "🔷Unit 5🔷 Combining Timelines"
+          "en": "🔷Unit 6🔷 Combining Timelines",
+          "ja": "🔷Unit 6🔷 Combining Timelines"
         },
         "items": [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "🔍 Overview - Unit 5",
-              "ja": "🔍 Overview - Unit 5"
+              "en": "🔍 Overview - Unit 6",
+              "ja": "🔍 Overview - Unit 6"
             },
-            "link": "book/unit-5/section-0/0-about-unit"
+            "link": "book/unit-6/section-0/0-about-unit"
           },
           {
             "label": "FALLBACK",
@@ -789,7 +823,7 @@ export const generatedTopics = [
                   "en": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)",
                   "ja": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)"
                 },
-                "link": "book/unit-5/section-1/0-null"
+                "link": "book/unit-6/section-1/0-null"
               },
               {
                 "label": "FALLBACK",
@@ -797,7 +831,7 @@ export const generatedTopics = [
                   "en": "Chapter 1: Asynchronous Event Chaining with bind",
                   "ja": "Chapter 1: Asynchronous Event Chaining with bind"
                 },
-                "link": "book/unit-5/section-1/1-bind-chain"
+                "link": "book/unit-6/section-1/1-bind-chain"
               },
               {
                 "label": "FALLBACK",
@@ -805,7 +839,7 @@ export const generatedTopics = [
                   "en": "Chapter 10: Case Study - Aggregating Asynchronous HTTP Request Outcomes",
                   "ja": "Chapter 10: Case Study - Aggregating Asynchronous HTTP Request Outcomes"
                 },
-                "link": "book/unit-5/section-1/10-http-case-study"
+                "link": "book/unit-6/section-1/10-http-case-study"
               },
               {
                 "label": "FALLBACK",
@@ -813,7 +847,7 @@ export const generatedTopics = [
                   "en": "Chapter 2: Towards Monoidal Timelines",
                   "ja": "Chapter 2: Towards Monoidal Timelines"
                 },
-                "link": "book/unit-5/section-1/2-timeline-monoid"
+                "link": "book/unit-6/section-1/2-timeline-monoid"
               },
               {
                 "label": "FALLBACK",
@@ -821,7 +855,7 @@ export const generatedTopics = [
                   "en": "Chapter 3: Naive Monoidal Implementations for Booleans",
                   "ja": "Chapter 3: Naive Monoidal Implementations for Booleans"
                 },
-                "link": "book/unit-5/section-1/3-naive-boolean-monois"
+                "link": "book/unit-6/section-1/3-naive-boolean-monois"
               },
               {
                 "label": "FALLBACK",
@@ -829,7 +863,7 @@ export const generatedTopics = [
                   "en": "Chapter 4: Need for General Combinators and Efficiency",
                   "ja": "Chapter 4: Need for General Combinators and Efficiency"
                 },
-                "link": "book/unit-5/section-1/4-motivaion-general"
+                "link": "book/unit-6/section-1/4-motivaion-general"
               },
               {
                 "label": "FALLBACK",
@@ -837,7 +871,7 @@ export const generatedTopics = [
                   "en": "Chapter 5: General Point-wise Combination: TL.zipWith",
                   "ja": "Chapter 5: General Point-wise Combination: TL.zipWith"
                 },
-                "link": "book/unit-5/section-1/5-zipwith"
+                "link": "book/unit-6/section-1/5-zipwith"
               },
               {
                 "label": "FALLBACK",
@@ -845,7 +879,7 @@ export const generatedTopics = [
                   "en": "Chapter 6: Filtering Timelines – TL.distinctUntilChanged",
                   "ja": "Chapter 6: Filtering Timelines – TL.distinctUntilChanged"
                 },
-                "link": "book/unit-5/section-1/6-distinct"
+                "link": "book/unit-6/section-1/6-distinct"
               },
               {
                 "label": "FALLBACK",
@@ -853,7 +887,7 @@ export const generatedTopics = [
                   "en": "Chapter 7: Boolean Combinators with TL.zipWith",
                   "ja": "Chapter 7: Boolean Combinators with TL.zipWith"
                 },
-                "link": "book/unit-5/section-1/7-refined-boolean-monoids"
+                "link": "book/unit-6/section-1/7-refined-boolean-monoids"
               },
               {
                 "label": "FALLBACK",
@@ -861,7 +895,7 @@ export const generatedTopics = [
                   "en": "Chapter 8: Aggregating Lists of Booleans",
                   "ja": "Chapter 8: Aggregating Lists of Booleans"
                 },
-                "link": "book/unit-5/section-1/8-list-aggregation"
+                "link": "book/unit-6/section-1/8-list-aggregation"
               },
               {
                 "label": "FALLBACK",
@@ -869,7 +903,41 @@ export const generatedTopics = [
                   "en": "Chapter 9: Practical Aggregation of Non-Boolean Timelines – The \"Map to Boolean\" Pattern",
                   "ja": "Chapter 9: Practical Aggregation of Non-Boolean Timelines – The \"Map to Boolean\" Pattern"
                 },
-                "link": "book/unit-5/section-1/9-non-bool-aggregation"
+                "link": "book/unit-6/section-1/9-non-bool-aggregation"
+              }
+            ]
+          }
+        ],
+        "collapsed": true
+      },
+      {
+        "label": "FALLBACK",
+        "translations": {
+          "en": "🔷Unit 7🔷 UI with Timeline JS",
+          "ja": "🔷Unit 7🔷 UI with Timeline JS"
+        },
+        "items": [
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "🔍 Overview - Unit 7",
+              "ja": "🔍 Overview - Unit 7"
+            },
+            "link": "book/unit-7/section-0/0-about-unit"
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "UI",
+              "ja": "UI"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "0-ui"
+                },
+                "link": "book/unit-7/section-1/0-ui"
               }
             ]
           }

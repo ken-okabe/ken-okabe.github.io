@@ -1,14 +1,10 @@
 ---
 title: "\U0001F50D Overview - Unit 5"
 description: >-
-  In Unit 4, we established Timeline<'a> as our core abstraction for managing
-  time-varying values. Through foundational operations like TL.map and TL.bind,
-  we explored how Timeline enables powerful transformations, integrates I/O
-  operations, and facilitates automatic resource management, all grounded in the
-  Block Universe model and the internal DependencyCore. This provided a robust
-  way to handle individual reactive data streams and their sequential
-  dependencies.
+  In this chapter, we bring together the core ideas explored so far and focus on
+  one of the most powerful aspects of functional programming: the unified
+  treatment of state, events, and concurrency.
 ---
-In Unit 4, we established `Timeline<'a>` as our core abstraction for managing time-varying values. Through foundational operations like `TL.map` and `TL.bind`, we explored how `Timeline` enables powerful transformations, integrates I/O operations, and facilitates automatic resource management, all grounded in the Block Universe model and the internal `DependencyCore`. This provided a robust way to handle individual reactive data streams and their sequential dependencies.
+In this chapter, we bring together the core ideas explored so far and focus on one of the most powerful aspects of functional programming: the unified treatment of state, events, and concurrency.
 
-The natural next step is to address how we can weave multiple independent `Timeline` instances together to construct more sophisticated and responsive reactive systems. This section of Unit 5, "Building Blocks for Combining Timelines," is dedicated to this challenge. We will explore a range of principled and practical combinators and patterns designed specifically for merging, logically combining, and aggregating information from several timelines. A key focus will be on leveraging algebraic principles, particularly those **of** Monoids, to ensure these combinations are robust, predictable, and maintainable.
+Here, we will see how functional programming—especially through the lens of Functional Reactive Programming (FRP)—offers a cohesive and elegant approach to managing values that change over time, discrete events, and concurrent computations. This unit builds directly on the unifying perspective introduced in Unit 0, showing how streams and pipelines can simplify even the most complex interactive and concurrent applications.
