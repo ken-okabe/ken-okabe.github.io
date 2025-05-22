@@ -688,14 +688,14 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Hard-to-come-by Information",
+              "en": "Background",
               "ja": "Hard-to-come-by Information"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "0-hard-to-come-by"
+                  "en": "Hard-to-come-by Information"
                 },
                 "link": "book/unit-4/section-1/0-hard-to-come-by"
               }
