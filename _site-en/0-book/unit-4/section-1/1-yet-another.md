@@ -10,15 +10,8 @@
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749339908190.png)
 
-
-
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749339955011.png)
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749340006071.png)
 
-
-
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749340031405.png)
-
-
-
