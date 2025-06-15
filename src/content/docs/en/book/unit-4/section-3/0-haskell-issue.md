@@ -251,7 +251,7 @@ In actual discussions, the following **patterned defenses** frequently appear:
 
 Through completely unnatural constraints in category theory (one implementation per typeclass), Haskell arbitrarily selects Cartesian product as "standard" and exiles zip structure to an artificial type called `ZipList`. Then it post-hoc justifies this logical failure as "design refinement," making it appear as if there were mathematical necessity.
 
-**This is a典型的 example of lack of sincere educational integrity, distorting the theoretical understanding of many people seeking to learn functional programming.**
+**This is a typical example of lack of sincere educational integrity, distorting the theoretical understanding of many people seeking to learn functional programming.**
 
 ## Conclusion: Pursuing True Theoretical Integrity and Educational Responsibility
 

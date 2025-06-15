@@ -904,8 +904,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Advanced Features",
-              "ja": "Advanced Features"
+              "en": "Null",
+              "ja": "Null"
             },
             "items": [
               {
@@ -915,86 +915,88 @@ export const generatedTopics = [
                   "ja": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)"
                 },
                 "link": "book/unit-6/section-1/0-null"
-              },
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Binding Chain",
+              "ja": "Binding Chain"
+            },
+            "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Chapter 1: Asynchronous Event Chaining with bind",
                   "ja": "Chapter 1: Asynchronous Event Chaining with bind"
                 },
-                "link": "book/unit-6/section-1/1-bind-chain"
+                "link": "book/unit-6/section-2/0-bind-chain"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Combining Independent Timelines",
+              "ja": "Combining Independent Timelines"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 0: Recap and Strategy for Binary Operations",
+                  "ja": "Chapter 0: Recap and Strategy for Binary Operations"
+                },
+                "link": "book/unit-6/section-3/0-latest-value-combination"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 10: Case Study - Aggregating Asynchronous HTTP Request Outcomes",
-                  "ja": "Chapter 10: Case Study - Aggregating Asynchronous HTTP Request Outcomes"
+                  "en": "Chapter 1: Combining Timelines with combineLatestWith",
+                  "ja": "Chapter 1: Combining Timelines with combineLatestWith"
                 },
-                "link": "book/unit-6/section-1/10-http-case-study"
+                "link": "book/unit-6/section-3/1-combine-timeline"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: Towards Monoidal Timelines",
-                  "ja": "Chapter 2: Towards Monoidal Timelines"
+                  "en": "Chapter 2: Filtering Timelines with distinctUntilChanged",
+                  "ja": "Chapter 2: Filtering Timelines with distinctUntilChanged"
                 },
-                "link": "book/unit-6/section-1/2-timeline-monoid"
+                "link": "book/unit-6/section-3/2-dinstinct-until"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: Naive Monoidal Implementations for Booleans",
-                  "ja": "Chapter 3: Naive Monoidal Implementations for Booleans"
+                  "en": "Chapter 3: Monoidal Combinations: TL.And & TL.Or",
+                  "ja": "Chapter 3: Monoidal Combinations: TL.And & TL.Or"
                 },
-                "link": "book/unit-6/section-1/3-naive-boolean-monois"
+                "link": "book/unit-6/section-3/3-monoidal-combinations"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: Need for General Combinators and Efficiency",
-                  "ja": "Chapter 4: Need for General Combinators and Efficiency"
+                  "en": "Chapter 4: Aggregating Lists of Timelines",
+                  "ja": "Chapter 4: Aggregating Lists of Timelines"
                 },
-                "link": "book/unit-6/section-1/4-motivaion-general"
+                "link": "book/unit-6/section-3/4-list-aggregation"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: General Point-wise Combination: TL.zipWith",
-                  "ja": "Chapter 5: General Point-wise Combination: TL.zipWith"
+                  "en": "Chapter 5: The \"Map to Boolean, then Aggregate\" Pattern",
+                  "ja": "Chapter 5: The \"Map to Boolean, then Aggregate\" Pattern"
                 },
-                "link": "book/unit-6/section-1/5-zipwith"
+                "link": "book/unit-6/section-3/5-map-to-boolean-pattern"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 6: Filtering Timelines – TL.distinctUntilChanged",
-                  "ja": "Chapter 6: Filtering Timelines – TL.distinctUntilChanged"
+                  "en": "Chapter 6: Case Study: Aggregating Asynchronous HTTP Request Outcomes",
+                  "ja": "Chapter 6: Case Study: Aggregating Asynchronous HTTP Request Outcomes"
                 },
-                "link": "book/unit-6/section-1/6-distinct"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Chapter 7: Boolean Combinators with TL.zipWith",
-                  "ja": "Chapter 7: Boolean Combinators with TL.zipWith"
-                },
-                "link": "book/unit-6/section-1/7-refined-boolean-monoids"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Chapter 8: Aggregating Lists of Booleans",
-                  "ja": "Chapter 8: Aggregating Lists of Booleans"
-                },
-                "link": "book/unit-6/section-1/8-list-aggregation"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Chapter 9: Practical Aggregation of Non-Boolean Timelines – The \"Map to Boolean\" Pattern",
-                  "ja": "Chapter 9: Practical Aggregation of Non-Boolean Timelines – The \"Map to Boolean\" Pattern"
-                },
-                "link": "book/unit-6/section-1/9-non-bool-aggregation"
+                "link": "book/unit-6/section-3/6-http-case-study"
               }
             ]
           }
