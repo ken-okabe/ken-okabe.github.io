@@ -928,7 +928,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: Asynchronous Event Chaining with bind",
+                  "en": "Asynchronous Event Chaining with bind",
                   "ja": "Chapter 1: Asynchronous Event Chaining with bind"
                 },
                 "link": "book/unit-6/section-2/0-bind-chain"

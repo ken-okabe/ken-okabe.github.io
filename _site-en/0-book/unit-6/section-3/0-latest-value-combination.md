@@ -8,7 +8,7 @@ What we need now is a general **binary operation** that takes two independent so
 
 ## Re-evaluating the Classifications from Unit 4
 
-To solve this, let's revisit the classifications for Applicative Functors from Unit 4.
+To solve this, let's revisit the classifications for  **Applicative Functors**  from Unit 4.
 
 1.  **Cartesian:** In the context of `List`, this approach generated all possible combinations of elements. If applied to `Timeline`, this would mean combining every past event from `timelineA` with every past event from `timelineB`. This is computationally explosive and does not align with our goal of determining the *current* combined state. Therefore, **the Cartesian approach is unsuitable**.
 
