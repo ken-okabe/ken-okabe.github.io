@@ -84,6 +84,7 @@ type Shelf = List<Book>           // A type whose values are lists of Books
 type Section = List<Shelf>        // A type whose values are lists of Shelves
 type Library = List<Section>      // A type whose values are lists of Sections
 ```
+
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745541695708.png)
 
 *(This illustrates a hierarchical structure: a library contains sections, sections contain shelves, and shelves contain books.)*
@@ -91,6 +92,7 @@ type Library = List<Section>      // A type whose values are lists of Sections
 ## The Relative Nature of Sets and Elements
 
 A crucial insight from set theory is that the distinction between "elements" and "sets" is relative. In our library example:
+
 1.  A `Book` is an element of type `Shelf`.
 2.  A `Shelf` (which is a set/collection of `Book`s) is an element of type `Section`.
 3.  A `Section` is an element of type `Library`.
@@ -98,6 +100,7 @@ A crucial insight from set theory is that the distinction between "elements" and
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
 This relativity is fundamental:
+
 - Values are instances (elements) of their types (sets).
 - Complex types (like `List<Book>`) define sets whose elements are themselves collections or structured data.
 This mirrors how types work in programming.
@@ -128,7 +131,9 @@ This relative nature leads to a hierarchy of type constructions:
     `Option<'T>` is another: given `'T'`, it produces `Option<'T>` (a type representing an optional value of `'T'`).
 
 ## Values as Singleton Sets: Blurring Lines
+
 An interesting perspective is that individual values can be conceptually viewed as types that contain only one element (singleton sets).
+
 ```fsharp
 // Conceptually:
 // The value 1 can be seen as an instance of a type
@@ -138,6 +143,7 @@ let one = 1
 type DiceFace = One | Two | Three | Four | Five | Six
 // Defines the set {One, Two, ..., Six}
 ```
+
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745564856679.png)
 
 *(This diagram illustrates that a value (like 1) can be thought of as a set containing only itself, and a type (like DiceFace) is a set of specific, enumerated values.)*
@@ -145,6 +151,7 @@ type DiceFace = One | Two | Three | Four | Five | Six
 This perspective suggests that the distinction between "a value" and "a type (as a set)" is not always absolute.
 
 ## The Limitations of Simple Type Systems
+
 Current mainstream type systems, like F#'s, are powerful but have limitations in directly expressing sets defined by arbitrary properties of values:
 
 ```fsharp
@@ -158,12 +165,15 @@ Current mainstream type systems, like F#'s, are powerful but have limitations in
 This is because such "subset types" or "refined types" often require types to depend on runtime values, blurring the compile-time/runtime distinction.
 
 ## Dependent Types: The Natural Evolution
+
 Dependent types are a more advanced feature in some type systems (not standard F#) that allow types to be dependent on values.
+
 ```fsharp
 // Hypothetical dependent type syntax (not valid F#)
 // type PositiveInt = (n: int) where n > 0
 // type ByteRange = (n: int) where 0 <= n && n <= 255
 ```
+
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 This evolution follows naturally from set theory:
 
@@ -174,7 +184,9 @@ This evolution follows naturally from set theory:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
 ## Looking Forward: Impact on Programming
+
 Our journey through set theory reveals that types and values are deeply intertwined. This understanding helps us:
+
 - Appreciate why current type systems have certain expressive capabilities and limitations.
 - See how algebraic structures arise naturally from these concepts.
 - Understand the direction of programming language design towards more expressive type systems.

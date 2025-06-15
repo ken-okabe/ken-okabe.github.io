@@ -1,5 +1,5 @@
 ---
-title: 'Bringing It All Together: Functor & Monad'
+title: 'Bringing It All Together: Functor & Monad (Revisit)'
 description: >-
   Our ultimate goal has been to obtain a mapper function that can work between
   container types:
@@ -12,7 +12,7 @@ We first learned one way to achieve this - using Functor's map to lift a regular
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 
-And now we've discovered another path - using Monad's bind to transform a Kleisli arrow into a container mapper:
+And we also discovered another path - using Monad's bind to transform a Kleisli arrow into a container mapper:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745716642404.png)
 

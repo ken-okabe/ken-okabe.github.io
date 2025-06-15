@@ -119,7 +119,6 @@ Both the imperative JavaScript code and the functional F# code achieve the same 
 
 The **imperative style** uses explicit steps and intermediate variables.
 
-
 ![Image of Sequence, Selection, Iteration flowchart symbols](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474477850.png)
 
 ----------

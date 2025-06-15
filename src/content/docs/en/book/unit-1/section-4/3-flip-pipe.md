@@ -11,7 +11,6 @@ This allows for the creation of new, specialized functions by supplying only som
 
 This chapter focuses on a practical HOF, `flip`, and how it helps manage argument order for pipeline-friendly function creation, building upon our understanding of HOF type structures from Section 3.
 
-
 ## Revisiting Argument Order and Partial Application Challenges
 
 We've seen that partial application with functions like `(*)` (type `int -> int -> int`) is straightforward: `(*) 2` neatly gives us a `double` function of type `int -> int`.
@@ -27,10 +26,12 @@ This is where `flip` comes in.
 ## The `flip` Higher-Order Function
 
 `flip` is a **HOF designed to swap the first two arguments** of a given function.
+
 *   **Input:** It takes a function `f` (which is expected to take at least two arguments).
 *   **Output:** It returns a *new function* that, when called, will invoke `f` but with its first two arguments exchanged.
 
 Here's its definition:
+
 ```fsharp
 let flip = fun f x y -> f y x
 // Or using nested lambdas to emphasize its curried nature:
@@ -44,6 +45,7 @@ Let's determine `flip`'s type signature using standard F# generic type parameter
 Assume the input function `f` has a type like `'a -> 'b -> 'c`. (This itself is `'a -> ('b -> 'c)` due to right-associativity).
 
 The `flip` function:
+
 1.  Takes `f` (type `'a -> 'b -> 'c`) as its first argument. So, the first part of `flip`'s type is `('a -> 'b -> 'c)`.
 
 2.  It then returns a new function. This new function will:

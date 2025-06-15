@@ -16,6 +16,7 @@ Let's now explore the underlying mechanism that makes this possible: **Currying*
 
 Consider a function for multiplication. In many languages, you might define it to accept two arguments directly:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/javascript.svg">
+
 ```javascript
 function multiply(x, y) { return x * y; }
 // Expects x and y together
@@ -31,14 +32,17 @@ This "one argument at a time" behavior is achieved through a process called **Cu
 
 The definition `let multiply x y = x * y` is essentially convenient syntax for:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+
 ```fsharp
 let multiply = fun x -> (fun y -> x * y)
 // Type: int -> (int -> int)
 //    or int -> int -> int
 ```
+
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745147539756.png)
 
 This `multiply` function now works as follows:
+
 1.  It takes the first argument `x` (an `int`).
 2.  It returns a *new function* (`fun y -> x * y`). This new function has "remembered" `x` and has the type `int -> int`. This step perfectly aligns with HOF Pattern 1 (`'a -> ('b -> 'c)`), where `'a` is the type of `x`, and `'b -> 'c` is the type of the returned function (`int -> int`).
 3.  This new function then takes the second argument `y` (an `int`).
@@ -49,11 +53,13 @@ This transformation, where a function taking multiple arguments is expressed as 
 ## Partial Application: The Natural Result of Currying
 
 With currying in place, **Partial Application** becomes a natural consequence.
+
 *   **Definition:** Partial application is simply the act of calling a function with fewer arguments than it notionally expects.
 *   **In a Curried System:** Since all functions fundamentally take one argument at a time, applying the first argument(s) to a curried function *is* partial application. The result is the intermediate function that's next in the curried chain. No special syntax is needed.
 
 So, when we wrote `let double = (*) 2` in the previous chapter:
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+
 ```fsharp
 let multiplyOperatorAsFunction = (*)
 // Type: int -> int -> int
@@ -65,6 +71,7 @@ let double = multiplyOperatorAsFunction 2
 let result = 10 |> double
 // result is 20
 ```
+
 `multiplyOperatorAsFunction 2` (or `(*) 2`) is a partial application. The `(*)` function (type `int -> (int -> int)`) receives its first `int` argument (`2`) and returns the intermediate function (type `int -> int`), which we named `double`.
 
 ![Diagram showing Partial Application](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744707418101.png)
@@ -100,6 +107,7 @@ This new function only needs _one_ more argument (the number for the column) and
 // by partially applying (*) with 3
 let multiplyBy3 = (*) 3
 ```
+
 `multiplyBy3` *is* the "3 times table" function; it waits for one more number.
 
 **3. Applying the New Function:**

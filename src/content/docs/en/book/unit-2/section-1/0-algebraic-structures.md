@@ -30,6 +30,7 @@ Our journey through functional programming has revealed several key insights:
 As we've emphasized, common binary operators are functions. For an operation that takes two inputs of the same type and returns a result of that same type, its function signature would generally be `'a -> 'a -> 'a`.
 
 For example:
+
 ```fsharp
 // For integers, 'a' becomes 'int', so the type is: int -> int -> int
 let add = (+)    // The addition operator is a function
@@ -37,7 +38,9 @@ let add = (+)    // The addition operator is a function
 // For integers, 'a' becomes 'int', so the type is: int -> int -> int
 let mult = (*)   // The multiplication operator is a function
 ```
+
 These binary operations are functions that:
+
 1.  Take two inputs of a specific type (e.g., `int`).
 2.  Return a result of that same type (e.g., `int`).
 This property of an operation being "closed" within a type (or set) is key to algebraic structures.
@@ -45,12 +48,15 @@ This property of an operation being "closed" within a type (or set) is key to al
 ## Types and Sets: The Basic Connection
 
 Consider some familiar types in programming:
+
 ```fsharp
 let x: int = 42        // int type
 let b: bool = true     // bool type
 let s: string = "hi"   // string type
 ```
+
 Each of these types can be thought of as a set:
+
 - `int` is the set of all integers.
 - `bool` is the set {true, false}.
 - `string` is the set of all possible text strings.
@@ -66,10 +72,12 @@ This connection between **types** (in programming) and **sets** (in mathematics)
 We've seen that types are like sets, and operations (including operators) are functions. With this understanding, we can now see a fundamental pattern. This pattern connects our programming pipelines to mathematical algebraic structures.
 
 In mathematics, a pair consisting of a **Set** and one or more **Operations** defined on that set is known as an **algebraic structure**. These are fundamental:
+
 *   Sets define the values we can use.
 *   Operations (typically binary functions) define how to combine or transform these values.
 
 This is precisely the pattern mathematicians study. An algebraic structure is often described as a pair: `(Set, Operation)`:
+
 - The **Set** component is the collection of values we are working with. In programming, this directly corresponds to our **Type**, as discussed.
 - The **Operation** component is one or more functions defined on that Set. This corresponds to our **Functions** that operate on types.
 
@@ -103,11 +111,13 @@ An **operation** here is typically a function. Often, it's a binary operation. I
 ## Looking Ahead: Mathematical Structures in Programming
 
 The mathematical patterns we've discovered will help us understand:
+
 1.  Set theory and how it maps to type systems.
 2.  Container types (like lists or options) as implementations of set-theoretical concepts that can also form algebraic structures.
 3.  More advanced concepts like Functors and Monads.
 
 The structures we'll explore in this unit are:
+
 - **Monoids**: Sets with an associative binary operation and an identity element.
 - **Functors**: Structures that allow functions to be applied "inside" a typed context or container, preserving the structure.
 - **Monads**: Structures that provide a way to sequence operations within a computational context, managing complexity like side effects or optionality.

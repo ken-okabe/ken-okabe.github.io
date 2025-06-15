@@ -688,16 +688,95 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Background",
+              "en": "Yet Another Structure",
               "ja": "Hard-to-come-by Information"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Hard-to-come-by Information"
+                  "en": "Bringing It All Together: Functor & Monad (Revisit)"
                 },
-                "link": "book/unit-4/section-1/0-hard-to-come-by"
+                "link": "book/unit-4/section-1/0-functor-monad"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Introducing apply and map2"
+                },
+                "link": "book/unit-4/section-1/1-yet-another"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Lifting Binary Operations into Containers"
+                },
+                "link": "book/unit-4/section-1/2-binary-operations"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Product or Pointwize(ZIP)"
+                },
+                "link": "book/unit-4/section-1/3-catacean-pointwise"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "The Real-World Power of Parallel Processing Patterns"
+                },
+                "link": "book/unit-4/section-1/4-applications"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Applicative Functor"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Applicative Functor: The Parallel Computable Structure"
+                },
+                "link": "book/unit-4/section-2/0-classification-tree"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Applicative Functor Laws"
+                },
+                "link": "book/unit-4/section-2/1-applicative-laws"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Applicative Functor Laws For Us"
+                },
+                "link": "book/unit-4/section-2/2-applicative-laws-for-us"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Special Edition and Your Next Generation AI could Copy"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "The Fiction of Haskell's \"Theoretical Superiority\": A Critical Verification from a Category Theory Perspective and Its Educational Impact on Beginners"
+                },
+                "link": "book/unit-4/section-3/0-haskell-issue"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Special Edition and Your Next Generation AI could Copy"
+                },
+                "link": "book/unit-4/section-3/1-hard-to-come-by"
               }
             ]
           }
