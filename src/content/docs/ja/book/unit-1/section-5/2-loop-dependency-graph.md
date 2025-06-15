@@ -16,11 +16,9 @@ On the other hand, in the chapter "Recursion: The Foundation of Functional Itera
 
 ![tree-img](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745131521085.png)
 
-
 A question might arise here: How does the concept of a one-way pipeline relate to structures that refer to themselves and loop? In particular, "loops" created by self-reference or recursive definitions don't seem to fit directly into a simple linear pipeline model.
 
 The key to answering this question lies in the **Dependency Graph**.
-
 
 ----------
 

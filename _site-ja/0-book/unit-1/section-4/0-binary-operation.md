@@ -9,7 +9,9 @@ A **binary operation** is a fundamental concept in mathematics and programming. 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744580262004.png)
 
 -   Arithmetic operations are **binary operations** (they take two inputs).
+
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744527199206.png)
+
 -   Symbols like `+` and `*` are **binary operators**.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744527228018.png)

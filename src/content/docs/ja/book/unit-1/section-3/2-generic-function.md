@@ -21,6 +21,7 @@ A more general and widely applicable generic function type is written as **`'a -
 The crucial insight here, and a concept of significant importance for your understanding moving forward, is that **`'a` and `'b` can be different types**. This allows us to define functions that perform transformations from one type of data to another, while still maintaining a generic, reusable structure.
 
 For example, consider a conceptual function:
+
 *   If it takes a `string` (where `string` would be the concrete type for `'a`) and returns an `int` (perhaps its length, where `int` would be the concrete type for `'b`), the type could be specialized from `'a -> 'b` to `string -> int`.
 
 The generic type `'a -> 'b` captures the essence of a function that maps values of *some* type `'a` to values of *some other (or potentially the same)* type `'b`.
@@ -34,7 +35,6 @@ This "placeholder" concept for types is analogous to how placeholders are used i
 *(The following diagram, previously used to illustrate placeholders, also helps visualize the general `'a -> 'b` mapping where a set of possible input types `'a` can be mapped to a set of possible output types `'b`.)*
 
 ![Conceptual diagram of 'a -> 'b mapping with various types](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747692002560.png)
-
 
 ## Why `'a -> 'b` is Fundamental
 

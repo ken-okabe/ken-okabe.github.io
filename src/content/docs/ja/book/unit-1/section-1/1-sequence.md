@@ -111,9 +111,27 @@ $$
 
 Both the imperative JavaScript code and the functional F# code achieve the same sequential result for this calculation.
 
--   The **imperative style** uses explicit steps and intermediate variables.
+---
 
--   The **functional pipeline style** emphasizes composing functions/operations to create a flow of data transformations, calculating the final result often as a single expression before potentially using it (like printing).
+### Imperative Programming
+
+**Instructions on Flaws, Step by Step**
+
+The **imperative style** uses explicit steps and intermediate variables.
+
+![Image of Sequence, Selection, Iteration flowchart symbols](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474477850.png)
+
+----------
+
+### Functional Programming
+
+**Declaration of the Structures**
+
+The structures are all about **pipelines composed by functions**.
+
+The **functional pipeline style** emphasizes composing functions/operations to create a flow of data transformations.
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744496636340.png)
 
 Understanding this pipeline concept is fundamental to grasping the functional approach to programming.
 

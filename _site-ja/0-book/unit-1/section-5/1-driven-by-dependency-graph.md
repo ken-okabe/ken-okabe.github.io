@@ -69,7 +69,6 @@ Dependency graphs are all about representing these kinds of directional relation
 
     Here, the result of the `+` node (representing the parenthesized sub-expression `a+b`) becomes an input for the `*` node, ensuring `(a+b)` is evaluated first.
 
-
 **In Summary:**
 
 Parentheses and operator precedence are essentially the rules for constructing the dependency graph for an expression:

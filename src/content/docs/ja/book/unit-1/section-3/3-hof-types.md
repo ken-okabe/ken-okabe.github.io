@@ -23,48 +23,50 @@ This diagram perfectly illustrates the `'a -> 'b` structure: an "Input" (type `'
 Let's break down the three HOF patterns and their corresponding generic type signatures.
 
 ### Pattern 1: HOF Returns a Function
-   **`Value |> HOF = Function`**
 
-   ![HOF Pattern 1: Value -> HOF -> Function](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695953633.png)
+**`Value |> HOF = Function`**
 
-   This pattern describes a HOF that:
+![HOF Pattern 1: Value -> HOF -> Function](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695953633.png)
 
-   1.  Takes a regular "Value" as input. Let's say this input value has type `'a`.
+This pattern describes a HOF that:
+
+1.  Takes a regular "Value" as input. Let's say this input value has type `'a`.
 
    2.  Returns a new "Function" as its output. Let's say this new, returned function has the type `'b -> 'c` (it takes a `'b` and returns a `'c`).
 
-   Therefore, the HOF itself, which performs this transformation from an `'a` to a function of type `'b -> 'c`, has **`'a -> ('b -> 'c)`**
+Therefore, the HOF itself, which performs this transformation from an `'a` to a function of type `'b -> 'c`, has **`'a -> ('b -> 'c)`**
 
-   In many functional programming languages, the `->` operator in type signatures is right-associative.
+In many functional programming languages, the `->` operator in type signatures is right-associative.
 
-   This means that
+This means that
 
-   `'a -> ('b -> 'c)`
+`'a -> ('b -> 'c)`
 
-   is often written more concisely as:
+is often written more concisely as:
 
-   **`'a -> 'b -> 'c`**
+**`'a -> 'b -> 'c`**
 
-   This notation signifies a function that takes an `'a` and returns a function of type `'b -> 'c`. The mechanics of how functions can accept arguments sequentially, leading to such type structures (often related to a concept called currying), will be explored in detail in Section 4.
+This notation signifies a function that takes an `'a` and returns a function of type `'b -> 'c`. The mechanics of how functions can accept arguments sequentially, leading to such type structures (often related to a concept called currying), will be explored in detail in Section 4.
 
 ### Pattern 2: HOF Takes a Function (and Returns a Value)
-   **`Function |> HOF = Value`**
 
-   ![HOF Pattern 2: Function -> HOF -> Value](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695880762.png)
+**`Function |> HOF = Value`**
 
-   This pattern describes a HOF that:
+![HOF Pattern 2: Function -> HOF -> Value](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695880762.png)
 
-   1.  Takes a "Function" as one of its inputs. Let's say this input function has the type `'a -> 'b`.
+This pattern describes a HOF that:
+
+1.  Takes a "Function" as one of its inputs. Let's say this input function has the type `'a -> 'b`.
 
    2.  May take other regular "Values" as input.
 
    3.  Returns a regular "Value" as its final output (not another function). Let this output value have type `'c`.
 
-   The most general type signature for this pattern, where a HOF takes an input function and potentially other arguments to produce a final value, can be broadly represented as:
+The most general type signature for this pattern, where a HOF takes an input function and potentially other arguments to produce a final value, can be broadly represented as:
 
-   **`('a -> 'b) -> 'c`**
+**`('a -> 'b) -> 'c`**
 
-   Here, `'c` represents the final output value type.
+Here, `'c` represents the final output value type.
 
 ### Clarifying Type Signatures: Pattern 1 vs. Pattern 2 and the Role of Parentheses
 
@@ -72,6 +74,7 @@ Let's precisely compare the type structures of Pattern 1 and Pattern 2, paying c
 
 **1. Pattern 1: `'a -> ('b -> 'c)` (Often written as `'a -> 'b -> 'c`)**
 a
+
 *   **Core Structure:** This type signature, fundamentally `'a -> ('b -> 'c)`, describes a function that:
     1.  Accepts a single argument of type `'a'`.
     2.  Upon receiving this argument, it *returns a new function*. This returned function has the type `'b -> 'c'`, meaning it is ready to accept an argument of type `'b'` to then produce a value of type `'c'`.
@@ -90,35 +93,37 @@ a
 These two types (`'a -> 'b -> 'c` and `('a -> 'b) -> 'c`) describe functions that expect fundamentally different kinds of inputs at their first step and thus behave very differently. **The type system enforces this distinction rigorously.**
 
 ### Pattern 3: HOF Takes a Function and Returns a Function
-   **`Function |> HOF = Function`**
 
-   ![HOF Pattern 3: Function -> HOF -> Function](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695992437.png)
+**`Function |> HOF = Function`**
 
-   This pattern describes a HOF that:
+![HOF Pattern 3: Function -> HOF -> Function](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695992437.png)
 
-   1.  Takes a "Function" as input. Let's say this input function has the type `'a -> 'b`.
+This pattern describes a HOF that:
+
+1.  Takes a "Function" as input. Let's say this input function has the type `'a -> 'b`.
 
    2.  Returns a new "Function" as its output. Let's say this new, returned function has the type `'c -> 'd`.
 
-   Therefore, the HOF itself has a generic type signature like:
+Therefore, the HOF itself has a generic type signature like:
 
-   **`('a -> 'b) -> ('c -> 'd)`**
+**`('a -> 'b) -> ('c -> 'd)`**
 
-   Regarding the parentheses:
+Regarding the parentheses:
 
-   *   Similar to Pattern 1, the output part of this HOF (which is the function `'c -> 'd`) means this HOF's type can also be seen as `('a -> 'b) -> 'c -> 'd` due to the right-associativity of the `->` operator. This signifies that after taking the initial function `('a -> 'b)`, the HOF returns a new function of type `'c -> 'd`.
+*   Similar to Pattern 1, the output part of this HOF (which is the function `'c -> 'd`) means this HOF's type can also be seen as `('a -> 'b) -> 'c -> 'd` due to the right-associativity of the `->` operator. This signifies that after taking the initial function `('a -> 'b)`, the HOF returns a new function of type `'c -> 'd`.
 
    *   However, just like in Pattern 2, the parentheses around the *input function type* `('a -> 'b)` are structurally essential. They indicate that the HOF's first argument is itself a function of type `'a -> 'b`. These parentheses cannot be omitted or re-associated without changing the meaning (i.e., it's not `'a -> 'b -> 'c -> 'd'`, which would imply a different sequence of non-function arguments initially).
 
-   So, the type `('a -> 'b) -> 'c -> 'd` correctly represents this HOF that:
+So, the type `('a -> 'b) -> 'c -> 'd` correctly represents this HOF that:
 
-   - takes a function `('a -> 'b)`
+- takes a function `('a -> 'b)`
 
    - returns a new function `'c -> 'd`.
 
 ## Conclusion: HOF Types as Natural Extensions
 
 As we've seen, the type signatures of these fundamental HOF patterns are not arbitrary. They are logical and natural constructions built upon the basic `'a -> 'b` functional type.
+
 *   When a HOF returns a function, the return part of its type signature becomes a function type itself (e.g., `... -> ('x -> 'y)`).
 *   When a HOF takes a function as input, one of its parameters in the type signature is a function type (e.g., `('x -> 'y) -> ...`).
 

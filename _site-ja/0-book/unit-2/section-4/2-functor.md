@@ -54,7 +54,6 @@ Takes and Returns a Function as input and also returns a function as output.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745696911713.png)
 
-
 ## Mapper function of Container Type
 
 Type expression `'a -> 'b` using generic type parameters represents any possible function - it's the most general form of function type that maps from any type `'a` to any type `'b`.
@@ -85,6 +84,7 @@ With List as a container type, we can express `List<'a> -> List<'b>`.
 To apply a regular function (like `f: 'a -> 'b`) to values "inside" a container type (e.g., to each element of a `List<'a>` to produce a `List<'b>`), we need a special higher-order function. This function is commonly called **`map`** (or sometimes `fmap`).
 
 The `map` function itself is a HOF. Its role is to take two arguments:
+
 1.  A function `f` of type `'a -> 'b`.
 2.  A container `F<'a>` (e.g., a `List<'a>`, `Option<'a>`).
 
@@ -104,8 +104,6 @@ To obtain this mapper function g (that operates on the container, e.g., `List<'a
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 
 *(Here, `map` is the HOF that takes `f` and produces `g`)*
-
-
 
 As we confirmed in the first half of this chapter, this is precisely what a Functor is - a mapping between sets of functions that preserves their relationships. In other words, this `map` function that transforms our familiar function f into a container mapper function g is itself a Functor.
 

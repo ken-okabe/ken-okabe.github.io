@@ -31,5 +31,4 @@ Functional code has a different flavor compared to imperative code. Rather than 
 
     The physical order in which code is written doesn't necessarily dictate the direct order of execution. Instead, if the result of computation A is needed for computation B, then computation A naturally needs to happen before computation B. The order of computation is naturally determined by these dependencies.
 
-
 If we represent this relationship of "what depends on what" as a diagram, it takes the form of a **"Dependency Graph,"** which we will look at in detail in the next chapter.

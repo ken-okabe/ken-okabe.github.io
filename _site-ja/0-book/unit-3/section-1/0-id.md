@@ -6,16 +6,16 @@ We stand at a significant juncture in our exploration of functional programming.
 
 This chapter is a culmination, revealing that the intuitive act of pipelining functions is not just a convenience but is deeply intertwined with the very essence of Functors and Monads in their most fundamental forms.
 
-We will now formally introduce and explore these: 
+We will now formally introduce and explore these:
 
-- **Identity Functor** 
+- **Identity Functor**
 - **Identity Monad**
 
  Prepare for a moment of surprise and deep insight as we connect the dots!
 
 ## Recalling `flip` and Pipelining
 
-In Unit 1, Section 4, we encountered the `flip` function, a higher-order function (HOF) that swaps the first two arguments of another function. 
+In Unit 1, Section 4, we encountered the `flip` function, a higher-order function (HOF) that swaps the first two arguments of another function.
 
 `let flip = fun f x y -> f y x`
 
@@ -64,6 +64,7 @@ Now, let's consider the behavior of this `flippedPipeOp`.
 > This HOF takes a function `f: 'a -> 'b` and returns `f` itself.
 >
 > In other words, `flippedPipeOp` is equivalent to `fun f -> f`.
+
 > **It's the identity HOF for functions of type `'a -> 'b`.**
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747796419002.png)
@@ -76,7 +77,7 @@ This is a crucial observation that will connect directly to our first specific F
 
 Let's define the simplest possible Functor: the **Identity Functor**.
 
-In this Functor, the "container" doesn't actually change or add anything to the type it holds. 
+In this Functor, the "container" doesn't actually change or add anything to the type it holds.
 
 We can define it as:
 `Id<'a> = 'a`
@@ -99,7 +100,7 @@ Let's examine its core aspects and operations, mirroring how we will look at the
 **This is a key realization: `flip (|>)` IS the `map` operation of the Identity Functor!**
 The act of flipping the pipeline operator reveals the very essence of how `map` behaves in this fundamental context – it's an identity transformation on the function itself.
 
-## Introducing the Identity Monad and its `bind` Operation 
+## Introducing the Identity Monad and its `bind` Operation
 
 Similar to the Identity Functor, we can define the **Identity Monad**.
 Again, the monadic type `Id<'a>` is simply an alias for `'a`:
@@ -146,7 +147,7 @@ Therefore, these are fundamentally identical:
 
 - Pipeline Operation
 - Identity Functor
-- Identity Monad 
+- Identity Monad
 
 ---
 
@@ -156,18 +157,20 @@ Therefore, these are fundamentally identical:
 
 ### The Identiy Functor/Monad on the Identity Container:
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747798672581.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747903282255.png)
 
 ### The Pipeline as the Identity Function for Function:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747798720410.png)
 
-### The integration 
+### The integration
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747799187129.png)
 
+All of the above are identical.
+
 ## Conclusion
 
-Functors and Monads are not distant, arcane concepts. Their most basic forms, the Identity Functor and Identity Monad, are already present in the very fabric of simple function application and the pipeline that we use constantly. 
+Functors and Monads are not distant, arcane concepts. Their most basic forms, the Identity Functor and Identity Monad, are already present in the very fabric of simple function application and the pipeline that we use constantly.
 
 This provides a solid conceptual bridge: these advanced abstractions generalize core, familiar ideas to work across more complex scenarios. This is one of the great "Aha!" moments in understanding the mathematical underpinnings of functional programming.

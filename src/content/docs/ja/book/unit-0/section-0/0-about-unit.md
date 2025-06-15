@@ -7,7 +7,7 @@ description: >-
 ---
 Welcome to Experience Quality Coding! This book explores functional programming (FP) by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
 
-## Special edition and your next generation AI could copy
+## Special Edition and Your Next Generation AI could Copy
 
 **Ken:**
 If I ask you to write functional code, is it more likely that you will write higher quality code that is more robust and maintainable than imperative or OOP code?

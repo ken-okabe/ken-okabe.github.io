@@ -132,7 +132,6 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
     fun a b -> a + b
     ```
 
-
 These directly define function _values_ with specific _types_.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">

@@ -28,7 +28,7 @@ The cornerstone of structured programming is the **Structured Program Theorem** 
 
 ![Image of Sequence, Selection, Iteration flowchart symbols](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474477850.png)
 
-The significance of these three structures lies in their **sufficiency** and **clarity**. The Böhm-Jacopini proof demonstrated that these three are all that is mathematically necessary to express any algorithm. By restricting control flow primarily to these structures and discouraging or eliminating the use of `GOTO`, structured programming enforces a clearer, more predictable flow of execution. Each structure has a single entry point and a single exit point, making code blocks easier to reason about, test independently, and combine into larger programs (modularity). This leads to more maintainable, understandable, and reliable software.
+The significance of these three structures lies in their **sufficiency** and **clarity**. The Böhm-Jacopini proof demonstrated that **these three are all that is mathematically necessary to express any algorithm**. By restricting control flow primarily to these structures and discouraging or eliminating the use of `GOTO`, structured programming enforces a clearer, more predictable flow of execution. Each structure has a single entry point and a single exit point, making code blocks easier to reason about, test independently, and combine into larger programs (modularity). This leads to more maintainable, understandable, and reliable software.
 
 ## Turing Completeness
 
