@@ -2,7 +2,7 @@
 
 The idea of a **'pipeline processing data with functions'** is certainly a powerful programming principle, especially central to functional programming and data processing.
 
-However, limiting the core "principle" of programming to just this concept can be challenging. Programming actually encompasses a diverse collection of concepts, methodologies, and approaches (paradigms). 
+However, limiting the core "principle" of programming to just this concept can be challenging. Programming actually encompasses a diverse collection of concepts, methodologies, and approaches (paradigms).
 
 In practice, it's common to combine these different principles depending on the specific problem you aim to solve and your objectives.
 

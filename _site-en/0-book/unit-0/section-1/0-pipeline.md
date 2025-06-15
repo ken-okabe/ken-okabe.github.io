@@ -1,6 +1,6 @@
 # Core Concept: The Data Transformation Pipeline
 
-Coding, at its core, is the art of **transforming data** to achieve a desired outcome.
+Coding, at its core, is the art of **transforming data** to achieve a desired output.
 
 ![Pipeline image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
