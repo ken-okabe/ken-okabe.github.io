@@ -1,4 +1,4 @@
-# Chapter 2: Monoidal Combinations: `TL.And` & `TL.Or`
+# Monoidal Combinations: `TL.And` & `TL.Or`
 
 With `combineLatestWith` as our foundational tool for binary combination, we can now construct higher-level, specific combinators for common tasks. The most frequent need is for logical combination: checking if two boolean timelines are both `true` (AND) or if at least one is `true` (OR).
 

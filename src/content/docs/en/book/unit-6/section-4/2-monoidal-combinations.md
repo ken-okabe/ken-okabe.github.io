@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 2: Monoidal Combinations: TL.And & TL.Or'
+title: 'Monoidal Combinations: TL.And & TL.Or'
 description: >-
   With combineLatestWith as our foundational tool for binary combination, we can
   now construct higher-level, specific combinators for common tasks. The most

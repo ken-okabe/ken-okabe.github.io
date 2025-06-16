@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)'
+title: 'Handling Absence: A Foundational Choice (null vs. Option)'
 description: >-
   Programming is fundamentally about modeling aspects of the world or abstract
   systems. In virtually any system we model, we encounter situations where a
@@ -7,7 +7,7 @@ description: >-
   might not yield a result. The need to represent this concept of absence is a
   ubiquitous and crucial requirement for building correct and robust software.
 ---
-## 0.1 Introduction: The Fundamental Concept of Absence
+## Introduction: The Fundamental Concept of Absence
 
 Programming is fundamentally about modeling aspects of the world or abstract systems. In virtually any system we model, we encounter situations where a value might be missing, a state might be considered "empty," or an operation might not yield a result. The need to represent this concept of **absence** is a ubiquitous and crucial requirement for building correct and robust software.
 
@@ -18,7 +18,7 @@ Consider these concrete, everyday examples:
 
 These examples illustrate that "absence," "emptiness," or "nullity" is not merely an exceptional circumstance or an error. It is often a **real, necessary, and legitimate state** within the domain we are modeling. Therefore, how our programming languages and type systems allow us to represent and interact with this state is of foundational importance.
 
-## 0.2 The Mathematical Foundation: `Null` as the Empty Set
+## The Mathematical Foundation: `Null` as the Empty Set
 
 This concept of absence or emptiness is not just a practical quirk of software; it has deep roots in mathematics. The notion often represented by `null` in programming finds a direct and powerful correspondence in fundamental mathematical structures, specifically within **Set Theory**, which forms the basis of how we often conceptualize types in programming.
 
@@ -26,7 +26,7 @@ This concept of absence or emptiness is not just a practical quirk of software; 
 
 This connection is profound. It suggests that `Null`, far from being merely a problematic value invented for programming convenience, actually corresponds to a **well-defined, indispensable concept in mathematics** that represents emptiness or non-existence. A type system aiming for mathematical soundness and expressiveness, particularly one grounded in set theory, should, in principle, be able to accommodate this fundamental notion in a natural and consistent way. Our perspective in this book is that types _are_ sets, and we operate within the **Category of Sets (Set)**, where objects are sets and morphisms are functions.
 
-## 0.3 The Historical Complication: `NullPointerException` and the "Billion-Dollar Mistake" Narrative
+## The Historical Complication: `NullPointerException` and the "Billion-Dollar Mistake" Narrative
 
 Despite its potentially sound conceptual and mathematical basis, the `null` reference, particularly as implemented in many early object-oriented and imperative languages, gained notoriety for causing frequent and often hard-to-debug runtime errors – the dreaded `NullPointerException` (in Java), `NullReferenceException` (in C#), segmentation faults (in C/C++), etc. These errors typically occurred when the program attempted to access a member (field or method) of a reference variable that held `null` instead of pointing to a valid object.
 
@@ -40,7 +40,7 @@ However, a critical re-evaluation is necessary. Was the fundamental **concept** 
 
 This chapter argues strongly for the latter. The "billion-dollar mistake" was perhaps not the existence of `Null`, but the failure of early language designs to provide the **necessary safeguards and tools** to work with it safely. This narrative, we argue, became a potentially misleading "myth" that obscured the real problem and discouraged the search for sound ways to integrate the concept of emptiness.
 
-## 0.4 The Hindley-Milner Response: `Option` Types and Their Consequences
+## The Hindley-Milner Response: `Option` Types and Their Consequences
 
 In the face of the dangers posed by unchecked `null` references, the functional programming community, particularly languages rooted in the **Hindley-Milner (HM) type system** (such as ML, Haskell, and influencing early F#), championed a different solution: **eliminating pervasive `null` references** from the language core and representing optionality explicitly within the type system using **`Option` types** (often called `Maybe` in Haskell).
 
@@ -87,7 +87,7 @@ The historical trajectory of Hindley-Milner (HM) based languages strongly favori
 
 -   **Implication:** The constraints inherent in the standard HM framework strongly favored the `Option` approach. This may have inadvertently reinforced the "Null is evil" narrative and discouraged exploration of alternative sound approaches that retain a `Null`-like concept, despite the theoretical possibility for such systems (albeit complex ones) to exist.
 
-## 0.5 `Null` Safety Reconsidered: TypeScript's Practical Success and Future Horizons
+## `Null` Safety Reconsidered: TypeScript's Practical Success and Future Horizons
 
 While Hindley-Milner (HM) based languages predominantly adopted `Option` types to ensure safety around absent values, a different path has been successfully demonstrated by languages like TypeScript. This prompts us to reconsider the narrative that `Null` itself is an unmanageable "billion-dollar mistake."
 
@@ -129,7 +129,7 @@ This vision moves beyond the limitations of past systems. The "impossibility" fo
 
 While these are forward-looking ideas, they suggest that the story of handling absence in type systems is far from over. The choice is not simply between unsafe `null` and `Option` types. New paradigms, especially those augmented by AI, may offer more direct, simpler, and yet still rigorously safe ways to model the fundamental concept of absence. TypeScript's approach, while not as formally stringent as a full theorem proving system, provides a valuable glimpse into the practical benefits of such directness.
 
-## 0.6 The `Timeline` Library's Philosophy: Theoretical Validity and Practical Simplicity
+## The `Timeline` Library's Philosophy: Theoretical Validity and Practical Simplicity
 
 Based on the foregoing analysis – the fundamental nature of `Null` (Empty Set), the historical context and potential drawbacks of the `Option` approach, the theoretical _possibility_ of sound systems handling `Null | T` directly (as explored in Section 0.5), and the practical success demonstrated by systems like TypeScript – this `Timeline` library adopts a specific, deliberate philosophy for handling absence:
 
@@ -167,7 +167,7 @@ This disciplined pattern serves as the necessary "safe operator" or "guard rail"
 
 **Positioning:** We view this approach as a **theoretically valid** path. It prioritizes conceptual clarity (alignment with Empty Set) and representational simplicity, achieving safety through a defined usage discipline, much like how safe operators provide safety in other language contexts. It consciously diverges from the mainstream HM/`Option` tradition, choosing a path considered more direct and fundamental, and one that resonates with the theoretical possibility of alternative sound type systems.
 
-## 0.7 Conclusion: Setting the Stage for Unit 6
+## Conclusion: Setting the Stage for Unit 6
 
 This chapter has established the foundational philosophy for handling the absence of values within the `Timeline` library and this book. We recognize `Null` (representing the Empty Set) as a fundamental and mathematically sound concept. We argue that historical issues with `null` stemmed from inadequate language-level handling mechanisms, not the concept itself. While acknowledging the safety guarantees `Option` types brought to classic HM systems, we critique their potential complexity and the philosophical underpinnings of `Null` elimination, informed by an understanding of HM's specific constraints and the theoretical possibility of alternatives.
 

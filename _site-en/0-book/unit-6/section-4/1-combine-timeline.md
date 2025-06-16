@@ -1,4 +1,4 @@
-# Chapter 1: Combining Timelines with `combineLatestWith`
+# Combining Timelines with `combineLatestWith`
 
 As established in the previous chapter, our goal is to implement the "Latest Value Combination" concept. The primary tool for this purpose is the `combineLatestWith` combinator. It is the `Timeline` library's implementation of an Applicative operation, specifically designed for combining asynchronous, independent sources.
 

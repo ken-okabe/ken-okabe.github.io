@@ -1,4 +1,4 @@
-# Chapter 0: Recap and Strategy for Binary Operations
+# Recap and Strategy for Binary Operations
 
 In the previous units and sections, we have built a powerful set of tools. We can transform single timelines with `map`, create sequential, dependent chains with `bind`, and manage stateful transformations over time with `scan`.
 

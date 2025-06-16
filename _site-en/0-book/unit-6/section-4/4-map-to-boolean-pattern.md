@@ -1,4 +1,4 @@
-# Chapter 4: The "Map to Boolean, then Aggregate" Pattern
+# The "Map to Boolean, then Aggregate" Pattern
 
 In the previous chapter, we developed `TL.all` and `TL.any` for aggregating conditions from a `list<Timeline<bool>>`. But what if our source data is not inherently boolean?
 

@@ -1,4 +1,4 @@
-# Chapter 3: Aggregating Lists of Timelines
+# Aggregating Lists of Timelines
 
 In the previous chapter, we established `TL.And` and `TL.Or` as robust, Monoid-based combinators for merging the state of *two* `Timeline<bool>` instances. However, many real-world scenarios involve checking conditions across an entire collection of timelines.
 

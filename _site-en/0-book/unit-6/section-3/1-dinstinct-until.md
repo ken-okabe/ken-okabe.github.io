@@ -1,4 +1,4 @@
-# Chapter 1: Filtering Timelines with `distinctUntilChanged`
+# Filtering Timelines with `distinctUntilChanged`
 
 In the previous chapter, we introduced `scan` as a powerful combinator for stateful transformations. We will now build another essential stateful operator, `distinctUntilChanged`, by applying the very same underlying design pattern.
 

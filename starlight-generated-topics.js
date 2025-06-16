@@ -911,7 +911,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)",
+                  "en": "Handling Absence: A Foundational Choice (null vs. Option)",
                   "ja": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)"
                 },
                 "link": "book/unit-6/section-1/0-null"
@@ -938,13 +938,13 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "section-3"
+              "en": "Stateful Unary Operations"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 0: Stateful Transformation with scan",
+                  "en": "Stateful Transformation with scan",
                   "ja": "Chapter 0: Stateful Transformation with scan"
                 },
                 "link": "book/unit-6/section-3/0-scan"
@@ -952,7 +952,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: Filtering Timelines with distinctUntilChanged",
+                  "en": "Filtering Timelines with distinctUntilChanged",
                   "ja": "Chapter 1: Filtering Timelines with distinctUntilChanged"
                 },
                 "link": "book/unit-6/section-3/1-dinstinct-until"
@@ -969,7 +969,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 0: Recap and Strategy for Binary Operations",
+                  "en": "Recap and Strategy for Binary Operations",
                   "ja": "Chapter 0: Recap and Strategy for Binary Operations"
                 },
                 "link": "book/unit-6/section-4/0-latest-value-combination"
@@ -977,7 +977,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: Combining Timelines with combineLatestWith",
+                  "en": "Combining Timelines with combineLatestWith",
                   "ja": "Chapter 1: Combining Timelines with combineLatestWith"
                 },
                 "link": "book/unit-6/section-4/1-combine-timeline"
@@ -985,7 +985,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: Monoidal Combinations: TL.And & TL.Or",
+                  "en": "Monoidal Combinations: TL.And & TL.Or",
                   "ja": "Chapter 2: Monoidal Combinations: TL.And & TL.Or"
                 },
                 "link": "book/unit-6/section-4/2-monoidal-combinations"
@@ -993,7 +993,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: Aggregating Lists of Timelines",
+                  "en": "Aggregating Lists of Timelines",
                   "ja": "Chapter 3: Aggregating Lists of Timelines"
                 },
                 "link": "book/unit-6/section-4/3-list-aggregation"
@@ -1001,7 +1001,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: The \"Map to Boolean, then Aggregate\" Pattern",
+                  "en": "The \"Map to Boolean, then Aggregate\" Pattern",
                   "ja": "Chapter 4: The \"Map to Boolean, then Aggregate\" Pattern"
                 },
                 "link": "book/unit-6/section-4/4-map-to-boolean-pattern"
@@ -1009,7 +1009,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes",
+                  "en": "Case Study: Aggregating Asynchronous HTTP Request Outcomes",
                   "ja": "Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes"
                 },
                 "link": "book/unit-6/section-4/5-http-case-study"

@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes'
+title: 'Case Study: Aggregating Asynchronous HTTP Request Outcomes'
 description: >-
   This chapter provides a comprehensive, practical case study that applies the
   "Map to Boolean, then Aggregate" pattern to a common real-world scenario:
