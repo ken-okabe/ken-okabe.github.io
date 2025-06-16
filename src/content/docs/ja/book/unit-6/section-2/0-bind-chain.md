@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Asynchronous Event Chaining with bind'
+title: Asynchronous Event Chaining with bind
 description: >-
   Before diving into specialized functions for combining multiple timelines,
   which will be covered later, let's first explore how the core Timeline
@@ -13,7 +13,7 @@ description: >-
 ---
 Before diving into specialized functions for combining multiple timelines, which will be covered later, let's first explore how the core `Timeline` feature, specifically `TL.bind`, can itself be used to orchestrate sequential operations. This is particularly relevant for **asynchronous event chains**. This approach demonstrates an effect similar to `Promise.then` chaining in JavaScript but is achieved using only the fundamental `Timeline` mechanisms without requiring additional combinator functions. Understanding this foundational capability of `bind` provides valuable insight into the power and flexibility of the core `Timeline` system.
 
-## 1.1 Mechanism of Chaining
+## Mechanism of Chaining
 
 The key to understanding this asynchronous chaining pattern lies in **pre-defining `Timeline` instances outside the `bind` chain to act as receivers for the results of each asynchronous step and triggers for the subsequent step**. These `Timeline`s serve as "mailboxes" where the outcome of an asynchronous operation is `define`d upon completion.
 
@@ -27,7 +27,7 @@ With this structure in mind, the asynchronous chain operates as follows:
 4.  **Async Completion and `define` on Receiver**: When the first asynchronous operation completes, its callback function calls `TL.define` on the receiver `Timeline` (`step1`), storing the result.
 5.  **Chain Reaction**: The update (`define`) to `step1` triggers the next `bind` connected to it, repeating the process for subsequent steps (`step2`, `step3`...).
 
-## 1.2 Code Example: Asynchronous Sequence with `setTimeout`
+## Code Example: Asynchronous Sequence with `setTimeout`
 
 The following example uses a simple `setTimeout` helper (using `System.Timers`) combined with `TL.bind` to implement an asynchronous sequence that processes messages with delays of 2 seconds, then 3 seconds, then 1 second, logging the progress using elapsed time. Note that this example uses `null` to represent the absence of a value in the `stepX` timelines, consistent with earlier discussions.
 
@@ -153,7 +153,7 @@ stopwatch.Stop() // Stop measuring time
 logTimeline |> TL.define Now (sprintf "Sequence finished. Total elapsed: %A" stopwatch.Elapsed) // Using %A for TimeSpan
 ```
 
-## 1.3 Execution Flow Explanation
+## Execution Flow Explanation
 
 When the above code is executed, the console log will demonstrate the sequential nature of the operations, interleaved with the specified delays. The output, with elapsed time in milliseconds from the start of the sequence, will look similar to this (exact timings may vary slightly):
 
@@ -188,7 +188,7 @@ This log clearly shows:
 
 Each `define` call on a `stepX` timeline effectively triggers the next `bind` in the chain, but only after its corresponding asynchronous `workX` function has completed and called `define`.
 
-## 1.4 Comparison with `Promise.then` (Revisited)
+## Comparison with `Promise.then` (Revisited)
 
 This pattern achieves an outcome similar to `Promise.then` chaining—sequencing asynchronous operations. However, the underlying mechanisms differ:
 
@@ -197,7 +197,7 @@ This pattern achieves an outcome similar to `Promise.then` chaining—sequencing
 
 In this `Timeline`-based approach, we explicitly manage intermediate `Timeline` instances (`step1`, `step2`, `step3`) to serve as the "links" in the chain, receiving results and triggering the next asynchronous step.
 
-## 1.5 Summary and Next Steps
+## Summary and Next Steps
 
 The `TL.bind` operation, a core part of the Monad structure of `Timeline` (as we explored in Unit 5), is exceptionally flexible. As this chapter's `setTimeout` example demonstrated, `bind` can be used directly, without any additional specialized combinator functions, to construct relatively complex patterns like asynchronous event chains. This pattern of pre-defining "receiver" timelines and returning them from within the `bind` function allows us to sequence asynchronous operations in a manner reminiscent of `Promise.then` chaining, but using only the fundamental `Timeline` mechanisms. This ability to build sophisticated control flows from core components underscores the power inherent in the `Timeline` library's design.
 

@@ -929,9 +929,33 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Asynchronous Event Chaining with bind",
-                  "ja": "Chapter 1: Asynchronous Event Chaining with bind"
+                  "ja": "Asynchronous Event Chaining with bind"
                 },
                 "link": "book/unit-6/section-2/0-bind-chain"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "section-3"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 0: Stateful Transformation with scan",
+                  "ja": "Chapter 0: Stateful Transformation with scan"
+                },
+                "link": "book/unit-6/section-3/0-scan"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 1: Filtering Timelines with distinctUntilChanged",
+                  "ja": "Chapter 1: Filtering Timelines with distinctUntilChanged"
+                },
+                "link": "book/unit-6/section-3/1-dinstinct-until"
               }
             ]
           },
@@ -948,7 +972,7 @@ export const generatedTopics = [
                   "en": "Chapter 0: Recap and Strategy for Binary Operations",
                   "ja": "Chapter 0: Recap and Strategy for Binary Operations"
                 },
-                "link": "book/unit-6/section-3/0-latest-value-combination"
+                "link": "book/unit-6/section-4/0-latest-value-combination"
               },
               {
                 "label": "FALLBACK",
@@ -956,47 +980,39 @@ export const generatedTopics = [
                   "en": "Chapter 1: Combining Timelines with combineLatestWith",
                   "ja": "Chapter 1: Combining Timelines with combineLatestWith"
                 },
-                "link": "book/unit-6/section-3/1-combine-timeline"
+                "link": "book/unit-6/section-4/1-combine-timeline"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: Filtering Timelines with distinctUntilChanged",
-                  "ja": "Chapter 2: Filtering Timelines with distinctUntilChanged"
+                  "en": "Chapter 2: Monoidal Combinations: TL.And & TL.Or",
+                  "ja": "Chapter 2: Monoidal Combinations: TL.And & TL.Or"
                 },
-                "link": "book/unit-6/section-3/2-dinstinct-until"
+                "link": "book/unit-6/section-4/2-monoidal-combinations"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: Monoidal Combinations: TL.And & TL.Or",
-                  "ja": "Chapter 3: Monoidal Combinations: TL.And & TL.Or"
+                  "en": "Chapter 3: Aggregating Lists of Timelines",
+                  "ja": "Chapter 3: Aggregating Lists of Timelines"
                 },
-                "link": "book/unit-6/section-3/3-monoidal-combinations"
+                "link": "book/unit-6/section-4/3-list-aggregation"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: Aggregating Lists of Timelines",
-                  "ja": "Chapter 4: Aggregating Lists of Timelines"
+                  "en": "Chapter 4: The \"Map to Boolean, then Aggregate\" Pattern",
+                  "ja": "Chapter 4: The \"Map to Boolean, then Aggregate\" Pattern"
                 },
-                "link": "book/unit-6/section-3/4-list-aggregation"
+                "link": "book/unit-6/section-4/4-map-to-boolean-pattern"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: The \"Map to Boolean, then Aggregate\" Pattern",
-                  "ja": "Chapter 5: The \"Map to Boolean, then Aggregate\" Pattern"
+                  "en": "Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes",
+                  "ja": "Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes"
                 },
-                "link": "book/unit-6/section-3/5-map-to-boolean-pattern"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Chapter 6: Case Study: Aggregating Asynchronous HTTP Request Outcomes",
-                  "ja": "Chapter 6: Case Study: Aggregating Asynchronous HTTP Request Outcomes"
-                },
-                "link": "book/unit-6/section-3/6-http-case-study"
+                "link": "book/unit-6/section-4/5-http-case-study"
               }
             ]
           }
