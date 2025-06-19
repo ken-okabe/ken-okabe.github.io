@@ -93,7 +93,7 @@ This historical sequence supports the reverse-engineering interpretation: the la
 **The common misconception in textbooks:**
 
 ```
-Independence → Applicative Laws  ❌ (suggests laws are fundamental)
+Applicative Laws → Independence  ❌ (suggests laws are fundamental)
 ```
 
 **The actual historical relationship:**
