@@ -6,7 +6,7 @@ Here is the familiar `map` function.
 
 `f: 'a -> 'b`
 
-`g: F<'a> -> <'b>`
+`g: F<'a> -> F<'b>`
 
 `map: ('a -> 'b) -> F<'a> -> F<'b>`
 
