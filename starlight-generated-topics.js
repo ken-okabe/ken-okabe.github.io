@@ -844,7 +844,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: Transforming Timelines and Introducing the Dependency Graph",
+                  "en": "Chapter 3: map — 静的な依存グラフ",
                   "ja": "Chapter 3: Transforming Timelines and Introducing the Dependency Graph"
                 },
                 "link": "book/unit-5/section-1/3-map"
@@ -852,7 +852,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: Handling I/O: Extending the Block Universe Model",
+                  "en": "Chapter 4: I/OとTimeline — linkによる依存関係の定義",
                   "ja": "Chapter 4: Handling I/O: Extending the Block Universe Model"
                 },
                 "link": "book/unit-5/section-1/4-timeline-eco"
@@ -860,26 +860,23 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: Robustness Through Algebraic Structure",
-                  "ja": "Chapter 5: Robustness Through Algebraic Structure"
+                  "en": "Chapter 5: bind — 動的な依存グラフ"
                 },
-                "link": "book/unit-5/section-1/5-functor-monad"
+                "link": "book/unit-5/section-1/5-bind"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 6: Dynamic Dependency Management and Automatic Resource Cleanup",
-                  "ja": "Chapter 6: Dynamic Dependency Management and Automatic Resource Cleanup"
+                  "en": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証"
                 },
-                "link": "book/unit-5/section-1/6-dynamic-dependency"
+                "link": "book/unit-5/section-1/6-functor-monad"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 7: Full Automatic Resource Management via bind with AI Assistance",
-                  "ja": "Chapter 7: Full Automatic Resource Management via bind with AI Assistance"
+                  "en": "Chapter 7: using — 外部リソースとのライフサイクル同期"
                 },
-                "link": "book/unit-5/section-1/7-full-managment-ai"
+                "link": "book/unit-5/section-1/7-using"
               }
             ]
           }
