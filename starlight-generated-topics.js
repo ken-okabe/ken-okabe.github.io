@@ -845,7 +845,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 0: Timeline.fs -- Timeline<'a> and FRP Implementation",
+                  "en": "Chapter 0: Timeline.fs Timeline<'a> and FRP Implementation",
                   "ja": "Chapter 0: Timeline.fs -- Timeline<'a> and FRP Implementation"
                 },
                 "link": "book/unit-5/section-2/0-timeline-fs"
@@ -862,10 +862,9 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation",
-                  "ja": "Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation"
+                  "en": "Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation"
                 },
-                "link": "book/unit-5/section-3/0-timeline.ts-js"
+                "link": "book/unit-5/section-3/0-timeline-ts-js"
               },
               {
                 "label": "FALLBACK",

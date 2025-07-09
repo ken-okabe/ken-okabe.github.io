@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 0: Timeline.fs -- Timeline<''a> and FRP Implementation'
+title: 'Chapter 0: Timeline.fs Timeline<''a> and FRP Implementation'
 description: >-
   Prerequisites: This section assumes a basic understanding of the "Block
   Universe" concept (the idea that the universe, including all of time, exists
