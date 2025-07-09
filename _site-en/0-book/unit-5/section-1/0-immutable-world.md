@@ -86,7 +86,13 @@ Instead of repeatedly asking "what is the mouse position now?", you can work wit
 
 Conceptually, a stream or reactive value can be seen as an immutable container that holds all data from the past to the future of the universe.
 
-In fact, there is a familiar, real-world implementation of this idea for programmers: the version control system Git, well-known from GitHub. Git maintains the entire history of changes from the past to the future. While it may look like the current value (such as a document) is being destructively updated (mutable) in imperative programming, in reality, all previous versions are preserved immutably in the history.
+In fact, there is a familiar, real-world implementation of this idea for programmers: the version control system Git, well-known from GitHub.
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1751676780114.png)
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1751676856049.png)
+
+Git maintains  **the entire history of changes from the past to the future.**  While it may look like the current value (such as a document) is being destructively updated (mutable) in imperative programming, in reality, all previous versions are preserved immutably in the history.
 
 ## 0.5 Conceptually Immutable
 
