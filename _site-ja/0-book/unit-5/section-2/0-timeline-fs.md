@@ -1,4 +1,4 @@
-# Chapter 0: Timeline.fs -- `Timeline<'a>` and FRP Implementation
+# Chapter 0: Timeline.fs `Timeline<'a>` and FRP Implementation
 
 **Prerequisites:** This section assumes a basic understanding of the "Block Universe" concept (the idea that the universe, including all of time, exists as an immutable data structure) and Einstein's related insight that the distinction between past, present, and future is a persistent illusion. In essence, the reader accepts the premise that the universe is fundamentally immutable.
 
