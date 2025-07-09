@@ -1,1 +1,1 @@
-# Core Concepts
+# Functional Reactive Programming

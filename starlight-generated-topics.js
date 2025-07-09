@@ -813,8 +813,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Core Concepts",
-              "ja": "Core Concepts"
+              "en": "Functional Reactive Programming",
+              "ja": "Functional Reactive Programming"
             },
             "items": [
               {
@@ -832,86 +832,112 @@ export const generatedTopics = [
                   "ja": "Chapter 1: FRP is like Spreadsheet"
                 },
                 "link": "book/unit-5/section-1/1-frp-spreadsheet"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Timeline.fs",
+              "ja": "Timeline.fs"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 0: Timeline.fs -- Timeline<'a> and FRP Implementation",
+                  "ja": "Chapter 0: Timeline.fs -- Timeline<'a> and FRP Implementation"
+                },
+                "link": "book/unit-5/section-2/0-timeline-fs"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Timeline.ts / Timeline.js",
+              "ja": "Timeline.ts / Timeline.js"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation",
+                  "ja": "Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation"
+                },
+                "link": "book/unit-5/section-3/0-timeline.ts-js"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 10: 高機能なDebugシステム",
-                  "ja": "Chapter 10: 高機能なDebugシステム"
+                  "en": "Chapter 1: map — 静的な依存グラフ",
+                  "ja": "Chapter 1: map — 静的な依存グラフ"
                 },
-                "link": "book/unit-5/section-1/10-debug"
+                "link": "book/unit-5/section-3/1-map"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Title",
-                  "ja": "Title"
+                  "en": "Chapter 2: I/OとTimeline — linkによる依存関係の定義",
+                  "ja": "Chapter 2: I/OとTimeline — linkによる依存関係の定義"
                 },
-                "link": "book/unit-5/section-1/11-ai"
+                "link": "book/unit-5/section-3/2-link-io-eco"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: Understanding Timeline<'a> and FRP Implementation",
-                  "ja": "Chapter 2: Understanding Timeline<'a> and FRP Implementation"
+                  "en": "Chapter 3: bind — 動的な依存グラフ",
+                  "ja": "Chapter 3: bind — 動的な依存グラフ"
                 },
-                "link": "book/unit-5/section-1/2-timeline"
+                "link": "book/unit-5/section-3/3-bind"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: map — 静的な依存グラフ",
-                  "ja": "Chapter 3: map — 静的な依存グラフ"
+                  "en": "Chapter 4: 理論的堅牢性 — Functor/Monad則の再検証",
+                  "ja": "Chapter 4: 理論的堅牢性 — Functor/Monad則の再検証"
                 },
-                "link": "book/unit-5/section-1/3-map"
+                "link": "book/unit-5/section-3/4-functor-monad"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: I/OとTimeline — linkによる依存関係の定義",
-                  "ja": "Chapter 4: I/OとTimeline — linkによる依存関係の定義"
+                  "en": "Chapter 5: using — 外部リソースとのライフサイクル同期",
+                  "ja": "Chapter 5: using — 外部リソースとのライフサイクル同期"
                 },
-                "link": "book/unit-5/section-1/4-link-io-eco"
+                "link": "book/unit-5/section-3/5-using"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: bind — 動的な依存グラフ",
-                  "ja": "Chapter 5: bind — 動的な依存グラフ"
+                  "en": "Chapter 6: map/bind/using 総合利用ガイド：API選択の完全な指針",
+                  "ja": "Chapter 6: map/bind/using 総合利用ガイド：API選択の完全な指針"
                 },
-                "link": "book/unit-5/section-1/5-bind"
+                "link": "book/unit-5/section-3/6-map-bind-using"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証",
-                  "ja": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証"
+                  "en": "Chapter 7: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック",
+                  "ja": "Chapter 7: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック"
                 },
-                "link": "book/unit-5/section-1/6-functor-monad"
+                "link": "book/unit-5/section-3/7-gnome-extnsion"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 7: using — 外部リソースとのライフサイクル同期",
-                  "ja": "Chapter 7: using — 外部リソースとのライフサイクル同期"
+                  "en": "Chapter 8: 高機能なDebugシステム",
+                  "ja": "Chapter 8: 高機能なDebugシステム"
                 },
-                "link": "book/unit-5/section-1/7-using"
+                "link": "book/unit-5/section-3/8-debug"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 8: map/bind/using 総合利用ガイド：API選択の完全な指針",
-                  "ja": "Chapter 8: map/bind/using 総合利用ガイド：API選択の完全な指針"
+                  "en": "Chapter 9: Learning Curve and AI Development",
+                  "ja": "Chapter 9: Learning Curve and AI Development"
                 },
-                "link": "book/unit-5/section-1/8-map-bind-using"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Chapter9: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック",
-                  "ja": "Chapter9: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック"
-                },
-                "link": "book/unit-5/section-1/9-gnome-extnsion"
+                "link": "book/unit-5/section-3/9-ai"
               }
             ]
           }

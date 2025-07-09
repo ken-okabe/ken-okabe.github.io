@@ -18,7 +18,7 @@ We will now formally introduce and explore these:
 - **Identity Functor**
 - **Identity Monad**
 
- Prepare for a moment of surprise and deep insight as we connect the dots!
+Prepare for a moment of surprise and deep insight as we connect the dots!
 
 ## Recalling `flip` and Pipelining
 
@@ -56,6 +56,7 @@ Let's examine what happens when we apply `flip` to the pipeline operator:
 `let flippedPipeOp = flip (|>)`
 
 Given:
+
 *   `flip: ('x -> 'y -> 'z) -> 'y -> 'x -> 'z`
 *   `(|>): 'a -> ('a -> 'b) -> 'b`
 
@@ -68,6 +69,7 @@ The resulting type of `flippedPipeOp` is:
 Now, let's consider the behavior of this `flippedPipeOp`.
 
 **Key Insight:**
+
 > This HOF takes a function `f: 'a -> 'b` and returns `f` itself.
 >
 > In other words, `flippedPipeOp` is equivalent to `fun f -> f`.
