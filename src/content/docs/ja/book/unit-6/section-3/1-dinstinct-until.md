@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Filtering Timelines with distinctUntilChanged'
+title: Filtering Timelines with distinctUntilChanged
 description: >-
   In the previous chapter, we introduced scan as a powerful combinator for
   stateful transformations. We will now build another essential stateful

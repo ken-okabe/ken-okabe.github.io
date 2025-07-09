@@ -836,6 +836,22 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
+                  "en": "Chapter 10: 高機能なDebugシステム",
+                  "ja": "Chapter 10: 高機能なDebugシステム"
+                },
+                "link": "book/unit-5/section-1/10-debug"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Title",
+                  "ja": "Title"
+                },
+                "link": "book/unit-5/section-1/11-ai"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
                   "en": "Chapter 2: Understanding Timeline<'a> and FRP Implementation",
                   "ja": "Chapter 2: Understanding Timeline<'a> and FRP Implementation"
                 },
@@ -845,7 +861,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Chapter 3: map — 静的な依存グラフ",
-                  "ja": "Chapter 3: Transforming Timelines and Introducing the Dependency Graph"
+                  "ja": "Chapter 3: map — 静的な依存グラフ"
                 },
                 "link": "book/unit-5/section-1/3-map"
               },
@@ -853,30 +869,49 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Chapter 4: I/OとTimeline — linkによる依存関係の定義",
-                  "ja": "Chapter 4: Handling I/O: Extending the Block Universe Model"
+                  "ja": "Chapter 4: I/OとTimeline — linkによる依存関係の定義"
                 },
-                "link": "book/unit-5/section-1/4-timeline-eco"
+                "link": "book/unit-5/section-1/4-link-io-eco"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: bind — 動的な依存グラフ"
+                  "en": "Chapter 5: bind — 動的な依存グラフ",
+                  "ja": "Chapter 5: bind — 動的な依存グラフ"
                 },
                 "link": "book/unit-5/section-1/5-bind"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証"
+                  "en": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証",
+                  "ja": "Chapter 6: 理論的堅牢性 — Functor/Monad則の再検証"
                 },
                 "link": "book/unit-5/section-1/6-functor-monad"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 7: using — 外部リソースとのライフサイクル同期"
+                  "en": "Chapter 7: using — 外部リソースとのライフサイクル同期",
+                  "ja": "Chapter 7: using — 外部リソースとのライフサイクル同期"
                 },
                 "link": "book/unit-5/section-1/7-using"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 8: map/bind/using 総合利用ガイド：API選択の完全な指針",
+                  "ja": "Chapter 8: map/bind/using 総合利用ガイド：API選択の完全な指針"
+                },
+                "link": "book/unit-5/section-1/8-map-bind-using"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter9: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック",
+                  "ja": "Chapter9: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック"
+                },
+                "link": "book/unit-5/section-1/9-gnome-extnsion"
               }
             ]
           }
@@ -909,7 +944,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Handling Absence: A Foundational Choice (null vs. Option)",
-                  "ja": "Chapter 0: Handling Absence: A Foundational Choice (null vs. Option)"
+                  "ja": "Handling Absence: A Foundational Choice (null vs. Option)"
                 },
                 "link": "book/unit-6/section-1/0-null"
               }
@@ -935,14 +970,15 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Stateful Unary Operations"
+              "en": "Stateful Unary Operations",
+              "ja": "Stateful Unary Operations"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Stateful Transformation with scan",
-                  "ja": "Chapter 0: Stateful Transformation with scan"
+                  "ja": "Stateful Transformation with scan"
                 },
                 "link": "book/unit-6/section-3/0-scan"
               },
@@ -950,7 +986,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Filtering Timelines with distinctUntilChanged",
-                  "ja": "Chapter 1: Filtering Timelines with distinctUntilChanged"
+                  "ja": "Filtering Timelines with distinctUntilChanged"
                 },
                 "link": "book/unit-6/section-3/1-dinstinct-until"
               }
@@ -967,7 +1003,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Recap and Strategy for Binary Operations",
-                  "ja": "Chapter 0: Recap and Strategy for Binary Operations"
+                  "ja": "Recap and Strategy for Binary Operations"
                 },
                 "link": "book/unit-6/section-4/0-latest-value-combination"
               },
@@ -975,7 +1011,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Combining Timelines with combineLatestWith",
-                  "ja": "Chapter 1: Combining Timelines with combineLatestWith"
+                  "ja": "Combining Timelines with combineLatestWith"
                 },
                 "link": "book/unit-6/section-4/1-combine-timeline"
               },
@@ -983,7 +1019,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Monoidal Combinations: TL.And & TL.Or",
-                  "ja": "Chapter 2: Monoidal Combinations: TL.And & TL.Or"
+                  "ja": "Monoidal Combinations: TL.And & TL.Or"
                 },
                 "link": "book/unit-6/section-4/2-monoidal-combinations"
               },
@@ -991,7 +1027,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Aggregating Lists of Timelines",
-                  "ja": "Chapter 3: Aggregating Lists of Timelines"
+                  "ja": "Aggregating Lists of Timelines"
                 },
                 "link": "book/unit-6/section-4/3-list-aggregation"
               },
@@ -999,7 +1035,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "The \"Map to Boolean, then Aggregate\" Pattern",
-                  "ja": "Chapter 4: The \"Map to Boolean, then Aggregate\" Pattern"
+                  "ja": "The \"Map to Boolean, then Aggregate\" Pattern"
                 },
                 "link": "book/unit-6/section-4/4-map-to-boolean-pattern"
               },
@@ -1007,7 +1043,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Case Study: Aggregating Asynchronous HTTP Request Outcomes",
-                  "ja": "Chapter 5: Case Study: Aggregating Asynchronous HTTP Request Outcomes"
+                  "ja": "Case Study: Aggregating Asynchronous HTTP Request Outcomes"
                 },
                 "link": "book/unit-6/section-4/5-http-case-study"
               }

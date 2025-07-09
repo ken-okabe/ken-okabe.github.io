@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Combining Timelines with combineLatestWith'
+title: Combining Timelines with combineLatestWith
 description: >-
   As established in the previous chapter, our goal is to implement the "Latest
   Value Combination" concept. The primary tool for this purpose is the

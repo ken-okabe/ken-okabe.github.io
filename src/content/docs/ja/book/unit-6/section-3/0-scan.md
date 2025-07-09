@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 0: Stateful Transformation with scan'
+title: Stateful Transformation with scan
 description: >-
   In our journey to build a comprehensive toolkit for Timeline, we now turn to a
   crucial class of operations: those that maintain state over time. To

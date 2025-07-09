@@ -1,4 +1,4 @@
-# Chapter 0: Stateful Transformation with `scan`
+# Stateful Transformation with `scan`
 
 In our journey to build a comprehensive toolkit for `Timeline`, we now turn to a crucial class of operations: those that maintain state over time. To understand the correct approach for `Timeline`, we must first revisit our classification tree of functional patterns.
 

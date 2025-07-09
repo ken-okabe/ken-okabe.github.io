@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 3: Aggregating Lists of Timelines'
+title: Aggregating Lists of Timelines
 description: >-
   In the previous chapter, we established TL.And and TL.Or as robust,
   Monoid-based combinators for merging the state of two Timeline<bool>
