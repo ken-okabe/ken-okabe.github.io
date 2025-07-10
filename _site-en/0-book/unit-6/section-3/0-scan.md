@@ -1,68 +1,72 @@
-# Stateful Transformation with `scan`
+# `scan` — 時間軸に沿った状態の進化
 
-In our journey to build a comprehensive toolkit for `Timeline`, we now turn to a crucial class of operations: those that maintain state over time. To understand the correct approach for `Timeline`, we must first revisit our classification tree of functional patterns.
+`scan`は、このライブラリで最も強力なプリミティブの一つです。これは、時間とともに進化する「状態」を持つタイムラインを構築するための、基本的なツールとなります。
 
-We identified `fold` as a key "Container Elimination Operation," essential for summarizing the contents of a container like `List` into a single, final value. A natural question arises: What is the corresponding concept for `Timeline`?
+## 畳み込みの3つの次元：構造と時間
 
-## The Limit of `fold`: The Problem of an Endless Timeline
+`scan`のユニークな役割を理解するため、プログラミングにおける3種類の「畳み込み（fold）」を比較します。最初の2つは**構造 (Structure)** を扱い、3つ目の`scan`は**時間 (Time)** という全く異なる次元を扱います。
 
-As we have established, the `fold` operation has a fundamental prerequisite: the container must have a defined **end**. Its purpose is to process *all* elements to produce one, final result. For a `List`, which is finite, this is a perfect fit.
+1.  **`fold` (構造の畳み込み)**: `[1, 2, 3]` のような配列（静的なコレクション構造）を扱い、**一つの最終的な値**（例：`6`）を算出します。
+2.  **`foldTimelines` (構造の畳み込み)**: `[Timeline<1>, Timeline<2>, Timeline<3>]` のようなタイムラインのリスト（動的なコレクション構造）を扱い、それらを**一つの結果タイムライン**に合成します。
+3.  **`scan` (時間の畳み込み)**: `1 -> 2 -> 3` のような**単一のタイムライン**（時間的なイベントストリーム）を扱い、イベントが発生するたびに**途中経過の値を保持する新しいタイムライン**（例：`1 -> 3 -> 6`）を生成します。
 
-However, a `Timeline` is, by its very nature, conceptually infinite. It represents a value that changes over time, potentially forever, and has no intrinsic "end" point. It is impossible to process "all" the elements of a stream that never ends, and therefore, it is impossible to calculate a "final" result.
+これらの違いをまとめたのが、以下の比較表です。
 
-A direct, literal equivalent of `List.fold` cannot exist for `Timeline`. To apply the powerful idea of folding to our reactive world, we need to adapt it to the context of time.
+| 特徴 | `fold` (構造) | `foldTimelines` (構造) | `scan` (時間) |
+| :--- | :--- | :--- | :--- |
+| **目的** | 最終的な集計 | **構造的**な合成 | **時間的**な集約 |
+| **入力** | 配列など | タイムラインの**リスト** | **1つ**のタイムライン |
+| **処理** | 一度に全体 | 一度に全体 | イベントの**たびに** |
+| **出力** | 1つの最終値 | **最終結果**のタイムライン | **途中経過**のタイムライン |
+| **比喩** | 買い物かごの**合計金額** 🧾 | 複数の投票の**最終集計** 🗳️ | 銀行口座の**残高推移** 📈 |
 
-## The Corresponding Concept for `Timeline`: `scan`
+`fold`と`foldTimelines`は、共に入力となる「コレクション構造」を一つにまとめる点で非常によく似ています。一方で`scan`は、**単一のストリームの時間的な変化**を追跡するための、全く異なる目的を持つツールであることが、この比較から明確になります。それは過去の履歴を記憶し、新しい入力に基づいて状態を更新していく、**状態を持つタイムライン**を構築するための核心的な操作なのです。
 
-The concept that correctly corresponds to `fold` in a temporal, reactive context is `scan`.
+-----
 
-Where `fold` waits for the end to give a final summary, `scan` provides a running summary at every step. It takes the idea of "aggregating with a state" from `fold` and adapts it for a world without an end, by emitting the intermediate state at each update.
+## API定義
 
-* `fold` is like the **final total** on a shopping receipt.
-* `scan` is like the **running balance** of a bank account, updated with every transaction.
+#### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
 
-`scan` is a **Container Preserving Operation**. It takes an input timeline and produces an output timeline that tracks the history of the accumulated state.
+*Note: In F\#, `scan` is a standalone function.*
 
-## Signature and Implementation
+#### TS: `.scan<S>(accumulator: (acc: S, value: T) => S, seed: S): Timeline<S>`
 
-The type signature for `scan` clearly shows that it produces a new timeline of the state.
+-----
 
-```fsharp
-// Located in the TL module
-val scan<'state, 'input> : ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>
+## TypeScriptによるコード例
+
+`scan`の動作を、流れてくる数値を合計していくカウンターで見てみましょう。
+
+```typescript
+// 数値のタイムラインを作成
+const numberStream = Timeline<number>(0);
+
+// scanを使って、流れてくる数値を合計していく
+const runningTotal = numberStream.scan(
+  (sum, currentValue) => sum + currentValue, // accumulator: 現在の合計値に新しい値を加算
+  0 // seed: 合計値の初期値
+);
+
+// runningTotalは常に最新の合計値を保持する
+console.log(runningTotal.at(Now)); // 0
+
+numberStream.define(Now, 5);
+console.log(runningTotal.at(Now)); // 5 (0 + 5)
+
+numberStream.define(Now, 10);
+console.log(runningTotal.at(Now)); // 15 (5 + 10)
+
+numberStream.define(Now, -3);
+console.log(runningTotal.at(Now)); // 12 (15 - 3)
 ```
 
-1.  **`('state -> 'input -> 'state)` (The Accumulator Function):** A function that takes the previous state and the new input value, and returns the new state.
-2.  **`'state` (The Initial State):** The starting value for the accumulation.
-3.  **`Timeline<'input>` (The Source):** The input timeline.
-4.  **`Timeline<'state>` (The Result):** A new timeline that emits the accumulated state after each input.
+-----
 
-How do we implement this stateful operation while adhering to our principle of building upon our most basic primitives? The key is to use the `Timeline` type itself to manage the state. We can create a dedicated internal timeline to hold the accumulating state and use our existing `map` primitive to drive the updates.
+## Canvasデモ (Placeholder)
 
-This implementation is clean, high-level, and avoids any direct use of `mutable` local variables or `DependencyCore`.
+入力タイムラインに数値が流れるたびに、`scan`によって構築された状態タイムライン（合計値）がリアルタイムに更新されていく様子を視覚化するデモ。
 
-```fsharp
-module TL =
-    // ... map, bind, etc. ...
+-----
 
-    let scan<'state, 'input> (accumulator: 'state -> 'input -> 'state) (initialState: 'state) (sourceTimeline: Timeline<'input>) : Timeline<'state> =
-        // The state itself is managed by a separate, dedicated timeline.
-        let stateTimeline = Timeline initialState
-
-        // We use `map` on the source timeline to trigger updates to the state timeline.
-        sourceTimeline
-        |> map (fun input ->
-            // On each input, get the LATEST current state from the state timeline.
-            let currentState = stateTimeline |> at Now
-            // Calculate the new state.
-            let newState = accumulator currentState input
-            // Define the new state back onto the state timeline, creating a feedback loop.
-            stateTimeline |> define Now newState
-        )
-        |> ignore // The Timeline<unit> returned by map is not needed.
-
-        // Return the timeline that holds the state.
-        stateTimeline
-```
-
-This implementation is powerful because it's built entirely from our existing primitives. It demonstrates a key pattern in `Timeline`-based FRP: using timelines themselves to manage state, creating clean, high-level abstractions. With `scan` now in our toolkit, we are ready to build even more sophisticated stateful logic.
+-----

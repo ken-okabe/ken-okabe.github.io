@@ -15,16 +15,16 @@
 TypeScript
 
 ```ts
-const numberTimeline = Timeline(5);
+const numbers = Timeline(5);
 
 // (x: number) => string という関数を渡す
-const labelTimeline = numberTimeline.map(x => `Score: ${x}`);
+const labels = numbers.map(x => `Score: ${x}`);
 
-console.log(labelTimeline.at(Now)); // "Score: 5"
+console.log(labels.at(Now)); // "Score: 5"
 
 // ソースを更新すると、labelsも自動的に更新される
-numberTimeline.define(Now, 100);
-console.log(labelTimeline.at(Now)); // "Score: 100"
+numbers.define(Now, 100);
+console.log(labels.at(Now)); // "Score: 100"
 
 ```
 
@@ -35,13 +35,14 @@ console.log(labelTimeline.at(Now)); // "Score: 100"
 `map`が作る依存関係は**静的 (Static)** です。一度`labels = numbers.map(...)`という関係を定義したら、`numbers`と`labels`の間の「値を変換する」というルールそのものが後から変わることはありません。
 
 ```txt
-+-------------------+  .map(x => `Score: ${x}`)  +---------------------+
-| numberTimeline    | -------------------------> | labelTimeline       |
-| (Timeline<number>)|                            | (Timeline<string>)  |
-+-------------------+                            +---------------------+
-       ^                                                 | .at(Now)
-       | .define(Now, 100)                               V
-       +-------------                         propagated to "Score: 100"
+        +-----------------+      .map(x => `Score: ${x}`)     +-----------------+
+        | numbers         | --------------------------------> | labels          |
+        | (Timeline<number>) |                                  | (Timeline<string>) |
+        +-----------------+                                 +-----------------+
+              ^                                                     |
+              | .define(Now, 100)                                   V
+              +-------------                                 値が"Score: 100"へ伝播
+
 ```
 
 このシンプルな「静的な依存関係」の概念が、後に出てくる`bind`や`using`が構築する「動的な」依存関係を理解するための基礎となります。
