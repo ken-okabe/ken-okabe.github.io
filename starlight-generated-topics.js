@@ -1032,7 +1032,7 @@ export const generatedTopics = [
       {
         "label": "FALLBACK",
         "translations": {
-          "en": "🔷Unit 7🔷 UI with Timeline JS",
+          "en": "🔷Unit 7🔷 Nullable Timeline and Sequence",
           "ja": "🔷Unit 7🔷 UI with Timeline JS"
         },
         "items": [
