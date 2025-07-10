@@ -1,5 +1,5 @@
 ---
-title: Recap and Strategy for Binary Operations
+title: 'Chaper 0: Recap and Strategy for Binary Operations'
 description: >-
   In the previous units and sections, we have built a powerful set of tools. We
   can transform single timelines with map, create sequential, dependent chains
@@ -30,11 +30,3 @@ This idea is defined as follows:
 > **The moment any source timeline is updated, its new value is combined with the most recently known value (the latest state) of the other source(s) to produce a new result.**
 
 This powerful model fully embraces the asynchronous nature of the inputs while ensuring a consistent, combined state is always available. It is a pattern uniquely suited for reactive systems.
-
-## The Strategy for this Section
-
-In this section, we will systematically build out the tools for this "Latest Value Combination" concept.
-
-* First, we will introduce `combineLatestWith`, the core combinator that implements this idea (Chapter 1).
-* Then, we will use this new tool to build concrete, Monoid-based logical operations like `TL.And` and `TL.Or` (Chapter 2).
-* Finally, we will expand these patterns to aggregate entire lists of timelines and apply them to a practical case study.

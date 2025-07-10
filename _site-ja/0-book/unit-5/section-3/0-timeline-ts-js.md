@@ -18,7 +18,7 @@
 
 それでは、`Timeline`のTS/JSの完全なAPIリファレンスを見ていきましょう。
 
-# **Timeline Library - Complete API Guide (F\# & TypeScript)**
+# **Timeline Library - Complete API Reference (F\# & TypeScript)**
 
 ## **Core Types**
 
@@ -341,6 +341,8 @@ For timelines that may contain `null` values, use these null-safe variants to av
 
 #### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
+*Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
+
 #### TS: `.nMap<B>(f): Timeline<B | null>`
 
 Null-safe mapping. Only applies the function to non-null values. If the input is `null`, it propagates `null`.
@@ -359,6 +361,8 @@ console.log(doubled.at(Now)); // null
 
 #### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
+*Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
+
 #### TS: `.nBind<B>(monadf): Timeline<B | null>`
 
 Null-safe bind operation.
@@ -376,6 +380,8 @@ console.log(result.at(Now)); // null
 -----
 
 #### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+
+*Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
 #### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
 
@@ -442,7 +448,7 @@ console.log(sum.at(Now)); // null
 
 ### **Aggregate Operations**
 
-#### F\#: `any: list<Timeline<bool>> -> Timeline<bool>`
+#### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
 #### TS: `anyOf(timelines): Timeline<boolean>`
 
@@ -457,7 +463,7 @@ console.log(hasAnyTrue.at(Now)); // true
 
 -----
 
-#### F\#: `all: list<Timeline<bool>> -> Timeline<bool>`
+#### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
 
 #### TS: `allOf(timelines): Timeline<boolean>`
 

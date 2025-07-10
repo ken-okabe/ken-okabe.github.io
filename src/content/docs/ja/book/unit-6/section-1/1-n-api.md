@@ -1,5 +1,14 @@
-# Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations
-
+---
+title: 'Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations'
+description: >-
+  In the previous chapter, we delved into the truth behind the problems
+  historically caused by null. Our conclusion was that the root of the problem
+  was not that the concept of null itself is evil, but that the safe operations
+  that should be paired with null (the empty set) were not defined in many
+  languages. An algebraic structure is only complete with a pair of a "set" and
+  an "operation." The failure to provide corresponding "operations" for the
+  "set" element of null was the true "billion-dollar mistake."
+---
 ## 1\. The Conclusion of the Previous Chapter: The Missing Piece Was a "Safe Operation"
 
 In the previous chapter, we delved into the truth behind the problems historically caused by `null`. Our conclusion was that the root of the problem was not that the concept of `null` itself is evil, but that the **safe operations** that should be paired with `null` (the empty set) were not defined in many languages. An algebraic structure is only complete with a pair of a "set" and an "operation." The failure to provide corresponding "operations" for the "set" element of `null` was the true "billion-dollar mistake."

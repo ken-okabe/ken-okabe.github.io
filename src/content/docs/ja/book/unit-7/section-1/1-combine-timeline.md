@@ -1,5 +1,9 @@
-# Chapter 1: すべての基礎 combineLatestWith
-
+---
+title: 'Chapter 1: すべての基礎 combineLatestWith'
+description: >-
+  Unit 4で確立したApplicative
+  Functorの概念、すなわち「独立したコンテナを2項演算で合成する」という操作を、Timelineライブラリで具現化するものがcombineLatestWithです。これは、非同期で独立した複数のソースを合成するために設計された、Applicative操作の具体的な実装です。
+---
 Unit 4で確立したApplicative Functorの概念、すなわち「独立したコンテナを2項演算で合成する」という操作を、`Timeline`ライブラリで具現化するものが`combineLatestWith`です。これは、非同期で独立した複数のソースを合成するために設計された、Applicative操作の具体的な実装です。
 
 後続の章で登場する`anyOf`や`sumOf`といった高レベルな合成関数は、すべてこの`combineLatestWith`というプリミティブな操作の上に成り立っています。

@@ -1,9 +1,7 @@
 # 🔍 Overview - Unit 5
 
-In this chapter, we bring together the core ideas explored so far and focus on one of the most powerful aspects of functional programming: the unified treatment of state, events, and concurrency.
+このユニットから始まる三部作（Unit 5, 6, 7）を通して、我々は **関数型リアクティブプログラミング（FRP）** の真髄を探求する。
 
-Here, we will see how functional programming—especially through the lens of Functional Reactive Programming (FRP)—offers a cohesive and elegant approach to managing values that change over time, discrete events, and concurrent computations. This unit builds directly on the unifying perspective introduced in Unit 0, showing how streams and pipelines can simplify even the most complex interactive and concurrent applications.
+本ユニットでは、まずその核心をなす`Timeline`ライブラリの思想的背景に深く踏み込む。このライブラリの革新性は、多くのFRPライブラリがパフォーマンスのために採用しつつも **「理論的妥協」**と見なす内部的な状態変化（ミューテーション）を、**「ブロックユニバース」モデルを忠実に表現するための理論的に正当な手段として再定義している** 点にある。これは、内部可変性を理論からの逸脱ではなく、むしろ概念へ忠実であるための必然と捉える、明確に一線を画したアプローチだ。
 
-# 🔷Unit 5🔷 コアAPI — 宣言的プログラミングの基盤
-
-このユニットでは、`Timeline`ライブラリの核となるAPI群を探求します。リアクティブな値を生成し、変換し、そしてリソースのライフサイクルを管理するための基本的なビルディングブロックを一つずつ見ていきましょう。これらのAPIは、このライブラリの根底にある「ブロック宇宙」という哲学を、いかにして実践的なコードに落とし込んでいるのかを明らかにする鍵となります。
+この哲学的基盤の上に、`map`, `bind`, `using`といったコアAPIが、いかにして盤石な宣言的プログラミングを実現するのかを解き明かす。解説は、ライブラリの概念的起源である**F#のコード**を主軸としつつ、それを**TypeScript/JavaScriptのAPI**へと展開。さらに、各コンセプトを直感的に理解するための、**インタラクティブなWebデモ**を提示しながら進めていく。

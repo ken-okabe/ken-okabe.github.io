@@ -1,14 +1,14 @@
 ---
 title: "\U0001F50D Overview - Unit 6"
 description: >-
-  In Unit 5, we established Timeline<'a> as our core abstraction for managing
-  time-varying values. Through foundational operations like TL.map and TL.bind,
-  we explored how Timeline enables powerful transformations, integrates I/O
-  operations, and facilitates automatic resource management, all grounded in the
-  Block Universe model and the internal DependencyCore. This provided a robust
-  way to handle individual reactive data streams and their sequential
-  dependencies.
+  Unit 5で確立した強固な理論モデルを、より動的で複雑な実世界のシナリオへと拡張するのが、このユニットの目的だ。ここでは、Unit
+  5のコアAPIの上に構築された、高度な問題をエレガントに解決するための4つの実践的プリミティブを習得する。
 ---
-In Unit 5, we established `Timeline<'a>` as our core abstraction for managing time-varying values. Through foundational operations like `TL.map` and `TL.bind`, we explored how `Timeline` enables powerful transformations, integrates I/O operations, and facilitates automatic resource management, all grounded in the Block Universe model and the internal `DependencyCore`. This provided a robust way to handle individual reactive data streams and their sequential dependencies.
+Unit 5で確立した強固な理論モデルを、より動的で複雑な実世界のシナリオへと拡張するのが、このユニットの目的だ。ここでは、Unit 5のコアAPIの上に構築された、高度な問題をエレガントに解決するための**4つの実践的プリミティブ**を習得する。
 
-The natural next step is to address how we can weave multiple independent `Timeline` instances together to construct more sophisticated and responsive reactive systems. This section of Unit 6, "Building Blocks for Combining Timelines," is dedicated to this challenge. We will explore a range of principled and practical combinators and patterns designed specifically for merging, logically combining, and aggregating information from several timelines. A key focus will be on leveraging algebraic principles, particularly those of Monoids, to ensure these combinations are robust, predictable, and maintainable.
+1.  **不在のハンドリング (`n` prefix API):** 現実のデータが常に`null`である可能性を、`Option`型に頼ることなく、Timelineの構造内でいかに安全かつ宣言的に扱うか。
+2.  **非同期処理の連鎖 (`bind` chain):** 上記の`null`許容性を基盤とし、`bind`を連鎖させることで、失敗する可能性のある非同期処理を、いかに安全な一本の逐次処理として合成するか。
+3.  **状態の時間的進化 (`scan`):** 過去の状態を元に、新たな入力を受け付けて「状態」を時間軸に沿って進化させる方法。
+4.  **ノイズの除去 (`distinctUntilChanged`):** 本質的な変化のみを捉え、不要な更新を抑制することで、パフォーマンスを最適化するテクニック。
+
+これらは、コアAPIの能力を特定の応用分野へと特化させた強力なツール群であり、堅牢なアプリケーション構築に不可欠なものだ。

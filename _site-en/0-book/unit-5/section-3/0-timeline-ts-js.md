@@ -401,9 +401,6 @@ optionalUserId.define(Now, null);
 console.log(resource.at(Now)); // null
 ```
 
-
-
-
 -----
 
 ## **Composition Functions**
@@ -451,7 +448,7 @@ console.log(sum.at(Now)); // null
 
 ### **Aggregate Operations**
 
-#### F\#: `any: list<Timeline<bool>> -> Timeline<bool>`
+#### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
 #### TS: `anyOf(timelines): Timeline<boolean>`
 
@@ -466,7 +463,7 @@ console.log(hasAnyTrue.at(Now)); // true
 
 -----
 
-#### F\#: `all: list<Timeline<bool>> -> Timeline<bool>`
+#### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
 
 #### TS: `allOf(timelines): Timeline<boolean>`
 

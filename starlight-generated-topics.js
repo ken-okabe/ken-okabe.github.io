@@ -838,8 +838,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Timeline.fs",
-              "ja": "Timeline.fs"
+              "en": "Core Concepts",
+              "ja": "Core Concepts"
             },
             "items": [
               {
@@ -969,10 +969,18 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Handling Absence: A Foundational Choice (null vs. Option)",
-                  "ja": "Handling Absence: A Foundational Choice (null vs. Option)"
+                  "en": "Chapter 0: nullの再審 — 代数構造と型システムの歴史から解き明かす「不在」の哲学",
+                  "ja": "Chapter 0: nullの再審 — 代数構造と型システムの歴史から解き明かす「不在」の哲学"
                 },
                 "link": "book/unit-6/section-1/0-null"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations",
+                  "ja": "Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations"
+                },
+                "link": "book/unit-6/section-1/1-n-api"
               }
             ]
           },
@@ -1003,75 +1011,18 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Stateful Transformation with scan",
-                  "ja": "Stateful Transformation with scan"
+                  "en": "scan — 時間軸に沿った状態の進化",
+                  "ja": "scan — 時間軸に沿った状態の進化"
                 },
                 "link": "book/unit-6/section-3/0-scan"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Filtering Timelines with distinctUntilChanged",
-                  "ja": "Filtering Timelines with distinctUntilChanged"
+                  "en": "distinctUntilChanged — ノイズの除去",
+                  "ja": "distinctUntilChanged — ノイズの除去"
                 },
                 "link": "book/unit-6/section-3/1-dinstinct-until"
-              }
-            ]
-          },
-          {
-            "label": "FALLBACK",
-            "translations": {
-              "en": "Combining Independent Timelines",
-              "ja": "Combining Independent Timelines"
-            },
-            "items": [
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Recap and Strategy for Binary Operations",
-                  "ja": "Recap and Strategy for Binary Operations"
-                },
-                "link": "book/unit-6/section-4/0-latest-value-combination"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Combining Timelines with combineLatestWith",
-                  "ja": "Combining Timelines with combineLatestWith"
-                },
-                "link": "book/unit-6/section-4/1-combine-timeline"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Monoidal Combinations: TL.And & TL.Or",
-                  "ja": "Monoidal Combinations: TL.And & TL.Or"
-                },
-                "link": "book/unit-6/section-4/2-monoidal-combinations"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Aggregating Lists of Timelines",
-                  "ja": "Aggregating Lists of Timelines"
-                },
-                "link": "book/unit-6/section-4/3-list-aggregation"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "The \"Map to Boolean, then Aggregate\" Pattern",
-                  "ja": "The \"Map to Boolean, then Aggregate\" Pattern"
-                },
-                "link": "book/unit-6/section-4/4-map-to-boolean-pattern"
-              },
-              {
-                "label": "FALLBACK",
-                "translations": {
-                  "en": "Case Study: Aggregating Asynchronous HTTP Request Outcomes",
-                  "ja": "Case Study: Aggregating Asynchronous HTTP Request Outcomes"
-                },
-                "link": "book/unit-6/section-4/5-http-case-study"
               }
             ]
           }
@@ -1096,16 +1047,57 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "UI",
-              "ja": "UI"
+              "en": "Combining Independent Timelines",
+              "ja": "Combining Independent Timelines"
             },
             "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "0-ui"
+                  "en": "Chaper 0: Recap and Strategy for Binary Operations",
+                  "ja": "Chaper 0: Recap and Strategy for Binary Operations"
                 },
-                "link": "book/unit-7/section-1/0-ui"
+                "link": "book/unit-7/section-1/0-latest-value-combination"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 1: すべての基礎 combineLatestWith",
+                  "ja": "Chapter 1: すべての基礎 combineLatestWith"
+                },
+                "link": "book/unit-7/section-1/1-combine-timeline"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 2: 二項演算とMonoid",
+                  "ja": "Chapter 2: 二項演算とMonoid"
+                },
+                "link": "book/unit-7/section-1/2-monoidal-combinations"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 3: foldTimelines — Monoidによる畳み込み",
+                  "ja": "Chapter 3: foldTimelines — Monoidによる畳み込み"
+                },
+                "link": "book/unit-7/section-1/3-fold-timelins"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Chapter 4: N項演算 — combineLatest",
+                  "ja": "Chapter 4: N項演算 — combineLatest"
+                },
+                "link": "book/unit-7/section-1/4-combine-latest"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "nシリーズ合成関数",
+                  "ja": "nシリーズ合成関数"
+                },
+                "link": "book/unit-7/section-1/5-null-awared"
               }
             ]
           }

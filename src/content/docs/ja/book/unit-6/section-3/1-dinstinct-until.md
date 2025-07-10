@@ -1,60 +1,60 @@
 ---
-title: Filtering Timelines with distinctUntilChanged
+title: distinctUntilChanged — ノイズの除去
 description: >-
-  In the previous chapter, we introduced scan as a powerful combinator for
-  stateful transformations. We will now build another essential stateful
-  operator, distinctUntilChanged, by applying the very same underlying design
-  pattern.
+  distinctUntilChangedは、scanと同様に「状態を持つタイムライン」の応用例ですが、その目的は異なります。これは、不要な更新を防ぐための、極めて重要な最適化プリミティブです。
 ---
-In the previous chapter, we introduced `scan` as a powerful combinator for stateful transformations. We will now build another essential stateful operator, `distinctUntilChanged`, by applying the very same underlying design pattern.
+`distinctUntilChanged`は、`scan`と同様に「状態を持つタイムライン」の応用例ですが、その目的は異なります。これは、不要な更新を防ぐための、極めて重要な最適化プリミティブです。
 
-Its purpose is to solve the common and practical problem of redundant updates by filtering out consecutive, identical values from a timeline.
+## なぜ重複を排除するのか？
 
-## Implementation with the "Stateful Timeline" Pattern
+リアクティブなシステムでは、同じ値が連続してタイムラインに流れてくることが頻繁にあります。例えば、ユーザーがマウスを少し動かしても座標が変わらない場合や、テキスト入力で同じ文字が連続した場合などです。
 
-Instead of using `DependencyCore` directly or introducing new primitives, we will implement `distinctUntilChanged` using the clean pattern we established for `scan`: we will create a dedicated internal timeline to hold the state of the "last propagated value."
+もし、このすべてのイベントに反応してUIの再描画や重い計算処理を実行してしまうと、深刻なパフォーマンス問題を引き起こす可能性があります。値は実質的に「変化」していないのに、更新処理だけが何度も走ってしまうのです。
 
-The source timeline will then drive changes via `map`, and we will only update the final result timeline if the new value is different from the state timeline's current value.
+`distinctUntilChanged`は、この「ノイズ」を除去するためのフィルターです。内部で直前の値を記憶し、新しく来た値が直前の値と異なる場合、つまり**本当に意味のある変化**があった場合にのみ、その値を後続の処理に伝えます。
 
-This approach perfectly adheres to our architectural principle of building higher-level combinators on top of our core primitives.
+-----
 
-```fsharp
-module TL =
-    // ... map, bind, scan, etc. ...
+## API定義
 
-    let distinctUntilChanged<'a when 'a : equality> (sourceTimeline: Timeline<'a>) : Timeline<'a> =
-        let initialValue = sourceTimeline |> at Now
+#### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
 
-        // This is the public-facing timeline that will only contain distinct values.
-        let resultTimeline = Timeline initialValue
+*Note: In F\#, `distinctUntilChanged` is a standalone function that requires the type to support equality comparison.*
 
-        // This is a private, internal timeline that holds the state of the last value
-        // that was successfully propagated.
-        let lastPropagatedTimeline = Timeline initialValue
+#### TS: `.distinctUntilChanged(): Timeline<T>`
 
-        // We register a reaction on the source timeline using `map`.
-        sourceTimeline
-        |> map (fun currentValue ->
-            // For each new value from the source, get the state of the last propagated one.
-            let lastPropagatedValue = lastPropagatedTimeline |> at Now
+-----
 
-            // Only if the new value is different...
-            if currentValue <> lastPropagatedValue then
-                // ...do we update both our internal state timeline...
-                lastPropagatedTimeline |> define Now currentValue
-                // ...and the final result timeline.
-                resultTimeline |> define Now currentValue
-        )
-        |> ignore // The Timeline<unit> from map is not needed.
+## TypeScriptによるコード例
 
-        resultTimeline
+ユーザーがマウスを動かすシナリオを考えてみましょう。`distinctUntilChanged`を使うことで、マウス座標が実際に変化したときだけUIを更新できます。
+
+```typescript
+const mousePosition = Timeline({ x: 0, y: 0 });
+
+// 最後の値と比較し、変化があった場合のみ値を通す
+const significantMoves = mousePosition.distinctUntilChanged();
+
+// 更新を監視するコールバック
+significantMoves.map(pos => {
+  console.log(`UIを更新: x=${pos.x}, y=${pos.y}`);
+});
+
+// "UIを更新: x=10, y=20" が出力される
+mousePosition.define(Now, { x: 10, y: 20 });
+
+// 値が同じなので、コールバックは実行されない（UIの再描画が防がれる）
+mousePosition.define(Now, { x: 10, y: 20 });
+mousePosition.define(Now, { x: 10, y: 20 });
+
+// "UIを更新: x=15, y=25" が出力される
+mousePosition.define(Now, { x: 15, y: 25 });
 ```
 
-## Benefits of this Approach
+この例では、`mousePosition`が3回更新されても、`significantMoves`に依存する`map`内のコールバックは、値が実際に変化した2回しか実行されません。
 
-This implementation is superior because:
+-----
 
-1.  **It adheres to our design principles:** It does not use `mutable` local variables or directly call `DependencyCore`. It is built entirely on top of the established basic primitives (`map`, `at`, `define`), respecting the library's architectural layers.
-2.  **It is clear and declarative:** The logic is easy to follow. The use of a `lastPropagatedTimeline` explicitly models the state that needs to be maintained, and the update logic is contained within a simple `map` transformation.
+## Canvasデモ (Placeholder)
 
-With this clean implementation, `distinctUntilChanged` serves as a powerful utility for optimizing reactive data flows, most notably when combined with the binary operators we will explore in the next section.
+入力タイムラインに同じ値が連続して流れてきても、`distinctUntilChanged`を通過した後のタイムラインは一度しか更新されない様子を視覚的に比較できるデモ。

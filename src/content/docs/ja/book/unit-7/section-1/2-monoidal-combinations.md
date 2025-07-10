@@ -1,5 +1,9 @@
-# Chapter 2: 二項演算とMonoid
-
+---
+title: 'Chapter 2: 二項演算とMonoid'
+description: >-
+  Chapter
+  1で学んだcombineLatestWithは、あらゆる2項演算をTimelineの世界に持ち込むための、汎用的なプリミティブです。この章では、そのcombineLatestWithをより具体的に、そして安全に利用するためのヘルパー関数群を定義します。
+---
 Chapter 1で学んだ`combineLatestWith`は、あらゆる2項演算を`Timeline`の世界に持ち込むための、汎用的なプリミティブです。この章では、その`combineLatestWith`をより具体的に、そして安全に利用するためのヘルパー関数群を定義します。
 
 重要なのは、これから定義する2項演算が、Unit 2で学んだ**Monoid**という数学的構造に基づいている点です。Monoidは、「ある型」「その型の2つの値を取り、同じ型の値を返す**結合法則**を満たす2項演算」「その演算における**単位元**」の3つの組で定義される代数的構造でした。
