@@ -947,7 +947,7 @@ export const generatedTopics = [
       {
         "label": "FALLBACK",
         "translations": {
-          "en": "🔷Unit 6🔷 Combining Timelines",
+          "en": "🔷Unit 6🔷 Nullable Timeline and Sequence",
           "ja": "🔷Unit 6🔷 Combining Timelines"
         },
         "items": [
@@ -1032,7 +1032,7 @@ export const generatedTopics = [
       {
         "label": "FALLBACK",
         "translations": {
-          "en": "🔷Unit 7🔷 Nullable Timeline and Sequence",
+          "en": "🔷Unit 7🔷 Combining Timelines",
           "ja": "🔷Unit 7🔷 UI with Timeline JS"
         },
         "items": [
