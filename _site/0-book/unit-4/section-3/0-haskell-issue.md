@@ -1,3 +1,5 @@
+:::lang-en
+
 # The Fiction of Haskell's "Theoretical Superiority": A Critical Verification from a Category Theory Perspective and Its Educational Impact on Beginners
 
 ## Introduction
@@ -271,3 +273,5 @@ By stepping out from behind the cover of "theoretical authority" and engaging in
 I encourage readers to critically verify this critique of the Haskell ecosystem from an educational perspective, perhaps taking advantage of AI in your own independent examination.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+
+:::

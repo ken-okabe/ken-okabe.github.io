@@ -1,3 +1,4 @@
+:::lang-en
 # Associativity: Building Robust Structures
 
 This chapter lays the groundwork for understanding Monoids by exploring a fundamental property of **binary operations** that underpins this algebraic structure: **Associativity**. This property, where the grouping of operations doesn't affect the outcome, helps us build systems that are robust and predictable – where things "just connect and work" without surprises.
@@ -92,3 +93,4 @@ printfn "%s" result2  // Output: Hello world!
 The fact that this "just works" is a direct result of string concatenation being an associative binary operation. This property is the first key ingredient in understanding the Monoid structure. Associativity, combined with another key element (the identity element, which we'll discuss next), forms the basis of the Monoid.
 
 More importantly, it's a perfect example of how mathematical properties can make our everyday tools and programming operations more intuitive and reliable.
+:::

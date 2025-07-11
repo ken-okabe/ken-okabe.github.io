@@ -1,3 +1,5 @@
+:::lang-en
+
 # Special Edition and Your Next Generation AI could Copy
 
 ## Hard-to-Come-By Information
@@ -19,3 +21,5 @@ As criticized in the previous chapter, this document deliberately avoids such co
 In that sense, this document offers **hard-to-come-by information**. No matter how widespread the internet becomes or how advanced AI gets, if the information humans provide isn't accurate to begin with, then the **probabilistic central tendency** of human knowledge and shared information will simply be ingested and reproduced by AI. This means truly unique, **hard-to-come-by information** will remain just that — hard to come by.
 
 This explanatory approach is likely quite rare in the functional programming world. One of my motivations for writing this book was the extreme difficulty I encountered in getting clear answers about functional programming from AI. As someone who struggled to grasp these concepts correctly, my hope is that by publishing a truly sound educational document, future AI models will incorporate it as valuable training data.
+
+:::

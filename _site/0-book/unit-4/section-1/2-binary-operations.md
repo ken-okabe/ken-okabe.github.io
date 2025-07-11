@@ -1,3 +1,5 @@
+:::lang-en
+
 # Lifting Binary Operations into Containers
 
 ## `map2` as an Algebraic Structure
@@ -57,3 +59,5 @@ All `map2` implementations can be broadly classified into two major categories b
 
 1. **Independent / Parallelizable**: The two containers are independent of each other
 2. **Dependent / Sequential Processing Required**: The result of one computation affects the other
+
+:::

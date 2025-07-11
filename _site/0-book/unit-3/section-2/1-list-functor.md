@@ -1,3 +1,4 @@
+:::lang-en
 # List Functor
 
 List, as a Functor, provides `map` to apply a function to each element.
@@ -11,3 +12,4 @@ let doubled = numbers |> List.map (fun x -> x * 2)
 ```
 
 List.map applies the function to each element and returns a new list.
+:::

@@ -1,10 +1,12 @@
+:::lang-en
+
 # The Real-World Power of Parallel Processing Patterns
 
 Imagine you're at a massive concert venue with 50,000 attendees, and everyone needs to exit through the doors simultaneously. Would you prefer having everyone form a single line through one door, or having multiple doors where people can exit independently? This simple analogy captures the essence of why parallel processing has become the backbone of modern computing.
 
 ## Why Parallel Processing Matters More Than Ever
 
-In today's digital world, we're surrounded by devices that quietly perform millions of calculations every second. Your smartphone processes camera images in real-time, your laptop runs multiple applications simultaneously, and streaming services deliver content to millions of users concurrently. Behind all of this lies the fundamental principle of parallel processing – the ability to break down complex problems into smaller, independent tasks that can be solved simultaneously.
+In today's digital world, we're surrounded by devices that quietly perform millions of calculations every second. Your smartphone processes camera images in real-time, your laptop runs multiple applications simultaneously, and streaming services deliver content to millions of users concurrently. Behind all of this lies the fundamental principle of parallel processing  — the ability to break down complex problems into smaller, independent tasks that can be solved simultaneously.
 
 ### The Hardware Revolution That Changed Everything
 
@@ -15,7 +17,7 @@ Modern computing hardware has undergone a dramatic transformation. Where compute
 - **Graphics cards (GPUs)**: Thousands of cores working in parallel
 - **Data centers**: Distributed systems spanning continents
 
-This shift means that writing efficient software is no longer just about clever algorithms – it's about designing programs that can harness the power of parallel execution.
+This shift means that writing efficient software is no longer just about clever algorithms — it's about designing programs that can harness the power of parallel execution.
 
 ### Real-World Impact: Where Speed Matters
 
@@ -219,3 +221,5 @@ let streamingMap2 operation (seq1: seq<'a>) (seq2: seq<'b>) =
 The choice between these patterns isn't just a technical decision – it's a fundamental architectural choice that affects every aspect of your application's performance, scalability, and maintainability. By understanding the strengths and limitations of each approach, you can make informed decisions that align with both current requirements and future growth.
 
 In our next exploration, we'll dive deeper into specific implementation techniques and advanced optimization strategies that can help you harness the full power of parallel processing in your own projects.
+
+:::

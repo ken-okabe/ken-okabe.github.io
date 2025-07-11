@@ -1,3 +1,5 @@
+:::lang-en
+
 # Product or Pointwize(ZIP)
 
 `map2` is about binary operations of containers, which makes it fundamentally different from Functor's `map` function or Monad's `bind` function, leading to a wide variety of implementation methods.
@@ -205,3 +207,5 @@ Using the strictly sequential `bind` function forfeits this benefit. It is a pow
 Ultimately, this sequential pattern is a fallback for when independence is not possible, demonstrating that Monads encompass Applicative capabilities rather than showcasing the core identity of `map2`.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+
+:::

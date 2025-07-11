@@ -1,3 +1,5 @@
+:::lang-en
+
 # Deconstructing HOF Types: From `'a -> 'b` to Complex Signatures
 
 In the previous chapter, we established that the generic function type `'a -> 'b` is fundamental. It represents a function taking an input of some type `'a` and returning an output of some type `'b`, forming the very essence of functional transformation.
@@ -122,3 +124,5 @@ As we've seen, the type signatures of these fundamental HOF patterns are not arb
 *   When a HOF takes a function as input, one of its parameters in the type signature is a function type (e.g., `('x -> 'y) -> ...`).
 
 Recognizing how the `'a -> 'b` structure can be nested and combined to describe HOFs is crucial. It reinforces the concept of functions as first-class citizens whose types can be composed and reasoned about, just like any other data type. This understanding will be invaluable as we encounter more sophisticated HOFs and functional patterns, such as Functors and Monads (which often involve HOFs with types like `(a -> b) -> F a -> F b` or `(a -> M b) -> M a -> M b`), in later units.
+
+:::

@@ -1,3 +1,4 @@
+:::lang-en
 # List Monad
 
 List, as a Monad, provides `bind` (List.collect in F#).
@@ -29,3 +30,4 @@ let evenNumbers = [1; 2; 3; 4; 5] |> getEvenNumbers
 ```
 
 This flexibility is a key feature of the Monad interface: the monadic function can both add and remove elements, and even change the shape of the container, not just transform values. This is more powerful than Functor's map, which only transforms values but preserves the container's structure.
+:::

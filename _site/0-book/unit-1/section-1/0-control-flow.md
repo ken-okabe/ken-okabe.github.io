@@ -1,3 +1,5 @@
+:::lang-en
+
 # Understanding Control Flow: The Structured Programming Baseline
 
 To understand how functional programming approaches computation, we first need a clear picture of traditional control flow structures. In this chapter, we'll examine the foundations of structured programming that revolutionized software development.
@@ -37,3 +39,5 @@ The sufficiency of sequence, selection, and iteration, as demonstrated by the St
 The concept originates from the work of the mathematician and computer scientist **Alan Turing**, who developed a theoretical model of computation called the Turing machine. A system is considered Turing complete if it can simulate a universal Turing machine, meaning it can, in principle, perform any computation that any other computable system can perform.
 
 The Structured Program Theorem tells us that sequence, selection, and iteration are sufficient building blocks to express any algorithm. Therefore, any programming language or computational model that effectively supports these three structures is Turing complete. This guarantees that such languages have the fundamental expressive power required for general-purpose computation. Understanding these baseline structures is crucial as we explore alternative ways to control program flow in functional programming, which, while different in style, must also ultimately provide mechanisms to achieve Turing completeness.
+
+:::

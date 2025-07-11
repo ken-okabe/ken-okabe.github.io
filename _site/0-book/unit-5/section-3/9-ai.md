@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 9: Learning Curve and AI Development
 
 ### **1. 導入：なぜ「学習しやすさ」が重要なのか**
@@ -41,3 +43,5 @@ Unit 5の旅を振り返ると、我々は静的な`.map()`から始まり、動
 ### **Canvasデモ (Placeholder)**
 
 *(ここにAIとの協調開発やデバッグ機能の活用を示すインタラクティブなデモが配置されます。)*
+
+:::

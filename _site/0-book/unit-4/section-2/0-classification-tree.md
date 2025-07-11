@@ -1,3 +1,5 @@
+:::lang-en
+
 # Applicative Functor: The Parallel Computable Structure
 
 ## Functional Programming Patterns (F# notation)
@@ -42,3 +44,5 @@ If a structure is an Applicative Functor, it is **parallel computable**.
 ### Dependent Binary Operation
 
 On the other hand, in the case of a **Dependent Binary Operation** (*sequential only*), even if the function takes the form of `map2: ('a -> 'b -> 'c) -> F<'a> -> F<'b> -> F<'c>`, we do not call it an Applicative Functor.
+
+:::

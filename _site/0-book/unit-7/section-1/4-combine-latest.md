@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 4: N項演算 — `combineLatest`
 
 ## 導入
@@ -48,3 +50,5 @@ console.log(resultTimeline.at(Now)); // 2
 これにより、ライブラリの合成関数の階層が完成します。単純なMonoid的な畳み込みにはChapter 3の高レベルAPIを使い、より複雑で特殊なケースには`combineLatest`を使うことで、あらゆるパターンの`Timeline`の合成に、宣言的かつ堅牢に対処することができます。
 
 ## Canvasデモ (Placeholder)
+
+:::

@@ -1,3 +1,4 @@
+:::lang-en
 # Option Monad
 
 Option, as a Monad, provides `bind` (Option.bind in F#), which enables powerful control over computation flow.
@@ -18,3 +19,4 @@ let result = Some 100 |> Option.bind (fun x -> safeDivide x 2) |> Option.bind (f
 - Monad's `bind` allows the function to return Some or None, enabling short-circuiting: if any step returns None, subsequent computations are skipped. This allows for safe chaining of computations that may fail, early exit, and conditional logic—capabilities not possible with map alone.
 
 This distinction is fundamental: map is for value transformation only, while bind enables control over the computation's flow and structure.
+:::

@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 1: `map` — 静的な依存グラフ
 
 `Timeline`で最も基本的で頻繁に使われる変換操作が`.map()`です。これは、ある`Timeline`の値を、特定のルール（関数）に従って別の値に変換し、新しい`Timeline`を生成します。
@@ -50,3 +52,5 @@ console.log(labels.at(Now)); // "Score: 100"
 ## **Canvasデモ (Placeholder)**
 
 _(ここに`.map()`の動作を視覚的に示すインタラクティブなデモが配置されます。)_
+
+:::

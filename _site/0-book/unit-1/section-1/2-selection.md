@@ -1,3 +1,5 @@
+:::lang-en
+
 # 2. Selection
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474652773.png)
@@ -106,3 +108,5 @@ Both styles achieve conditional logic.
 -   The **imperative style** typically uses control flow **statements** (`if/else`) to execute different blocks of code, often involving assignments to mutable variables.
 
 -   The **functional style** often uses conditional **expressions** (like F#'s `match` or `if-then-else expressions`) that directly evaluate to a result based on the input, avoiding intermediate assignments and aligning closely with mathematical definitions.
+
+:::

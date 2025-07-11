@@ -1,3 +1,5 @@
+:::lang-en
+
 # Generic Function Types: The Power of `'a -> 'b`
 
 In the previous discussion on lambda expressions and the identity function (`id`), we encountered the type signature `'a -> 'a`. We learned that `'a` is a **generic type parameter**, acting as a placeholder for any type, signifying that the `id` function takes a value of some type and returns a value of that *same* type.
@@ -44,3 +46,5 @@ By viewing `'a -> 'b` as the fundamental structure, we can see how functions mig
 The ability to work with functions at this level of abstraction, where types themselves can be parameters (placeholders like `'a` and `'b`), is a hallmark of statically-typed functional programming languages. It underpins many powerful patterns and techniques that contribute to robust and maintainable software.
 
 A solid understanding of generic function types like `'a -> 'b` will be invaluable as we continue. It unlocks much of the expressive power of functional programming.
+
+:::

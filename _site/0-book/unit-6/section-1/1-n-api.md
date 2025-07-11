@@ -1,3 +1,5 @@
+:::lang-en
+
 # Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations
 
 ## 1\. The Conclusion of the Previous Chapter: The Missing Piece Was a "Safe Operation"
@@ -142,6 +144,7 @@ This design frees the programmer from needing to repeat defensive `if`-`null` ch
 A demo comparing the behavior of `map` and `nMap` side-by-side. On the left (`map`), when `null` is input, the pipeline stops with a red warning indicator. On the right (`nMap`), when `null` is input, the pipeline's color changes, and it visually skips the subsequent operation, propagating `null` as the output.
 
 --------------
+:::
 
 # Chapter 1: Null許容世界の歩き方 — 安全な「演算」としてのn-API
 

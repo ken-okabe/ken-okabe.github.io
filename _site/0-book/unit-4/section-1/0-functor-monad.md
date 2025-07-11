@@ -1,3 +1,5 @@
+:::lang-en
+
 # Bringing It All Together: Functor & Monad (Revisit)
 
 Our ultimate goal has been to obtain a mapper function that can work between container types:
@@ -24,3 +26,5 @@ This unified view reveals an elegant symmetry in how we can obtain our desired m
 - The **Monad** approach (lower path) obtains `g` by using `bind` to transform a Kleisli arrow `f` into a container mapper function `g` / `bind f`
 
 Both paths provide us with what we ultimately want - a function `g` that can map between containers. The difference lies in our starting point: we can begin with either a regular function or a Kleisli arrow, and both paths will lead us to the container mapper function we seek.
+
+:::

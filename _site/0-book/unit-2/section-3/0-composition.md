@@ -1,3 +1,4 @@
+:::lang-en
 # Function Composition: A Natural Monoid
 
 In the previous sections, we learned about the **Monoid** as an algebraic structure: a set (or **Type**) with an associative binary operation (a function of type `'a -> 'a -> 'a`) and an identity element for that operation. Now, let's explore a fascinating and highly relevant example: **function composition** itself, under specific conditions, forms a monoid.
@@ -94,3 +95,4 @@ The algebraic laws are directly analogous:
 *   Function Composition Monoid (on `T->T`): `(f >> g) >> h = f >> (g >> h)` and `id >> f = f = f >> id`
 
 Understanding this allows us to leverage the properties of monoids when reasoning about and constructing complex sequences of function applications.
+:::

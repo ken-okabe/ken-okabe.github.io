@@ -1,3 +1,5 @@
+:::lang-en
+
 # Higher-Order Functions (HOF)
 
 Building on the idea that functions are first-class values, we can now explore a powerful consequence: Higher-Order Functions (HOFs). These are functions that operate on other functions, either by taking them as input or returning them as output. This section introduces the basic patterns of HOFs.
@@ -35,3 +37,5 @@ Takes and Returns a Function as input and also returns a function as output.
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745695992437.png)
 
 These three patterns illustrate the fundamental ways functions can be used as first-class values, enabling the powerful techniques found in functional programming.
+
+:::

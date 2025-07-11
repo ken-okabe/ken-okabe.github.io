@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation
 
 ### 言語の切り替え：F\#からTypeScript/JavaScriptへ
@@ -752,3 +754,4 @@ In addition to manual toggling with `DebugControl`, the library automatically en
 4.  **Development Hostname**: If the site is accessed from `localhost`, `127.0.0.1`, or a hostname starting with `192.168.`.
 
 5.  **Node.js Environment**: If `process.env.NODE_ENV` is set to `'development'`.
+:::

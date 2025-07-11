@@ -1,3 +1,4 @@
+:::lang-en
 # Monad: Another Bridge
 
 ## From Kleisli Arrow to Container Mapper
@@ -33,3 +34,4 @@ This provides a completely different way to bridge the world of functions and co
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745804453086.png)
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745804937535.png)
+:::

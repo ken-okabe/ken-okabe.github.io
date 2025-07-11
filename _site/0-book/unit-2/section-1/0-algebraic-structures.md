@@ -1,3 +1,4 @@
+:::lang-en
 # Algebraic Structures and Pipeline Flow
 
 Before diving into the details of algebraic structures, let's start with a simple but powerful idea: types in programming are closely related to sets in mathematics.
@@ -118,3 +119,4 @@ The structures we'll explore in this unit are:
 - **Monads**: Structures that provide a way to sequence operations within a computational context, managing complexity like side effects or optionality.
 
 These are all formalized patterns of how Types and the Functions/Operations defined on them can work together reliably and predictably in our data transformation pipelines.
+:::

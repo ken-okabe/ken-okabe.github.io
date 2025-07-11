@@ -1,3 +1,5 @@
+:::lang-en
+
 # Chapter 0: Immutable World
 
 Throughout this book, we've consistently explained that the core concept of programming is transforming data through pipelines of functions. We've shown that, in principle, all of this can be expressed mathematically—centered around binary operations and algebraic structures.
@@ -111,3 +113,5 @@ However, the key difference is that, in FRP, all related ReactiveValues are fund
 By contrast, the fundamental problem with mutable variables in imperative programming is that this discipline is often lax. Programmers may try to keep the versions of separate variables in sync, but sometimes they forget, make mistakes, or simply ignore it. While OOP introduces encapsulation and some mechanisms to manage state, it does not, by design, guarantee the kind of automatic, system-wide version synchronization that FRP provides.
 
 [^1]: Alan Kay, “The Early History of Smalltalk,” ACM SIGPLAN Notices, 1993.
+
+:::

@@ -1,3 +1,5 @@
+:::lang-en
+
 # Types: Ensuring Smooth Pipelines
 
 We've explored how functional programming builds computations using **pipelines** and **expressions**, treating **functions as first-class values**. Now, let's introduce another crucial concept that ensures these pipelines work reliably: **Types**.
@@ -118,3 +120,5 @@ While AI tools can assist significantly with TypeScript typing nowadays, it stil
 -   **Type Inference**, especially when combined with IDE support (like in F# with VSCode), automatically determines and displays types, providing strong guarantees and developer assistance without requiring extensive manual annotations.
 
 -   This powerful inference is a key feature supporting the functional programming style, contrasting with languages where type specification is often more manual.
+
+:::

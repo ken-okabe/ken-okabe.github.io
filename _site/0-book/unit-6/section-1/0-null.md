@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 0: nullの再審 — 代数構造と型システムの歴史から解き明かす「不在」の哲学
 
 ## 1\. 問題提起：なぜ「不在」を表現する必要があるのか
@@ -308,4 +310,6 @@ This choice is justified by:
 
 This disciplined pattern serves as the necessary "safe operation" and "guard rail" in our framework. By adhering to this convention, the dangers historically associated with `null` are effectively mitigated within the context of using this library.
 
-We position this approach as a **theoretically valid path** that consciously diverges from the mainstream HM/`Option` tradition to prioritize conceptual clarity and representational simplicity. The philosophy established in this chapter is foundational for the APIs we will introduce, such as `combineLatestWith`, and demonstrates how this disciplined approach to `null` leads to the construction of a clear and predictable reactive system.
+We position this approach as a **theoretically valid path** that consciously diverges from the mainstream HM/`Option` tradition to prioritize conceptual clarity and representational simplicity. The philosophy established in this chapter is foundational for the APIs we will introduce, such as `combineLatestWith`, and demonstrates how this disciplined approach to `null` leads to the construction of a clear and predictable reactive system。
+
+:::

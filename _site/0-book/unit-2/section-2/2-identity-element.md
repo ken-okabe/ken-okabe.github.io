@@ -1,3 +1,4 @@
+:::lang-en
 # Identity Elements: The Neutral Value in Operations
 
 In the context of a **set (or Type) `A`** and a **binary operation `•`** defined on that set (as discussed for semigroups), an **identity element** (often called a "unit element") is a special value within `A` that, when combined with any other value from `A` using `•`, leaves that other value unchanged.
@@ -79,3 +80,4 @@ Let's confirm with our examples:
 This uniqueness and two-sided nature is a fundamental characteristic of identity elements in algebraic structures.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+:::

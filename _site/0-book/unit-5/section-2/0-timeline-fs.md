@@ -1,3 +1,5 @@
+:::lang-en
+
 # Chapter 0: Timeline.fs `Timeline<'a>` and FRP Implementation
 
 **Prerequisites:** This section assumes a basic understanding of the "Block Universe" concept (the idea that the universe, including all of time, exists as an immutable data structure) and Einstein's related insight that the distinction between past, present, and future is a persistent illusion. In essence, the reader accepts the premise that the universe is fundamentally immutable.
@@ -183,3 +185,5 @@ In essence, purity is redefined as the faithfulness of the implementation's beha
 *   `TL.define Now value` is a conceptually pure declaration, updating `_last` and notifying dependents via `DependencyCore`.
 *   Conventional functional programming views internal mutability as impure. The Block Universe simulation perspective argues that `Timeline._last`'s mutability is a **theoretically consistent and accurate way** to simulate observing changes.
 *   "Purity" derives from fidelity to the conceptual model, allowing necessary internal mutability for correct simulation.
+
+:::

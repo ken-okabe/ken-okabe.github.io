@@ -1,3 +1,5 @@
+:::lang-en
+
 # Operators as Functions and Pipeline Flow
 
 In the previous chapter, we established that the pipeline operator (`|>`) acts like a binary operation, taking a value as its left operand and a **function value** as its right operand. This chapter explores the relationship between operators and functions in functional programming.
@@ -151,3 +153,5 @@ The expression `(minus 2)` creates an intermediate function of type `int -> int`
 -   Because these are functions, we can use them to create new functions via **Partial Application** (providing fewer arguments than expected, which results in a new function – an instance of HOF Pattern 1). This will be explained more fully in `2-curry-partial.md`.
 -   Creating functions like `minus2` (for `x - 2`) via partial application of standard operators like `(-)` requires care due to argument order, often necessitating a lambda expression or a custom function definition tailored for pipeline usage.
 -   F# uses the pipeline operator (`|>`) as the primary way to apply functions sequentially to a value (`Value |> Function`), providing an operator-like flow for data transformation, leveraging first-class functions.
+
+:::

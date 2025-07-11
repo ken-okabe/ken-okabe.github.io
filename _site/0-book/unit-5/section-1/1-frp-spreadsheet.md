@@ -1,3 +1,5 @@
+:::lang-en
+
 # Chapter 1: FRP is like Spreadsheet
 
 Another familiar example of something  **fundamentally designed to keep its versions perfectly synchronized**  is the  **spreadsheet.**
@@ -199,3 +201,4 @@ log (timelineA |> TL.last)
 log (timelineB |> TL.last)
 // 6
 ```
+:::

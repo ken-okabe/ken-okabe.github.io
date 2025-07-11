@@ -1,3 +1,5 @@
+:::lang-en
+
 # 3. Iteration
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474702812.png)
@@ -184,3 +186,5 @@ Both styles achieve the same result for iteration over a collection.
 -   The **imperative style** uses explicit **loops** (like `for`) and often manages state with **mutable variables** (like `sum` and the loop counter `i`).
 
 -   The **functional style** uses **higher-order functions** (like `map`, `sum`, `filter`, `fold`) combined in **pipelines** to declaratively process collections, often avoiding explicit loops and mutable state. It also provides powerful ways to **generate** the data sequences needed.
+
+:::

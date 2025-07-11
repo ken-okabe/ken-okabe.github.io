@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 2: 二項演算とMonoid
 
 Chapter 1で学んだ`combineLatestWith`は、あらゆる2項演算を`Timeline`の世界に持ち込むための、汎用的なプリミティブです。この章では、その`combineLatestWith`をより具体的に、そして安全に利用するためのヘルパー関数群を定義します。
@@ -100,3 +102,5 @@ const orOf = (timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timel
 Applicative Functorの`map2`操作（ここでは`combineLatestWith`）が、下層にあるMonoidの美しい代数的構造を、そのままコンテナレベルのMonoidへと継承させるのです。この堅牢な数学的基盤があるからこそ、我々は次章で、これらの部品を安心して組み上げ、より複雑な合成関数を構築することができます。
 
 ## Canvasデモ (Placeholder)
+
+:::

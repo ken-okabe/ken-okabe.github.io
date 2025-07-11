@@ -1,3 +1,5 @@
+:::lang-en
+
 # Pipelines and Expressions as Values
 
 In the previous chapter, we saw how functional programming uses pipelines to transform data sequentially. Let's delve deeper into why this approach feels natural and powerful, connecting it to familiar concepts and introducing core functional ideas.
@@ -89,3 +91,5 @@ The math we learn early on (arithmetic, algebra) is all about applying operation
 So, both mathematical expressions and functional pipelines are primarily concerned with evaluating to **values** (data). This focus on expressions and values is central to FP.
 
 Now, a fascinating question arises: can _functions themselves_ be treated as values in programming? That's exactly what we'll explore next when we discuss First-Class Functions.
+
+:::

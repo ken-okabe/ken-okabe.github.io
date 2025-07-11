@@ -1,3 +1,5 @@
+:::lang-en
+
 # HOFs in Action: Type Signatures, `flip`, and Pipelines
 
 In the previous chapter, we explored Currying and Partial Application, understanding how functions that appear to take multiple arguments are often sequences of functions each taking a single argument.
@@ -134,3 +136,5 @@ By first using `flip` (HOF Pattern 3) to create `minus` (a function that expects
     1. `flip`ping the original operator (e.g., `(-)`) to get a new function (e.g., `minus`) that takes arguments in the desired order for partial application. This step is an application of HOF Pattern 3.
     2. Partially applying the fixed value (e.g., `2`) to this new function (`minus`) to get the final unary function (e.g., `minus2`). This step is an application of HOF Pattern 1.
 - This two-step HOF application allows us to construct functions that integrate cleanly into data pipelines.
+
+:::

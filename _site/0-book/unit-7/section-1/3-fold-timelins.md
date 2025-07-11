@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 3: `foldTimelines` — Monoidによる畳み込み
 
 ## 導入
@@ -72,3 +74,5 @@ Chapter 2で強調した**配列のMonoid**、すなわち「単位元`Timeline(
 `combineLatestWith`（Applicative） → 2項演算（Monoid） → `foldTimelines` → 高レベルAPIという階層構造こそが、本ライブラリの設計の美しさと、コードの重複を排した堅牢性の根幹をなすものです。
 
 ## Canvasデモ (Placeholder)
+
+:::

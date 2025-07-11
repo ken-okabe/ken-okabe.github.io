@@ -1,3 +1,4 @@
+:::lang-en
 # Option Functor
 
 Option, as a Functor, provides `Option.map` to apply a function only if the value is Some.
@@ -15,3 +16,4 @@ let doubledNone = noneValue |> Option.map (fun x -> x * 2)
 ```
 
 Option.map applies the function only if a value is present.
+:::

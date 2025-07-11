@@ -1,3 +1,5 @@
+:::lang-en
+
 # Self-Referential Structures on Dependency Graphs
 
 In previous chapters, we've explored the powerful concept of the **data transformation pipeline**, where data sequentially passes through a series of functions. This illustrates a clear flow of data from input to output.
@@ -135,3 +137,5 @@ As touched upon in the previous chapter, self-reference encapsulates "infinite p
 -   However, when modeling recursive algorithms or iterative computations, a cycle is an intentional and indispensable structure embodying "infinite possibilities." For such repetitions to be computable (i.e., to eventually terminate), the **presence and appropriateness of "termination conditions" and a "path to reach them"** are critically important. This is the dividing line between constructive iterative processes and problematic, uncontrolled infinite loops.
 
 Dependency graphs thus provide a powerful framework for uniformly representing diverse computational patterns—from simple linear processes to complex patterns woven by self-reference—along with both the "possibilities" and "contradictions" they entail.
+
+:::

@@ -1,3 +1,5 @@
+:::lang-en
+
 # Understanding Functional Programming Terminology
 
 As we delve deeper into functional programming, we encounter several key terms frequently used to describe its characteristics, such as 'Pure Function', 'Side Effect', and 'Immutability'. However, simply listing these terms can be misleading.
@@ -70,3 +72,5 @@ Why? As we have emphasized throughout, **functional programming *is* mathematics
 These specialized terms often lack direct mathematical counterparts. Introducing them is not only unnecessary but frequently serves to confuse rather than clarify, especially for learners.
 
 This book aims to build understanding directly from mathematical and foundational programming principles, like those familiar from JavaScript. Therefore, we minimize reliance on terminology that exists primarily in relation to the imperative paradigm we are moving beyond.
+
+:::

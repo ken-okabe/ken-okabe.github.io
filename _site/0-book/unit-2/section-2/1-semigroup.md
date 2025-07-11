@@ -1,3 +1,4 @@
+:::lang-en
 # Semigroups: Our First Algebraic Structure
 
 In the previous chapter, we discussed **associativity**, a key property of some binary operations. Now, let's explore our first formal algebraic structure built around such operations: the **Semigroup**.
@@ -70,3 +71,4 @@ The real power of recognizing that a certain **Type** and a **binary operation**
 This allows us to reliably chain these operations together in our data transformation pipelines, much like we can confidently connect LEGO blocks in any grouping.
 
 The semigroup structure ensures that for a sequence of operations `a • b • c • d ...`, we can compute it as `((a • b) • c) • d` or `a • (b • (c • d))` or any other valid grouping, and the result will be identical. This predictability is invaluable for building complex systems, optimizing computations (e.g., parallel processing), and reasoning about our code.
+:::

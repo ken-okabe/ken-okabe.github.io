@@ -1,3 +1,5 @@
+:::lang-en
+
 # Chaper 0: Recap and Strategy for Binary Operations
 
 In the previous units and sections, we have built a powerful set of tools. We can transform single timelines with `map`, create sequential, dependent chains with `bind`, and manage stateful transformations over time with `scan`.
@@ -25,3 +27,5 @@ This idea is defined as follows:
 > **The moment any source timeline is updated, its new value is combined with the most recently known value (the latest state) of the other source(s) to produce a new result.**
 
 This powerful model fully embraces the asynchronous nature of the inputs while ensuring a consistent, combined state is always available. It is a pattern uniquely suited for reactive systems.
+
+:::

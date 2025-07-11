@@ -1,3 +1,4 @@
+:::lang-en
 # Result (Either) Monad
 
 Result, as a Monad, provides `bind` (Result.bind in F#), which enables robust error handling and control flow.
@@ -18,3 +19,4 @@ let result = Ok 100 |> Result.bind (fun x -> safeDivide x 2) |> Result.bind (fun
 - Monad's `bind` allows the function to return Ok or Error, enabling short-circuiting: if any step returns Error, subsequent computations are skipped. This allows for safe error propagation, early exit on failure, and composition of error-prone computations—capabilities not possible with map alone.
 
 This distinction is fundamental: map is for value transformation only, while bind enables control over the computation's flow and error handling.
+:::

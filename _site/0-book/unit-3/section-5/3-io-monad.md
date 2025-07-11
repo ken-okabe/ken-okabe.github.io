@@ -1,3 +1,4 @@
+:::lang-en
 # IO Monad
 
 IO, as a Monad, allows chaining multiple IO actions in sequence, enabling dynamic and controlled side-effectful workflows.
@@ -22,3 +23,4 @@ let program = readInput |> bindIO printTwice
 - Monad's `bindIO` allows you to execute an IO action, then use its result to determine and execute the next IO action. This enables chaining, conditional branching, and complex workflows involving side effects—capabilities not possible with mapIO alone.
 
 This distinction is fundamental: mapIO is for value transformation only, while bindIO enables full control over the flow and composition of side effects.
+:::

@@ -1,3 +1,5 @@
+:::lang-en
+
 # Recursion: The Foundation of Functional Iteration
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
@@ -295,3 +297,4 @@ The Y combinator isn't just a clever trick—it's a profound demonstration that 
 * While HOFs conceptually abstract recursion, their low-level implementation in libraries might use optimized **imperative loops** for performance, but their functional interface is maintained.
 * **Direct recursion** remains the best tool for inherently recursive problems (e.g., tree structures).
 * **Choose wisely:** Prefer HOFs for standard iteration patterns; use recursion when the problem structure demands it or when HOFs are awkward. Avoid using recursion just because you can when a standard HOF is a better fit.
+:::

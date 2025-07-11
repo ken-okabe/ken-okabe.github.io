@@ -1,3 +1,5 @@
+:::lang-en
+
 # Introducing `apply` and `map2`
 
 Here is the familiar `map` function.
@@ -87,3 +89,5 @@ We obtain:
 `map2: ('a -> 'b -> 'c) -> F<'a> -> F<'b> -> F<'c>`
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749340031405.png)
+
+:::

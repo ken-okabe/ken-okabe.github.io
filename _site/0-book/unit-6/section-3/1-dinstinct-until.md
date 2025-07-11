@@ -1,3 +1,5 @@
+:::lang-ja
+
 # `distinctUntilChanged` — ノイズの除去
 
 `distinctUntilChanged`は、`scan`と同様に「状態を持つタイムライン」の応用例ですが、その目的は異なります。これは、不要な更新を防ぐための、極めて重要な最適化プリミティブです。
@@ -55,3 +57,5 @@ mousePosition.define(Now, { x: 15, y: 25 });
 ## Canvasデモ (Placeholder)
 
 入力タイムラインに同じ値が連続して流れてきても、`distinctUntilChanged`を通過した後のタイムラインは一度しか更新されない様子を視覚的に比較できるデモ。
+
+:::

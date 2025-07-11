@@ -1,3 +1,5 @@
+:::lang-en
+
 # First-Class Functions and Lambda Expressions
 
 In the previous chapter, we saw that functions, like other data, have **types** (e.g., `int -> int`) that define their inputs and outputs, ensuring our pipelines connect correctly. This understanding of functions having types naturally leads us to explore how we can work with these function values directly.
@@ -105,7 +107,7 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 
 **Simple Examples:**
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 -   Adds 1:
 
@@ -127,7 +129,7 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 
 These directly define function _values_ with specific _types_.
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/note.svg">
 
 **Syntax Across Languages**
 
@@ -144,7 +146,7 @@ F#'s `fun` keyword might feel verbose and inferior for a functional language, bu
 
 *This formatting benefit can be seen in more complex lambda expressions:*
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 ```fsharp
 let bind =
@@ -161,7 +163,7 @@ let bind =
 
 The consistent 4-character width (`let` and `fun` ) helps maintain visual alignment for function bodies and arguments, contributing to code readability in F#.
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/notefooter.svg">
 
 ## Using Lambdas
 
@@ -205,3 +207,5 @@ Each lambda expression evaluates to a function value, which is then applied via 
 -   **Lambda Expressions:** A concise syntax (`fun ->` in F#) for creating anonymous function values inline, directly representing function logic as typed data, consistent with function **type notation**.
 
 -   **Primary Use:** Defining simple functions directly where needed, especially for passing as arguments to Higher-Order Functions or within data transformation pipelines, relying on type compatibility.
+
+:::

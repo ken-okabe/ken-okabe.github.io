@@ -1,3 +1,5 @@
+````markdown
+:::lang-en
 # Result (Either) Functor
 
 Result (the Result type in F#) has two cases: success (Ok) and failure (Error). As a Functor, it provides `Result.map` to apply a function only in the success case.
@@ -15,3 +17,5 @@ let mappedError = errorValue |> Result.map (fun x -> x * 2)
 ```
 
 Result.map applies the function only in the Ok case and returns Error unchanged.
+:::
+````

@@ -1,3 +1,5 @@
+:::lang-ja
+
 # Chapter 1: すべての基礎 combineLatestWith
 
 Unit 4で確立したApplicative Functorの概念、すなわち「独立したコンテナを2項演算で合成する」という操作を、`Timeline`ライブラリで具現化するものが`combineLatestWith`です。これは、非同期で独立した複数のソースを合成するために設計された、Applicative操作の具体的な実装です。
@@ -59,3 +61,5 @@ console.log("Current Sum after A updated: %d", sumTimeline.at(Now)); // 35
 この操作は内部で、2つのソース`Timeline`から結果`Timeline`への依存関係を`DependencyCore`に登録します。また、`timeline.ts`の`FinalizationRegistry`（F\#の`GcRegistry`に相当）を利用することで、結果`Timeline`がガベージコレクションの対象となった際に、これらの依存関係が自動的にクリーンアップされるメモリセーフな設計が施されています。
 
 ## Canvasデモ (Placeholder)
+
+:::

@@ -1,3 +1,5 @@
+:::lang-en
+
 # Binary Operations and the Pipeline Operator
 
 We've seen how functional pipelines connect functions and resemble mathematical expressions. Let's now look at the underlying structure by examining **binary operations** and how the pipeline operator (`|>`) fits into this picture.
@@ -70,3 +72,5 @@ Each `|>` step applies this binary operation, taking the result from the left (e
 -   The pipeline operator (`|>`) acts as a binary operation where the structure is `Value |> Function`. The type of the `Value` must align with the input type of the `Function`.
 
 -   This is enabled by **first-class functions**, allowing functions (which have types) to be used as operands (data).
+
+:::

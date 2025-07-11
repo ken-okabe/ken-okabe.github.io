@@ -1,3 +1,5 @@
+````markdown
+:::lang-en
 # IO Functor
 
 IO is a type for treating effectful computations as values. As a Functor, it provides `mapIO` to apply a function to the value inside IO.
@@ -15,3 +17,5 @@ let mappedIO = ioValue |> mapIO (fun x -> x * 2)
 ```
 
 This way, you can apply a function to the value inside IO.
+:::
+````

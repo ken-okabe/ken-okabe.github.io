@@ -1,3 +1,4 @@
+:::lang-en
 # Beyond Simple Mapping: Preserving the Structure of Composition
 
 In our initial exploration of Functors (in Unit 2, Section 4), we used a helpful analogy to build intuition. We revisited the basic concept of mapping between sets:
@@ -18,7 +19,7 @@ This analogy, comparing a Functor to a Higher-Order Function that transforms fun
 
 **Here**, we introduced the concept of a Functor using an analogy based on familiar ideas of mapping as shown in the diagram. We extended the idea of mapping values between sets to mapping functions between sets of functions to build an initial intuition.
 
-It's important to understand that this initial explanation was designed primarily to help grasp the **core intuitive idea** behind Functors – the concept of transforming content while preserving structure.
+It's important to understand that this initial explanation was designed primarily to help grasp the **core intuitive idea** behind Functors  the concept of transforming content while preserving structure.
 
 However, as our more detailed discussions will reveal later, this analogy alone is insufficient for a **rigorous definition** of a Functor. To define Functors precisely, we need to introduce the **Functor Laws** (Identity and Composition), which are specific rules that these operations must satisfy.
 
@@ -47,7 +48,7 @@ Now, let's consider the world of containers and the functions that operate on th
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747107039123.png)
 
-2.  **(Outer World) Composition of Mapping Functions:** The functions that `map` and `bind` *produce* – the ones that operate on containers (like `map f: List<A> -> List<B>` and `map g: List<B> -> List<C>`) – can *also* be composed. We can certainly define `(map f) >> (map g): List<A> -> List<C>`. Function composition works here too, forming its own Monoid structure in the "outer" world of container transformations.
+2.  **(Outer World) Composition of Mapping Functions:** The functions that `map` and `bind` *produce*  the ones that operate on containers (like `map f: List<A> -> List<B>` and `map g: List<B> -> List<C>`)  can *also* be composed. We can certainly define `(map f) >> (map g): List<A> -> List<C>`. Function composition works here too, forming its own Monoid structure in the "outer" world of container transformations.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747107081688.png)
 
@@ -94,8 +95,8 @@ These laws, which we will detail in the following sections are not arbitrary con
 
 ## Essence and Intuition: Structure Preservation is Key
 
-Understanding Functors and Monads primarily as **structure-preserving transformations** provides a powerful intuition. They are more than just ways to apply functions to values inside containers; they are bridges between computational contexts that respect the fundamental algebraic rules of composition and identity – the rules embodied by the Monoid structure.
+Understanding Functors and Monads primarily as **structure-preserving transformations** provides a powerful intuition. They are more than just ways to apply functions to values inside containers; they are bridges between computational contexts that respect the fundamental algebraic rules of composition and identity  the rules embodied by the Monoid structure.
 
 Thinking "Does this preserve the Monoid of composition?" is a more insightful way to approach Functors and Monads than just memorizing the specific laws. This perspective provides the conceptual foundation needed to truly understand *why* the laws exist and what guarantees they provide.
 
-With this understanding of structure preservation as our stepping stone, we are now ready to examine the specific Functor Laws in detail.
+:::

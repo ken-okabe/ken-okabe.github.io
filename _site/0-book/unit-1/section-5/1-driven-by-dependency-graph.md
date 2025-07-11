@@ -1,3 +1,5 @@
+:::lang-en
+
 # Code Driven by Dependency Graph
 
 So, what is this **Dependency Graph** we referred to?
@@ -79,3 +81,5 @@ Parentheses and operator precedence are essentially the rules for constructing t
 The resulting dependency graph (often a tree structure for expressions, known as an "expression tree" or "Abstract Syntax Tree" - AST) uniquely represents the necessary order of evaluation for the expression. A node in this graph can only be "evaluated" (its operation performed) once all its input dependencies (nodes pointing to it) have been resolved.
 
 This is how the dependency graph naturally embodies the structure and evaluation order defined by parentheses and operator precedence.
+
+:::

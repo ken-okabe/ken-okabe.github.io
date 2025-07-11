@@ -1,3 +1,5 @@
+:::lang-en
+
 # Applicative Functor Laws For Us
 
 At first glance, checking whether your code satisfies these Applicative Functor Laws might seem extremely cumbersome and impractical for programmers to verify against their own implementations.
@@ -214,3 +216,5 @@ The Applicative Laws are essentially asking: *"Does your implementation respect 
 This is why functional programming feels so natural once you grasp it—the abstractions were built to formalize concepts that already made intuitive sense to programmers dealing with real-world problems.
 
 **For beginners**: You can trust your intuition about independence because the entire mathematical framework was designed to support and validate that intuition. The laws aren't arbitrary constraints—they're the mathematical expression of what independence means in computational contexts.
+
+:::

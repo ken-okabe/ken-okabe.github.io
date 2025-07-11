@@ -1,3 +1,4 @@
+:::lang-en
 # Identity Functor and Identity Monad
 
 We stand at a significant juncture in our exploration of functional programming. Having journeyed through functions, types, algebraic structures like Monoids, and the general concepts of Functors and Monads, we are now poised to uncover a profound truth about a tool we've used from the very beginning:
@@ -176,3 +177,4 @@ All of the above are identical.
 Functors and Monads are not distant, arcane concepts. Their most basic forms, the Identity Functor and Identity Monad, are already present in the very fabric of simple function application and the pipeline that we use constantly.
 
 This provides a solid conceptual bridge: these advanced abstractions generalize core, familiar ideas to work across more complex scenarios. This is one of the great "Aha!" moments in understanding the mathematical underpinnings of functional programming.
+:::

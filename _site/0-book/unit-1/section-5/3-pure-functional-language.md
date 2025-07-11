@@ -1,3 +1,5 @@
+:::lang-en
+
 # Pure vs. Impure Functional Languages
 
 The concept of driving code solely through a dependency graph leads us to "pure" functional languages.
@@ -27,3 +29,5 @@ Working with purely functional languages can be a very enlightening experience, 
 *   **Coding Overhead:** For certain tasks, particularly those that are inherently sequential or involve many side effects, the constraints of purity can sometimes lead to more verbose or less intuitive code compared to a hybrid approach. Expressing simple imperative sequences might require more sophisticated functional constructs.
 
 In practice, many developers find that hybrid languages like F# offer a pragmatic balance, providing the benefits of functional programming (immutability, pure functions where they matter most) while still allowing for imperative escape hatches when deemed more practical or efficient for a specific problem. The choice often depends on the specific problem domain, team expertise, and performance requirements.
+
+:::

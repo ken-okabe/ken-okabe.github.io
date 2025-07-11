@@ -1,3 +1,5 @@
+:::lang-en
+
 # 1.  Sequence
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744474563390.png)
@@ -178,3 +180,4 @@ F# **does** execute these bindings and actions in the top-to-bottom order they a
 So, while the functional pipeline _itself_ (`number |> double |> add1 |> double`) is a pure expression focused on data transformation without regard to imperative steps, F# allows you to sequence these expressions and side-effecting actions (like `printfn`) in a predictable, top-to-bottom manner. This blends the benefits of functional expressions with the practical necessity and convenience of sequential execution for certain tasks.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+:::

@@ -1,3 +1,4 @@
+:::lang-en
 # Understanding Functors: Preserving the Monoid of Function Composition
 
 In the previous section, we established that the concept of "structure preservation" is central to understanding robust abstractions in functional programming. We saw how Category Theory itself is founded on Monoid-like principles of composition and identity. This chapter delves into **Functors**, illustrating how the Functor Laws are precisely the requirements ensuring that the `map` operation preserves the natural **Monoid structure of function composition**.
@@ -94,7 +95,7 @@ If we need to prove these laws for every `map` (e.g., `List.map`, `Option.map`),
 
 **Step 5: A Savior Appears - "Theorems for free\!" (Parametricity)**
 
-Philip Wadler's "Theorems for free\!" principle, derived from **Parametricity**, suggests that for generic `map` (`('a -> 'b) -> M<'a> -> M<'b>`), if implemented without type-specific "cheating," is constrained by its type signature to preserve structure. This "structure preservation" is what the Functor Laws (our Monoid preservation laws) articulate. A parametric `map` *must* apply the function while keeping the container structure intact, which inherently forces it to respect composition and identity – thus preserving the Monoid.
+Philip Wadler's "Theorems for free\!" principle, derived from **Parametricity**, suggests that for generic `map` (`('a -> 'b) -> M<'a> -> M<'b>`), if implemented without type-specific "cheating," is constrained by its type signature to preserve structure. This "structure preservation" is what the Functor Laws (our Monoid preservation laws) articulate. A parametric `map` *must* apply the function while keeping the container structure intact, which inherently forces it to respect composition and identity  thus preserving the Monoid.
 
 **Step 6: The Practical Conclusion - Trusting Generic Implementations to Preserve Monoid Structure**
 
@@ -159,3 +160,4 @@ This counter-example perfectly illustrates why the Functor laws (as requirements
 **3. Evaluation Summary (Monoid Perspective)**
 
 The `mapThenReverse` counter-example excellently demonstrates that a generic type signature doesn't guarantee Monoid preservation. Preservation (i.e., satisfying Functor laws) is an implementation property, and deviations from parametric behavior can break it. This reinforces that the Functor laws are non-trivial requirements for `map` to act as a well-behaved, structure-preserving transformation that respects the natural Monoid of function composition.
+```

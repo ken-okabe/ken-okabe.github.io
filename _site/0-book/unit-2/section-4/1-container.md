@@ -1,3 +1,4 @@
+:::lang-en
 # Container Types: Sets in Programming
 
 In this chapter, we will explore  **container types**  - a fundamental concept in functional programming that builds upon our understanding of sets.
@@ -51,3 +52,4 @@ Everything is relative -  **a container type is nothing more than a "set of some
 Since List type is the most intuitive image of a Set, for convenience, it's good to start by understanding that List type is the representative example of container types.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+:::

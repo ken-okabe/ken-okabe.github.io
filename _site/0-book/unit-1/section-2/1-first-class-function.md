@@ -1,3 +1,5 @@
+:::lang-en
+
 # First-Class Functions
 
 We've established that mathematical expressions and functional pipelines both evaluate to **values**, which are the same concept as **data** in programming. This aligns closely with basic arithmetic and algebra. Now, let's consider the status of _functions_ themselves. This section explores that fundamental concept: First-Class Functions.
@@ -25,3 +27,5 @@ The ability for functions to be defined by expressions and treated as **values**
 -   Have functions _return_ new functions as their result.
 
 Understanding this concept – that functions can be treated as data – is the crucial next step. It allows us to fully explore the power of functional programming, starting with a proper introduction to **First-Class Functions** in the following sections.
+
+:::

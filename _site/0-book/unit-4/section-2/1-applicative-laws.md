@@ -1,3 +1,5 @@
+:::lang-en
+
 # Applicative Functor Laws
 
 ## F# Standard Operations
@@ -204,3 +206,5 @@ These laws ensure that your classification:
 **Independent Operations = Applicative scope**
 
 *is mathematically rigorous*  and practically implementable in F#.
+
+:::
