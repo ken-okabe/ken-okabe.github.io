@@ -1,1 +1,0 @@
-# Applicative Functor
