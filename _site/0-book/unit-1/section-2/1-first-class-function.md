@@ -12,7 +12,7 @@ In typical school math, functions (like `f(x) = x * 2 + 1`) are primarily unders
 
 **The Extension: Functions as Values in Functional Programming**
 
-Functional programming builds upon this foundation by introducing a powerful extension: the idea that _**functions themselves are values**_, just like numbers or strings. They become  **"first-class citizens."**
+Functional programming builds upon this foundation by introducing a powerful extension: the idea that _**functions themselves are values**_, just like numbers or strings. They become  **"first-class citizens."
 
 While this might be a new way of thinking compared to the typical school math perspective, it's a natural evolution within the mathematical thinking embraced by FP.
 

@@ -35,7 +35,7 @@ Concluding these are identical operations just from diagrams or type signatures 
 
 A `map` operation is a **Functor `map`** if it ensures these two distinct processes *always* yield the same result. This is precisely the requirement for `map` to **preserve the structure of the function composition Monoid**. The Functor Laws formalize this:
 
-### **The Functor Laws (Required for `map` to preserve the Function Composition Monoid):**
+### The Functor Laws (Required for `map` to preserve the Function Composition Monoid):
 
 1.  **Identity Law:** `map id = id_M` (where `id_M` is the identity transformation for container `M`; for example, if `map` is `List.map`, then `List.map id` should behave like `fun list -> list`).
 

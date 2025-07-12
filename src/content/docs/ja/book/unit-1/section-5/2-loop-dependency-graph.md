@@ -9,7 +9,7 @@ In previous chapters, we've explored the powerful concept of the **data transfor
 
 ![Pipeline image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
-On the other hand, in the chapter "Recursion: The Foundation of Functional Iteration," we delved into the fundamentals of loops in functional programming, where functions achieve repetition by calling themselves. As explained in that chapter, **self-reference itself suggests loop structures or circular dependencies.**
+On the other hand, in the chapter "Recursion: The Foundation of Functional Iteration," we delved into the fundamentals of loops in functional programming, where functions achieve repetition by calling themselves. As explained in that chapter, **self-reference itself suggests loop structures or circular dependencies.
 
 ![escher-img](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745132964358.png)
 ***Hand with Reflecting Sphere***, also known as ***Self-Portrait in Spherical Mirror*** by M. C. Escher
@@ -26,7 +26,7 @@ The key to answering this question lies in the **Dependency Graph**.
 
 Now, using this concept of a dependency graph, how are "self-reference" and "recursion," which we discussed in the previous chapter, represented?
 
-When depicting self-referential structures in a dependency graph, the representation method varies slightly depending on whether the reference is direct or indirect, and what the nodes of the graph represent. However, it fundamentally appears as a **"cycle" or "self-loop" within the graph.**
+When depicting self-referential structures in a dependency graph, the representation method varies slightly depending on whether the reference is direct or indirect, and what the nodes of the graph represent. However, it fundamentally appears as a **"cycle" or "self-loop" within the graph.
 
 Let's explain with a few patterns:
 
@@ -69,7 +69,7 @@ Let's explain with a few patterns:
 
 In the previous chapter, "Recursion: The Foundation of Functional Iteration," under "The Concept of Self-Reference," we encountered the following insight:
 
-> Viewing recursion through the lens of self-reference allows us to understand it as a more universal, even philosophical concept that transcends mere programming techniques. **The act of referring to oneself holds both infinite possibilities and potential contradictions, which contributes to the depth and fascination of recursion.**
+> Viewing recursion through the lens of self-reference allows us to understand it as a more universal, even philosophical concept that transcends mere programming techniques. **The act of referring to oneself holds both infinite possibilities and potential contradictions, which contributes to the depth and fascination of recursion.
 
 This phrase, "infinite possibilities and potential contradictions," offers a crucial insight for understanding the meaning of cycles when self-reference appears as a "cycle" or "self-loop" in a dependency graph.
 
@@ -103,7 +103,7 @@ Here’s a breakdown of specific caveats and implications:
 
 Among things represented as cycles in a dependency graph, there are two types: **intended iterative/convergent computations** that leverage constructive "infinite possibilities," and **uncontrolled infinite loops** which are program errors where "potential contradictions" become manifest. Though they might look similar, their natures are fundamentally different.
 
-The most crucial factor distinguishing these two—and the key to avoiding "potential contradictions" while constructively harnessing "possibilities"—is the **presence (and appropriateness) of "termination conditions" and a "path to exit the loop."**
+The most crucial factor distinguishing these two—and the key to avoiding "potential contradictions" while constructively harnessing "possibilities"—is the **presence (and appropriateness) of "termination conditions" and a "path to exit the loop."
 
 1.  **Iterative/Convergent Computations (Controlled Cycles):**
 

@@ -196,7 +196,7 @@ It is possible to implement and display the "safe resource creation and destruct
 ### Why can it be proven with the same logs?
 
 1.  **Because the logic of `extension.js` is not changed**:
-    The `Building UI...` log output when building the UI and the `Destroying ... items.` log when destroying resources are all described within `extension.js`. The emulation **does not touch this application logic at all.**
+    The `Building UI...` log output when building the UI and the `Destroying ... items.` log when destroying resources are all described within `extension.js`. The emulation **does not touch this application logic at all.
 
 2.  **Because the emulation API mimics the "behavior"**:
     * **On creation**: When `extension.js` calls `new St.Icon()`, the emulation API creates an HTML `<div>` element instead of an actual GNOME widget. At this time, the `Building...` log is output to the console.
@@ -323,7 +323,7 @@ GNOME Shell拡張機能は、まさに**オブジェクト指向と命令型パ�
     Jul 02 11:27:18 nixos .gnome-shell-wr[216152]: [AIO-Validator] DYNAMIC: Building UI for 1 items.
     ```
     
-    タイマーがデータを更新するたびに、`using`演算子が**自動的に古いUIを破棄(`Destroying...`)し、新しいUIを再構築(`Building...`)しています。**
+    タイマーがデータを更新するたびに、`using`演算子が**自動的に古いUIを破棄(`Destroying...`)し、新しいUIを再構築(`Building...`)しています。
 
 **タイマーのコードには一切`destroy`などの手動操作がないにも関わらず、リソース管理が完璧に行われている点こそが、このフレームワークの核心的な価値です。**
 
@@ -418,7 +418,7 @@ Timeline `using`による「安全なリソース生成・破棄」の様子を�
 ### なぜ同じログで証明できるのか
 
 1.  **`extension.js`のロジックは変更しないから**:
-    UIを構築する際に出力される`Building UI...`というログや、リソースを破棄する際の`Destroying ... items.`というログは、すべて`extension.js`の中に記述されています。エミュレーションは、この**アプリケーションのロジックには一切手を加えません。**
+    UIを構築する際に出力される`Building UI...`というログや、リソースを破棄する際の`Destroying ... items.`というログは、すべて`extension.js`の中に記述されています。エミュレーションは、この**アプリケーションのロジックには一切手を加えません。
 
 2.  **エミュレーションAPIが「振る舞い」を模倣するから**:
     * **生成時**: `extension.js`が`new St.Icon()`を呼び出すと、エミュレーションAPIは実際のGNOMEウィジェットの代わりに、HTMLの`<div>`要素を生成します。この時、`Building...`ログがコンソールに出力されます。

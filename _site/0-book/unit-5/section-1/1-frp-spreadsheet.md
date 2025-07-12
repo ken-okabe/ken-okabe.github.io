@@ -26,7 +26,6 @@ This binary operation corresponds to an operation in [spreadsheet apps](https://
 
 -  $TimelineA \quad = \quad$ **A1**
 
-
 -  $TimelineB \quad = \quad$ **B1**
 
 -  $Function \quad = \quad$ ***fx***

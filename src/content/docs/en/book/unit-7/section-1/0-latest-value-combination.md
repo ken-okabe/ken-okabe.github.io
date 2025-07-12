@@ -23,10 +23,10 @@ To solve this, let's revisit the classifications for  **Applicative Functors**  
 
 Since the classifications from Unit 4 do not fit, we need a new concept tailored to the asynchronous nature of `Timeline`.
 
-What we truly need is not to synchronize discrete *events* (points), but to combine continuously available *states*. This leads us to propose a new concept: **"Latest Value Combination."**
+What we truly need is not to synchronize discrete *events* (points), but to combine continuously available *states*. This leads us to propose a new concept: **"Latest Value Combination."
 
 This idea is defined as follows:
 
-> **The moment any source timeline is updated, its new value is combined with the most recently known value (the latest state) of the other source(s) to produce a new result.**
+> **The moment any source timeline is updated, its new value is combined with the most recently known value (the latest state) of the other source(s) to produce a new result.
 
 This powerful model fully embraces the asynchronous nature of the inputs while ensuring a consistent, combined state is always available. It is a pattern uniquely suited for reactive systems.

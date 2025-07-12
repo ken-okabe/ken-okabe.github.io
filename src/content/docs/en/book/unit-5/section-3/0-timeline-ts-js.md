@@ -18,7 +18,7 @@ Furthermore, the achievements gained from these practical applications have been
 
 ---
 
-### **This Book's Approach: Explanations Based on the TS/JS Version**
+### This Book's Approach: Explanations Based on the TS/JS Version
 
 Given this background, from this section forward, this book's explanations will be based primarily on the **TypeScript/JavaScript version**. This is the most practical and effective approach for presenting concrete reference code, such as the interactive Canvas demos that run in a web browser and the GNOME Shell extension.
 
@@ -28,13 +28,13 @@ With that, let's dive into the complete API reference for the TS/JS version of `
 
 ---
 
-# **Timeline Library - Complete API Reference (F\# & TypeScript)**
+# Timeline Library - Complete API Reference (F\# & TypeScript)
 
-## **Core Types**
+## Core Types
 
-### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
+#### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
 
-### TS: `Timeline<A>`
+#### TS: `Timeline<A>`
 
 The main reactive container type that holds a value of type `A`.
 
@@ -63,7 +63,7 @@ interface Timeline<A> {
 
 -----
 
-### TS: `NullableTimeline<A>`
+#### TS: `NullableTimeline<A>`
 
 Extended interface for timelines that can contain `null` values, providing null-safe operations. F\# uses type constraints (`when 'a : null`) instead of a separate interface.
 
@@ -78,9 +78,9 @@ interface NullableTimeline<A> extends Timeline<A | null> {
 
 -----
 
-### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
+#### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
 
-### TS: `Resource<A>`
+#### TS: `Resource<A>`
 
 Type for managed resources with automatic cleanup.
 
@@ -94,9 +94,9 @@ interface Resource<A> {
 
 -----
 
-### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
+#### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
 
-### TS: `ResourceFactory<A, B>`
+#### TS: `ResourceFactory<A, B>`
 
 A function that creates a resource from a value.
 
@@ -107,7 +107,7 @@ type ResourceFactory<A, B> = (value: A) => Resource<B> | null;
 
 -----
 
-### **Special Types**
+### Special Types
 
 ```typescript
 // TS
@@ -122,9 +122,9 @@ type DisposeCallback = () => void; // Cleanup function type
 
 -----
 
-## **Core API**
+## Core API
 
-### **Factory Functions**
+### Factory Functions
 
 #### F\#: `'a -> Timeline<'a>`
 
@@ -154,7 +154,7 @@ const idTimeline = ID(100);
 
 -----
 
-#### **Pre-defined Timelines**
+#### Pre-defined Timelines
 
 ```typescript
 // TS
@@ -166,7 +166,7 @@ const TrueTimeline: Timeline<boolean>;  // Equivalent to Timeline(true)
 
 -----
 
-### **Core Operations**
+### Core Operations
 
 #### F\#: `at: NowType -> Timeline<'a> -> 'a`
 
@@ -197,7 +197,7 @@ console.log(timeline.at(Now)); // 100
 
 -----
 
-### **Transformation Operations**
+### Transformation Operations
 
 #### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
 
@@ -255,7 +255,7 @@ console.log(sum.at(Now)); // 9
 
 -----
 
-### **Utility Operations**
+### Utility Operations
 
 #### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
 
@@ -296,11 +296,11 @@ source.define(Now, 3); // Logs: "Value changed to: 3"
 
 -----
 
-### **Resource Management**
+### Resource Management
 
-#### F\#: `using: ResourceFactory<'a, 'b> -> Timeline<'a> -> Timeline<'b> when 'b: null`
+#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
-#### TS: `.using<B>(resourceFactory): Timeline<B | null>`
+#### **TS**: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>
 
 Manages resources that require cleanup, like network requests or file handles. When the source timeline changes, the old resource's cleanup function is called automatically.
 
@@ -345,7 +345,7 @@ const resource = createResource(
 
 -----
 
-### **Nullable Operations**
+### Nullable Operations
 
 For timelines that may contain `null` values, use these null-safe variants to avoid runtime errors. In F\#, this is handled by applying type constraints to the standard functions.
 
@@ -413,9 +413,9 @@ console.log(resource.at(Now)); // null
 
 -----
 
-## **Composition Functions**
+## Composition Functions
 
-### **Binary Operations**
+### Binary Operations
 
 #### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
@@ -456,7 +456,7 @@ console.log(sum.at(Now)); // null
 
 -----
 
-### **Aggregate Operations**
+### Aggregate Operations
 
 #### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
@@ -555,7 +555,7 @@ console.log(list.at(Now)); // ["a", "b", "c"]
 
 -----
 
-### **Advanced Composition**
+### Advanced Composition
 
 #### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
@@ -609,7 +609,7 @@ console.log(product.at(Now)); // 6
 
 -----
 
-### **Helper Functions**
+### Helper Functions
 
 #### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
 
@@ -639,11 +639,11 @@ console.log(result2.at(Now)); // 7
 
 -----
 
-## **Error Handling**
+## Error Handling
 
 A global error handler can be set to catch and process any exceptions that occur within timeline callbacks, such as in `map` or `scan` operations. This is useful for centralized logging or custom error reporting.
 
-### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
+#### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
 
 Sets or unsets the global error handler for the timeline system.
 
@@ -666,11 +666,11 @@ setErrorHandler((error, context) => {
 
 -----
 
-## **Debugging Support**
+## Debugging Support
 
-### F\#: `module DebugControl`
+#### F\#: `module DebugControl`
 
-### TS: `Debug Control`
+#### TS: `Debug Control`
 
 Enable debug mode via URL (`?debug=true`), `localStorage`, or `NODE_ENV`.
 
@@ -749,7 +749,7 @@ Found circular dependencies: [
 
 -----
 
-### **Supplement: Detailed Debug Mode Activation**
+### Supplement: Detailed Debug Mode Activation
 
 In addition to manual toggling with `DebugControl`, the library automatically enables debug mode by evaluating the following conditions in order:
 

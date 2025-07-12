@@ -18,7 +18,7 @@ export const generatedTopics = [
             "label": "FALLBACK",
             "translations": {
               "en": "💡 Experience Quality Coding for AI ✨",
-              "ja": "💡 AIのための高品質コーディング体験 ✨"
+              "ja": "💡 最高のコーディング体験 for AI ✨"
             },
             "link": "book/unit-0/section-0/0-about-unit"
           },

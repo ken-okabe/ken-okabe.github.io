@@ -92,7 +92,7 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
 
 ---
 
-### **Law 1: Associativity**
+### Law 1: Associativity
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747204989154.png)
 
@@ -119,11 +119,11 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
     // ( m |> bind g ) |> bind h       IS EQUIVALENT TO   m |> bind (fun x -> g x |> bind h)
     ```
 * **Equivalence Explanation:** The required equivalence, `(m |> bind g) |> bind h = m |> bind (fun x -> g x |> bind h)`, is precisely the **associativity law of the `bind` operation** itself (one of the three standard Monad laws). By definition, for `M` to be a Monad, its `bind` operation *must* be associative. This associativity of `bind` directly guarantees the associativity of the Kleisli composition `>>>` derived from it.
-    **Therefore, the Associativity Law holds for `>>>` (guaranteed by `bind`'s associativity).**
+    **Therefore, the Associativity Law holds for `>>>` (guaranteed by `bind`'s associativity).
 
 ---
 
-### **Law 2: Left Identity**
+### Law 2: Left Identity
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205208301.png)
 
@@ -145,11 +145,11 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
     // ( ID a ) |> bind f   IS EQUIVALENT TO   f a
     ```
 * **Equivalence Explanation:** The required equivalence, `(ID a) |> bind f = f a`, is precisely the **left identity law for the `bind` operation** (another standard Monad law). By definition, for `M` to be a Monad, its `bind` and `ID` operations *must* satisfy this law. This directly guarantees that `ID` acts as the left identity for the derived Kleisli composition `>>>`.
-    **Therefore, the Left Identity Law holds for `>>>` (guaranteed by `bind`'s left identity).**
+    **Therefore, the Left Identity Law holds for `>>>` (guaranteed by `bind`'s left identity).
 
 ---
 
-### **Law 3: Right Identity**
+### Law 3: Right Identity
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747205208301.png)
 
@@ -173,7 +173,7 @@ We now demonstrate that if `M` is a valid Monad (meaning `bind` and `ID` satisfy
     // m |> bind ID          IS EQUIVALENT TO   m
     ```
 * **Equivalence Explanation:** The required equivalence, `m |> bind ID = m`, is precisely the **right identity law for the `bind` operation** (the third standard Monad law). By definition, for `M` to be a Monad, its `bind` and `ID` operations *must* satisfy this law. This directly guarantees that `ID` acts as the right identity for the derived Kleisli composition `>>>`.
-    **Therefore, the Right Identity Law holds for `>>>` (guaranteed by `bind`'s right identity).**
+    **Therefore, the Right Identity Law holds for `>>>` (guaranteed by `bind`'s right identity).
 
 ## Conclusion
 

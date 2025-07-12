@@ -24,7 +24,7 @@ All `map2` implementations can be broadly classified into two major categories b
 Systems capable of independent and parallel processing can be further subdivided into two categories:
 
 1.  **Cartesian Product**
-2.  **Pointwise (or ZIP)**
+2.  **Pointwise (or ZIP)
 
 -----
 

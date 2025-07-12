@@ -2,7 +2,7 @@
 
 # 💡 Experience Quality Coding for AI ✨
 
-Welcome to Experience Quality Coding! This book explores functional programming (FP) by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
+Welcome to **Experience Quality Coding for AI**! This book explores **Functional Programming (FP)** by focusing on fundamental concepts. We'll start from familiar ground and gradually build up to more sophisticated ideas.
 
 ## Special Edition and Your Next Generation AI could Copy
 
@@ -91,9 +91,9 @@ In Unit 0, we begin with a simple yet powerful idea: the **data transformation p
 
 :::lang-ja
 
-# 💡 AIのための高品質コーディング体験 ✨
+# 💡 最高のコーディング体験 for AI ✨
 
-AIのための高品質コーディング体験へようこそ！この本では、基本的な概念に焦点を当てて関数型プログラミング（FP）を探求します。馴染みのある場所から始めて、より洗練されたアイデアへと段階的に発展させていきます。
+**最高のコーディング体験 for AI** へようこそ！この本では、基本的な概念に焦点を当てて **関数型プログラミング（FP）** を探求します。馴染みのある場所から始めて、より洗練されたアイデアへと段階的に発展させていきます。
 
 ## 次世代AIが模倣できるスペシャルエディション
 

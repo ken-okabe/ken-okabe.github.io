@@ -22,7 +22,7 @@ The actual `timeline.js` library is complex due to its resource management featu
 
 ### Conceptual Implementation (with Types)
 
-```js
+```ts
 // map: Transformation from Timeline<A> to Timeline<B>
 // Argument function type: (value: A) => B
 const map = <A, B>(
@@ -39,7 +39,7 @@ const map = <A, B>(
 };
 ```
 
-```js
+```ts
 // bind: Transformation from Timeline<A> to Timeline<B>
 // Argument function type: (value: A) => Timeline<B>
 const bind = <A, B>(
@@ -58,7 +58,7 @@ const bind = <A, B>(
 };
 ```
 
-```js
+```ts
 // using: Transformation from Timeline<A> to Timeline<B | null>
 // Argument function type: (value: A) => Resource<B> | null
 const using = <A, B>(
@@ -193,7 +193,7 @@ Which API you should choose is determined by how the library's underlying "depen
         
     2.  `Timeline` (Indirect)
         
-    3.  **External Resource (Direct)**
+    3.  **External Resource (Direct)
 
 ## 5. Practical Scenarios
 
@@ -201,7 +201,7 @@ Which API you should choose is determined by how the library's underlying "depen
 
 Convert a user's score (`Timeline<number>`) to a label for screen display (`Timeline<string>`).
 
-```
+```ts
 const scoreTimeline: Timeline<number> = Timeline(100);
 // f: (score: number) => string
 const labelTimeline: Timeline<string> = scoreTimeline.map(score => `Score: ${score}`);
@@ -211,7 +211,7 @@ const labelTimeline: Timeline<string> = scoreTimeline.map(score => `Score: ${sco
 
 Switch the `Timeline` that fetches content from an API depending on the user's selected data source (`"posts"` or `"users"`).
 
-```
+```ts
 const sourceChoiceTimeline: Timeline<string> = Timeline("posts");
 
 // monadf: (choice: string) => Timeline<Post[] | User[]>
@@ -228,7 +228,7 @@ const dataTimeline: Timeline<Post[] | User[]> = sourceChoiceTimeline.bind(choice
 
 The reference code in `extension.js` is a perfect real-world example. It generates `DOM` elements based on the value of a `Timeline<data>`, and when the data is updated, it disposes of the old `DOM` and regenerates new ones.
 
-```
+```ts
 // resourceFactory: (items: Item[]) => Resource<Icon[]>
 dynamicDataTimeline.using(items => {
     const icons = items.map(item => new St.Icon(...));
@@ -244,7 +244,7 @@ dynamicDataTimeline.using(items => {
 
 This is the most practical pattern: "manage DOM elements only while the component is visible."
 
-```
+```ts
 // monadf: (isVisible: boolean) => Timeline<DOMElement | null>
 isVisibleTimeline.bind(isVisible => { // ★ Outer bind: Manages the "existence" of the entire component
     if (!isVisible) {
@@ -262,7 +262,7 @@ isVisibleTimeline.bind(isVisible => { // ★ Outer bind: Manages the "existence"
 
 -   **The outer `bind` manages the lifecycle of the entire component and cuts the reactive connection to the inner `using` when it's no longer needed.**
     
--   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.**
+-   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.
 
 ## 6. Conclusion
 
@@ -296,7 +296,7 @@ And `bind` and `using` are **complementary, used in a hierarchical combination t
 
 ### 概念的な実装（型付き）
 
-```js
+```ts
 // map: Timeline<A> から Timeline<B> への変換
 // 引数関数の型: (value: A) => B
 const map = <A, B>(
@@ -313,7 +313,7 @@ const map = <A, B>(
 };
 ```
 
-```js
+```ts
 // bind: Timeline<A> から Timeline<B> への変換
 // 引数関数の型: (value: A) => Timeline<B>
 const bind = <A, B>(
@@ -332,7 +332,7 @@ const bind = <A, B>(
 };
 ```
 
-```js
+```ts
 // using: Timeline<A> から Timeline<B | null> への変換
 // 引数関数の型: (value: A) => Resource<B> | null
 const using = <A, B>(
@@ -467,7 +467,7 @@ const using = <A, B>(
         
     2.  `Timeline` (間接)
         
-    3.  **外部リソース (直接)**
+    3.  **外部リソース (直接)
 
 ## 5. 実践シナリオ集
 
@@ -475,7 +475,7 @@ const using = <A, B>(
 
 ユーザーのスコア(`Timeline<number>`)を、画面表示用のラベル(`Timeline<string>`)に変換します。
 
-```
+```ts
 const scoreTimeline: Timeline<number> = Timeline(100);
 // f: (score: number) => string
 const labelTimeline: Timeline<string> = scoreTimeline.map(score => `Score: ${score}`);
@@ -486,7 +486,7 @@ const labelTimeline: Timeline<string> = scoreTimeline.map(score => `Score: ${sco
 
 ユーザーが選択したデータソース(`"posts"`または`"users"`)に応じて、表示する内容をAPIから取得する`Timeline`を切り替えます。
 
-```
+```ts
 const sourceChoiceTimeline: Timeline<string> = Timeline("posts");
 
 // monadf: (choice: string) => Timeline<Post[] | User[]>
@@ -504,7 +504,7 @@ const dataTimeline: Timeline<Post[] | User[]> = sourceChoiceTimeline.bind(choice
 
 `extension.js`のリファレンスコードが完璧な実例です。`Timeline<data>`の値に基づいて`DOM`要素を生成し、データが更新されたら古い`DOM`を破棄して新しいものを再生成します。
 
-```
+```ts
 // resourceFactory: (items: Item[]) => Resource<Icon[]>
 dynamicDataTimeline.using(items => {
     const icons = items.map(item => new St.Icon(...));
@@ -521,7 +521,7 @@ dynamicDataTimeline.using(items => {
 
 「コンポーネントが表示されている間だけ、DOM要素を管理する」という、最も実践的なパターンです。
 
-```
+```ts
 // monadf: (isVisible: boolean) => Timeline<DOMElement | null>
 isVisibleTimeline.bind(isVisible => { // ★外側のbind: コンポーネント全体の「存在」を管理
     if (!isVisible) {

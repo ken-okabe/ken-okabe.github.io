@@ -70,7 +70,7 @@ This historical sequence supports the reverse-engineering interpretation: the la
 
 - They start with mathematical laws as "fundamental truths"
 - Then show how these apply to practical problems
-- **But this hides the fact that the practical problems came first**
+- **But this hides the fact that the practical problems came first
 
 **The reality:** Programmers were already solving independent computation problems, and mathematicians created the laws to capture what made those solutions work so well.
 

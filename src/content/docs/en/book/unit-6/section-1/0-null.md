@@ -26,7 +26,7 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 
 ## 2. The Theoretical Pillar: From Function Pipelines to Algebraic Structures (A Revisit)
 
-Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."**
+Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."
 
 First, our starting point is the fundamental concept in functional programming: the "pipeline," where data flows through a series of functions.
 
@@ -53,7 +53,7 @@ Integrating these insights reveals a clear correspondence before us.
 
 The `(Type, Function)` pair we were handling in our pipelines was, conceptually, the exact same thing as the `(Set, Operation)` pair known in the world of mathematics as an **algebraic structure**.
 
-In conclusion, an algebraic structure is not some esoteric mathematical topic. It is a design pattern extremely familiar to us as programmers: **"a combination of a data type (a Set) and a series of operations (Functions) that preserve the structure on that data type."**
+In conclusion, an algebraic structure is not some esoteric mathematical topic. It is a design pattern extremely familiar to us as programmers: **"a combination of a data type (a Set) and a series of operations (Functions) that preserve the structure on that data type."
 
 All subsequent arguments in this chapter are built upon this simple yet powerful principle.
 

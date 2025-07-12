@@ -63,7 +63,7 @@ The AI agent first clarifies the user's desired scope for this translation batch
 **2.1.2. Default Behavior: Identify Changed or New English Files for Translation:**
 Unless the user explicitly requests a "force re-translation" for the specified scope (see 2.1.3), the AI agent identifies files to translate as follows:
 
-    *   **2.1.2.1. Retrieve Last `_site-en` Sync Point:**
+*   **2.1.2.1. Retrieve Last `_site-en` Sync Point:**
         *   The AI agent will search the Git log for the SHA of the most recent commit whose message matches the pattern `feat(i18n): sync ja with en@<commit_id>`. The `<commit_id>` part of this message is `<last_synced_en_commit_id>`.
         *   If no such commit is found in the history:
             *   The AI will inform the user: "No previous synchronization commit `feat(i18n): sync ja with en@...` was found. This might be the first translation run."

@@ -11,22 +11,17 @@ At the heart of the `timeline` framework lies the idea of declaratively handling
 
 We have discovered a path to apply this ideal not only to reactive internal state but to the **lifecycle of any external resource**, such as GTK widgets in a Gnome Shell extension. The `.using()` API, which we will now discuss, is the **final, complete form** of this framework that fully embodies this ideal.
 
-## **The `.using()` API — Ultimate Resource Management**
+## The `.using()` API — Ultimate Resource Management
 
 While `.bind()` manages the lifecycle of `Timeline` objects, `.using()` is the one and only correct approach to **perfectly synchronize the "lifespan of a resource" with the "illusion of a `Timeline`"**.
 
-### **API Definition**
+### API Definition
 
-- **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
-- **TypeScript**:
-    ```typescript
-    using<B>(
-        resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null
-    ): Timeline<B | null>
-    ```
+#### **TS**: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 
-### **Behavior and Guarantees**
+### Behavior and Guarantees
 
 1.  When the value of `sourceTimeline` changes, `using` first **reliably executes the `cleanup` function associated with the resource generated in the previous illusion, via `disposeIllusion`.**
 2.  Next, it calls the `resourceFactory` function with the new value.
@@ -39,7 +34,7 @@ While `.bind()` manages the lifecycle of `Timeline` objects, `.using()` is the o
 
 - **Guarantee**: This mechanism ensures that any resource ever created by `resourceFactory` is guaranteed to have its **corresponding `cleanup` function called** when its illusion ends (for any reason). This structurally prevents resource leaks.
 
-## **Extending the `Illusion` Concept — Level 3 Mutability**
+## Extending the `Illusion` Concept — Level 3 Mutability
 
 With the introduction of `.using()`, the concept of `Illusion` is extended one step further.
 
@@ -47,18 +42,18 @@ With the introduction of `.using()`, the concept of `Illusion` is extended one s
 - **Level 2 (`bind`)**: The **internal structure** `innerTimeline` is mutable.
 - **Level 3 (`using`)**: **External world entities** like the DOM or timers become mutable entities synchronized with the `Illusion`'s lifecycle.
 
-## **The Evolved Heart: `DependencyCore` and `onDispose`**
+## The Evolved Heart: `DependencyCore` and `onDispose`
 
 `DependencyCore` is no longer just a management system for "reactive connections." It has evolved into a **general-purpose foundation that guarantees all kinds of cleanup processes associated with the lifecycle of a dependency**.
 
 `.using()` registers the `cleanup` function returned by `resourceFactory` through this `onDispose` callback feature of `DependencyCore`. Then, when an `Illusion` is destroyed, `DependencyCore` **100% guarantees** the execution of this `onDispose` (i.e., `cleanup`), completely automating the cleanup of external resources.
 
-## **Conclusion: Unification of Paradigms**
+## Conclusion: Unification of Paradigms
 
-This `Timeline` is no longer just an FRP library. It is a new dimension of framework that has completely integrated the often-conflicting paradigms of declarative data flow and imperative resource management under the single, unified concept of **"lifecycle."**
+This `Timeline` is no longer just an FRP library. It is a new dimension of framework that has completely integrated the often-conflicting paradigms of declarative data flow and imperative resource management under the single, unified concept of **"lifecycle."
 
 With a design that balances **debugging efficiency** with **production environment performance**, this framework consistently supports developers from the research and development phase to practical application. This is the realization of a truly complete software architecture that combines theoretical beauty with practical value.
 
-## **Canvas Demo (Placeholder)**
+## Canvas Demo (Placeholder)
 
 *(An interactive demo visually demonstrating the dynamic management of external resources with `.using()` will be placed here.)*

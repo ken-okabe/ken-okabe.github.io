@@ -6,11 +6,11 @@ The most fundamental and frequently used transformation in `Timeline` is `.map()
 
 Its essence is to **define an immutable, "static" relationship between two `Timeline`s**.
 
-## **API Definition**
+## API Definition
 
--   **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+#### **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
     
--   **TypeScript**: `.map<B>(f: (value: A) => B): Timeline<B>`
+#### **TS**: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map` takes a pure function `f` as an argument, which accepts a value of type `A` and returns a value of type `B`.
 
@@ -29,7 +29,7 @@ numbers.define(Now, 100);
 console.log(labels.at(Now)); // "Score: 100"
 ```
 
-## **Dependency Graph**
+## Dependency Graph
 
 When you call `map`, a **Dependency** is registered internally between the two `Timeline`s. The entire network of these relationships is called the **Dependency Graph**.
 
@@ -47,7 +47,7 @@ The dependency created by `map` is **Static**. Once you define the relationship 
 
 This simple concept of a "static dependency" is the foundation for understanding the "dynamic" dependencies constructed by `bind` and `using`, which will be introduced later.
 
-## **Canvas Demo (Placeholder)**
+## Canvas Demo (Placeholder)
 
 _(An interactive demo visually demonstrating the behavior of `.map()` will be placed here.)_
 
@@ -61,11 +61,11 @@ _(An interactive demo visually demonstrating the behavior of `.map()` will be pl
 
 その本質は、**2つの`Timeline`の間に、不変で「静的な」関係性を定義する**ことです。
 
-## **API定義**
+## API定義
 
--   **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+#### **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
     
--   **TypeScript**: `.map<B>(f: (value: A) => B): Timeline<B>`
+#### **TS**: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map`は、型`A`の値を受け取って型`B`の値を返す純粋な関数`f`を引数に取ります。
 
@@ -85,7 +85,7 @@ console.log(labels.at(Now)); // "Score: 100"
 
 ```
 
-## **依存グラフ (Dependency Graph)**
+## 依存グラフ (Dependency Graph)
 
 `map`を呼び出すと、内部では2つの`Timeline`の間に**依存関係 (Dependency)** が登録されます。この関係性のネットワーク全体を**依存グラフ**と呼びます。
 
@@ -104,7 +104,7 @@ console.log(labels.at(Now)); // "Score: 100"
 
 このシンプルな「静的な依存関係」の概念が、後に出てくる`bind`や`using`が構築する「動的な」依存関係を理解するための基礎となります。
 
-## **Canvasデモ (Placeholder)**
+## Canvasデモ (Placeholder)
 
 _(ここに`.map()`の動作を視覚的に示すインタラクティブなデモが配置されます。)_
 

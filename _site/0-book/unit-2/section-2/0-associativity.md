@@ -50,7 +50,7 @@ As programmers, we strive to make our code and the operations within it as simpl
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-#### **Combinatorial Explosion**
+#### Combinatorial Explosion
 
 Let's consider three items A, B, and C and an associative binary operation `•`.
 

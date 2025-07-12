@@ -198,7 +198,7 @@ It is possible to implement and display the "safe resource creation and destruct
 ### Why can it be proven with the same logs?
 
 1.  **Because the logic of `extension.js` is not changed**:
-    The `Building UI...` log output when building the UI and the `Destroying ... items.` log when destroying resources are all described within `extension.js`. The emulation **does not touch this application logic at all.**
+    The `Building UI...` log output when building the UI and the `Destroying ... items.` log when destroying resources are all described within `extension.js`. The emulation **does not touch this application logic at all.
 
 2.  **Because the emulation API mimics the "behavior"**:
     * **On creation**: When `extension.js` calls `new St.Icon()`, the emulation API creates an HTML `<div>` element instead of an actual GNOME widget. At this time, the `Building...` log is output to the console.

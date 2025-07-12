@@ -26,7 +26,7 @@ let result =
     // returns an integer (22)
 ```
 
-For data to flow smoothly through this pipeline without errors, a fundamental requirement must be met: **the output of one function must be compatible with the input of the next function.**
+For data to flow smoothly through this pipeline without errors, a fundamental requirement must be met: **the output of one function must be compatible with the input of the next function.
 
 -   `double` takes a number and produces a number.
 

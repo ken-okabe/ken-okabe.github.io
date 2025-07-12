@@ -6,13 +6,13 @@ In Chapters 1 and 2, we saw how `.map()` and `.link()` build **static** dependen
 
 However, `.map()` can only transform values; it cannot switch the `Timeline` itself. The challenge of **dynamically and safely switching the dependency structure itself (i.e., while cleaning up old dependencies)** is solved by `.bind()`.
 
-### **`.bind()` — The HOF for Switching Dependencies**
+### `.bind()` — The HOF for Switching Dependencies
 
 The essence of `.bind()` is not merely to transform a value, like `.map()`, but to accept a function that, **based on the value of the source `Timeline`, returns the next `Timeline` to connect to**.
 
 This allows us to build dynamic systems where the wiring of the dependency graph changes over time.
 
-### **API Definition**
+### API Definition
 
 #### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
@@ -91,7 +91,7 @@ These techniques are effective, but they complicate the library's internal imple
 
 ### 3. The Timeline Library's Approach: "It's Wrong for the Diamond Problem to Occur in the First Place"
 
-The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."**
+The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."
 
 #### Conceptual Purity: Expressing the Essence of "Defining D from A"
 
@@ -149,7 +149,7 @@ Many other solutions are all "post-problem-fixes." They are merely symptomatic t
 
 However, `bind` enables **"a design where problems don't occur."** This is the very beauty of functional programming.
 
-`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.**
+`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.
 
 The `Timeline` library, being faithful to theory, naturally provides not only `.map` but also `.bind`. This was not intentionally designed with the thought, "this can solve the diamond problem." The Monad algebraic structure is there from the beginning.
 
@@ -214,7 +214,7 @@ const selectedUserId = Timeline("alice");
 // });
 ```
 
-### **Practical Example: Dynamic Switching of a Social Media Timeline**
+### Practical Example: Dynamic Switching of a Social Media Timeline
 
 Let's implement the previous social media example using `.bind()`.
 
@@ -253,13 +253,13 @@ Chapter 1と2では、`.map()`と`.link()`が、一度定義されると変化�
 
 `.map()`はあくまで値を変換するだけなので、`Timeline`そのものを切り替えることはできません。この、**依存関係の構造そのものを、動的に、かつ安全に（＝古い依存関係をクリーンアップしながら）切り替える**課題を解決するのが`.bind()`です。
 
-### **`.bind()` — 依存関係を切り替えるHOF**
+### `.bind()` — 依存関係を切り替えるHOF
 
 `.bind()`の本質は、`.map()`のように単に値を変換するのではなく、**ソース`Timeline`の値に基づいて、次に接続すべき`Timeline`そのものを返す関数**を受け取ることです。
 
 これにより、依存グラフの配線が時間と共に変化する、動的なシステムを構築できます。
 
-### **API定義**
+### API定義
 
 #### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
@@ -403,7 +403,7 @@ Plaintext
 
 しかし、`bind`は **「問題が起きない設計」** を可能にします。これこそが、関数型プログラミングの美しさそのものです。
 
-`.bind`はMonad則という数学的な法則に裏打ちされており、その振る舞いは完全に予測可能です。**モナドという強力な抽象化によって、開発者は副作用（この場合は中間状態の意図しない伝播）を完全に制御し、本質的な計算だけを安全に記述できるのです。**
+`.bind`はMonad則という数学的な法則に裏打ちされており、その振る舞いは完全に予測可能です。**モナドという強力な抽象化によって、開発者は副作用（この場合は中間状態の意図しない伝播）を完全に制御し、本質的な計算だけを安全に記述できるのです。
 
 `Timeline`ライブラリは、理論に忠実なので、自然な流れで、`.map`だけでなく`.bind`を提供しています。これは別にわざわざ「ダイアモンド問題はこれで解決可能だ」と意図して設計したものではありません。Monadという代数構造は最初からそこにあるのです。
 
@@ -468,7 +468,7 @@ const selectedUserId = Timeline("alice");
 // });
 ```
 
-### **実践例：SNSタイムラインの動的切り替え**
+### 実践例：SNSタイムラインの動的切り替え
 
 先ほどのSNSの例を、`.bind()`を使って実装してみましょう。
 

@@ -3,11 +3,11 @@ title: 'Function Composition: A Natural Monoid'
 description: >-
   In the previous sections, we learned about the Monoid as an algebraic
   structure: a set (or Type) with an associative binary operation (a function of
-  type 'a -> 'a -> 'a) and an identity element for that operation. Now, let's
-  explore a fascinating and highly relevant example: function composition
-  itself, under specific conditions, forms a monoid.
+  type 'a -> 'a -> 'a) and an identity element for that operation.
 ---
-In the previous sections, we learned about the **Monoid** as an algebraic structure: a set (or **Type**) with an associative binary operation (a function of type `'a -> 'a -> 'a`) and an identity element for that operation. Now, let's explore a fascinating and highly relevant example: **function composition** itself, under specific conditions, forms a monoid.
+In the previous sections, we learned about the **Monoid** as an algebraic structure: a set (or **Type**) with an associative binary operation (a function of type `'a -> 'a -> 'a`) and an identity element for that operation. 
+
+Now, let's explore a fascinating and highly relevant example: **function composition** itself, under specific conditions, forms a monoid.
 
 ## Function Composition as a Binary Operation
 
@@ -20,24 +20,30 @@ let composedFuncExample = double >> add1 >> double
 // composedFuncExample behaves as x |> double |> add1 |> double
 ```
 
-Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`. The general type signature for this operator is `('a -> 'b) -> ('b -> 'c) -> ('a -> 'c)`. It takes a function from `'a` to `'b`, and a function from `'b` to `'c`, and returns a new function from `'a` to `'c`.
+Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`. 
+
+The general type signature for this operator is `('a -> 'b) -> ('b -> 'c) -> ('a -> 'c)`. It takes a function from `'a` to `'b`, and a function from `'b` to `'c`, and returns a new function from `'a` to `'c`.
 
 For function composition to act as a *binary operation that forms a monoid*, we typically consider a specific set of functions: **endofunctions** on a type `T`. An endofunction is a function whose domain and codomain are the same type, i.e., functions of type **`T -> T`**.
 
 Let `Fun(T,T)` represent the set of all functions of type `T -> T`. The function composition operator `>>`, when applied to two functions from this set, acts as a binary operation that is closed within this set:
 `>> : (T -> T) -> (T -> T) -> (T -> T)`
+
 It takes two functions of type `T -> T` (e.g., `f: T -> T` and `g: T -> T`) and produces a new function `f >> g`, which is also of type `T -> T`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744496329575.png)
+
 *(This diagram visually represents `f >> g`, where if `f: T -> T` and `g: T -> T`, then their composition is also `T -> T`.)*
 
 ## Associativity of Function Composition (on `T -> T` functions)
 
 This binary operation of function composition (`>>` on `T -> T` functions) is **associative**.
+
 For any three endofunctions `f: T -> T`, `g: T -> T`, and `h: T -> T`:
 `(f >> g) >> h` is functionally equivalent to `f >> (g >> h)`.
 
 Both expressions result in a single composite function that, when applied to an input `x` of type `T`, yields the same output.
+
 For example, let's consider `double: int -> int`. The expression `1 |> double |> double` can be understood in terms of function composition:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745411970807.png)
@@ -61,7 +67,9 @@ And the composition `f >> (g >> h)` (first compose `g` and `h`, then compose `f`
 Applying either of these fully composed functions to an input value yields the exact same result. This associative property is fundamental.
 
 The text below, and the subsequent diagram, explain that various operations, including function pipelines (which are built by applying composed functions), exhibit associativity.
+
 The "Function Pipeline is Associative" concept, in the context of applying a sequence of functions `f`, `g`, `h` to an input, means that the way these functions are *composed* into a single conceptual transformation doesn't alter the final input-to-output mapping.
+
 The diagram below illustrates different ways to group the composition of `f`, `g`, and `h` within a pipeline structure, all leading to the same `Output` from a given `Input`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1746181236237.png)
@@ -100,7 +108,9 @@ Therefore, **(Set of functions `T -> T`, function composition `>>`, identity fun
 ![Monoid structure of function composition](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745414533607.png)
 *(This diagram illustrates that the (Set of `T->T` functions, `>>` operator, `id` function) fits the Monoid structure, analogous to (Numbers, `+`, `0`)).*
 
-This is a profound realization. The very act of composing functions—a cornerstone of functional programming and pipeline construction—shares the same robust algebraic structure (Monoid) as familiar operations like integer addition or string concatenation. This structural consistency is a key source of the elegance, predictability, and composability found in functional programming.
+This is a profound realization. The very act of composing functions—a cornerstone of functional programming and pipeline construction—shares the same robust algebraic structure (Monoid) as familiar operations like integer addition or string concatenation. 
+
+This structural consistency is a key source of the elegance, predictability, and composability found in functional programming.
 
 The algebraic laws are directly analogous:
 

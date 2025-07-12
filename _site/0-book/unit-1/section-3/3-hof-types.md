@@ -28,7 +28,7 @@ This pattern describes a HOF that:
 
 1.  Takes a regular "Value" as input. Let's say this input value has type `'a`.
 
-   2.  Returns a new "Function" as its output. Let's say this new, returned function has the type `'b -> 'c` (it takes a `'b` and returns a `'c`).
+2.  Returns a new "Function" as its output. Let's say this new, returned function has the type `'b -> 'c` (it takes a `'b` and returns a `'c`).
 
 Therefore, the HOF itself, which performs this transformation from an `'a` to a function of type `'b -> 'c`, has **`'a -> ('b -> 'c)`**
 
@@ -69,12 +69,12 @@ Here, `'c` represents the final output value type.
 Let's precisely compare the type structures of Pattern 1 and Pattern 2, paying close attention to how parentheses and the right-associativity of the `->` type constructor shape their meaning.
 
 **1. Pattern 1: `'a -> ('b -> 'c)` (Often written as `'a -> 'b -> 'c`)**
-a
+
 
 *   **Core Structure:** This type signature, fundamentally `'a -> ('b -> 'c)`, describes a function that:
     1.  Accepts a single argument of type `'a'`.
     2.  Upon receiving this argument, it *returns a new function*. This returned function has the type `'b -> 'c'`, meaning it is ready to accept an argument of type `'b'` to then produce a value of type `'c'`.
-a
+
 *   **Right-Associativity and Shorthand:** In many functional languages, the `->` type constructor is **right-associative** and often written as:
 
     `'a -> 'b -> 'c`
@@ -114,7 +114,7 @@ So, the type `('a -> 'b) -> 'c -> 'd` correctly represents this HOF that:
 
 - takes a function `('a -> 'b)`
 
-   - returns a new function `'c -> 'd`.
+- returns a new function `'c -> 'd`.
 
 ## Conclusion: HOF Types as Natural Extensions
 

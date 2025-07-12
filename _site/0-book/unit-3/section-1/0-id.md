@@ -4,14 +4,14 @@
 
 We stand at a significant juncture in our exploration of functional programming. Having journeyed through functions, types, algebraic structures like Monoids, and the general concepts of Functors and Monads, we are now poised to uncover a profound truth about a tool we've used from the very beginning:
 
-- **pipeline operator `|>`**
+- **pipeline operator `|>`
 
 This chapter is a culmination, revealing that the intuitive act of pipelining functions is not just a convenience but is deeply intertwined with the very essence of Functors and Monads in their most fundamental forms.
 
 We will now formally introduce and explore these:
 
 - **Identity Functor**
-- **Identity Monad**
+- **Identity Monad
 
 Prepare for a moment of surprise and deep insight as we connect the dots!
 
@@ -69,7 +69,7 @@ Now, let's consider the behavior of this `flippedPipeOp`.
 >
 > In other words, `flippedPipeOp` is equivalent to `fun f -> f`.
 
-> **It's the identity HOF for functions of type `'a -> 'b`.**
+> **It's the identity HOF for functions of type `'a -> 'b`.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747796419002.png)
 

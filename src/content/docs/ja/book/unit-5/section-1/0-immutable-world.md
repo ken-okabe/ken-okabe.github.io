@@ -73,11 +73,11 @@ In typical programming, a variable holds a single value at a time—like `x = 5`
 -   The text in a search box.
 -   Button clicks.
 
-In our perspective of the immutable block universe, these are not just static values; they are **sequences of values or events over the timeline.**
+In our perspective of the immutable block universe, these are not just static values; they are **sequences of values or events over the timeline.
 
 ![Block Universe illustration](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745825055126.png)
 
-**Functional Reactive Programming (FRP)** provides a powerful way to handle these dynamic, time-varying values. It lets us treat a **"value over the timeline" as a first-class** concept—a **container** that holds not just one value, but **the entire history and future of a value as it changes.**
+**Functional Reactive Programming (FRP)** provides a powerful way to handle these dynamic, time-varying values. It lets us treat a **"value over the timeline" as a first-class** concept—a **container** that holds not just one value, but **the entire history and future of a value as it changes.
 
 You'll often hear these called:
 

@@ -9,11 +9,11 @@ The most fundamental and frequently used transformation in `Timeline` is `.map()
 
 Its essence is to **define an immutable, "static" relationship between two `Timeline`s**.
 
-## **API Definition**
+## API Definition
 
--   **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+#### **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
     
--   **TypeScript**: `.map<B>(f: (value: A) => B): Timeline<B>`
+#### **TS**: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map` takes a pure function `f` as an argument, which accepts a value of type `A` and returns a value of type `B`.
 
@@ -32,7 +32,7 @@ numbers.define(Now, 100);
 console.log(labels.at(Now)); // "Score: 100"
 ```
 
-## **Dependency Graph**
+## Dependency Graph
 
 When you call `map`, a **Dependency** is registered internally between the two `Timeline`s. The entire network of these relationships is called the **Dependency Graph**.
 
@@ -50,6 +50,6 @@ The dependency created by `map` is **Static**. Once you define the relationship 
 
 This simple concept of a "static dependency" is the foundation for understanding the "dynamic" dependencies constructed by `bind` and `using`, which will be introduced later.
 
-## **Canvas Demo (Placeholder)**
+## Canvas Demo (Placeholder)
 
 _(An interactive demo visually demonstrating the behavior of `.map()` will be placed here.)_

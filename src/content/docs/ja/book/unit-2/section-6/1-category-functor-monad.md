@@ -56,7 +56,7 @@ Now, let's consider the world of containers and the functions that operate on th
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747107081688.png)
 
-3.  **The Core Question: Does Lifting Preserve Structure?** Here lies the crucial issue. We have a Monoid structure for composing regular functions (like `f >> g` in world 1). We also have a Monoid structure for composing the container mapping functions (like `map f >> map g` in world 2). The operations `map` and `bind` act as bridges, "lifting" functions from world 1 to world 2. The critical question is: **Does this lifting operation preserve the Monoid structure?**
+3.  **The Core Question: Does Lifting Preserve Structure?** Here lies the crucial issue. We have a Monoid structure for composing regular functions (like `f >> g` in world 1). We also have a Monoid structure for composing the container mapping functions (like `map f >> map g` in world 2). The operations `map` and `bind` act as bridges, "lifting" functions from world 1 to world 2. The critical question is: **Does this lifting operation preserve the Monoid structure?
 
     Specifically:
     * Does mapping the identity function (`id`) result in an identity mapping function for containers? (`map id = id_container?`)

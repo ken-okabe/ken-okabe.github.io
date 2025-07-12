@@ -14,7 +14,7 @@ description: >-
 
 Haskell's intellectual contributions to the programming world are immeasurable. In particular, its pioneering role in the practical implementation of many abstract concepts, beginning with monads, and its contribution to spreading these concepts throughout the programming community are undeniable facts. Its theoretical rigor and expressive power continue to serve as a benchmark for many developers and researchers.
 
-However, this very theoretical authority sometimes mythologizes specific design choices as "mathematical necessities," making critical re-examination difficult. This paper begins with one fundamental question: **Is this merely a case of substituting Haskell's local rules for universal mathematical logic?**
+However, this very theoretical authority sometimes mythologizes specific design choices as "mathematical necessities," making critical re-examination difficult. This paper begins with one fundamental question: **Is this merely a case of substituting Haskell's local rules for universal mathematical logic?
 
 **The particularly serious problem is that such abuse of theoretical authority has become a major obstacle for beginners who earnestly seek to learn the theoretical foundations of functional programming.** Engineering conveniences and historical design choices are taught as "mathematical necessities," forcing learners to accept implementations that are merely one option among many as the "only correct answer."
 
@@ -219,7 +219,7 @@ This shows that Haskell's constraints are not universal but are strictly Haskell
 
 This chapter re-examines a well-known claim in the Haskell world as a concrete "case study" of how Haskell's peculiar design philosophy generates specific issues, revealing how "mathematical facts" and "Haskell's local rules" are conflated. Within the Haskell community, the following claim is often stated authoritatively:
 
-> **"It is mathematically impossible for ZipList to become a Monad"**
+> **"It is mathematically impossible for ZipList to become a Monad"
 
 This claim is widely accepted, with Coq proofs provided on GitHub and treated as a standard example on Haskell-cafe mailing lists and StackOverflow. Indeed, it is difficult to define a `>>=` for `ZipList` that satisfies the monad laws, particularly the associativity law.
 

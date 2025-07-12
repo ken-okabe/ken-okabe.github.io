@@ -13,7 +13,7 @@ description: >-
 
 そして、その実践の場で得られた成果は、再びオリジナルのF\#版へと\*\*「逆輸入」\*\*されています。その結果、現在では、`DependencyCore`の高度な機能からデバッグシステムに至るまで、**両言語のライブラリは完全に1:1で対応**しており、その品質と機能において、一貫性が保たれています。
 
-### **本書の方針：TS/JS版をベースとした解説へ**
+### 本書の方針：TS/JS版をベースとした解説へ
 
 このような経緯を踏まえ、本書ではこのセクション以降、主に**TypeScript/JavaScript版をベース**に解説を進めていきます。これは、Webブラウザ上で動作するインタラクティブなCanvasデモや、GNOME Shell拡張機能という具体的なリファレンスコードを提示する上で、最も実践的かつ効果的なアプローチだからです。
 
@@ -23,13 +23,13 @@ description: >-
 
 -----
 
-# **Timelineライブラリ - 完全APIリファレンス (F\# & TypeScript)**
+# Timelineライブラリ - 完全APIリファレンス (F\# & TypeScript)
 
-## **コアの型**
+## コアの型
 
-### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
+#### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
 
-### TS: `Timeline<A>`
+#### TS: `Timeline<A>`
 
 型`A`の値を保持する、主要なリアクティブコンテナ型です。
 
@@ -58,7 +58,7 @@ interface Timeline<A> {
 
 -----
 
-### TS: `NullableTimeline<A>`
+#### TS: `NullableTimeline<A>`
 
 `null`値を含むことができるタイムラインのための拡張インターフェースで、null安全な操作を提供します。F\#では、別のインターフェースの代わりに型制約（`when 'a : null`）を使用します。
 
@@ -73,9 +73,9 @@ interface NullableTimeline<A> extends Timeline<A | null> {
 
 -----
 
-### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
+#### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
 
-### TS: `Resource<A>`
+#### TS: `Resource<A>`
 
 自動クリーンアップ機能を持つ、管理されたリソースの型です。
 
@@ -89,9 +89,9 @@ interface Resource<A> {
 
 -----
 
-### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
+#### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
 
-### TS: `ResourceFactory<A, B>`
+#### TS: `ResourceFactory<A, B>`
 
 値からリソースを生成する関数です。
 
@@ -102,7 +102,7 @@ type ResourceFactory<A, B> = (value: A) => Resource<B> | null;
 
 -----
 
-### **特殊な型**
+### 特殊な型
 
 ```typescript
 // TS
@@ -117,9 +117,9 @@ type DisposeCallback = () => void; // クリーンアップ関数の型
 
 -----
 
-## **コアAPI**
+## コアAPI
 
-### **ファクトリ関数**
+### ファクトリ関数
 
 #### F\#: `'a -> Timeline<'a>`
 
@@ -149,7 +149,7 @@ const idTimeline = ID(100);
 
 -----
 
-#### **事前定義されたタイムライン**
+#### 事前定義されたタイムライン
 
 ```typescript
 // TS
@@ -161,7 +161,7 @@ const TrueTimeline: Timeline<boolean>;  // Timeline(true) と等価
 
 -----
 
-### **コア操作**
+### コア操作
 
 #### F\#: `at: NowType -> Timeline<'a> -> 'a`
 
@@ -192,7 +192,7 @@ console.log(timeline.at(Now)); // 100
 
 -----
 
-### **変換操作**
+### 変換操作
 
 #### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
 
@@ -250,7 +250,7 @@ console.log(sum.at(Now)); // 9
 
 -----
 
-### **ユーティリティ操作**
+### ユーティリティ操作
 
 #### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
 
@@ -291,7 +291,7 @@ source.define(Now, 3); // ログ: "値が次に変更されました: 3"
 
 -----
 
-### **リソース管理**
+### リソース管理
 
 #### F\#: `using: ResourceFactory<'a, 'b> -> Timeline<'a> -> Timeline<'b> when 'b: null`
 
@@ -340,7 +340,7 @@ const resource = createResource(
 
 -----
 
-### **Nullable操作**
+### Nullable操作
 
 `null`値を含む可能性のあるタイムラインには、ランタイムエラーを避けるためにこれらのnull安全な亜種を使用します。F\#では、これは標準関数に型制約を適用することで処理されます。
 
@@ -408,9 +408,9 @@ console.log(resource.at(Now)); // null
 
 -----
 
-## **合成関数**
+## 合成関数
 
-### **二項操作**
+### 二項操作
 
 #### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
@@ -451,7 +451,7 @@ console.log(sum.at(Now)); // null
 
 -----
 
-### **集計操作**
+### 集計操作
 
 #### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
@@ -550,7 +550,7 @@ console.log(list.at(Now)); // ["a", "b", "c"]
 
 -----
 
-### **高度な合成**
+### 高度な合成
 
 #### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
@@ -604,7 +604,7 @@ console.log(product.at(Now)); // 6
 
 -----
 
-### **ヘルパー関数**
+### ヘルパー関数
 
 #### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
 
@@ -634,11 +634,11 @@ console.log(result2.at(Now)); // 7
 
 -----
 
-## **エラーハンドリング**
+## エラーハンドリング
 
 タイムラインのコールバック内（例: `map`や`scan`操作）で発生する例外をキャッチして処理するために、グローバルなエラーハンドラを設定できます。これは、中央集権的なロギングやカスタムエラー報告に便利です。
 
-### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
+#### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
 
 タイムラインシステムのグローバルエラーハンドラを設定または解除します。
 
@@ -661,11 +661,11 @@ setErrorHandler((error, context) => {
 
 -----
 
-## **デバッグサポート**
+## デバッグサポート
 
-### F\#: `module DebugControl`
+#### F\#: `module DebugControl`
 
-### TS: `Debug Control`
+#### TS: `Debug Control`
 
 URL（`?debug=true`）、`localStorage`、または`NODE_ENV`を介してデバッグモードを有効にします。
 
@@ -744,7 +744,7 @@ Found circular dependencies: [
 
 -----
 
-### **補足: デバッグモード起動の詳細**
+### 補足: デバッグモード起動の詳細
 
 `DebugControl`による手動切り替えに加えて、ライブラリは以下の条件を順に評価して自動的にデバッグモードを有効にします：
 

@@ -7,22 +7,18 @@ description: >-
 
 我々はこの理想を、リアクティブな内部状態だけでなく、Gnome Shell拡張のGTKウィジェットのような、**あらゆる外部リソースのライフサイクル**にまで適用する道筋を発見しました。これから解説する`.using()`は、その理想を完全に具現化する、このフレームワークの**最終的な完成形**です。
 
-## **`.using()` API — 究極のリソース管理**
+## `.using()` API — 究極のリソース管理
 
 `.bind()`が`Timeline`オブジェクトのライフサイクルを管理するのに対し、`.using()`は、**「リソースの生存期間」を「`Timeline`のイリュージョン」と完全に同期させる**ための、唯一の正しいアプローチです。
 
-### **API定義**
+### API定義
 
-- **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
-- **TypeScript**:
-    ```typescript
-    using<B>(
-        resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null
-    ): Timeline<B | null>
-    ```
+#### **TS**: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 
-### **動作と保証**
+
+### 動作と保証
 
 1.  `sourceTimeline`の値が変化すると、`using`はまず、**以前のイリュージョンで生成されたリソースに紐づく`cleanup`関数を、`disposeIllusion`を通じて確実に実行します。**
 2.  次に、新しい値で`resourceFactory`関数を呼び出します。
@@ -35,7 +31,7 @@ description: >-
 
 - **保証**: このメカニズムにより、`resourceFactory`によって一度でも生成されたリソースは、そのイリュージョンが（どのような理由であれ）終了する際に、**対応する`cleanup`関数が必ず呼び出される**ことが保証されます。これにより、リソースリークは構造的に発生し得ません。
 
-## **`Illusion`概念の拡張 — レベル3の可変性**
+## `Illusion`概念の拡張 — レベル3の可変性
 
 `.using()`の導入によって、`Illusion`の概念はさらに一段階拡張されます。
 
@@ -43,18 +39,18 @@ description: >-
 - **レベル2 (`bind`)**: `innerTimeline`という**内部構造**が可変。
 - **レベル3 (`using`)**: `DOM`やタイマーといった**外部世界の存在**そのものが、`Illusion`のライフサイクルと同期する可変な存在となる。
 
-## **進化した心臓部: `DependencyCore`と`onDispose`**
+## 進化した心臓部: `DependencyCore`と`onDispose`
 
 `DependencyCore`は、もはや単なる「リアクティブな接続」の管理システムではありません。それは、**「依存関係の生存期間（ライフサイクル）に紐づく、あらゆる種類のクリーンアップ処理」を保証する、汎用的な基盤**へと進化しました。
 
 `.using()`は、`resourceFactory`が返す`cleanup`関数を、この`DependencyCore`の`onDispose`コールバック機能を通じて登録します。そして、`Illusion`が破棄される際に、`DependencyCore`がこの`onDispose`（つまり`cleanup`）の実行を**100%保証する**ことで、外部リソースのクリーンアップが完全に自動化されるのです。
 
-## **結論：パラダイムの統合**
+## 結論：パラダイムの統合
 
 この`Timeline`は、もはや単なるFRPライブラリではありません。それは、宣言的なデータフローと、命令的なリソース管理という、しばしば対立するパラダイムを、 **「ライフサイクル」** という単一の統一された概念の下に完全に統合した、新しい次元のフレームワークです。
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
-## **Canvasデモ (Placeholder)**
+## Canvasデモ (Placeholder)
 
 *(ここに`.using()`による動的な外部リソースの管理を視覚的に示すインタラクティブなデモが配置されます。)*

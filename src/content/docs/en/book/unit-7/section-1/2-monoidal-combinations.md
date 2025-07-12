@@ -18,9 +18,9 @@ The functions we will introduce now, such as `orOf`, `andOf`, `addOf`, and `conc
 
 ### Logical OR: orOf
 
-#### **F\#**: `orOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
+#### F\#**: `orOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
 
-#### **TS**: `orOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
+#### TS**: `orOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
 
 <!-- end list -->
 
@@ -47,9 +47,9 @@ const orOf = (timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timel
 
 ### Logical AND: andOf
 
-#### **F\#**: `andOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
+#### F\#**: `andOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
 
-#### **TS**: `andOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
+#### TS**: `andOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
 
 Combines two `Timeline<boolean>`s with a logical AND (`&&`).
 
@@ -65,9 +65,9 @@ This is based on the Monoid of logical AND.
 
 ### Addition: addOf
 
-#### **F\#**: (No direct helper in F\#. Use `combineLatestWith (+)`.)
+#### F\#**: (No direct helper in F\#. Use `combineLatestWith (+)`.)
 
-#### **TS**: `addOf(timelineA: Timeline<number>, timelineB: Timeline<number>): Timeline<number>`
+#### TS**: `addOf(timelineA: Timeline<number>, timelineB: Timeline<number>): Timeline<number>`
 
 Combines two `Timeline<number>`s with addition (`+`).
 

@@ -107,7 +107,7 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 
 **Simple Examples:**
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 -   Adds 1:
 
@@ -129,7 +129,7 @@ Uses the fun keyword:  `fun parameter(s) -> expression` . The resulting expressi
 
 These directly define function _values_ with specific _types_.
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/note.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
 **Syntax Across Languages**
 
@@ -146,7 +146,7 @@ F#'s `fun` keyword might feel verbose and inferior for a functional language, bu
 
 *This formatting benefit can be seen in more complex lambda expressions:*
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
 let bind =
@@ -163,7 +163,7 @@ let bind =
 
 The consistent 4-character width (`let` and `fun` ) helps maintain visual alignment for function bodies and arguments, contributing to code readability in F#.
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/notefooter.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
 ## Using Lambdas
 

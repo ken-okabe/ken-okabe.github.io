@@ -168,7 +168,7 @@ Comparing the implementation of List Functor in F# and JavaScript/TypeScript hig
 
 The implementation of List.map Functor is originally a two-step process:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
 // 1. Pass double to List.map to generate listMapper function
@@ -180,7 +180,7 @@ let doubles = [1; 2; 3] |> listMapper // [2; 4; 6]
 
 In F#, this process can be written directly in one line using the pipeline operator:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ```fsharp
 let doubles = [1; 2; 3] |> List.map double // [2; 4; 6]
@@ -188,7 +188,7 @@ let doubles = [1; 2; 3] |> List.map double // [2; 4; 6]
 
 Interestingly, this pipeline syntax leads to a visual structure that looks remarkably similar to what JavaScript programmers are familiar with. Let's look at the JavaScript code:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/javascript.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/javascript.svg">
 
 ```js
 const double = a => a * 2;
@@ -217,7 +217,7 @@ Moving to a different but related topic - the representation of types - we can s
 
 Furthermore, the difference in type systems becomes more pronounced in TypeScript code:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/typescript.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/typescript.svg">
 
 ```ts
 const double = (a: number): number => a * 2;
@@ -232,7 +232,7 @@ TypeScript, a language that adds types to JavaScript, indeed has type inference 
 
 On the other hand, F#'s type system is more sophisticated:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745703328307.png)
 

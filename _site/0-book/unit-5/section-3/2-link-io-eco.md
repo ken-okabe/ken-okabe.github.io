@@ -6,7 +6,7 @@ In Chapter 1, we saw how `.map()` defines a static dependency by **deriving** a 
 
 The key is to **connect two initially independent `Timeline`s using the `.link()` API to define a new dependency**.
 
-## **Modeling I/O**
+## Modeling I/O
 
 From the perspective of the block universe model, an I/O operation like `console.log("Hello")` is not an action that "changes" the world.
 
@@ -16,7 +16,7 @@ From the perspective of the block universe model, an I/O operation like `console
 
 `console.log` merely describes the relationship between these two different, yet both immutable, states of the universe at different time coordinates.
 
-## **Encapsulating I/O as a Responsibility**
+## Encapsulating I/O as a Responsibility
 
 Based on this philosophy, instead of dealing with the imperative `console.log` directly, we define a declarative `Timeline` that encapsulates its "rule."
 
@@ -40,17 +40,17 @@ const logTimeline = Timeline<any>(null);
 logTimeline.map(log);
 ```
 
-## **`.link()` — Connecting Two `Timeline`s**
+## `.link()` — Connecting Two `Timeline`s
 
 `.link()` defines the simplest form of dependency: unilaterally synchronizing the value from a source to a target between **two already existing `Timeline`s**.
 
-### **API Definition**
+### API Definition
 
--   **F#**: `link: Timeline<'a> -> Timeline<'a> -> unit`
+#### **F#**: `link: Timeline<'a> -> Timeline<'a> -> unit`
     
--   **TypeScript**: `.link(targetTimeline: Timeline<A>): void`
+#### **TS**: `.link(targetTimeline: Timeline<A>): void`
 
-### **Practical Example: Defining a Dependency between `scoreTimeline` and `logTimeline`**
+### Practical Example: Defining a Dependency between `scoreTimeline` and `logTimeline`
 
 Let's connect the `scoreTimeline` from our application to the `logTimeline` we just defined.
 
@@ -70,7 +70,7 @@ scoreTimeline.define(Now, 150);
 
 In this pattern, `scoreTimeline` focuses solely on managing its own value and is completely unaware of logging. `.link()` serves to define a dependency between these two declarative entities with separated responsibilities.
 
-## **The Static Dependency Graph (Revisited)**
+## The Static Dependency Graph (Revisited)
 
 What's important here is that, just like `.map()` from Chapter 1, `.link()` also defines a **static dependency graph**.
 
@@ -80,7 +80,7 @@ What's important here is that, just like `.map()` from Chapter 1, `.link()` also
 
 Although their starting points differ, both play the same essential role in building a predictable and stable relationship within the system—one that, once defined, does not change.
 
-## **Canvas Demo (Placeholder)**
+## Canvas Demo (Placeholder)
 
 _(An interactive demo visually demonstrating the behavior of `.link()` will be placed here.)_
 
@@ -94,7 +94,7 @@ Chapter 1では、`.map()`が`Timeline`を**派生**させることで、静的�
 
 その鍵は、**最初から独立して存在する2つの`Timeline`を、`.link()` APIを使って接続し、新たな依存関係を定義する**ことです。
 
-## **I/Oのモデル化**
+## I/Oのモデル化
 
 `console.log("Hello")`というI/O操作は、ブロック宇宙モデルの視点では、世界を「変化」させるアクションではありません。
 
@@ -104,7 +104,7 @@ Chapter 1では、`.map()`が`Timeline`を**派生**させることで、静的�
 
 `console.log`は、これら2つの異なる時間座標における、**異なるが共に不変である宇宙の状態の間の関係**を記述しているに過ぎません。
 
-## **I/Oを責務としてカプセル化する**
+## I/Oを責務としてカプセル化する
 
 この哲学に基づき、我々は命令的な`console.log`を直接扱うのではなく、その「ルール」をカプセル化した、宣言的な`Timeline`を定義します。
 
@@ -129,17 +129,17 @@ logTimeline.map(log);
 
 ```
 
-## **`.link()` — 2つの`Timeline`を接続する**
+## `.link()` — 2つの`Timeline`を接続する
 
 `.link()`は、**すでに存在する2つの`Timeline`** の間に、値を一方的に同期させるという、最もシンプルな依存関係を定義します。
 
-### **API定義**
+### API定義
 
--   **F#**: `link: Timeline<'a> -> Timeline<'a> -> unit`
+#### **F#**: `link: Timeline<'a> -> Timeline<'a> -> unit`
     
--   **TypeScript**: `.link(targetTimeline: Timeline<A>): void`
+#### **TS**: `.link(targetTimeline: Timeline<A>): void`
 
-### **実践例：`scoreTimeline`と`logTimeline`の依存関係定義**
+### 実践例：`scoreTimeline`と`logTimeline`の依存関係定義
 
 アプリケーション内の`scoreTimeline`の値を、先ほど定義した`logTimeline`に接続してみましょう。
 
@@ -160,7 +160,7 @@ scoreTimeline.define(Now, 150);
 
 このパターンでは、`scoreTimeline`は自身の値の管理に専念し、ロギングのことは一切関知しません。`.link()`は、これら責務が分離された2つの宣言的なエンティティの間に、依存関係を定義する役割を果たします。
 
-## **静的な依存グラフ（再訪）**
+## 静的な依存グラフ（再訪）
 
 ここで重要なのは、Chapter 1の`.map()`と同様に、`.link()`もまた**静的な依存グラフ**を定義する、という点です。
 
@@ -170,7 +170,7 @@ scoreTimeline.define(Now, 150);
 
 プロセスの開始点は異なりますが、どちらも一度定義されると変わることのない、予測可能で安定した関係性をシステム内に構築するという点で、本質的に同じ役割を担っています。
 
-## **Canvasデモ (Placeholder)**
+## Canvasデモ (Placeholder)
 
 _(ここに`.link()`の動作を視覚的に示すインタラクティブなデモが配置されます。)_
 
