@@ -13,7 +13,7 @@ description: >-
 
 ### API定義
 
-#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+##### F#: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 

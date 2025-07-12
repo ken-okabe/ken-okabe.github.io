@@ -14,7 +14,7 @@ Chapter 1と2では、`.map()`と`.link()`が、一度定義されると変化�
 
 ### API定義
 
-#### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
+##### F#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
 ##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 

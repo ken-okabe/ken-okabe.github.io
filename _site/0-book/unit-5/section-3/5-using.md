@@ -12,7 +12,7 @@ While `.bind()` manages the lifecycle of `Timeline` objects, `.using()` is the o
 
 ### API Definition
 
-#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+##### F#: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 
@@ -69,7 +69,7 @@ With a design that balances **debugging efficiency** with **production environme
 
 ### API定義
 
-#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+##### F#: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 

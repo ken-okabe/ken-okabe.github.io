@@ -298,7 +298,7 @@ source.define(Now, 3); // Logs: "Value changed to: 3"
 
 ### Resource Management
 
-#### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
+##### F#: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>
 

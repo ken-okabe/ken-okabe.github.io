@@ -16,7 +16,7 @@ This allows us to build dynamic systems where the wiring of the dependency graph
 
 ### API Definition
 
-#### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
+##### F#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
 ##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 
