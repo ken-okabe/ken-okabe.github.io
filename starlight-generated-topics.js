@@ -3,7 +3,7 @@ export const generatedTopics = [
   {
     "label": {
       "en": "Experience Quality Coding",
-      "ja": "Experience Quality Coding"
+      "ja": "最高のコーディング体験"
     },
     "link": "/book/",
     "items": [
@@ -11,7 +11,7 @@ export const generatedTopics = [
         "label": "FALLBACK",
         "translations": {
           "en": "🔷Unit 0🔷 Introduction to Quality Code",
-          "ja": "🔷Unit 0🔷 Introduction to Quality Code"
+          "ja": "🔷Unit 0🔷 高品質なコードへの招待"
         },
         "items": [
           {
