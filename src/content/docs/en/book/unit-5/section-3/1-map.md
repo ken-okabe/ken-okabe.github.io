@@ -11,9 +11,9 @@ Its essence is to **define an immutable, "static" relationship between two `Time
 
 ## API Definition
 
-#### **F#**: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+##### F#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
     
-#### **TS**: `.map<B>(f: (value: A) => B): Timeline<B>`
+##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map` takes a pure function `f` as an argument, which accepts a value of type `A` and returns a value of type `B`.
 

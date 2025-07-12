@@ -16,7 +16,7 @@ Chapter 1と2では、`.map()`と`.link()`が、一度定義されると変化�
 
 #### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
-#### **TS**: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
+##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 
 引数に取る関数（`monadf`）が、値`A`を受け取り、**新しい`Timeline<B>`を返す**点が`.map()`との決定的な違いです。
 

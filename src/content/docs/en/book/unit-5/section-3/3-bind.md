@@ -18,7 +18,7 @@ This allows us to build dynamic systems where the wiring of the dependency graph
 
 #### **F\#**: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
-#### **TS**: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
+##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 
 The crucial difference from `.map()` is that the function it takes (`monadf`) accepts a value `A` and returns a **new `Timeline<B>`**.
 

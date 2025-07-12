@@ -300,7 +300,7 @@ source.define(Now, 3); // Logs: "Value changed to: 3"
 
 #### **F\#**: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
-#### **TS**: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>
+##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>
 
 Manages resources that require cleanup, like network requests or file handles. When the source timeline changes, the old resource's cleanup function is called automatically.
 
