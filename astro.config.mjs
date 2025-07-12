@@ -21,7 +21,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'Experience Quality Coding',
+      title: 'Experience Quality Coding for AI',
       defaultLocale: 'en',
       locales: {
         en: { label: 'English', lang: 'en' },
