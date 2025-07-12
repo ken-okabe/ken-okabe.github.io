@@ -18,7 +18,13 @@ Consider these common, concrete examples:
 
 * **The Empty Spreadsheet Cell**: A cell in a spreadsheet grid naturally embodies this concept. A cell can hold a definite value (a number, text, a formula), or it can be simply empty. This empty state is not an error; it's a fundamental part of the spreadsheet model, signifying the absence of data in that location.
 
+   ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1712816212511.png)
+
+
 * **No Active Text Editor**: In a modern IDE like Visual Studio Code, a user might have several files open in tabs, or they might have closed all of them. The state where there is **no** currently active or focused text editor is a perfectly valid and expected state within the application's lifecycle.
+
+  ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713852091388.png)
+
 
 These examples illustrate that "absence," "emptiness," or "nullity" is not merely an exceptional circumstance or an error. It is often a **real, necessary, and legitimate state** within the domain we are modeling. Therefore, how our programming languages and type systems allow us to represent and interact with this state is of foundational importance.
 
@@ -29,6 +35,8 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."
 
 First, our starting point is the fundamental concept in functional programming: the "pipeline," where data flows through a series of functions.
+
+![Pipeline Flow](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
 1.  **Components of a Pipeline**:
 
@@ -145,6 +153,13 @@ function processText(text: string | null): void {
     }
 }
 ```
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713851695486.png)
+
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854747266.png)
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854832322.png)
 
 This success of TypeScript raises an important question: if nullability can be managed this effectively with appropriate type system features, why did the HM tradition so strongly favor the `Option` type? Was the problem truly `null` itself, or was it the specific limitations of classic HM type inference? It is clear that `Option` is not the only solution.
 

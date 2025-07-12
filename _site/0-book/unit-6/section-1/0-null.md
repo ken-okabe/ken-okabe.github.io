@@ -10,7 +10,13 @@ Consider these common, concrete examples:
 
 * **The Empty Spreadsheet Cell**: A cell in a spreadsheet grid naturally embodies this concept. A cell can hold a definite value (a number, text, a formula), or it can be simply empty. This empty state is not an error; it's a fundamental part of the spreadsheet model, signifying the absence of data in that location.
 
+   ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1712816212511.png)
+
+
 * **No Active Text Editor**: In a modern IDE like Visual Studio Code, a user might have several files open in tabs, or they might have closed all of them. The state where there is **no** currently active or focused text editor is a perfectly valid and expected state within the application's lifecycle.
+
+  ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713852091388.png)
+
 
 These examples illustrate that "absence," "emptiness," or "nullity" is not merely an exceptional circumstance or an error. It is often a **real, necessary, and legitimate state** within the domain we are modeling. Therefore, how our programming languages and type systems allow us to represent and interact with this state is of foundational importance.
 
@@ -21,6 +27,8 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."
 
 First, our starting point is the fundamental concept in functional programming: the "pipeline," where data flows through a series of functions.
+
+![Pipeline Flow](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
 1.  **Components of a Pipeline**:
 
@@ -138,6 +146,13 @@ function processText(text: string | null): void {
 }
 ```
 
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713851695486.png)
+
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854747266.png)
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854832322.png)
+
 This success of TypeScript raises an important question: if nullability can be managed this effectively with appropriate type system features, why did the HM tradition so strongly favor the `Option` type? Was the problem truly `null` itself, or was it the specific limitations of classic HM type inference? It is clear that `Option` is not the only solution.
 
 -----
@@ -173,8 +188,13 @@ We position this approach as a **theoretically valid path** that consciously div
 ありふれた、具体的な例を考えてみましょう。
 
 * **スプレッドシートの空のセル**: スプレッドシートのセルは、この概念を自然に体現しています。セルは確定した値（数値、テキスト、数式）を持つこともあれば、単に空であることもあります。この空の状態はエラーではなく、その場所にデータが存在しないことを示す、スプレッドシートモデルの根源的な一部です。
+
+   ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1712816212511.png)
+
  
 * **アクティブなテキストエディタがない状態**: Visual Studio Codeのような現代的なIDEでは、ユーザーは複数のファイルをタブで開いているかもしれませんし、すべてのタブを閉じているかもしれません。現在アクティブな、あるいはフォーカスされているテキストエディタが一つも**ない**状態は、アプリケーションのライフサイクルにおいて完全に正当で、想定内の状態です。
+
+  ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713852091388.png)
 
 これらの例が示すように、「不在」「空」「Nullity」は、単なる例外的な状況やエラーではありません。それは我々がモデリングしている領域において、**現実的で、必要かつ、正当な状態**なのです。したがって、我々のプログラミング言語や型システムが、この状態をいかに表現し、そしてそれと対話することを許容するかは、根源的な重要性を持つのです。
 
@@ -185,6 +205,8 @@ We position this approach as a **theoretically valid path** that consciously div
 この「不在」を巡る議論の核心に迫る前に、我々は本書の理論的支柱となっている基本原則に立ち返る必要があります。それは、Unit 2で確立した、\*\*「関数パイプライン」**の考え方から、いかにして**「代数構造」\*\*の定義が自然に導かれるか、という丁寧な論理の流れです。
 
 まず、我々の出発点は、データが関数の連なりを流れていく「パイプライン」という、関数型プログラミングの基本的な考え方です。
+
+![Pipeline Flow](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
 1.  **パイプラインの構成要素**:      * すべてのパイプラインは、特定の**型 (Type)** を持つデータを扱います。      * **関数 (Function)** が、このデータを明確に定義された方法で変換します。      * これにより、我々は自然と `(Type, Function)` というペアを扱うことになります。2.  **二項演算子は関数である**:      * `1 + 2`のような一般的な二項演算も、一種の**関数**である、という視点を取り入れます。例えば、`+` という演算子は、`(int, int) -> int` という型を持つ関数と見なせます。(カリー化)3.  **型と集合の対応**:      * プログラミングにおける **型 (Type)**は、数学における**集合 (Set)** と深く対応します。`int`型は整数の集合、`bool`型は`{true, false}`という集合、`string`型はあらゆる文字列の集合と考えることができます。
 
@@ -289,6 +311,13 @@ function processText(text: string | null): void {
     }
 }
 ```
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713851695486.png)
+
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854747266.png)
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1713854832322.png)
 
 TypeScriptのこの成功は、重要な問いを提起します。もしnull可能性が適切な型システムの機能によって効果的に管理できるのであれば、なぜHMの伝統は`Option`型をかくも強く支持したのでしょうか？ 問題は本当に`null`自体にあったのか、それとも古典的なHMの型推論が持つ特有の限界にあったのか？ `Option`型だけが唯一の解ではないことは明らかです。
 
