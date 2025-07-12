@@ -12,12 +12,14 @@ In the previous sections, we learned about the **Monoid** as an algebraic struct
 ## Function Composition as a Binary Operation
 
 We often "concatenate" or "chain" functions in our data transformation pipelines. For example, if `double` is a function of type `int -> int` and `add1` is also `int -> int`, we might write:
+
 ```fsharp
 let composedFuncExample = double >> add1 >> double 
 // Creates a new function, also of type int -> int
 // When applied to an input 'x', 
 // composedFuncExample behaves as x |> double |> add1 |> double
 ```
+
 Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`. The general type signature for this operator is `('a -> 'b) -> ('b -> 'c) -> ('a -> 'c)`. It takes a function from `'a` to `'b`, and a function from `'b` to `'c`, and returns a new function from `'a` to `'c`.
 
 For function composition to act as a *binary operation that forms a monoid*, we typically consider a specific set of functions: **endofunctions** on a type `T`. An endofunction is a function whose domain and codomain are the same type, i.e., functions of type **`T -> T`**.
@@ -39,12 +41,14 @@ Both expressions result in a single composite function that, when applied to an 
 For example, let's consider `double: int -> int`. The expression `1 |> double |> double` can be understood in terms of function composition:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745411970807.png)
+
 ```fsharp
 // Assuming 'double : int -> int'
 // 1 |> double |> double evaluates to 4.
 // This is equivalent to applying a composed function (double >> double) to 1:
 // 1 |> (double >> double) also evaluates to 4.
 ```
+
 The way `double` functions are grouped in composition doesn't change the final outcome when applied to `1`.
 
 This principle extends to three or more functions. The following diagrams illustrate the associativity for `f`, `g`, and `h` (all `T -> T`):
@@ -77,6 +81,7 @@ As we recall from Unit 1, the identity function simply returns its input unchang
 *(If `id` is used in a context where `T` is `int`, its type is `int -> int`)*
 
 For any function `f: T -> T`:
+
 *   `f >> id = f` (right identity: composing `f` with `id` yields `f`)
 *   `id >> f = f` (left identity: composing `id` with `f` yields `f`)
 This holds because `(f >> id) x` means `id (f x)`, which evaluates to `f x`. Similarly, `(id >> f) x` means `f (id x)`, which also evaluates to `f x`.
@@ -84,6 +89,7 @@ This holds because `(f >> id) x` means `id (f x)`, which evaluates to `f x`. Sim
 ## Function Composition (of `T -> T` functions) Forms a Monoid
 
 Given the above properties for the set of endofunctions on a type `T`:
+
 1.  **Set**: The set of all functions of type `T -> T`.
 2.  **Binary Operation**: Function composition `>>`, with type `(T -> T) -> (T -> T) -> (T -> T)`.
 3.  **Associativity**: The `>>` operation is associative.
@@ -97,6 +103,7 @@ Therefore, **(Set of functions `T -> T`, function composition `>>`, identity fun
 This is a profound realization. The very act of composing functions—a cornerstone of functional programming and pipeline construction—shares the same robust algebraic structure (Monoid) as familiar operations like integer addition or string concatenation. This structural consistency is a key source of the elegance, predictability, and composability found in functional programming.
 
 The algebraic laws are directly analogous:
+
 *   Integer Addition Monoid: `(a + b) + c = a + (b + c)` and `0 + a = a = a + 0`
 *   Function Composition Monoid (on `T->T`): `(f >> g) >> h = f >> (g >> h)` and `id >> f = f = f >> id`
 

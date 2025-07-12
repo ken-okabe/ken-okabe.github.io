@@ -1,4 +1,5 @@
 :::lang-en
+
 # Algebraic Structures and Pipeline Flow
 
 Before diving into the details of algebraic structures, let's start with a simple but powerful idea: types in programming are closely related to sets in mathematics.

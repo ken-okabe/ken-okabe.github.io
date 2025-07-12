@@ -20,7 +20,7 @@ This analogy, comparing a Functor to a Higher-Order Function that transforms fun
 
 **Here**, we introduced the concept of a Functor using an analogy based on familiar ideas of mapping as shown in the diagram. We extended the idea of mapping values between sets to mapping functions between sets of functions to build an initial intuition.
 
-It's important to understand that this initial explanation was designed primarily to help grasp the **core intuitive idea** behind Functors  the concept of transforming content while preserving structure.
+It's important to understand that this initial explanation was designed primarily to help grasp the  **core intuitive idea**  behind Functors, which is the concept of transforming content while preserving structure.
 
 However, as our more detailed discussions will reveal later, this analogy alone is insufficient for a **rigorous definition** of a Functor. To define Functors precisely, we need to introduce the **Functor Laws** (Identity and Composition), which are specific rules that these operations must satisfy.
 

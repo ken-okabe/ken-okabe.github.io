@@ -1,4 +1,5 @@
 :::lang-en
-# Result Monad
+
+# Result Functor/Monad
 
 :::

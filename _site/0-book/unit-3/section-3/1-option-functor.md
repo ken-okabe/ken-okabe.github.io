@@ -1,4 +1,5 @@
 :::lang-en
+
 # Option Functor
 
 Option, as a Functor, provides `Option.map` to apply a function only if the value is Some.

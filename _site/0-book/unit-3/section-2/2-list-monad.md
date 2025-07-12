@@ -1,4 +1,5 @@
 :::lang-en
+
 # List Monad
 
 List, as a Monad, provides `bind` (List.collect in F#).

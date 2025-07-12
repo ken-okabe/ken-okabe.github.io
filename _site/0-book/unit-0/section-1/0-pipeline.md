@@ -1,4 +1,5 @@
 :::lang-en
+
 # Core Concept: The Data Transformation Pipeline
 
 Coding, at its core, is the art of **transforming data** to achieve a desired output.

@@ -1,5 +1,5 @@
 :::lang-en
 
-# IO Monad
+# IO Functor/Monad
 
 :::

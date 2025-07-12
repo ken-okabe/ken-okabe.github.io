@@ -2,7 +2,7 @@
 
 # Chapter 1: Navigating the Nullable World — The n-APIs as Safe Operations
 
-## 1\. The Conclusion of the Previous Chapter: The Missing Piece Was a "Safe Operation"
+## 1. The Conclusion of the Previous Chapter: The Missing Piece Was a "Safe Operation"
 
 In the previous chapter, we delved into the truth behind the problems historically caused by `null`. Our conclusion was that the root of the problem was not that the concept of `null` itself is evil, but that the **safe operations** that should be paired with `null` (the empty set) were not defined in many languages. An algebraic structure is only complete with a pair of a "set" and an "operation." The failure to provide corresponding "operations" for the "set" element of `null` was the true "billion-dollar mistake."
 
@@ -10,7 +10,7 @@ This chapter explains how the `Timeline` library concretely implements those mis
 
 -----
 
-## 2\. The Most Basic Operation: `nMap` — Allowing `null` to Pass Through Safely
+## 2. The Most Basic Operation: `nMap` — Allowing `null` to Pass Through Safely
 
 To understand the design philosophy of the n-APIs, let's first look at the most basic `map` operation.
 
@@ -55,7 +55,7 @@ console.log(doubled.at(Now)); // null
 
 -----
 
-## 3\. Safe Navigation of Dynamic Graphs: `nBind`
+## 3. Safe Navigation of Dynamic Graphs: `nBind`
 
 This design philosophy of "letting `null` pass through safely" also applies to the more complex `bind` operation. While `bind` is a powerful feature for dynamically switching subsequent timelines based on a value, it carries the same risks as `map` if the possibility of a `null` input is not considered.
 
@@ -89,7 +89,7 @@ console.log(result.at(Now)); // null
 
 -----
 
-## 4\. Fusion with Resource Management: `nUsing`
+## 4. Fusion with Resource Management: `nUsing`
 
 `using` is an advanced operation that synchronizes the value of a timeline with the lifecycle of an external resource, such as a DOM element or a timer. In this context, handling `null` is also critical. The state of "no resource exists" needs to be handled elegantly as a valid state, not as an error.
 
@@ -127,7 +127,7 @@ console.log(resource.at(Now)); // null
 
 -----
 
-## 5\. Summary: The n-API Design Philosophy
+## 5. Summary: The n-API Design Philosophy
 
 Across `nMap`, `nBind`, and `nUsing`, a common design philosophy emerges. The "operation" provided by the n-API family is based on a simple rule:
 
@@ -143,15 +143,13 @@ This design frees the programmer from needing to repeat defensive `if`-`null` ch
 
 A demo comparing the behavior of `map` and `nMap` side-by-side. On the left (`map`), when `null` is input, the pipeline stops with a red warning indicator. On the right (`nMap`), when `null` is input, the pipeline's color changes, and it visually skips the subsequent operation, propagating `null` as the output.
 
---------------
-
 :::
 
 :::lang-ja
 
 # Chapter 1: Null許容世界の歩き方 — 安全な「演算」としてのn-API
 
-## 1\. 前章の結論：欠けていたのは「安全な演算」だった
+## 1. 前章の結論：欠けていたのは「安全な演算」だった
 
 前章で我々は、歴史的に`null`が引き起こしてきた問題の真相に迫りました。その結論は、「`null`という概念そのものが悪なのではなく、`null`（空集合）とペアになるべき**安全な演算**が、多くの言語で定義されていなかったことこそが問題の根源である」というものでした。代数構造は「集合」と「演算」のペアで初めて成立します。`null`という「集合」の要素を認めながら、それに対応する「演算」を用意しなかったこと、それが“億万ドルの間違い”の正体でした。
 
@@ -159,7 +157,7 @@ A demo comparing the behavior of `map` and `nMap` side-by-side. On the left (`ma
 
 -----
 
-## 2\. 最も基本的な演算： `nMap` — nullを安全に通過させる
+## 2. 最も基本的な演算： `nMap` — nullを安全に通過させる
 
 `n-API`の設計思想を理解するために、まずは最も基本的な`map`操作から見ていきましょう。
 
@@ -204,7 +202,7 @@ console.log(doubled.at(Now)); // null
 
 -----
 
-## 3\. 動的グラフの安全な航行： `nBind`
+## 3. 動的グラフの安全な航行： `nBind`
 
 この「`null`を安全に通過させる」という設計哲学は、より複雑な`bind`操作にも適用されます。`bind`は、値に応じて後続のタイムラインを動的に切り替える強力な機能ですが、入力が`null`になる可能性を考慮しなければ、`nMap`と同様のリスクを抱えます。
 
@@ -238,7 +236,7 @@ console.log(result.at(Now)); // null
 
 -----
 
-## 4\. リソース管理との融合： `nUsing`
+## 4. リソース管理との融合： `nUsing`
 
 `using`は、タイムラインの値と、DOM要素やタイマーといった外部リソースのライフサイクルを同期させる、高度な操作です。この文脈においても、`null`の扱いは重要になります。「リソースが存在しない」という状態を、エラーではなく、正当な状態としてエレガントに扱う必要があるからです。
 
@@ -276,7 +274,7 @@ console.log(resource.at(Now)); // null
 
 -----
 
-## 5\. まとめ：n-APIという設計思想
+## 5. まとめ：n-APIという設計思想
 
 `nMap`、`nBind`、`nUsing`。これらのAPIを通じて、共通の設計思想が見えてきます。`n-API`群が提供する「演算」とは、すべて以下のシンプルなルールに基づいています。
 

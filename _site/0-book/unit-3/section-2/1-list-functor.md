@@ -1,4 +1,5 @@
 :::lang-en
+
 # List Functor
 
 List, as a Functor, provides `map` to apply a function to each element.

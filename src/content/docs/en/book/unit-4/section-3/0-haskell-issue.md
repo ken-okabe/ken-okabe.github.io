@@ -1,7 +1,7 @@
 ---
 title: >-
-  The Fiction of Haskell's "Theoretical Superiority": A Critical Verification
-  from a Category Theory Perspective and Its Educational Impact on Beginners
+  The Myth of Haskell's "Theoretical Superiority": A Critical Verification from
+  a Category Theory Perspective and Its Educational Impact on Beginners
 description: >-
   Haskell's intellectual contributions to the programming world are
   immeasurable. In particular, its pioneering role in the practical
@@ -41,18 +41,22 @@ In the context of `List`, the "natural" implementation that satisfies the monad 
 Finally, we discuss `Applicative`. This is historically relatively new among Haskell's typeclasses and was forcibly positioned as an intermediate layer between `Functor` and `Monad` for some reason. Here arises the problem that this document consistently points out.
 
 -   **The Diversity of Applicative**: As a basic premise, for `List`, there exist at least two category-theoretically legitimate "choices" for `Applicative`: **"Cartesian product"** and **"Zip"**. This demonstrates the richness of the structure that the `List` type possesses.
+    
 -   **The "Forcing" of Haskell's Hierarchy**: However, Haskell established the hierarchical structure `class Applicative f => Monad f`. This was an engineering decision in language design that **fixed** the behavior of `List`'s (which is a `Monad`) `Applicative` to the Cartesian product version derived from the `Monad`.
+    
 -   **The Resulting "Illusion" and Unjust Exclusion**: This situation—"Cartesian product is standard, Zip is special"—is merely an **"illusion" created by the engineering constraints** of Haskell's hierarchy. The Zip behavior is mathematically unproblematic; it simply didn't conform to the local rule that Haskell created dictating "how `Monad` and `Applicative` should be."
 
 **This situation is precisely what confuses beginners who earnestly seek to learn functional programming.** When only one of two mathematically equivalent implementations is taught as "standard" while the other is treated as a "special case," learners are deprived of the opportunity to understand the true theoretical richness.
 
 This is exactly what happened: "Because Applicative was forced into an implementation as if it were an intermediate stage between Functor and Monad, the Zip version appeared more problematic," resulting in the unjust exile of the equally legitimate Zip version to a separate type `ZipList`, despite being mathematically equivalent.
 
-## 2. The Fiction of the Typeclass Hierarchy: Its Structure and Lack of Mathematical Foundation
+## 2. The Myth of the Typeclass Hierarchy: Its Structure and Lack of Mathematical Foundation
 
 This chapter details how the "distortion" shown in the previous chapter stems from the `Functor => Applicative => Monad` hierarchy itself. It clarifies that this hierarchy is an engineering compromise rather than something categorically natural, and that Haskell's choice lacks mathematical foundation because multiple equally valid Applicative implementations exist from a category theory perspective.
 
 ### Haskell's Typeclass Hierarchy
+
+Haskell
 
 ```haskell
 class Functor f where
@@ -74,7 +78,9 @@ class Applicative f => Monad f where
 In category theory, `Functor`, `Monad`, and `Applicative` are **independent concepts** and do not exist in such a forced hierarchical relationship. Investigation of standard category theory texts (MacLane, Awodey, etc.) reveals the following relationships:
 
 -   **Monad**: endofunctor + unit + multiplication + associativity/unit laws
+    
 -   **Applicative (lax monoidal)**: endofunctor + lax monoidal structure + naturality
+    
 -   **Relationship**: Applicative can be derived from Monad, but there is **no forced hierarchy**. Monad and Applicative are **parallel concepts**.
 
 **The fact that such theoretical facts are not accurately conveyed to beginners creates fundamental distortions in understanding.** Many educational resources explain this hierarchy as if it were a mathematical necessity, but this is clearly misleading education.
@@ -82,6 +88,8 @@ In category theory, `Functor`, `Monad`, and `Applicative` are **independent conc
 **2. The Problem of "Deriving" Applicative from Monad**
 
 In Haskell, it is claimed that "if something is a Monad, it can become an Applicative through the following derivation":
+
+Haskell
 
 ```haskell
 pure = return
@@ -99,6 +107,7 @@ However, from a category theory perspective, this derivation is not trivial and 
 The decisive fact from category theory is that Applicative Functors correspond to **lax monoidal functors**, and **monoidal products are not unique (up to isomorphism)**. This means that multiple different monoidal structures can coexist within the same category with **mathematically equal legitimacy**. For a single type like `List`, multiple "products" exist:
 
 -   **Cartesian Product Structure**: Generates all combinations `[f1,f2] <*> [x1,x2,x3] = [f1 x1, f1 x2, f1 x3, f2 x1, f2 x2, f2 x3]`
+    
 -   **Pointwise (Zip) Structure**: Combines corresponding elements `[f1,f2] <*> [x1,x2] = [f1 x1, f2 x2]`
 
 **Both of these structures** are completely legitimate in category theory and satisfy the monoidal laws (associativity, identity laws) and the conditions for lax monoidal functors. It is **mathematically impossible** for one to be more "natural" or "theoretical" than the other.
@@ -110,7 +119,9 @@ The decisive fact from category theory is that Applicative Functors correspond t
 Faced with multiple mathematically legitimate options, Haskell arbitrarily fixed `[]`'s `Applicative` to "Cartesian product" and exiled the equally legitimate zip version to a separate `ZipList` type. The actual motivation for this choice was not rooted in category theory but was based on **purely engineering reasons**:
 
 1.  **Consistency with Monad**: The `Monad` instance for `[]` already had Cartesian product-like behavior
+    
 2.  **Type Inference Predictability**: To avoid compilation errors from ambiguous instances
+    
 3.  **Historical Reasons**: Applicative was added to the language much later (in 2008 by Conor McBride and Ross Paterson), requiring compatibility with existing Monad code
 
 **This engineering decision itself is reasonable, but the problem is that it is taught to beginners as "mathematical necessity."** Proper education should clearly convey that this was a mathematical choice, not an engineering convenience.
@@ -120,7 +131,9 @@ Faced with multiple mathematically legitimate options, Haskell arbitrarily fixed
 The artificial hierarchy creates numerous theoretical contradictions:
 
 -   **The Breakdown Proven by ZipList**: `ZipList` is Applicative but cannot become a Monad due to this hierarchy. If the hierarchy were "natural," why is only the zip structure excluded?
+    
 -   **The Set Functor Problem**: `Set` is a Functor, but requires an `Ord` constraint to become `Applicative`, breaking the "pure" structure of the hierarchy
+    
 -   **The Peculiarity of IO Monad**: `IO`'s `>>=` means sequencing, not category-theoretic `bind`
 
 **These contradictions tend to be obscured in beginner-oriented explanations, resulting in learners having incomplete and distorted theoretical understanding.** Sincere education should honestly explain these limitations and contradictions.
@@ -133,6 +146,8 @@ Based on the fact that this is a matter of mathematical degrees of freedom, this
 
 ML-family languages like F# take a **function-based** approach, allowing multiple operations with different semantics to be defined for the same type. User intent is made clear through specific function names, and no ambiguity arises.
 
+F#
+
 ```fsharp
 // Multiple Applicative-like operations can be defined for the same List type
 let mapCartesian f xs ys =
@@ -144,12 +159,12 @@ let mapZip f xs ys =
 // Explicit function calls clarify intent
 List.map2 (+) [1;2] [3;4]     // zip version: [4;6]
 // List.allPairs (+) [1;2] [3;4] // Cartesian product version
-
 ```
 
 This is not a matter of "safety" but a difference in **API design philosophy**.
 
 -   **Haskell**: "The same abstract operation should have the same meaning"
+    
 -   **ML-family languages**: "Different operations should have different names"
 
 **This approach is much more understandable for beginners and avoids theoretical confusion.** The meaning of each operation is clear from its name, without being misled by artificial distinctions between "standard" and "irregular."
@@ -160,9 +175,16 @@ The claim that multiple instances "break type inference" contradicts the facts a
 
 -   **Scala** uses `implicit` parameters to allow multiple instances to coexist, with explicit selection at the call site
     
-    ```scala
-    // Multiple Applicative instances existimplicit val listCartesian: Applicative[List] = ...implicit val listZip: Applicative[List] = ...// Explicit selection at usagecompute(List(1,2), List(3,4))(listCartesian) // Cartesian productcompute(List(1,2), List(3,4))(listZip)       // zip
+    Scala
     
+    ```scala
+    // Multiple Applicative instances exist
+    implicit val listCartesian: Applicative[List] = ...
+    implicit val listZip: Applicative[List] = ...
+    
+    // Explicit selection at usage
+    compute(List(1,2), List(3,4))(listCartesian) // Cartesian product
+    compute(List(1,2), List(3,4))(listZip)       // zip
     ```
     
 -   **Rust** also allows multiple trait implementations. **Swift, Kotlin, PureScript** adopt similar solutions
@@ -174,12 +196,19 @@ The claim that multiple instances "break type inference" contradicts the facts a
 The world's most widely used `Array` in JavaScript proves that this flexible approach functions without problems. All structures can be used selectively, freely, and clearly on top of a single `Array` type without needing cumbersome types like `new ZipArray()`.
 
 -   **Functor**: `Array.prototype.map` provided by default
+    
 -   **Monad**: `Array.prototype.flatMap` also provided by default, naturally expressing Cartesian product-like behavior
+    
 -   **Applicative**: Not standard, but both behaviors can be easily implemented:
     
-    ```javascript
-    // Zip versionconst mapZip = (f, xs, ys) => xs.map((x, i) => f(x, ys[i]));// Cartesian product versionconst mapCartesian = (f, xs, ys) => xs.flatMap(x => ys.map(y => f(x, y)));
+    JavaScript
     
+    ```js
+    // Zip version
+    const mapZip = (f, xs, ys) => xs.map((x, i) => f(x, ys[i]));
+    
+    // Cartesian product version
+    const mapCartesian = (f, xs, ys) => xs.flatMap(x => ys.map(y => f(x, y)));
     ```
 
 **This example provides very important implications for beginners: functional programming concepts can be fully expressed without Haskell's special constraints.**
@@ -193,6 +222,8 @@ This chapter re-examines a well-known claim in the Haskell world as a concrete "
 > **"It is mathematically impossible for ZipList to become a Monad"**
 
 This claim is widely accepted, with Coq proofs provided on GitHub and treated as a standard example on Haskell-cafe mailing lists and StackOverflow. Indeed, it is difficult to define a `>>=` for `ZipList` that satisfies the monad laws, particularly the associativity law.
+
+Haskell
 
 ```haskell
 -- Difficult to define in a way that satisfies monad laws
@@ -211,24 +242,28 @@ The core problem is not the mathematical fact itself, but how it is instrumental
 
 ## 5. Problems of Intellectual Attitude: Abuse of "Theoretical Authority" and Its Harmful Impact on Education
 
-This chapter synthesizes the previous discussions and critiques the more serious problem of authoritarianism and theoretical abuse occasionally seen in the Haskell community, which might be called "category theory laundering."
+This chapter synthesizes the previous discussions and critiques the more serious problem of authoritarianism and theoretical abuse occasionally seen in the Haskell community.
 
 **Most importantly, these problems have become significant obstacles for beginners who earnestly seek to learn the theoretical foundations of functional programming.**
 
-### Category Theory Laundering and Its Educational Harm
+### Post-hoc Justification using Category Theory and Its Educational Harm
 
 There is a tendency to justify engineering conveniences as "categorically beautiful" or "mathematical necessity," and to glorify design problems as "theoretical profundity." The existence of `ZipList`, a product of the logical failure of arbitrarily elevating Cartesian product as "standard" and exiling the mathematically equivalent zip structure, is often justified as "design refinement."
 
-**This "laundering" severely harms beginners' learning:**
+This **"post-hoc justification"** severely harms beginners' learning:
 
 -   **False Theoretical Understanding**: When engineering compromises are taught as mathematical necessities, learners acquire distorted theoretical foundations
+    
 -   **Inhibition of Critical Thinking**: "Authoritative" explanations become difficult to question, preventing learners from developing critical thinking
+    
 -   **Conceptualization Narrowing**: Originally rich mathematical concepts are understood as limited to specific implementations
 
-This "laundering" appears in several patterns:
+This pattern of justification appears in several forms:
 
 -   **Canonization in Tutorials**: Explanations like "Cartesian product is the natural implementation of Applicative" and "typeclass hierarchy reflects category-theoretic structure" frequently appear without category-theoretic foundation
+    
 -   **Abuse of Academic Authority**: Claims are given authority using the "category theory" keyword without providing actual category-theoretic proofs
+    
 -   **Uncritical Reproduction**: Established claims are circulated as "official views" without critical verification, systematically ignoring counter-examples from other languages
 
 **These problems deprive beginners of opportunities to understand the theoretical richness and conceptual diversity they should be learning.**
@@ -240,13 +275,17 @@ When the lack of theoretical foundation becomes apparent, there's a common tacti
 In actual discussions, the following **patterned defenses** frequently appear:
 
 -   **"Type Inference Consistency"**: The claim that multiple implementations break type inference. **Reality**: A solved problem in other languages. Presents Haskell design constraints as universal problems.
+    
 -   **"Mathematical Necessity"**: The claim that Cartesian product is "natural" and zip is "artificial." **Reality**: They are equivalent in category theory. Presents arbitrary choice as theoretical justification.
+    
 -   **"Design Philosophy"**: The claim that unified interfaces are "beautiful." **Reality**: The abuse of `newtype` to separate mathematically equivalent structures is ugly. Re-packages engineering compromise as aesthetics.
 
 **The uncritical adoption of these defensive discourses in educational settings causes beginners to face the following problems:**
 
 -   **Confusion of Theory and Implementation**: Mathematical concepts and specific language implementations become indistinguishable
+    
 -   **Lack of Awareness of Alternatives**: Opportunities to learn about other legitimate implementation methods are lost
+    
 -   **Excessive Dependence on Authority**: The ability to critically verify concepts does not develop
 
 Through completely unnatural constraints in category theory (one implementation per typeclass), Haskell arbitrarily selects Cartesian product as "standard" and exiles zip structure to an artificial type called `ZipList`. Then it post-hoc justifies this logical failure as "design refinement," making it appear as if there were mathematical necessity.
@@ -262,10 +301,15 @@ Haskell's contributions to the functional programming world are immeasurable. Ho
 ### Ideal Attitudes and Educational Responsibility
 
 1.  **Acknowledge Multiple Legitimate Implementations**: Recognize that multiple `Applicative` structures exist for `List` as category theory shows
+    
 2.  **Don't Confuse Engineering Constraints with Theory**: Clearly state that "typeclass uniqueness" is Haskell's engineering choice, not universal mathematical truth
+    
 3.  **Apply Category-Theoretic Concepts Accurately**: Don't use concepts like `Monad` or `Applicative` for justification or authority
+    
 4.  **Respect Solutions in Other Languages**: Learn from the more flexible and, in some sense, more category-theoretically natural approaches seen in F#, Scala, JS, etc.
+    
 5.  **Critically Re-verify "Official Views"**: Always question the theoretical foundations of even established discourse within the community
+    
 6.  **Maintain Educational Integrity**: Don't teach engineering compromises as "mathematical necessities"
 
 **The educational community has a responsibility to provide learners with accurate theoretical understanding rather than perpetuating distorted narratives that serve particular language advocacy.**

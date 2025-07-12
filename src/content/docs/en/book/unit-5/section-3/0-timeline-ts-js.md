@@ -1,25 +1,32 @@
 ---
 title: 'Chapter 0: Timeline.ts / Timeline.js -- FRP Implementation'
 description: >-
-  これまでの章では、Timelineライブラリの根底にある設計思想と、その概念的な振る舞いを、オリジンであるF#のコードを参照しながら探求してきました。F#の厳密な型システムと関数型パラダイムは、このライブラリの理論的基盤を理解する上で、最も優れた出発点でした。
+  In the previous chapters, we explored the underlying design philosophy and
+  conceptual behavior of the Timeline library, referencing its original F# code.
+  F#'s strict type system and functional paradigm provided an excellent starting
+  point for understanding the library's theoretical foundation.
 ---
-### 言語の切り替え：F\#からTypeScript/JavaScriptへ
+### Switching Languages: From F# to TypeScript/JavaScript
 
-これまでの章では、`Timeline`ライブラリの根底にある設計思想と、その概念的な振る舞いを、オリジンであるF\#のコードを参照しながら探求してきました。F\#の厳密な型システムと関数型パラダイムは、このライブラリの理論的基盤を理解する上で、最も優れた出発点でした。
+In the previous chapters, we explored the underlying design philosophy and conceptual behavior of the `Timeline` library, referencing its original F# code. F#'s strict type system and functional paradigm provided an excellent starting point for understanding the library's theoretical foundation.
 
-しかし、この`Timeline`ライブラリは、その歴史の中で大きな進化を遂げています。
+However, the `Timeline` library has undergone a significant evolution throughout its history.
 
-オリジナルのF\#版からTypeScript/JavaScriptへと移植され、Webブラウザ上で動作するインタラクティブなデモや、実際のアプリケーションであるGNOME Shell拡張機能（これはJavaScriptで実装されています）での実践を通じて、その機能は大幅に強化されました。
+It was ported from the original F# version to TypeScript/JavaScript, and its functionality has been significantly enhanced through practical application in interactive web browser demos and a real-world GNOME Shell extension (which is implemented in JavaScript).
 
-そして、その実践の場で得られた成果は、再びオリジナルのF\#版へと\*\*「逆輸入」\*\*されています。その結果、現在では、`DependencyCore`の高度な機能からデバッグシステムに至るまで、**両言語のライブラリは完全に1:1で対応**しており、その品質と機能において、一貫性が保たれています。
+Furthermore, the achievements gained from these practical applications have been **"back-ported"** to the original F# version. As a result, the libraries in both languages now have a **complete 1:1 correspondence**, from the advanced features of `DependencyCore` to the debugging system, maintaining consistency in quality and functionality.
 
-### **本書の方針：TS/JS版をベースとした解説へ**
+---
 
-このような経緯を踏まえ、本書ではこのセクション以降、主に**TypeScript/JavaScript版をベース**に解説を進めていきます。これは、Webブラウザ上で動作するインタラクティブなCanvasデモや、GNOME Shell拡張機能という具体的なリファレンスコードを提示する上で、最も実践的かつ効果的なアプローチだからです。
+### **This Book's Approach: Explanations Based on the TS/JS Version**
 
-言語は変わりますが、APIの設計、`DependencyCore`や`Illusion`といった内部メカニズム、そしてブロック宇宙モデルという根底の哲学は、F\#版とTS版で完全に同一です。したがって、これまでの学習が無駄になることは一切ありません。
+Given this background, from this section forward, this book's explanations will be based primarily on the **TypeScript/JavaScript version**. This is the most practical and effective approach for presenting concrete reference code, such as the interactive Canvas demos that run in a web browser and the GNOME Shell extension.
 
-それでは、`Timeline`のTS/JSの完全なAPIリファレンスを見ていきましょう。
+Although the language is changing, the API design, internal mechanisms like `DependencyCore` and `Illusion`, and the underlying philosophy of the block universe model are completely identical between the F# and TS versions. Therefore, **none of your previous learning will be wasted**.
+
+With that, let's dive into the complete API reference for the TS/JS version of `Timeline`.
+
+---
 
 # **Timeline Library - Complete API Reference (F\# & TypeScript)**
 

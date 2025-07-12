@@ -1,4 +1,5 @@
 :::lang-en
-# Identity Monad
+
+# Identity Functor/Monad
 
 :::

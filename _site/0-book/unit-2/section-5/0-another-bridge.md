@@ -1,4 +1,5 @@
 :::lang-en
+
 # Another Bridge Between Worlds
 
 In our exploration of Functors, we discovered a fascinating bridge between two worlds - the world of simple functions and the world of container types. Let's briefly recall how this bridge works.

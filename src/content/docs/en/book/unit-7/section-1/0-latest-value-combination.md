@@ -1,5 +1,5 @@
 ---
-title: 'Chaper 0: Recap and Strategy for Binary Operations'
+title: 'Chapter 0: Recap and Strategy for Binary Operations'
 description: >-
   In the previous units and sections, we have built a powerful set of tools. We
   can transform single timelines with map, create sequential, dependent chains

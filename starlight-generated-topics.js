@@ -2,8 +2,8 @@
 export const generatedTopics = [
   {
     "label": {
-      "en": "Experience Quality Coding",
-      "ja": "最高のコーディング体験"
+      "en": "Experience Quality Coding for AI",
+      "ja": "最高のコーディング体験 for AI"
     },
     "link": "/book/",
     "items": [
@@ -17,8 +17,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "💡 Experience Quality Coding ✨",
-              "ja": "💡 Experience Quality Coding ✨"
+              "en": "💡 Experience Quality Coding for AI ✨",
+              "ja": "💡 AIのための高品質コーディング体験 ✨"
             },
             "link": "book/unit-0/section-0/0-about-unit"
           },
@@ -516,8 +516,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Identity Monad",
-              "ja": "Identity Monad"
+              "en": "Identity Functor/Monad",
+              "ja": "Identity Functor/Monad"
             },
             "items": [
               {
@@ -533,8 +533,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "List Monad",
-              "ja": "List Monad"
+              "en": "List Functor/Monad",
+              "ja": "List Functor/Monad"
             },
             "items": [
               {
@@ -566,8 +566,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Option Monad",
-              "ja": "Option Monad"
+              "en": "Option Functor/Monad",
+              "ja": "Option Functor/Monad"
             },
             "items": [
               {
@@ -599,8 +599,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Result Monad",
-              "ja": "Result Monad"
+              "en": "Result Functor/Monad",
+              "ja": "Result Functor/Monad"
             },
             "items": [
               {
@@ -632,8 +632,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "IO Monad",
-              "ja": "IO Monad"
+              "en": "IO Functor/Monad",
+              "ja": "IO Functor/Monad"
             },
             "items": [
               {
@@ -772,8 +772,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "The Fiction of Haskell's \"Theoretical Superiority\": A Critical Verification from a Category Theory Perspective and Its Educational Impact on Beginners",
-                  "ja": "The Fiction of Haskell's \"Theoretical Superiority\": A Critical Verification from a Category Theory Perspective and Its Educational Impact on Beginners"
+                  "en": "The Myth of Haskell's \"Theoretical Superiority\": A Critical Verification from a Category Theory Perspective and Its Educational Impact on Beginners",
+                  "ja": "Haskellの「理論的優位性」という神話：圏論的視点からの批判的検証と、それが初学者への教育に与える影響"
                 },
                 "link": "book/unit-4/section-3/0-haskell-issue"
               },
@@ -781,7 +781,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Special Edition and Your Next Generation AI could Copy",
-                  "ja": "Special Edition and Your Next Generation AI could Copy"
+                  "ja": "特別編：次世代のAIが学習するかもしれない話"
                 },
                 "link": "book/unit-4/section-3/1-hard-to-come-by"
               }
@@ -865,7 +865,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: map — 静的な依存グラフ",
+                  "en": "Chapter 1: map — The Static Dependency Graph",
                   "ja": "Chapter 1: map — 静的な依存グラフ"
                 },
                 "link": "book/unit-5/section-3/1-map"
@@ -873,7 +873,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: I/OとTimeline — linkによる依存関係の定義",
+                  "en": "Chapter 2: I/O and Timeline — Defining Dependencies with link",
                   "ja": "Chapter 2: I/OとTimeline — linkによる依存関係の定義"
                 },
                 "link": "book/unit-5/section-3/2-link-io-eco"
@@ -881,7 +881,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: bind — 動的な依存グラフ",
+                  "en": "Chapter 3: bind — The Dynamic Dependency Graph",
                   "ja": "Chapter 3: bind — 動的な依存グラフ"
                 },
                 "link": "book/unit-5/section-3/3-bind"
@@ -889,7 +889,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: 理論的堅牢性 — Functor/Monad則の再検証",
+                  "en": "Chapter 4: Theoretical Robustness — Re-examining the Functor/Monad Laws",
                   "ja": "Chapter 4: 理論的堅牢性 — Functor/Monad則の再検証"
                 },
                 "link": "book/unit-5/section-3/4-functor-monad"
@@ -897,7 +897,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 5: using — 外部リソースとのライフサイクル同期",
+                  "en": "Chapter 5: using — Synchronizing Lifecycles with External Resources",
                   "ja": "Chapter 5: using — 外部リソースとのライフサイクル同期"
                 },
                 "link": "book/unit-5/section-3/5-using"
@@ -905,7 +905,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 6: map/bind/using 総合利用ガイド：API選択の完全な指針",
+                  "en": "Chapter 6: Comprehensive Guide to map/bind/using: A Complete Guide to API Selection",
                   "ja": "Chapter 6: map/bind/using 総合利用ガイド：API選択の完全な指針"
                 },
                 "link": "book/unit-5/section-3/6-map-bind-using"
@@ -913,7 +913,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 7: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック",
+                  "en": "Chapter 7: Practical Guide: Robust UI Construction Techniques with timeline.js",
                   "ja": "Chapter 7: 実践ガイド：timeline.jsによる堅牢なUI構築テクニック"
                 },
                 "link": "book/unit-5/section-3/7-gnome-extnsion"
@@ -921,7 +921,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 8: 高機能なDebugシステム",
+                  "en": "Chapter 8: Advanced Debugging System",
                   "ja": "Chapter 8: 高機能なDebugシステム"
                 },
                 "link": "book/unit-5/section-3/8-debug"
@@ -964,7 +964,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: Re-examining null — Unraveling the Philosophy of \"Absence\" Through Algebraic Structures and the History of Type Systems",
+                  "en": "Chapter 0: Re-examining null — Unraveling the Philosophy of \"Absence\" Through Algebraic Structures and the History of Type Systems",
                   "ja": "Chapter 0: nullの再審 — 代数構造と型システムの歴史から解き明かす「不在」の哲学"
                 },
                 "link": "book/unit-6/section-1/0-null"
@@ -1006,7 +1006,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "scan — 時間軸に沿った状態の進化",
+                  "en": "scan — Evolution of State Along the Timeline",
                   "ja": "scan — 時間軸に沿った状態の進化"
                 },
                 "link": "book/unit-6/section-3/0-scan"
@@ -1014,7 +1014,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "distinctUntilChanged — ノイズの除去",
+                  "en": "distinctUntilChanged — Noise Reduction",
                   "ja": "distinctUntilChanged — ノイズの除去"
                 },
                 "link": "book/unit-6/section-3/1-dinstinct-until"
@@ -1049,15 +1049,15 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chaper 0: Recap and Strategy for Binary Operations",
-                  "ja": "Chaper 0: Recap and Strategy for Binary Operations"
+                  "en": "Chapter 0: Recap and Strategy for Binary Operations",
+                  "ja": "Chapter 0: 二項演算の再評価と戦略"
                 },
                 "link": "book/unit-7/section-1/0-latest-value-combination"
               },
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 1: すべての基礎 combineLatestWith",
+                  "en": "Chapter 1: The Foundation of Everything: combineLatestWith",
                   "ja": "Chapter 1: すべての基礎 combineLatestWith"
                 },
                 "link": "book/unit-7/section-1/1-combine-timeline"
@@ -1065,7 +1065,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 2: 二項演算とMonoid",
+                  "en": "Chapter 2: Binary Operations and Monoids",
                   "ja": "Chapter 2: 二項演算とMonoid"
                 },
                 "link": "book/unit-7/section-1/2-monoidal-combinations"
@@ -1073,7 +1073,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 3: foldTimelines — Monoidによる畳み込み",
+                  "en": "Chapter 3: foldTimelines — Folding with Monoids",
                   "ja": "Chapter 3: foldTimelines — Monoidによる畳み込み"
                 },
                 "link": "book/unit-7/section-1/3-fold-timelins"
@@ -1081,7 +1081,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Chapter 4: N項演算 — combineLatest",
+                  "en": "Chapter 4: N-ary Operations — combineLatest",
                   "ja": "Chapter 4: N項演算 — combineLatest"
                 },
                 "link": "book/unit-7/section-1/4-combine-latest"
@@ -1089,7 +1089,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "nシリーズ合成関数",
+                  "en": "n-Series Composition Functions",
                   "ja": "nシリーズ合成関数"
                 },
                 "link": "book/unit-7/section-1/5-null-awared"

@@ -8,4 +8,5 @@ IO is a container for treating effectful computations as values. It delays side 
 - Monad: Chains multiple IO actions in sequence (`flatMap`).
 
 IO is used to safely handle interactions with the outside world (input/output, side effects).
+
 :::

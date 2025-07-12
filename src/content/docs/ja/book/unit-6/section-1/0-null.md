@@ -4,7 +4,7 @@ description: >-
   プログラミングとは、本質的に現実世界や抽象的なシステムをモデリングする行為です。そして、我々がどのようなシステムをモデル化するにせよ、値が存在しない可能性、状態が「空」と見なされる状況、あるいは操作が結果を返さない場面に必ず遭遇します。この
   「不在(absence)」 という概念をいかに表現するかは、正確で堅牢なソフトウェアを構築する上で、遍在的かつ決定的に重要な要件となります。
 ---
-## 1\. 問題提起：なぜ「不在」を表現する必要があるのか
+## 1. 問題提起：なぜ「不在」を表現する必要があるのか
 
 プログラミングとは、本質的に現実世界や抽象的なシステムをモデリングする行為です。そして、我々がどのようなシステムをモデル化するにせよ、値が存在しない可能性、状態が「空」と見なされる状況、あるいは操作が結果を返さない場面に必ず遭遇します。この **「不在(absence)」** という概念をいかに表現するかは、正確で堅牢なソフトウェアを構築する上で、遍在的かつ決定的に重要な要件となります。
 
@@ -18,7 +18,7 @@ description: >-
 
 -----
 
-## 2\. 理論的支柱：関数パイプラインから代数構造へ (再訪)
+## 2. 理論的支柱：関数パイプラインから代数構造へ (再訪)
 
 この「不在」を巡る議論の核心に迫る前に、我々は本書の理論的支柱となっている基本原則に立ち返る必要があります。それは、Unit 2で確立した、\*\*「関数パイプライン」**の考え方から、いかにして**「代数構造」\*\*の定義が自然に導かれるか、という丁寧な論理の流れです。
 
@@ -41,7 +41,7 @@ description: >-
 
 -----
 
-## 3\. nullの数学的アイデンティティ：それは「空集合」である
+## 3. nullの数学的アイデンティティ：それは「空集合」である
 
 「不在」という概念は、単なるソフトウェア開発上の都合から生まれたものではなく、数学に深いルーツを持っています。プログラミングにおいて `null` が表現している概念は、特に**集合論 (Set Theory)** における根源的な構造と、直接的かつ強力に対応します。
 
@@ -91,7 +91,7 @@ description: >-
 
 -----
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg)" alt="[Annotation Header Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg" alt="[Annotation Header Image]">
 
 **Note: 技術的・歴史的深掘り – HMシステム、Null、Option、共用体型**
 
@@ -103,7 +103,7 @@ Hindley-Milner(HM)ベースの言語が、暗黙的な`null`よりも`Option`/`M
 
 つまり、`Option`/`Maybe`は、**HMの設計目標とアルゴリズム的制約にとって最も自然な道だった**のです。`T | null`のような共用体型/サブタイピングをHMに直接統合することは、理論的・実践的に大きな挑戦でした。この困難はHMの特定の形式化に固有のものであり、`Option`を使わずに「不在」を健全な型システムで扱うことが理論的に不可能というわけではありません。しかし、それはHMが選択した道ではありませんでした。
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg)" alt="[Annotation Footer Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg" alt="[Annotation Footer Image]">
 
 -----
 

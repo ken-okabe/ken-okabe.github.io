@@ -1,4 +1,5 @@
 :::lang-en
+
 # Associativity: Building Robust Structures
 
 This chapter lays the groundwork for understanding Monoids by exploring a fundamental property of **binary operations** that underpins this algebraic structure: **Associativity**. This property, where the grouping of operations doesn't affect the outcome, helps us build systems that are robust and predictable – where things "just connect and work" without surprises.

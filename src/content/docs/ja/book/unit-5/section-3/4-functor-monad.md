@@ -116,4 +116,4 @@ const f_id = kleisliCompose(f_monad, ID);
 
 ## **Canvasデモ (Placeholder)**
 
-*(ここにMonad則（特に結合法則）の振る舞いを視覚的に示すインタラクティブなデモが配置されます。)*
+*(ここにMonad則（特に結合法則）の振る舞いを示すインタラクティブなデモが配置されます。)*

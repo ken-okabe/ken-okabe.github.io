@@ -1,4 +1,5 @@
 :::lang-en
+
 # Semigroups: Our First Algebraic Structure
 
 In the previous chapter, we discussed **associativity**, a key property of some binary operations. Now, let's explore our first formal algebraic structure built around such operations: the **Semigroup**.

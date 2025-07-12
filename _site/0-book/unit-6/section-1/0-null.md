@@ -1,8 +1,8 @@
 :::lang-en
 
-# Chapter 1: Re-examining `null` — Unraveling the Philosophy of "Absence" Through Algebraic Structures and the History of Type Systems
+# Chapter 0: Re-examining `null` — Unraveling the Philosophy of "Absence" Through Algebraic Structures and the History of Type Systems
 
-## 1\. Posing the Problem: Why Do We Need to Represent "Absence"?
+## 1. Posing the Problem: Why Do We Need to Represent "Absence"?
 
 Programming, in essence, is the act of modeling aspects of the real world or abstract systems. And in virtually any system we model, we inevitably encounter situations where a value might be missing, a state might be considered "empty," or an operation might not yield a result. How we represent this concept of **"absence"** is a ubiquitous and critically important requirement for building correct and robust software.
 
@@ -16,7 +16,7 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 
 -----
 
-## 2\. The Theoretical Pillar: From Function Pipelines to Algebraic Structures (A Revisit)
+## 2. The Theoretical Pillar: From Function Pipelines to Algebraic Structures (A Revisit)
 
 Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."**
 
@@ -51,7 +51,7 @@ All subsequent arguments in this chapter are built upon this simple yet powerful
 
 -----
 
-## 3\. The Mathematical Identity of `null`: It is the "Empty Set"
+## 3. The Mathematical Identity of `null`: It is the "Empty Set"
 
 The concept of "absence" is not merely an invention for the convenience of software development; it has deep roots in mathematics. The notion often represented by `null` in programming finds a direct and powerful correspondence in a fundamental structure, specifically within **Set Theory**.
 
@@ -61,7 +61,7 @@ This connection is profound. It suggests that `null`, far from being merely a pr
 
 -----
 
-## 4\. The Truth Behind the "Billion-Dollar Mistake"
+## 4. The Truth Behind the "Billion-Dollar Mistake"
 
 Despite its conceptual and mathematical legitimacy, the `null` reference, particularly as implemented in many early object-oriented and imperative languages, gained notoriety for causing frequent and often hard-to-debug runtime errors: the dreaded `NullPointerException` in Java, `NullReferenceException` in C\#, and segmentation faults in C/C++.
 
@@ -79,7 +79,7 @@ This book strongly argues for the latter. The "billion-dollar mistake" was not t
 
 -----
 
-## 5\. `Option` Types as a Historical Consequence
+## 5. `Option` Types as a Historical Consequence
 
 In the face of the dangers posed by unchecked `null` references, the functional programming community, particularly languages rooted in the **Hindley-Milner (HM) type system** (such as ML, Haskell, and early F\#), championed a different solution: **eliminating** pervasive `null` references from the language core and representing optionality explicitly within the type system using **`Option` types** (often called `Maybe` in Haskell).
 
@@ -101,7 +101,7 @@ However, while solving the null pointer problem within the HM framework, the `Op
 
 -----
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg)" alt="[Annotation Header Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg" alt="[Annotation Header Image]">
 
 **Note: Technical & Historical Deep Dive – HM Systems, Null, Option, and Union Types**
 
@@ -113,7 +113,7 @@ On the other hand, Algebraic Data Types (ADTs) like `Option<T>`, with their expl
 
 In short, `Option`/`Maybe` was **the most natural path for HM's design goals and algorithmic constraints**. Directly integrating `T | null` union/subtyping posed a significant theoretical and practical challenge *for HM*. This difficulty is specific to HM's formulation; it does not mean that handling "absence" in a sound type system without `Option` is theoretically impossible—just that it was not the path HM chose.
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg)" alt="[Annotation Footer Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg" alt="[Annotation Footer Image]">
 
 -----
 
@@ -121,7 +121,7 @@ It is possible that this constraint of HM inadvertently reinforced the "Null is 
 
 -----
 
-## 6\. Another Path: The "Safe `null`" Proven by TypeScript
+## 6. Another Path: The "Safe `null`" Proven by TypeScript
 
 While HM-based languages adopted `Option` types, a different path has been successfully demonstrated by languages like TypeScript. This prompts us to reconsider the narrative that `null` itself is an unmanageable "billion-dollar mistake."
 
@@ -142,7 +142,7 @@ This success of TypeScript raises an important question: if nullability can be m
 
 -----
 
-## 7\. The `Timeline` Library's Philosophy: Theoretical Legitimacy and Practical Simplicity
+## 7. The `Timeline` Library's Philosophy: Theoretical Legitimacy and Practical Simplicity
 
 Based on the foregoing analysis—the fundamental nature of `null` (the Empty Set), the historical context and potential drawbacks of the `Option` approach, and the practical success demonstrated by TypeScript—this `Timeline` library adopts a specific, deliberate philosophy for handling absence:
 
@@ -166,7 +166,7 @@ We position this approach as a **theoretically valid path** that consciously div
 
 # Chapter 0: nullの再審 — 代数構造と型システムの歴史から解き明かす「不在」の哲学
 
-## 1\. 問題提起：なぜ「不在」を表現する必要があるのか
+## 1. 問題提起：なぜ「不在」を表現する必要があるのか
 
 プログラミングとは、本質的に現実世界や抽象的なシステムをモデリングする行為です。そして、我々がどのようなシステムをモデル化するにせよ、値が存在しない可能性、状態が「空」と見なされる状況、あるいは操作が結果を返さない場面に必ず遭遇します。この **「不在(absence)」** という概念をいかに表現するかは、正確で堅牢なソフトウェアを構築する上で、遍在的かつ決定的に重要な要件となります。
 
@@ -180,7 +180,7 @@ We position this approach as a **theoretically valid path** that consciously div
 
 -----
 
-## 2\. 理論的支柱：関数パイプラインから代数構造へ (再訪)
+## 2. 理論的支柱：関数パイプラインから代数構造へ (再訪)
 
 この「不在」を巡る議論の核心に迫る前に、我々は本書の理論的支柱となっている基本原則に立ち返る必要があります。それは、Unit 2で確立した、\*\*「関数パイプライン」**の考え方から、いかにして**「代数構造」\*\*の定義が自然に導かれるか、という丁寧な論理の流れです。
 
@@ -203,7 +203,7 @@ We position this approach as a **theoretically valid path** that consciously div
 
 -----
 
-## 3\. nullの数学的アイデンティティ：それは「空集合」である
+## 3. nullの数学的アイデンティティ：それは「空集合」である
 
 「不在」という概念は、単なるソフトウェア開発上の都合から生まれたものではなく、数学に深いルーツを持っています。プログラミングにおいて `null` が表現している概念は、特に**集合論 (Set Theory)** における根源的な構造と、直接的かつ強力に対応します。
 
@@ -253,7 +253,7 @@ We position this approach as a **theoretically valid path** that consciously div
 
 -----
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg)" alt="[Annotation Header Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg" alt="[Annotation Header Image]">
 
 **Note: 技術的・歴史的深掘り – HMシステム、Null、Option、共用体型**
 
@@ -265,7 +265,7 @@ Hindley-Milner(HM)ベースの言語が、暗黙的な`null`よりも`Option`/`M
 
 つまり、`Option`/`Maybe`は、**HMの設計目標とアルゴリズム的制約にとって最も自然な道だった**のです。`T | null`のような共用体型/サブタイピングをHMに直接統合することは、理論的・実践的に大きな挑戦でした。この困難はHMの特定の形式化に固有のものであり、`Option`を使わずに「不在」を健全な型システムで扱うことが理論的に不可能というわけではありません。しかし、それはHMが選択した道ではありませんでした。
 
-\<img width="100%" src="[https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg](https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg)" alt="[Annotation Footer Image]"\>
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg" alt="[Annotation Footer Image]">
 
 -----
 

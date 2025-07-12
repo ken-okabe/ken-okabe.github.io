@@ -1,4 +1,5 @@
 :::lang-en
+
 # Option Monad
 
 Option, as a Monad, provides `bind` (Option.bind in F#), which enables powerful control over computation flow.

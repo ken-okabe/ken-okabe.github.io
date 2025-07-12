@@ -1,4 +1,5 @@
 :::lang-en
-# Option Monad
+
+# Option Functor/Monad
 
 :::

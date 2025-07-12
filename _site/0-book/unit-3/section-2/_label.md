@@ -1,4 +1,5 @@
 :::lang-en
-# List Monad
+
+# List Functor/Monad
 
 :::
