@@ -1,5 +1,5 @@
 ---
-title: 'Section 3: Result (Either) Functor and Monad'
+title: Result (Either) Functor and Monad
 description: >-
   Result (also known as Either) is a container that represents both success and
   failure cases in the type. It allows you to safely handle error processing and

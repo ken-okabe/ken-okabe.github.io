@@ -1,6 +1,6 @@
 :::lang-en
 
-# Section 1: List Functor and Monad
+# List Functor and Monad
 
 List is one of the most fundamental Functors and Monads. It is a container for handling multiple values, enabling function application and chained computations via `map` and `flatMap` (also called `bind`).
 

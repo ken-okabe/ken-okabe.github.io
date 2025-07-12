@@ -1,5 +1,5 @@
 ---
-title: 'Section 4: IO Functor and Monad'
+title: IO Functor and Monad
 description: >-
   IO is a container for treating effectful computations as values. It delays
   side effects until execution, helping to maintain pure functional programming.

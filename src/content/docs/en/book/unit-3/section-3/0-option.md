@@ -1,5 +1,5 @@
 ---
-title: 'Section 2: Option (Maybe) Functor and Monad'
+title: Option (Maybe) Functor and Monad
 description: >-
   Option (also called Maybe) is a container for handling the possibility of
   missing values. It expresses the presence or absence of a value in the type,

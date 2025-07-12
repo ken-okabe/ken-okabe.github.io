@@ -540,8 +540,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 1: List Functor and Monad",
-                  "ja": "Section 1: List Functor and Monad"
+                  "en": "List Functor and Monad",
+                  "ja": "List Functor and Monad"
                 },
                 "link": "book/unit-3/section-2/0-list"
               },
@@ -573,8 +573,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 2: Option (Maybe) Functor and Monad",
-                  "ja": "Section 2: Option (Maybe) Functor and Monad"
+                  "en": "Option (Maybe) Functor and Monad",
+                  "ja": "Option (Maybe) Functor and Monad"
                 },
                 "link": "book/unit-3/section-3/0-option"
               },
@@ -606,8 +606,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 3: Result (Either) Functor and Monad",
-                  "ja": "Section 3: Result (Either) Functor and Monad"
+                  "en": "Result (Either) Functor and Monad",
+                  "ja": "Result (Either) Functor and Monad"
                 },
                 "link": "book/unit-3/section-4/0-result"
               },
@@ -639,8 +639,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Section 4: IO Functor and Monad",
-                  "ja": "Section 4: IO Functor and Monad"
+                  "en": "IO Functor and Monad",
+                  "ja": "IO Functor and Monad"
                 },
                 "link": "book/unit-3/section-5/0-io"
               },
