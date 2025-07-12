@@ -29,11 +29,11 @@ The solution to this problem is `nMap`. `nMap` is a "safe operation" designed wi
 
 -----
 
-#### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nMap<B>(f): Timeline<B | null>`
+##### TS: `.nMap<B>(f): Timeline<B | null>`
 
 The operational rule provided by `nMap` is extremely simple:
 
@@ -63,11 +63,11 @@ This design philosophy of "letting `null` pass through safely" also applies to t
 
 -----
 
-#### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nBind<B>(monadf): Timeline<B | null>`
+##### TS: `.nBind<B>(monadf): Timeline<B | null>`
 
 When the input timeline becomes `null`, `nBind` does not execute the function (`monadf`) that generates the subsequent timeline. Instead, it immediately sets the output timeline to `null`.
 
@@ -97,11 +97,11 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
+##### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
 
 `nUsing` defines an operation that, "if it receives `null` as input, does not execute the resource acquisition logic (`resourceFactory`) and returns a timeline whose result is also `null`."
 
@@ -176,11 +176,11 @@ nameTimeline.define(Now, null); // ここで例外がスローされる可能性
 
 -----
 
-#### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nMap<B>(f): Timeline<B | null>`
+##### TS: `.nMap<B>(f): Timeline<B | null>`
 
 `nMap`が提供する演算ルールは、極めてシンプルです。
 
@@ -210,11 +210,11 @@ console.log(doubled.at(Now)); // null
 
 -----
 
-#### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nBind<B>(monadf): Timeline<B | null>`
+##### TS: `.nBind<B>(monadf): Timeline<B | null>`
 
 入力タイムラインが`null`になった場合、`nBind`は後続のタイムラインを生成するための関数 (`monadf`) を実行しません。代わりに出力タイムラインを即座に`null`にします。
 
@@ -244,11 +244,11 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
+##### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
 
 `nUsing`は、「入力が`null`を受け取ったら、リソース確保のロジック (`resourceFactory`) を実行せず、結果も`null`になるタイムラインを返す」という演算を定義します。
 

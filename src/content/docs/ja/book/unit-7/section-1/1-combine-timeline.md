@@ -14,9 +14,9 @@ Unit 4で確立したApplicative Functorの概念、すなわち「独立した�
 
 ## API定義
 
-#### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
+##### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
-#### TS: `combineLatestWith<A, B, C>(f: (valA: A, valB: B) => C) => (timelineA: Timeline<A>) => (timelineB: Timeline<B>): Timeline<C>`
+##### TS: `combineLatestWith<A, B, C>(f: (valA: A, valB: B) => C) => (timelineA: Timeline<A>) => (timelineB: Timeline<B>): Timeline<C>`
 
 `combineLatestWith`の型シグネチャは、Unit 4で学んだApplicative Functorの`map2`パターンに準拠しています。
 

@@ -19,11 +19,11 @@ If the system reacts to all of these events by re-rendering the UI or performing
 
 ## API Definition
 
-#### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
+##### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
 
 *Note: In F\#, `distinctUntilChanged` is a standalone function that requires the type to support equality comparison.*
 
-#### TS: `.distinctUntilChanged(): Timeline<T>`
+##### TS: `.distinctUntilChanged(): Timeline<T>`
 
 -----
 

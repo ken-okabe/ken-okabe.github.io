@@ -16,9 +16,9 @@ The general-purpose tool for this is `foldTimelines`. This is an application of 
 
 ## `foldTimelines`
 
-#### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
+##### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
 
-#### TS: `foldTimelines<A, B>(timelines: readonly Timeline<A>[], initialTimeline: Timeline<B>, accumulator: (acc: Timeline<B>, current: Timeline<A>) => Timeline<B>): Timeline<B>`
+##### TS: `foldTimelines<A, B>(timelines: readonly Timeline<A>[], initialTimeline: Timeline<B>, accumulator: (acc: Timeline<B>, current: Timeline<A>) => Timeline<B>): Timeline<B>`
 
 ```typescript
 // TS Implementation
@@ -45,9 +45,9 @@ The true value of `foldTimelines` is that intuitive high-level APIs like `anyOf`
 
 ### `anyOf`
 
-#### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `anyOf(booleanTimelines: readonly Timeline<boolean>[]): Timeline<boolean>`
+##### TS: `anyOf(booleanTimelines: readonly Timeline<boolean>[]): Timeline<boolean>`
 
 ```typescript
 // TS Implementation
@@ -72,9 +72,9 @@ console.log(hasAnyTrue.at(Now)); // true
 
 ### `allOf`
 
-#### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `allOf(booleanTimelines: readonly Timeline<boolean>[]): Timeline<boolean>`
+##### TS: `allOf(booleanTimelines: readonly Timeline<boolean>[]): Timeline<boolean>`
 
 ```typescript
 // TS Implementation
@@ -99,7 +99,7 @@ console.log(allTrue.at(Now)); // false
 
 ### `sumOf`
 
-#### TS: `sumOf(numberTimelines: readonly Timeline<number>[]): Timeline<number>`
+##### TS: `sumOf(numberTimelines: readonly Timeline<number>[]): Timeline<number>`
 
 ```typescript
 // TS Implementation
@@ -124,7 +124,7 @@ console.log(total.at(Now)); // 60
 
 ### `maxOf`
 
-#### TS: `maxOf(timelines): Timeline<number>`
+##### TS: `maxOf(timelines): Timeline<number>`
 
 ```typescript
 // TS Implementation
@@ -149,7 +149,7 @@ console.log(maximum.at(Now)); // 50
 
 ### `minOf`
 
-#### TS: `minOf(timelines): Timeline<number>`
+##### TS: `minOf(timelines): Timeline<number>`
 
 ```typescript
 // TS Implementation
@@ -174,7 +174,7 @@ console.log(minimum.at(Now)); // 10
 
 ### `averageOf`
 
-#### TS: `averageOf(timelines): Timeline<number>`
+##### TS: `averageOf(timelines): Timeline<number>`
 
 ```typescript
 // TS Implementation
@@ -195,9 +195,9 @@ console.log(avg.at(Now)); // 20
 
 ### `listOf`
 
-#### F\#: `listOf: list<Timeline<'a>> -> Timeline<'a list>`
+##### F\#: `listOf: list<Timeline<'a>> -> Timeline<'a list>`
 
-#### TS: `listOf<A>(timelines: readonly Timeline<A>[]): Timeline<A[]>`
+##### TS: `listOf<A>(timelines: readonly Timeline<A>[]): Timeline<A[]>`
 
 ```typescript
 // TS Implementation

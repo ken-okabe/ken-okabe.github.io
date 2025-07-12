@@ -29,11 +29,11 @@ description: >-
 
 ## API定義
 
-#### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
+##### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
 
 *Note: In F\#, `scan` is a standalone function.*
 
-#### TS: `.scan<S>(accumulator: (acc: S, value: T) => S, seed: S): Timeline<S>`
+##### TS: `.scan<S>(accumulator: (acc: S, value: T) => S, seed: S): Timeline<S>`
 
 -----
 

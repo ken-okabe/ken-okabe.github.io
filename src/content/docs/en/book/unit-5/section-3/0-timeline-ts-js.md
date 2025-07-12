@@ -32,9 +32,9 @@ With that, let's dive into the complete API reference for the TS/JS version of `
 
 ## Core Types
 
-#### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
+##### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
 
-#### TS: `Timeline<A>`
+##### TS: `Timeline<A>`
 
 The main reactive container type that holds a value of type `A`.
 
@@ -63,7 +63,7 @@ interface Timeline<A> {
 
 -----
 
-#### TS: `NullableTimeline<A>`
+##### TS: `NullableTimeline<A>`
 
 Extended interface for timelines that can contain `null` values, providing null-safe operations. F\# uses type constraints (`when 'a : null`) instead of a separate interface.
 
@@ -78,9 +78,9 @@ interface NullableTimeline<A> extends Timeline<A | null> {
 
 -----
 
-#### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
+##### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
 
-#### TS: `Resource<A>`
+##### TS: `Resource<A>`
 
 Type for managed resources with automatic cleanup.
 
@@ -94,9 +94,9 @@ interface Resource<A> {
 
 -----
 
-#### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
+##### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
 
-#### TS: `ResourceFactory<A, B>`
+##### TS: `ResourceFactory<A, B>`
 
 A function that creates a resource from a value.
 
@@ -126,9 +126,9 @@ type DisposeCallback = () => void; // Cleanup function type
 
 ### Factory Functions
 
-#### F\#: `'a -> Timeline<'a>`
+##### F\#: `'a -> Timeline<'a>`
 
-#### TS: `Timeline<A>(initialValue: A): Timeline<A>`
+##### TS: `Timeline<A>(initialValue: A): Timeline<A>`
 
 Creates a new timeline with an initial value. If the value is `null`, the TS version returns a `NullableTimeline`.
 
@@ -141,9 +141,9 @@ const nullableTimeline = Timeline<string | null>(null); // This is a NullableTim
 
 -----
 
-#### F\#: `'a -> Timeline<'a>`
+##### F\#: `'a -> Timeline<'a>`
 
-#### TS: `ID<A>(initialValue: A): Timeline<A>`
+##### TS: `ID<A>(initialValue: A): Timeline<A>`
 
 Alias for `Timeline` - creates an identity timeline.
 
@@ -168,9 +168,9 @@ const TrueTimeline: Timeline<boolean>;  // Equivalent to Timeline(true)
 
 ### Core Operations
 
-#### F\#: `at: NowType -> Timeline<'a> -> 'a`
+##### F\#: `at: NowType -> Timeline<'a> -> 'a`
 
-#### TS: `.at(Now): A`
+##### TS: `.at(Now): A`
 
 Gets the current value of a timeline.
 
@@ -182,9 +182,9 @@ const currentValue = timeline.at(Now); // 42
 
 -----
 
-#### F\#: `define: NowType -> 'a -> Timeline<'a> -> unit`
+##### F\#: `define: NowType -> 'a -> Timeline<'a> -> unit`
 
-#### TS: `.define(Now, value: A): void`
+##### TS: `.define(Now, value: A): void`
 
 Sets a new value and triggers all dependent updates.
 
@@ -199,9 +199,9 @@ console.log(timeline.at(Now)); // 100
 
 ### Transformation Operations
 
-#### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+##### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
 
-#### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
+##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 Transforms timeline values using a pure function.
 
@@ -217,9 +217,9 @@ console.log(doubled.at(Now)); // 20
 
 -----
 
-#### F\#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
+##### F\#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
-#### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
+##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 
 Monadic bind operation - flattens nested timelines. Also known as `flatMap`.
 
@@ -235,9 +235,9 @@ console.log(result.at(Now)); // 9
 
 -----
 
-#### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
+##### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
 
-#### TS: `.scan<State>(accumulator, initialState): Timeline<State>`
+##### TS: `.scan<State>(accumulator, initialState): Timeline<State>`
 
 Accumulates values over time (like `reduce`, but reactive).
 
@@ -257,9 +257,9 @@ console.log(sum.at(Now)); // 9
 
 ### Utility Operations
 
-#### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
+##### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
 
-#### TS: `.link(targetTimeline: Timeline<A>): void`
+##### TS: `.link(targetTimeline: Timeline<A>): void`
 
 Creates a one-way link from the source to a target timeline.
 
@@ -276,9 +276,9 @@ console.log(target.at(Now)); // 20
 
 -----
 
-#### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
+##### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
 
-#### TS: `.distinctUntilChanged(): Timeline<A>`
+##### TS: `.distinctUntilChanged(): Timeline<A>`
 
 Filters out consecutively emitted duplicate values.
 
@@ -329,9 +329,9 @@ userId.define(Now, 2);
 
 -----
 
-#### F\#: `'a -> (unit -> unit) -> Resource<'a>`
+##### F\#: `'a -> (unit -> unit) -> Resource<'a>`
 
-#### TS: `createResource<A>(resource, cleanup): Resource<A>`
+##### TS: `createResource<A>(resource, cleanup): Resource<A>`
 
 A helper function to create a resource object for use with `.using()`.
 
@@ -349,11 +349,11 @@ const resource = createResource(
 
 For timelines that may contain `null` values, use these null-safe variants to avoid runtime errors. In F\#, this is handled by applying type constraints to the standard functions.
 
-#### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nMap<B>(f): Timeline<B | null>`
+##### TS: `.nMap<B>(f): Timeline<B | null>`
 
 Null-safe mapping. Only applies the function to non-null values. If the input is `null`, it propagates `null`.
 
@@ -369,11 +369,11 @@ console.log(doubled.at(Now)); // null
 
 -----
 
-#### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nBind<B>(monadf): Timeline<B | null>`
+##### TS: `.nBind<B>(monadf): Timeline<B | null>`
 
 Null-safe bind operation.
 
@@ -389,11 +389,11 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *Note: In F\#, this type constraint (`when 'a : null...`) is syntactically part of the generic parameter declaration. This notation is for documentation clarity.*
 
-#### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
+##### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
 
 Null-safe resource management. The factory is only called for non-null values.
 
@@ -417,9 +417,9 @@ console.log(resource.at(Now)); // null
 
 ### Binary Operations
 
-#### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
+##### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
-#### TS: `combineLatestWith(f)(timelineA)(timelineB)`
+##### TS: `combineLatestWith(f)(timelineA)(timelineB)`
 
 Combines two timelines with a binary function.
 
@@ -436,9 +436,9 @@ console.log(sum.at(Now)); // 25
 
 -----
 
-#### F\#: `nCombineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c> when 'a: null and 'b: null and 'c: null`
+##### F\#: `nCombineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c> when 'a: null and 'b: null and 'c: null`
 
-#### TS: `nCombineLatestWith(f)(timelineA)(timelineB)`
+##### TS: `nCombineLatestWith(f)(timelineA)(timelineB)`
 
 The nullable-safe version of `combineLatestWith`. If either input timeline's value is `null`, the resulting timeline's value will also be `null`. The combining function `f` is only called when both values are non-null.
 
@@ -458,9 +458,9 @@ console.log(sum.at(Now)); // null
 
 ### Aggregate Operations
 
-#### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `anyOf(timelines): Timeline<boolean>`
+##### TS: `anyOf(timelines): Timeline<boolean>`
 
 Logical OR across multiple boolean timelines. (Note the name difference: `any` in F\# vs `anyOf` in TS)
 
@@ -473,9 +473,9 @@ console.log(hasAnyTrue.at(Now)); // true
 
 -----
 
-#### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `allOf(timelines): Timeline<boolean>`
+##### TS: `allOf(timelines): Timeline<boolean>`
 
 Logical AND across multiple boolean timelines. (Note the name difference: `all` in F\# vs `allOf` in TS)
 
@@ -488,7 +488,7 @@ console.log(allTrue.at(Now)); // false
 
 -----
 
-#### TS: `sumOf(timelines): Timeline<number>`
+##### TS: `sumOf(timelines): Timeline<number>`
 
 Sum of multiple number timelines.
 
@@ -501,7 +501,7 @@ console.log(total.at(Now)); // 60
 
 -----
 
-#### TS: `maxOf(timelines): Timeline<number>`
+##### TS: `maxOf(timelines): Timeline<number>`
 
 Maximum value across multiple number timelines.
 
@@ -514,7 +514,7 @@ console.log(maximum.at(Now)); // 50
 
 -----
 
-#### TS: `minOf(timelines): Timeline<number>`
+##### TS: `minOf(timelines): Timeline<number>`
 
 Minimum value across multiple number timelines.
 
@@ -527,7 +527,7 @@ console.log(minimum.at(Now)); // 10
 
 -----
 
-#### TS: `averageOf(timelines): Timeline<number>`
+##### TS: `averageOf(timelines): Timeline<number>`
 
 Average of multiple number timelines.
 
@@ -540,8 +540,8 @@ console.log(avg.at(Now)); // 20
 
 -----
 
-#### F\#: `list<Timeline<'a>> -> Timeline<list<'a>>`
-#### TS: `listOf<A>(timelines): Timeline<A[]>`
+##### F\#: `list<Timeline<'a>> -> Timeline<list<'a>>`
+##### TS: `listOf<A>(timelines): Timeline<A[]>`
 
 Combines multiple timelines into a single timeline holding an array of their values.
 
@@ -558,9 +558,9 @@ console.log(list.at(Now)); // ["a", "b", "c"]
 
 ### Advanced Composition
 
-#### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
+##### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
-#### TS: `combineLatest(combinerFn)(timelines)`
+##### TS: `combineLatest(combinerFn)(timelines)`
 
 Generic N-ary combination function for complex logic that can't be achieved with simple folds.
 
@@ -574,7 +574,7 @@ console.log(result.at(Now)); // (10 + 2) / 5 = 2.4
 
 -----
 
-#### TS: `nCombineLatest(combinerFn)(timelines)`
+##### TS: `nCombineLatest(combinerFn)(timelines)`
 
 The nullable-safe version of `combineLatest`. If any of the input timelines contains a `null` value, the output timeline will immediately become `null`. The `combinerFn` is only executed when all input timelines have non-null values.
 
@@ -591,9 +591,9 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
+##### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
 
-#### TS: `foldTimelines(timelines, initial, accumulator)`
+##### TS: `foldTimelines(timelines, initial, accumulator)`
 
 Generic folding operation over timelines. This is the powerful primitive that `sumOf`, `anyOf`, etc., are built upon.
 
@@ -612,9 +612,9 @@ console.log(product.at(Now)); // 6
 
 ### Helper Functions
 
-#### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
+##### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
 
-#### TS: `pipeBind`
+##### TS: `pipeBind`
 
 A helper function for chaining monadic functions (functions that take a value and return a new `Timeline`). It allows for a more declarative, readable alternative to nesting `.bind()` calls. F\# uses the `>>>` operator for this purpose.
 
@@ -644,7 +644,7 @@ console.log(result2.at(Now)); // 7
 
 A global error handler can be set to catch and process any exceptions that occur within timeline callbacks, such as in `map` or `scan` operations. This is useful for centralized logging or custom error reporting.
 
-#### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
+##### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
 
 Sets or unsets the global error handler for the timeline system.
 
@@ -669,9 +669,9 @@ setErrorHandler((error, context) => {
 
 ## Debugging Support
 
-#### F\#: `module DebugControl`
+##### F\#: `module DebugControl`
 
-#### TS: `Debug Control`
+##### TS: `Debug Control`
 
 Enable debug mode via URL (`?debug=true`), `localStorage`, or `NODE_ENV`.
 
@@ -694,9 +694,9 @@ DebugControl.enableTemporary();
 
 ### `Debug Information`
 
-#### F\#: `Debug.getInfo: unit -> {| Scopes: ScopeDebugInfo list; ... |}`
+##### F\#: `Debug.getInfo: unit -> {| Scopes: ScopeDebugInfo list; ... |}`
 
-#### TS: `DebugUtils.getInfo()`
+##### TS: `DebugUtils.getInfo()`
 
 ```typescript
 // TS
@@ -707,9 +707,9 @@ console.log(`Total illusions: ${debugInfo.totalIllusions}`);
 
 -----
 
-#### F\#: `Debug.printTree: unit -> unit`
+##### F\#: `Debug.printTree: unit -> unit`
 
-#### TS: `DebugUtils.printTree()`
+##### TS: `DebugUtils.printTree()`
 
 ```typescript
 // TS
@@ -729,9 +729,9 @@ Timeline Dependency Tree
 
 -----
 
-#### F\#: `Debug.findAllCycles: unit -> TimelineId list list`
+##### F\#: `Debug.findAllCycles: unit -> TimelineId list list`
 
-#### TS: `DebugUtils.findAllCycles()`
+##### TS: `DebugUtils.findAllCycles()`
 
 ```typescript
 // TS

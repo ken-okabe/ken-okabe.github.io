@@ -13,9 +13,9 @@ Chapter 3で学んだ`foldTimelines`は、`sumOf`や`listOf`のように、単�
 
 ## `combineLatest` API
 
-#### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
+##### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
-#### TS: `combineLatest<T extends readonly Timeline<any>[], R>(combinerFn: (...values: TimelinesToValues<T>) => R) => (timelines: T): Timeline<R>`
+##### TS: `combineLatest<T extends readonly Timeline<any>[], R>(combinerFn: (...values: TimelinesToValues<T>) => R) => (timelines: T): Timeline<R>`
 
 `combineLatest`は、`Timeline`のリスト（またはタプル）と、それらの`Timeline`の最新値を引数として受け取るN項の合成関数（`combinerFn`）を受け取ります。
 

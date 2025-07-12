@@ -15,9 +15,9 @@ description: >-
 
 ## `combineLatest` API
 
-#### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
+##### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
-#### TS: `combineLatest<T extends readonly Timeline<any>[], R>(combinerFn: (...values: TimelinesToValues<T>) => R) => (timelines: T): Timeline<R>`
+##### TS: `combineLatest<T extends readonly Timeline<any>[], R>(combinerFn: (...values: TimelinesToValues<T>) => R) => (timelines: T): Timeline<R>`
 
 `combineLatest` takes a list (or tuple) of `Timeline`s and an N-ary composition function (`combinerFn`) that takes the latest values of those `Timeline`s as arguments.
 

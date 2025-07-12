@@ -17,9 +17,9 @@ The name `combineLatestWith` is a standard term used in other major reactive pro
 
 ## API Definition
 
-#### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
+##### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
-#### TS: `combineLatestWith<A, B, C>(f: (valA: A, valB: B) => C) => (timelineA: Timeline<A>) => (timelineB: Timeline<B>): Timeline<C>`
+##### TS: `combineLatestWith<A, B, C>(f: (valA: A, valB: B) => C) => (timelineA: Timeline<A>) => (timelineB: Timeline<B>): Timeline<C>`
 
 The type signature of `combineLatestWith` conforms to the `map2` pattern of the Applicative Functor we learned in Unit 4.
 

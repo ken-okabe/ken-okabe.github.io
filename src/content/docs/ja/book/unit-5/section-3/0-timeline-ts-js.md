@@ -27,9 +27,9 @@ description: >-
 
 ## コアの型
 
-#### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
+##### F\#: `type Timeline<'a> = private { _id: TimelineId; mutable _last: 'a }`
 
-#### TS: `Timeline<A>`
+##### TS: `Timeline<A>`
 
 型`A`の値を保持する、主要なリアクティブコンテナ型です。
 
@@ -58,7 +58,7 @@ interface Timeline<A> {
 
 -----
 
-#### TS: `NullableTimeline<A>`
+##### TS: `NullableTimeline<A>`
 
 `null`値を含むことができるタイムラインのための拡張インターフェースで、null安全な操作を提供します。F\#では、別のインターフェースの代わりに型制約（`when 'a : null`）を使用します。
 
@@ -73,9 +73,9 @@ interface NullableTimeline<A> extends Timeline<A | null> {
 
 -----
 
-#### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
+##### F\#: `type Resource<'a> = { Resource: 'a; Cleanup: unit -> unit }`
 
-#### TS: `Resource<A>`
+##### TS: `Resource<A>`
 
 自動クリーンアップ機能を持つ、管理されたリソースの型です。
 
@@ -89,9 +89,9 @@ interface Resource<A> {
 
 -----
 
-#### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
+##### F\#: `type ResourceFactory<'a, 'b> = 'a -> Resource<'b>`
 
-#### TS: `ResourceFactory<A, B>`
+##### TS: `ResourceFactory<A, B>`
 
 値からリソースを生成する関数です。
 
@@ -121,9 +121,9 @@ type DisposeCallback = () => void; // クリーンアップ関数の型
 
 ### ファクトリ関数
 
-#### F\#: `'a -> Timeline<'a>`
+##### F\#: `'a -> Timeline<'a>`
 
-#### TS: `Timeline<A>(initialValue: A): Timeline<A>`
+##### TS: `Timeline<A>(initialValue: A): Timeline<A>`
 
 初期値を持つ新しいタイムラインを生成します。値が`null`の場合、TS版は`NullableTimeline`を返します。
 
@@ -136,9 +136,9 @@ const nullableTimeline = Timeline<string | null>(null); // これはNullableTime
 
 -----
 
-#### F\#: `'a -> Timeline<'a>`
+##### F\#: `'a -> Timeline<'a>`
 
-#### TS: `ID<A>(initialValue: A): Timeline<A>`
+##### TS: `ID<A>(initialValue: A): Timeline<A>`
 
 `Timeline`のエイリアスで、恒等タイムラインを生成します。
 
@@ -163,9 +163,9 @@ const TrueTimeline: Timeline<boolean>;  // Timeline(true) と等価
 
 ### コア操作
 
-#### F\#: `at: NowType -> Timeline<'a> -> 'a`
+##### F\#: `at: NowType -> Timeline<'a> -> 'a`
 
-#### TS: `.at(Now): A`
+##### TS: `.at(Now): A`
 
 タイムラインの現在の値を取得します。
 
@@ -177,9 +177,9 @@ const currentValue = timeline.at(Now); // 42
 
 -----
 
-#### F\#: `define: NowType -> 'a -> Timeline<'a> -> unit`
+##### F\#: `define: NowType -> 'a -> Timeline<'a> -> unit`
 
-#### TS: `.define(Now, value: A): void`
+##### TS: `.define(Now, value: A): void`
 
 新しい値を設定し、すべての依存関係の更新をトリガーします。
 
@@ -194,9 +194,9 @@ console.log(timeline.at(Now)); // 100
 
 ### 変換操作
 
-#### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
+##### F\#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
 
-#### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
+##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 純粋関数を使用してタイムラインの値を変換します。
 
@@ -212,9 +212,9 @@ console.log(doubled.at(Now)); // 20
 
 -----
 
-#### F\#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
+##### F\#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
-#### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
+##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
 
 モナドのbind操作で、ネストしたタイムラインを平坦化します。`flatMap`としても知られています。
 
@@ -230,9 +230,9 @@ console.log(result.at(Now)); // 9
 
 -----
 
-#### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
+##### F\#: `scan: ('state -> 'input -> 'state) -> 'state -> Timeline<'input> -> Timeline<'state>`
 
-#### TS: `.scan<State>(accumulator, initialState): Timeline<State>`
+##### TS: `.scan<State>(accumulator, initialState): Timeline<State>`
 
 時間を通じて値を累積します（`reduce`に似ていますが、リアクティブです）。
 
@@ -252,9 +252,9 @@ console.log(sum.at(Now)); // 9
 
 ### ユーティリティ操作
 
-#### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
+##### F\#: `link: Timeline<'a> -> Timeline<'a> -> unit`
 
-#### TS: `.link(targetTimeline: Timeline<A>): void`
+##### TS: `.link(targetTimeline: Timeline<A>): void`
 
 ソースからターゲットのタイムラインへ一方向のリンクを生成します。
 
@@ -271,9 +271,9 @@ console.log(target.at(Now)); // 20
 
 -----
 
-#### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
+##### F\#: `distinctUntilChanged: Timeline<'a> -> Timeline<'a> when 'a : equality`
 
-#### TS: `.distinctUntilChanged(): Timeline<A>`
+##### TS: `.distinctUntilChanged(): Timeline<A>`
 
 連続して発行される重複した値を除外します。
 
@@ -293,9 +293,9 @@ source.define(Now, 3); // ログ: "値が次に変更されました: 3"
 
 ### リソース管理
 
-#### F\#: `using: ResourceFactory<'a, 'b> -> Timeline<'a> -> Timeline<'b> when 'b: null`
+##### F\#: `using: ResourceFactory<'a, 'b> -> Timeline<'a> -> Timeline<'b> when 'b: null`
 
-#### TS: `.using<B>(resourceFactory): Timeline<B | null>`
+##### TS: `.using<B>(resourceFactory): Timeline<B | null>`
 
 ネットワークリクエストやファイルハンドルのように、クリーンアップが必要なリソースを管理します。ソースのタイムラインが変更されると、古いリソースのクリーンアップ関数が自動的に呼び出されます。
 
@@ -324,9 +324,9 @@ userId.define(Now, 2);
 
 -----
 
-#### F\#: `'a -> (unit -> unit) -> Resource<'a>`
+##### F\#: `'a -> (unit -> unit) -> Resource<'a>`
 
-#### TS: `createResource<A>(resource, cleanup): Resource<A>`
+##### TS: `createResource<A>(resource, cleanup): Resource<A>`
 
 `.using()`で使用するリソースオブジェクトを生成するためのヘルパー関数です。
 
@@ -344,11 +344,11 @@ const resource = createResource(
 
 `null`値を含む可能性のあるタイムラインには、ランタイムエラーを避けるためにこれらのnull安全な亜種を使用します。F\#では、これは標準関数に型制約を適用することで処理されます。
 
-#### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nMap: ('a -> 'b) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *注: F\#では、この型制約（`when 'a : null...`）は構文的にジェネリックパラメータ宣言の一部です。この表記はドキュメントの明確化のためのものです。*
 
-#### TS: `.nMap<B>(f): Timeline<B | null>`
+##### TS: `.nMap<B>(f): Timeline<B | null>`
 
 null安全なマッピングです。非null値にのみ関数を適用します。入力が`null`の場合、`null`を伝播させます。
 
@@ -364,11 +364,11 @@ console.log(doubled.at(Now)); // null
 
 -----
 
-#### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nBind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *注: F\#では、この型制約（`when 'a : null...`）は構文的にジェネリックパラメータ宣言の一部です。この表記はドキュメントの明確化のためのものです。*
 
-#### TS: `.nBind<B>(monadf): Timeline<B | null>`
+##### TS: `.nBind<B>(monadf): Timeline<B | null>`
 
 null安全なbind操作です。
 
@@ -384,11 +384,11 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
+##### F\#: `nUsing: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b> when 'a : null and 'b : null`
 
 *注: F\#では、この型制約（`when 'a : null...`）は構文的にジェネリックパラメータ宣言の一部です。この表記はドキュメントの明確化のためのものです。*
 
-#### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
+##### TS: `.nUsing<B>(resourceFactory): Timeline<B | null>`
 
 null安全なリソース管理です。ファクトリは非null値に対してのみ呼び出されます。
 
@@ -412,9 +412,9 @@ console.log(resource.at(Now)); // null
 
 ### 二項操作
 
-#### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
+##### F\#: `combineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c>`
 
-#### TS: `combineLatestWith(f)(timelineA)(timelineB)`
+##### TS: `combineLatestWith(f)(timelineA)(timelineB)`
 
 二項関数で2つのタイムラインを結合します。
 
@@ -431,9 +431,9 @@ console.log(sum.at(Now)); // 25
 
 -----
 
-#### F\#: `nCombineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c> when 'a: null and 'b: null and 'c: null`
+##### F\#: `nCombineLatestWith: ('a -> 'b -> 'c) -> Timeline<'a> -> Timeline<'b> -> Timeline<'c> when 'a: null and 'b: null and 'c: null`
 
-#### TS: `nCombineLatestWith(f)(timelineA)(timelineB)`
+##### TS: `nCombineLatestWith(f)(timelineA)(timelineB)`
 
 `combineLatestWith`のnull安全版です。どちらかの入力タイムラインの値が`null`の場合、結果のタイムラインの値も`null`になります。結合関数`f`は両方の値が非nullの場合にのみ呼び出されます。
 
@@ -453,9 +453,9 @@ console.log(sum.at(Now)); // null
 
 ### 集計操作
 
-#### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `anyOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `anyOf(timelines): Timeline<boolean>`
+##### TS: `anyOf(timelines): Timeline<boolean>`
 
 複数のブール値タイムラインにまたがる論理ORです。（F\#の`any`とTSの`anyOf`という名前の違いに注意してください）
 
@@ -468,9 +468,9 @@ console.log(hasAnyTrue.at(Now)); // true
 
 -----
 
-#### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
+##### F\#: `allOf: list<Timeline<bool>> -> Timeline<bool>`
 
-#### TS: `allOf(timelines): Timeline<boolean>`
+##### TS: `allOf(timelines): Timeline<boolean>`
 
 複数のブール値タイムラインにまたがる論理ANDです。（F\#の`all`とTSの`allOf`という名前の違いに注意してください）
 
@@ -483,7 +483,7 @@ console.log(allTrue.at(Now)); // false
 
 -----
 
-#### TS: `sumOf(timelines): Timeline<number>`
+##### TS: `sumOf(timelines): Timeline<number>`
 
 複数の数値タイムラインの合計です。
 
@@ -496,7 +496,7 @@ console.log(total.at(Now)); // 60
 
 -----
 
-#### TS: `maxOf(timelines): Timeline<number>`
+##### TS: `maxOf(timelines): Timeline<number>`
 
 複数の数値タイムラインにわたる最大値です。
 
@@ -509,7 +509,7 @@ console.log(maximum.at(Now)); // 50
 
 -----
 
-#### TS: `minOf(timelines): Timeline<number>`
+##### TS: `minOf(timelines): Timeline<number>`
 
 複数の数値タイムラインにわたる最小値です。
 
@@ -522,7 +522,7 @@ console.log(minimum.at(Now)); // 10
 
 -----
 
-#### TS: `averageOf(timelines): Timeline<number>`
+##### TS: `averageOf(timelines): Timeline<number>`
 
 複数の数値タイムラインの平均です。
 
@@ -535,7 +535,7 @@ console.log(avg.at(Now)); // 20
 
 -----
 
-#### TS: `listOf<A>(timelines): Timeline<A[]>`
+##### TS: `listOf<A>(timelines): Timeline<A[]>`
 
 複数のタイムラインを、それらの値の配列を保持する単一のタイムラインに結合します。
 
@@ -552,9 +552,9 @@ console.log(list.at(Now)); // ["a", "b", "c"]
 
 ### 高度な合成
 
-#### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
+##### F\#: `combineLatest: ('a array -> 'r) -> list<Timeline<'a>> -> Timeline<'r>`
 
-#### TS: `combineLatest(combinerFn)(timelines)`
+##### TS: `combineLatest(combinerFn)(timelines)`
 
 単純な畳み込みでは実現できない複雑なロジックのための、汎用的なN項結合関数です。
 
@@ -568,7 +568,7 @@ console.log(result.at(Now)); // (10 + 2) / 5 = 2.4
 
 -----
 
-#### TS: `nCombineLatest(combinerFn)(timelines)`
+##### TS: `nCombineLatest(combinerFn)(timelines)`
 
 `combineLatest`のnull安全版です。入力タイムラインのいずれかに`null`値が含まれる場合、出力タイムラインは即座に`null`になります。`combinerFn`は、すべての入力タイムラインが非null値を持つ場合にのみ実行されます。
 
@@ -585,9 +585,9 @@ console.log(result.at(Now)); // null
 
 -----
 
-#### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
+##### F\#: `foldTimelines: (Timeline<'b> -> Timeline<'a> -> Timeline<'b>) -> Timeline<'b> -> list<Timeline<'a>> -> Timeline<'b>`
 
-#### TS: `foldTimelines(timelines, initial, accumulator)`
+##### TS: `foldTimelines(timelines, initial, accumulator)`
 
 タイムラインにわたる汎用的な畳み込み操作です。これは`sumOf`、`anyOf`などが構築される基になる強力なプリミティブです。
 
@@ -606,9 +606,9 @@ console.log(product.at(Now)); // 6
 
 ### ヘルパー関数
 
-#### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
+##### F\#: `(>>>): ('a -> Timeline<'b>) -> ('b -> Timeline<'c>) -> ('a -> Timeline<'c>)`
 
-#### TS: `pipeBind`
+##### TS: `pipeBind`
 
 モナド関数（値を受け取り新しい`Timeline`を返す関数）を連鎖させるためのヘルパー関数です。ネストした`.bind()`呼び出しに代わる、より宣言的で読みやすい方法を可能にします。F\#ではこの目的のために`>>>`演算子を使用します。
 
@@ -638,7 +638,7 @@ console.log(result2.at(Now)); // 7
 
 タイムラインのコールバック内（例: `map`や`scan`操作）で発生する例外をキャッチして処理するために、グローバルなエラーハンドラを設定できます。これは、中央集権的なロギングやカスタムエラー報告に便利です。
 
-#### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
+##### TS: `setErrorHandler(handler: TimelineErrorHandler | null): void`
 
 タイムラインシステムのグローバルエラーハンドラを設定または解除します。
 
@@ -663,9 +663,9 @@ setErrorHandler((error, context) => {
 
 ## デバッグサポート
 
-#### F\#: `module DebugControl`
+##### F\#: `module DebugControl`
 
-#### TS: `Debug Control`
+##### TS: `Debug Control`
 
 URL（`?debug=true`）、`localStorage`、または`NODE_ENV`を介してデバッグモードを有効にします。
 
@@ -688,9 +688,9 @@ DebugControl.enableTemporary();
 
 ### `Debug Information`
 
-#### F\#: `Debug.getInfo: unit -> {| Scopes: ScopeDebugInfo list; ... |}`
+##### F\#: `Debug.getInfo: unit -> {| Scopes: ScopeDebugInfo list; ... |}`
 
-#### TS: `DebugUtils.getInfo()`
+##### TS: `DebugUtils.getInfo()`
 
 ```typescript
 // TS
@@ -701,9 +701,9 @@ console.log(`総イリュージョン数: ${debugInfo.totalIllusions}`);
 
 -----
 
-#### F\#: `Debug.printTree: unit -> unit`
+##### F\#: `Debug.printTree: unit -> unit`
 
-#### TS: `DebugUtils.printTree()`
+##### TS: `DebugUtils.printTree()`
 
 ```typescript
 // TS
@@ -723,9 +723,9 @@ Timeline Dependency Tree
 
 -----
 
-#### F\#: `Debug.findAllCycles: unit -> TimelineId list list`
+##### F\#: `Debug.findAllCycles: unit -> TimelineId list list`
 
-#### TS: `DebugUtils.findAllCycles()`
+##### TS: `DebugUtils.findAllCycles()`
 
 ```typescript
 // TS
