@@ -1,4 +1,4 @@
-````markdown
+ 
 :::lang-en
 # IO Functor
 
@@ -18,4 +18,4 @@ let mappedIO = ioValue |> mapIO (fun x -> x * 2)
 
 This way, you can apply a function to the value inside IO.
 :::
-````
+ 

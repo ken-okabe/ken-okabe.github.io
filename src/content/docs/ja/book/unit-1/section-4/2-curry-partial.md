@@ -58,7 +58,7 @@ With currying in place, **Partial Application** becomes a natural consequence.
 *   **In a Curried System:** Since all functions fundamentally take one argument at a time, applying the first argument(s) to a curried function *is* partial application. The result is the intermediate function that's next in the curried chain. No special syntax is needed.
 
 So, when we wrote `let double = (*) 2` in the previous chapter:
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744707418101.png">
 
 ```fsharp
 let multiplyOperatorAsFunction = (*)
@@ -196,7 +196,7 @@ F# addresses this with **Tuples**. A tuple, written `(a, b)` or `(a, b, c, ...)`
 
 Because a tuple like `(x, y)` is considered a single value, it can be passed as the *one* argument to a unary F# function:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 ```fsharp
 // Define a function that takes ONE argument: a tuple of two integers
@@ -217,4 +217,4 @@ However, in F#, `addCoordinates` is still a unary function accepting a single tu
 
 This provides a convenient syntax for working with grouped data within the unary function model, offering another example of F#'s pragmatic and expressive design.
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/notefooter.svg">

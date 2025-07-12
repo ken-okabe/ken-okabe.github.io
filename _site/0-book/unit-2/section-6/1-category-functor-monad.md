@@ -1,4 +1,5 @@
 :::lang-en
+
 # Beyond Simple Mapping: Preserving the Structure of Composition
 
 In our initial exploration of Functors (in Unit 2, Section 4), we used a helpful analogy to build intuition. We revisited the basic concept of mapping between sets:

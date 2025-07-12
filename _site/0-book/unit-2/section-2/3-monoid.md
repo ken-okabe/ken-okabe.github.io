@@ -1,3 +1,5 @@
+:::lang-en
+
 # Monoids: Semigroups with an Identity Element
 
 A **Monoid** is an algebraic structure that builds directly upon the concept of a Semigroup. It starts with the same requirements:
@@ -75,3 +77,5 @@ The addition of an identity element to the associative binary operation of a sem
     *   For representing a default or an "un-effected" state.
 
 This combination of an associative binary operation and an identity element makes monoids a very powerful and frequently encountered pattern in functional programming, especially when dealing with aggregation, combination, or processing sequences of data.
+
+:::

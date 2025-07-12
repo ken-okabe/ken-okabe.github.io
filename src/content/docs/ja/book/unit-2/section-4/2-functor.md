@@ -38,8 +38,6 @@ For clarity, let's call these sets of functions Set F and Set G:
 
 **Here**, we introduced the concept of a Functor using an analogy based on familiar ideas of mapping as shown in the diagram. We extended the idea of mapping values between sets to mapping functions between sets of functions to build an initial intuition.
 
-It's important to understand that this initial explanation was designed primarily to help grasp the **core intuitive idea** behind Functors – the concept of transforming content while preserving structure.
-
 However, as our more detailed discussions will reveal later, this analogy alone is insufficient for a **rigorous definition** of a Functor. To define Functors precisely, we need to introduce the **Functor Laws** (Identity and Composition), which are specific rules that these operations must satisfy.
 
 Please rest assured, we will delve into the **strict definition** of a Functor, detailing the **Functor Laws** and their significance, in a **later chapter**. Consider this initial introduction as a stepping stone towards that deeper and more formal understanding.
@@ -123,7 +121,7 @@ Let's look at a concrete example using List.map, one of the most common implemen
 // A simple function operating on a single value
 let double = fun a -> a * 2  // Takes a number, returns twice that number
 
-// obtain the list mapper function from double using List.map
+// obtain the listMapper function from double using List.map
 let listMapper = List.map double
 
 // Use listMapper function to a list: [1; 2; 3]
@@ -172,7 +170,7 @@ Comparing the implementation of List Functor in F# and JavaScript/TypeScript hig
 
 The implementation of List.map Functor is originally a two-step process:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 ```fsharp
 // 1. Pass double to List.map to generate listMapper function
@@ -184,7 +182,7 @@ let doubles = [1; 2; 3] |> listMapper // [2; 4; 6]
 
 In F#, this process can be written directly in one line using the pipeline operator:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 ```fsharp
 let doubles = [1; 2; 3] |> List.map double // [2; 4; 6]
@@ -192,7 +190,7 @@ let doubles = [1; 2; 3] |> List.map double // [2; 4; 6]
 
 Interestingly, this pipeline syntax leads to a visual structure that looks remarkably similar to what JavaScript programmers are familiar with. Let's look at the JavaScript code:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/javascript.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/javascript.svg">
 
 ```js
 const double = a => a * 2;
@@ -221,7 +219,7 @@ Moving to a different but related topic - the representation of types - we can s
 
 Furthermore, the difference in type systems becomes more pronounced in TypeScript code:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/typescript.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/typescript.svg">
 
 ```ts
 const double = (a: number): number => a * 2;
@@ -236,7 +234,7 @@ TypeScript, a language that adds types to JavaScript, indeed has type inference 
 
 On the other hand, F#'s type system is more sophisticated:
 
-<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/fsharp.svg">
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-imagesmain/fsharp.svg">
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745703328307.png)
 

@@ -11,7 +11,7 @@ Imagine you're at a massive concert venue with 50,000 attendees, and everyone ne
 
 ## Why Parallel Processing Matters More Than Ever
 
-In today's digital world, we're surrounded by devices that quietly perform millions of calculations every second. Your smartphone processes camera images in real-time, your laptop runs multiple applications simultaneously, and streaming services deliver content to millions of users concurrently. Behind all of this lies the fundamental principle of parallel processing – the ability to break down complex problems into smaller, independent tasks that can be solved simultaneously.
+In today's digital world, we're surrounded by devices that quietly perform millions of calculations every second. Your smartphone processes camera images in real-time, your laptop runs multiple applications simultaneously, and streaming services deliver content to millions of users concurrently. Behind all of this lies the fundamental principle of parallel processing  — the ability to break down complex problems into smaller, independent tasks that can be solved simultaneously.
 
 ### The Hardware Revolution That Changed Everything
 
@@ -22,7 +22,7 @@ Modern computing hardware has undergone a dramatic transformation. Where compute
 - **Graphics cards (GPUs)**: Thousands of cores working in parallel
 - **Data centers**: Distributed systems spanning continents
 
-This shift means that writing efficient software is no longer just about clever algorithms – it's about designing programs that can harness the power of parallel execution.
+This shift means that writing efficient software is no longer just about clever algorithms — it's about designing programs that can harness the power of parallel execution.
 
 ### Real-World Impact: Where Speed Matters
 

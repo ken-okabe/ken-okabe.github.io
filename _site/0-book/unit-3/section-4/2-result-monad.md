@@ -1,4 +1,5 @@
 :::lang-en
+
 # Result (Either) Monad
 
 Result, as a Monad, provides `bind` (Result.bind in F#), which enables robust error handling and control flow.

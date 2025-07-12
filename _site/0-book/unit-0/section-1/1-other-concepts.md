@@ -1,3 +1,5 @@
+:::lang-en
+
 # Other Fundamental Programming Concepts
 
 The idea of a **'pipeline processing data with functions'** is certainly a powerful programming principle, especially central to functional programming and data processing.
@@ -19,3 +21,5 @@ Beyond the functional pipeline concept, here are some other crucial concepts and
 -   **Concurrency / Parallelism:** This area addresses managing multiple tasks that seem to overlap (concurrency) or run simultaneously (parallelism). It's essential for responsive UIs and performance (e.g., using multi-core processors). Techniques like asynchronous programming (`async`/`await`, familiar from JS/TS) help achieve concurrency, allowing responsiveness during long operations (like network I/O). Correctly managing concurrency is a significant aspect of modern software.
 
 -   **Object-Oriented Programming (OOP):** This paradigm offers another way to structure programs, particularly concerning state. It bundles data (representing state) together with the procedures (methods) that operate on that data into units called "objects." In OOP, the state is often encapsulated within these objects, meaning it's primarily accessed and modified through the object's defined methods. Programs are then constructed as interactions between these objects.
+
+:::

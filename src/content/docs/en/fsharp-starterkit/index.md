@@ -3,7 +3,6 @@ icon: rocket
 title: F# Development Starter Kit for Firebase Studio
 description: image
 ---
-
 ## with AI Assistant - Gemini 2.5 Pro/Flash
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747382683637.png)

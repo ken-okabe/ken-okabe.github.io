@@ -1,4 +1,5 @@
 :::lang-en
+
 # The Monad Laws: Verifying the Kleisli Composition Monoid
 
 Having explored Functors and the crucial concept of structure preservation, we now turn our attention to **Monads**. Monads represent another fundamental structure in functional programming, often used to sequence computations that involve some form of context, such as handling potential absence of values (`Option`), managing multiple possible outcomes (`List`), dealing with asynchronous operations (`Async`, `Task`), or managing state.
@@ -185,4 +186,5 @@ If a type constructor `M` along with its `ID` and `bind` operations satisfy the 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747206323768.png)
 
 This Kleisli Monoid perspective reinforces the idea that Monads are fundamentally about providing a **structured, predictable way to compose computations within a context**. The laws ensure that this composition mechanism adheres to the robust algebraic properties of a Monoid, fulfilling the "structure preservation" goal we discussed earlier and enabling the reliable chaining of monadic operations.
-```
+
+:::

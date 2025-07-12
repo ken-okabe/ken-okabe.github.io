@@ -144,7 +144,10 @@ This design frees the programmer from needing to repeat defensive `if`-`null` ch
 A demo comparing the behavior of `map` and `nMap` side-by-side. On the left (`map`), when `null` is input, the pipeline stops with a red warning indicator. On the right (`nMap`), when `null` is input, the pipeline's color changes, and it visually skips the subsequent operation, propagating `null` as the output.
 
 --------------
+
 :::
+
+:::lang-ja
 
 # Chapter 1: Null許容世界の歩き方 — 安全な「演算」としてのn-API
 
@@ -289,3 +292,5 @@ console.log(resource.at(Now)); // null
 
 `map`と`nMap`の振る舞いを並べて比較するデモ。
 左側（`map`）では、`null`が入力されるとパイプラインが赤い警告表示と共に停止する。右側（`nMap`）では、`null`が入力されるとパイプラインの色が変わり、後続の処理をスキップしてそのまま`null`が出力される様子を視覚化する。
+
+:::

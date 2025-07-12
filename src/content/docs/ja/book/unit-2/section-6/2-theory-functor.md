@@ -103,7 +103,7 @@ If we need to prove these laws for every `map` (e.g., `List.map`, `Option.map`),
 
 **Step 5: A Savior Appears - "Theorems for free\!" (Parametricity)**
 
-Philip Wadler's "Theorems for free\!" principle, derived from **Parametricity**, suggests that for generic `map` (`('a -> 'b) -> M<'a> -> M<'b>`), if implemented without type-specific "cheating," is constrained by its type signature to preserve structure. This "structure preservation" is what the Functor Laws (our Monoid preservation laws) articulate. A parametric `map` *must* apply the function while keeping the container structure intact, which inherently forces it to respect composition and identity – thus preserving the Monoid.
+Philip Wadler's "Theorems for free\!" principle, derived from **Parametricity**, suggests that for generic `map` (`('a -> 'b) -> M<'a> -> M<'b>`), if implemented without type-specific "cheating," is constrained by its type signature to preserve structure. This "structure preservation" is what the Functor Laws (our Monoid preservation laws) articulate. A parametric `map` *must* apply the function while keeping the container structure intact, which inherently forces it to respect composition and identity  thus preserving the Monoid.
 
 **Step 6: The Practical Conclusion - Trusting Generic Implementations to Preserve Monoid Structure**
 

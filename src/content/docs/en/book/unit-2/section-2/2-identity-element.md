@@ -74,10 +74,12 @@ Therefore, `eL = eR`.
 This shows that if a left identity and a right identity both exist, they must be the same element. This also implies that if an identity element exists, it is unique. (If `e1` and `e2` were both two-sided identities, then `e1 = e1 • e2` (since `e2` is a right identity) and `e1 • e2 = e2` (since `e1` is a left identity), thus `e1 = e2`.)
 
 So, for a given binary operation on a set:
+
 *   You can't have just a left identity that isn't also a right identity (if a right identity also exists, and vice-versa).
 *   If an identity element exists, it's the only one.
 
 Let's confirm with our examples:
+
 *   For (`int`, `+`): `0` is the unique two-sided identity.
 *   For (`int`, `*`): `1` is the unique two-sided identity.
 *   For (`string`, `+`): `""` is the unique two-sided identity.
