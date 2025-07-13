@@ -2,7 +2,7 @@
 
 # Function Composition: A Natural Monoid
 
-In the previous sections, we learned about the **Monoid** as an algebraic structure: a set (or **Type**) with an associative binary operation (a function of type `'a -> 'a -> 'a`) and an identity element for that operation. 
+In the previous sections, we learned about the **Monoid** as an algebraic structure: a set (or **Type**) with an associative binary operation (a function of type `'a -> 'a -> 'a`) and an identity element for that operation.
 
 Now, let's explore a fascinating and highly relevant example: **function composition** itself, under specific conditions, forms a monoid.
 
@@ -17,7 +17,7 @@ let composedFuncExample = double >> add1 >> double
 // composedFuncExample behaves as x |> double |> add1 |> double
 ```
 
-Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`. 
+Here, `>>` is the **function composition operator**. In F#, `f >> g` creates a new function that first applies `f` to its input, and then applies `g` to the result of `f`.
 
 The general type signature for this operator is `('a -> 'b) -> ('b -> 'c) -> ('a -> 'c)`. It takes a function from `'a` to `'b`, and a function from `'b` to `'c`, and returns a new function from `'a` to `'c`.
 
@@ -105,7 +105,7 @@ Therefore, **(Set of functions `T -> T`, function composition `>>`, identity fun
 ![Monoid structure of function composition](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745414533607.png)
 *(This diagram illustrates that the (Set of `T->T` functions, `>>` operator, `id` function) fits the Monoid structure, analogous to (Numbers, `+`, `0`)).*
 
-This is a profound realization. The very act of composing functions—a cornerstone of functional programming and pipeline construction—shares the same robust algebraic structure (Monoid) as familiar operations like integer addition or string concatenation. 
+This is a profound realization. The very act of composing functions—a cornerstone of functional programming and pipeline construction—shares the same robust algebraic structure (Monoid) as familiar operations like integer addition or string concatenation.
 
 This structural consistency is a key source of the elegance, predictability, and composability found in functional programming.
 

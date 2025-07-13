@@ -32,10 +32,18 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Core Concept: The Data Transformation Pipeline",
-                  "ja": "Core Concept: The Data Transformation Pipeline"
+                  "en": "The Data Transformation Pipeline",
+                  "ja": "The Data Transformation Pipeline"
                 },
                 "link": "book/unit-0/section-1/0-pipeline"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Scaling Pipelines: The Art of Function Composition",
+                  "ja": "Scaling Pipelines: The Art of Function Composition"
+                },
+                "link": "book/unit-0/section-1/1-scaling-pipelines"
               },
               {
                 "label": "FALLBACK",
@@ -43,7 +51,7 @@ export const generatedTopics = [
                   "en": "Other Fundamental Programming Concepts",
                   "ja": "Other Fundamental Programming Concepts"
                 },
-                "link": "book/unit-0/section-1/1-other-concepts"
+                "link": "book/unit-0/section-1/2-other-concepts"
               },
               {
                 "label": "FALLBACK",
@@ -51,7 +59,7 @@ export const generatedTopics = [
                   "en": "The Unifying Potential of the Functional Pipeline",
                   "ja": "The Unifying Potential of the Functional Pipeline"
                 },
-                "link": "book/unit-0/section-1/2-unifying-power"
+                "link": "book/unit-0/section-1/3-unifying-power"
               }
             ]
           }

@@ -1,6 +1,6 @@
 :::lang-en
 
-# Core Concept: The Data Transformation Pipeline
+# The Data Transformation Pipeline
 
 Coding, at its core, is the art of **transforming data** to achieve a desired output.
 
@@ -14,4 +14,5 @@ This **"data transformation pipeline"** is a fundamental principle found widely 
 ![Functional programming pipeline image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449300196.png)
 
 **Functional Programming** is a programming paradigm that embraces this core principle of data transformation.
+
 :::
