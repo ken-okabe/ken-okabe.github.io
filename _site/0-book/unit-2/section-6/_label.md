@@ -1,5 +1,5 @@
 :::lang-en
 
-# Category Theory
+# Functor / Monad Laws
 
 :::

@@ -465,8 +465,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Category Theory",
-              "ja": "Category Theory"
+              "en": "Functor / Monad Laws",
+              "ja": "Functor / Monad Laws"
             },
             "items": [
               {
@@ -1101,6 +1101,41 @@ export const generatedTopics = [
                   "ja": "nシリーズ合成関数"
                 },
                 "link": "book/unit-7/section-1/5-null-awared"
+              }
+            ]
+          }
+        ],
+        "collapsed": true
+      },
+      {
+        "label": "FALLBACK",
+        "translations": {
+          "en": "🔷Unit 8🔷 Experience Quality Coding for AI",
+          "ja": "🔷Unit 8🔷 Experience Quality Coding for AI"
+        },
+        "items": [
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "🔍 Overview - Unit 8",
+              "ja": "🔍 Overview - Unit 8"
+            },
+            "link": "book/unit-8/section-0/0-about-unit"
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Functional Programming Patterns",
+              "ja": "Functional Programming Patterns"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Functional Programming Patterns (F# notation)",
+                  "ja": "Functional Programming Patterns (F# notation)"
+                },
+                "link": "book/unit-8/section-1/1-whole-pic"
               }
             ]
           }
