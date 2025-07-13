@@ -18,7 +18,7 @@ Then, of course, the larger pipeline itself is also another function.
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752421626240.png)
 
-In fact, a program can be seen as  **a single large function, composed of smaller functions.**
+In fact,  **a program**  can be seen as  **a single large function, composed of smaller functions.**
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752420969361.png)
 
