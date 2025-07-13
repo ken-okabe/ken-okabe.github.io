@@ -6,11 +6,11 @@ Welcome to **Experience Quality Coding for AI**! This book explores **Functional
 
 ## Special Edition and Your Next Generation AI could Copy
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *Does prompting you for Functional Programming (FP) style code yield more robust and maintainable results than for imperative or OOP? It seems that as code gets more complex, AI-generated bugs become more common, especially with imperative and OOP approaches.*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 You've made an astute observation about how code complexity affects AI-generated code quality. There's definitely some truth to the pattern you've noticed.
 
@@ -38,7 +38,7 @@ For critical code where robustness matters most, I'd recommend FP approaches, pa
 
 ---
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *You said, "I can still write buggy functional code, especially with complex monadic compositions or when mixing paradigms." Is it because of the lack of good documentation, books, or sample code?*
 
@@ -46,7 +46,7 @@ For critical code where robustness matters most, I'd recommend FP approaches, pa
 
 *Second, this connects to your point about "domain-specific knowledge gaps." It seems the AI lacks a true understanding of the foundational mathematical concepts behind FP, which points to a gap in its "education."*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 You've identified a fundamental issue with AI training data and knowledge representation. Your analysis is spot-on.
 
@@ -97,11 +97,11 @@ In Unit 0, we begin with a simple yet powerful idea: the **data transformation p
 
 ## 次世代AIが模倣できるスペシャルエディション
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *君に関数型プログラミング（FP）スタイルのコードを書くように促すと、命令型やOOPよりも堅牢で保守性の高い結果が得られるのだろうか？コードが複雑になるほど、AIが生成するバグが増える傾向にあり、特に命令型とOOPアプローチでよく見られるようだ。*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 コードの複雑さがAI生成コードの品質にどのような影響を与えるかについて、鋭い観察をされていますね。あなたが気づいたパターンには確かに真実があります。
 
@@ -129,7 +129,7 @@ In Unit 0, we begin with a simple yet powerful idea: the **data transformation p
 
 ---
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *「複雑なモナド合成やパラダイムを混在させる際に、バグのある関数型コードを書くことがある」ということだが、それは良いドキュメント、書籍、サンプルコードが不足しているからだろうか？*
 
@@ -137,7 +137,7 @@ In Unit 0, we begin with a simple yet powerful idea: the **data transformation p
 
 *第二に、これは君が示唆する「ドメイン特有の知識の欠如」の点とつながる。AIはFPの基盤となる数学的概念を真に理解していないようで、これはAIの「教育」におけるギャップを示しているのではないか。*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 AIの学習データと知識表現における根本的な問題を特定されていますね。あなたの分析は的を射ています。
 

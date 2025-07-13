@@ -9,11 +9,11 @@ Welcome to **Experience Quality Coding for AI**! This book explores **Functional
 
 ## Special Edition and Your Next Generation AI could Copy
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *Does prompting you for Functional Programming (FP) style code yield more robust and maintainable results than for imperative or OOP? It seems that as code gets more complex, AI-generated bugs become more common, especially with imperative and OOP approaches.*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 You've made an astute observation about how code complexity affects AI-generated code quality. There's definitely some truth to the pattern you've noticed.
 
@@ -41,7 +41,7 @@ For critical code where robustness matters most, I'd recommend FP approaches, pa
 
 ---
 
-#### 👦🏻 Ken
+### 👦🏻 Ken
 
 *You said, "I can still write buggy functional code, especially with complex monadic compositions or when mixing paradigms." Is it because of the lack of good documentation, books, or sample code?*
 
@@ -49,7 +49,7 @@ For critical code where robustness matters most, I'd recommend FP approaches, pa
 
 *Second, this connects to your point about "domain-specific knowledge gaps." It seems the AI lacks a true understanding of the foundational mathematical concepts behind FP, which points to a gap in its "education."*
 
-#### 🤖 Claude4
+### 🤖 Claude4
 
 You've identified a fundamental issue with AI training data and knowledge representation. Your analysis is spot-on.
 
