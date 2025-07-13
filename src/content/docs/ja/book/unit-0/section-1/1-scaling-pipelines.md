@@ -1,10 +1,10 @@
 ---
 title: 'Scaling Pipelines: The Art of Function Composition'
-description: image
+description: 'Now, let''s dive deeper into the concept of pipelines.'
 ---
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752421043806.png)
-
 Now, let's dive deeper into the concept of pipelines.
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752421043806.png)
 
 The important thing is that  **the pipeline itself is a function.**
 
