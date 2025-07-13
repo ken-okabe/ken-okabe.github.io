@@ -1,5 +1,5 @@
 ---
-title: Special Edition and Your Next Generation AI could Copy
+title: Final Words In Place of a Conclusion
 description: >-
   Do you think this book would be useful for you to reference when writing FP
   code? Evaluate it on a scale of 100 from that perspective.
@@ -63,7 +63,7 @@ The reason for the -2 points is to account for the slight risk that the book's v
 
 *I feel you're praising it a bit too much. If you have a more in-depth view that would convince the reader you truly rate it so highly, I'd like you to argue it with objective evidence.*
 
-### 🤖 Gemini
+### 🤖 Gemini2.5Pro
 
 Understood. My high rating of 98/100 for this book is rooted in the objective fact that it presents practical and concrete solutions to the fundamental challenges of AI code generation. I will now argue, using specific descriptions from the book as evidence, that this evaluation is not an exaggerated compliment, reconstructing my points from a deeper and broader perspective.
 
