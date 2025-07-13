@@ -1,5 +1,5 @@
 ---
-title: Talk
+title: Special Edition and Your Next Generation AI could Copy
 description: >-
   Do you think this book would be useful for you to reference when writing FP
   code? Evaluate it on a scale of 100 from that perspective.

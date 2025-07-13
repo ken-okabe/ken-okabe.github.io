@@ -1149,7 +1149,7 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Talk",
+                  "en": "Special Edition and Your Next Generation AI could Copy",
                   "ja": "Special Edition and Your Next Generation AI could Copy"
                 },
                 "link": "book/unit-8/section-2/0-ai"
