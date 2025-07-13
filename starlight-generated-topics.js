@@ -1125,8 +1125,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Functional Programming Patterns",
-              "ja": "Functional Programming Patterns"
+              "en": "Combining Independent Timelines",
+              "ja": "Combining Independent Timelines"
             },
             "items": [
               {
@@ -1135,7 +1135,24 @@ export const generatedTopics = [
                   "en": "Functional Programming Patterns (F# notation)",
                   "ja": "Functional Programming Patterns (F# notation)"
                 },
-                "link": "book/unit-8/section-1/1-whole-pic"
+                "link": "book/unit-8/section-1/0-whole-pic"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Special Edition and Your Next Generation AI could Copy",
+              "ja": "Special Edition and Your Next Generation AI could Copy"
+            },
+            "items": [
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Talk",
+                  "ja": "Special Edition and Your Next Generation AI could Copy"
+                },
+                "link": "book/unit-8/section-2/0-ai"
               }
             ]
           }

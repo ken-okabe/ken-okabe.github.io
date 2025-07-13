@@ -1,5 +1,5 @@
 :::lang-en
 
-# Functional Programming Patterns
+# Combining Independent Timelines
 
 :::
