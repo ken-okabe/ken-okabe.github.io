@@ -49,9 +49,11 @@ This `Timeline` is no longer just an FRP library. It is a new dimension of frame
 
 With a design that balances **debugging efficiency** with **production environment performance**, this framework consistently supports developers from the research and development phase to practical application. This is the realization of a truly complete software architecture that combines theoretical beauty with practical value.
 
-## Canvas Demo (Placeholder)
+## Canvas Demo
 
-*(An interactive demo visually demonstrating the dynamic management of external resources with `.using()` will be placed here.)*
+### https://g.co/gemini/share/9a46835058d7
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752432706411.png)
 
 :::
 
@@ -72,7 +74,6 @@ With a design that balances **debugging efficiency** with **production environme
 ##### F#: `using: ('a -> Resource<'b>) -> Timeline<'a> -> Timeline<'b option>`
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
-
 
 ### 動作と保証
 
@@ -107,8 +108,10 @@ With a design that balances **debugging efficiency** with **production environme
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
-## Canvasデモ (Placeholder)
+## Canvasデモ
 
-*(ここに`.using()`による動的な外部リソースの管理を視覚的に示すインタラクティブなデモが配置されます。)*
+### https://g.co/gemini/share/3bb69b18a133
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752433406226.png)
 
 :::

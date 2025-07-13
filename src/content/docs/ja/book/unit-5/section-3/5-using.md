@@ -17,7 +17,6 @@ description: >-
 
 ##### TS: `using<B>(resourceFactory: (value: A) => { resource: B; cleanup: () => void } | null): Timeline<B | null>`
 
-
 ### 動作と保証
 
 1.  `sourceTimeline`の値が変化すると、`using`はまず、**以前のイリュージョンで生成されたリソースに紐づく`cleanup`関数を、`disposeIllusion`を通じて確実に実行します。**
@@ -51,6 +50,8 @@ description: >-
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
-## Canvasデモ (Placeholder)
+## Canvasデモ
 
-*(ここに`.using()`による動的な外部リソースの管理を視覚的に示すインタラクティブなデモが配置されます。)*
+### https://g.co/gemini/share/3bb69b18a133
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752433406226.png)
