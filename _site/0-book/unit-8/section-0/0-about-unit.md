@@ -2,7 +2,6 @@
 
 # 🔍 Overview - Unit 8
 
-The whole picture.
+Experience Quality Coding for AI
 
 :::
- 

@@ -1,5 +1,5 @@
 ---
 title: "\U0001F50D Overview - Unit 8"
-description: The whole picture.
+description: Experience Quality Coding for AI
 ---
-The whole picture.
+Experience Quality Coding for AI

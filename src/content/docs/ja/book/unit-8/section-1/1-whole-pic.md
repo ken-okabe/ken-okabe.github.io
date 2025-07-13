@@ -21,7 +21,8 @@ description: >-
             -   **Pointwise**:  
                 Two containers are combined one-to-one.
 
-            -   **Latest Value Combination** *New for FRP !*
+            -   **Latest Value Combination** *New for FRP !*  
+                The moment any source timeline is updated, its new value is combined with the most recently known value (the latest state) of the other source(s) to produce a new result.
 
         -   **Dependent Binary Operations** (*sequential only*)  
             Implemented by **Monad**. The second computation depends on the result of the first.
