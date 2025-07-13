@@ -10,7 +10,7 @@ description: >-
 ## API定義
 
 ##### F#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
-    
+
 ##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map`は、型`A`の値を受け取って型`B`の値を返す純粋な関数`f`を引数に取ります。

@@ -9,7 +9,7 @@ Its essence is to **define an immutable, "static" relationship between two `Time
 ## API Definition
 
 ##### F#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
-    
+
 ##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map` takes a pure function `f` as an argument, which accepts a value of type `A` and returns a value of type `B`.
@@ -64,7 +64,7 @@ _(An interactive demo visually demonstrating the behavior of `.map()` will be pl
 ## API定義
 
 ##### F#: `map: ('a -> 'b) -> Timeline<'a> -> Timeline<'b>`
-    
+
 ##### TS: `.map<B>(f: (value: A) => B): Timeline<B>`
 
 `map`は、型`A`の値を受け取って型`B`の値を返す純粋な関数`f`を引数に取ります。
