@@ -19,23 +19,7 @@ This allows us to build dynamic systems where the wiring of the dependency graph
 ##### F#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
 ##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
-Enumerating objects: 33, done.Enumerating objects: 33, done.
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
+
 The crucial difference from `.map()` is that the function it takes (`monadf`) accepts a value `A` and returns a **new `Timeline<B>`**.
 
 ## What is the use of `bind` or the Monad algebraic structure in a FRP library like Timeline?
@@ -49,15 +33,7 @@ Therefore, I would like to present a clear answer here and now.
 ## The Diamond Problem in FRP Libraries—Atomic Update
 
 ### 1. Definition of the Diamond Problem
-Enumerating objects: 33, done.
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
+
 The diamond problem in Functional Reactive Programming (FRP) refers to issues of glitches and inefficiency that arise when a dependency graph forms a diamond shape. Specifically, it occurs when a timeline `D` depends on two other timelines, `B` and `C`, both of which depend on a common source, `A`.
 
 ```
@@ -208,6 +184,7 @@ How is this dynamic switching of dependencies achieved? The answer lies in the h
 The dynamic switching of dependencies brought about by `.bind()` is a manifestation of a deeper, more powerful concept in the library's design. To understand it, let's first organize the different levels of "mutability" in `map` and `bind`.
 
 -   **Level 1 Mutability (The world of `map`/`link`)**: In a static dependency, the `Timeline` object itself is an immutable entity. The only thing that is "mutable" is the internal value **`_last`**, which is updated as the `Now` viewpoint moves. This can be called the minimal unit of **illusion**, the "current value" in the block universe.
+
 -   **Level 2 Mutability (The world of `bind`)**: When `.bind()` is introduced, this concept of mutability is **extended**. It's no longer just the `_last` value that gets replaced. The `innerTimeline` object returned by `.bind()` is swapped out entirely according to the source's value. This means that the **`Timeline` itself, which defines the "truth" of a given moment, becomes a temporary, replaceable entity**.
 
 This "structural" level of mutability is the essence of the `Illusion` concept.
@@ -273,7 +250,13 @@ console.log("Switched user posts:", currentUserPostsTimeline.at(Now));
 // > Switched user posts: ["post3", "post4"]
 ```
 
-This code example brilliantly demonstrates two aspects of `bind`. First, the **theoretical aspect**: it describes the complex requirement of dynamically switching the UI state in a highly declarative way. Second, the **implementation aspect**: behind the scenes, `DependencyCore` reliably disposes of the old `innerTimeline` through the `Illusion` mechanism, so the developer does not need to be conscious of resource management. Thus, `bind` shows its true value only when a powerful theory and a robust implementation that supports it are combined.
+This code example brilliantly demonstrates two aspects of `bind`. 
+
+First, the **theoretical aspect**: it describes the complex requirement of dynamically switching the UI state in a highly declarative way. 
+
+Second, the **implementation aspect**: behind the scenes, `DependencyCore` reliably disposes of the old `innerTimeline` through the `Illusion` mechanism, so the developer does not need to be conscious of resource management. 
+
+Thus, `bind` shows its true value only when a powerful theory and a robust implementation that supports it are combined.
 
 ## Canvas Demo
 

@@ -17,23 +17,7 @@ This allows us to build dynamic systems where the wiring of the dependency graph
 ##### F#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
 ##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
-Enumerating objects: 33, done.Enumerating objects: 33, done.
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
+
 The crucial difference from `.map()` is that the function it takes (`monadf`) accepts a value `A` and returns a **new `Timeline<B>`**.
 
 ## What is the use of `bind` or the Monad algebraic structure in a FRP library like Timeline?
@@ -47,15 +31,7 @@ Therefore, I would like to present a clear answer here and now.
 ## The Diamond Problem in FRP Libraries—Atomic Update
 
 ### 1. Definition of the Diamond Problem
-Enumerating objects: 33, done.
-Counting objects: 100% (33/33), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (17/17), done.
-Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
-Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   675ec98..04b62da  main -> main
+
 The diamond problem in Functional Reactive Programming (FRP) refers to issues of glitches and inefficiency that arise when a dependency graph forms a diamond shape. Specifically, it occurs when a timeline `D` depends on two other timelines, `B` and `C`, both of which depend on a common source, `A`.
 
 ```
@@ -206,6 +182,7 @@ How is this dynamic switching of dependencies achieved? The answer lies in the h
 The dynamic switching of dependencies brought about by `.bind()` is a manifestation of a deeper, more powerful concept in the library's design. To understand it, let's first organize the different levels of "mutability" in `map` and `bind`.
 
 -   **Level 1 Mutability (The world of `map`/`link`)**: In a static dependency, the `Timeline` object itself is an immutable entity. The only thing that is "mutable" is the internal value **`_last`**, which is updated as the `Now` viewpoint moves. This can be called the minimal unit of **illusion**, the "current value" in the block universe.
+
 -   **Level 2 Mutability (The world of `bind`)**: When `.bind()` is introduced, this concept of mutability is **extended**. It's no longer just the `_last` value that gets replaced. The `innerTimeline` object returned by `.bind()` is swapped out entirely according to the source's value. This means that the **`Timeline` itself, which defines the "truth" of a given moment, becomes a temporary, replaceable entity**.
 
 This "structural" level of mutability is the essence of the `Illusion` concept.
@@ -271,7 +248,13 @@ console.log("Switched user posts:", currentUserPostsTimeline.at(Now));
 // > Switched user posts: ["post3", "post4"]
 ```
 
-This code example brilliantly demonstrates two aspects of `bind`. First, the **theoretical aspect**: it describes the complex requirement of dynamically switching the UI state in a highly declarative way. Second, the **implementation aspect**: behind the scenes, `DependencyCore` reliably disposes of the old `innerTimeline` through the `Illusion` mechanism, so the developer does not need to be conscious of resource management. Thus, `bind` shows its true value only when a powerful theory and a robust implementation that supports it are combined.
+This code example brilliantly demonstrates two aspects of `bind`. 
+
+First, the **theoretical aspect**: it describes the complex requirement of dynamically switching the UI state in a highly declarative way. 
+
+Second, the **implementation aspect**: behind the scenes, `DependencyCore` reliably disposes of the old `innerTimeline` through the `Illusion` mechanism, so the developer does not need to be conscious of resource management. 
+
+Thus, `bind` shows its true value only when a powerful theory and a robust implementation that supports it are combined.
 
 ## Canvas Demo
 
@@ -347,17 +330,7 @@ let B = A + 1;    // 期待値: 11
 let C = A * 2;    // 期待値: 20
 let D = B + C;    // 期待値: 31
 ```
-[main e684c6b] update
- 2 files changed, 8 insertions(+)
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 575 bytes | 575.00 KiB/s, done.
-Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   6660b97..e684c6b  main -> main
+
 しかし、更新の伝播順序によっては、グリッチが発生します。
 
 1.  `B` が先に更新されると、`D` は `B` の新しい値(`11`)と`C`の古い値(`10`)を使って計算されてしまいます。
@@ -469,8 +442,9 @@ const D = A.bind(a => {
 
 `.bind()`がもたらす動的な依存関係の切り替えは、このライブラリの設計における、より深く、より強力な概念の現れです。それを理解するために、まず`map`と`bind`における「可変性」のレベルの違いを整理しましょう。
 
-- **レベル1の可変性 (`map`/`link`の世界)**: 静的な依存関係では、`Timeline`オブジェクトそのものは不変の存在です。唯一「可変」なのは、`Now`という視点の移動に伴って更新される、内部の値 **`_last`** です。これは、ブロック宇宙における「現在の値」という、最小単位の**イリュージョン（幻想）**と言えます。
-  - **レベル2の可変性 (`bind`の世界)**: `.bind()`を導入すると、この可変性の概念が**拡張**されます。もはや`_last`という値だけが入れ替わるのではありません。`.bind()`が返す`innerTimeline`オブジェクトそのものが、ソースの値に応じて、まるごと入れ替わります。つまり、ある瞬間の「真実」を定義している**`Timeline`自体が、一時的で、入れ替え可能な存在**になるのです。
+- **レベル1の可変性 (`map`/`link`の世界)**: 静的な依存関係では、`Timeline`オブジェクトそのものは不変の存在です。唯一「可変」なのは、`Now`という視点の移動に伴って更新される、内部の値 **`_last`** です。これは、ブロック宇宙における「現在の値」という、最小単位の **イリュージョン（幻想）** と言えます。
+
+- **レベル2の可変性 (`bind`の世界)**: `.bind()`を導入すると、この可変性の概念が**拡張**されます。もはや`_last`という値だけが入れ替わるのではありません。`.bind()`が返す`innerTimeline`オブジェクトそのものが、ソースの値に応じて、まるごと入れ替わります。つまり、ある瞬間の「真実」を定義している **`Timeline`自体が、一時的で、入れ替え可能な存在** になるのです。
 
 この「構造」レベルの可変性こそが、`Illusion`という概念の本質です。
 
@@ -478,11 +452,11 @@ const D = A.bind(a => {
 
 しかし、我々の視点である`Now`が時間軸に沿って動く**可変な（Mutable）カーソル**であるのと全く同じ理由で、そのカーソルと常に同期している`innerTimeline`（例えば`"user123"`の投稿`Timeline`や`"user456"`の投稿`Timeline`）は、**可変でなければなりません**。
 
-`innerTimeline`が「破壊」されなければならない根本的な理由は、**`Now`カーソルの移動と同期して、依存グラフそのものが時間発展しており、それぞれの時間座標においてグラフの構造が異なる**からです。
+`innerTimeline`が「破壊」されなければならない根本的な理由は、**`Now`カーソルの移動と同期して、依存グラフそのものが時間発展しており、それぞれの時間座標においてグラフの構造が異なる** からです。
 
-この、時間発展する依存グラフの「ある瞬間における状態」こそが**`Illusion`**です。そして、`Now`カーソルの移動と、この`Illusion`の書き換え（古いものの破棄と新しいものの生成）を同期させる作業を、`DependencyCore`が一括して命令的に管理しているのです。
+この、時間発展する依存グラフの「ある瞬間における状態」こそが **`Illusion`** です。そして、`Now`カーソルの移動と、この`Illusion`の書き換え（古いものの破棄と新しいものの生成）を同期させる作業を、`DependencyCore`が一括して命令的に管理しているのです。
 
-つまり`Illusion`とは、`_last`という**「値レベルの可変性」を、`innerTimeline`という「構造レベルの可変性」へと拡張した概念**なのです。そして後続の章で`.using()`を導入する際には、この可変性の概念がさらに「外部リソースのライフサイクル」にまで拡張されていきます。
+つまり`Illusion`とは、`_last`という **「値レベルの可変性」を、`innerTimeline`という「構造レベルの可変性」へと拡張した概念** なのです。そして後続の章で`.using()`を導入する際には、この可変性の概念がさらに「外部リソースのライフサイクル」にまで拡張されていきます。
 
 ## 応用ケース：動的なUI構築
 
@@ -535,7 +509,13 @@ console.log("Switched user posts:", currentUserPostsTimeline.at(Now));
 // > Switched user posts: ["post3", "post4"]
 ```
 
-このコード例は、`bind`の二つの側面を見事に示しています。第一に、**理論的な側面**として、UIの状態を動的に切り替えるという複雑な要求を、極めて宣言的に記述しています。第二に、**実装的な側面**として、その裏側では`DependencyCore`が`Illusion`の仕組みを通じて古い`innerTimeline`を確実に破棄しており、開発者はリソース管理を意識する必要がありません。このように、強力な理論とそれを支える堅牢な実装が両立して初めて、`bind`はその真価を発揮するのです。
+このコード例は、`bind`の二つの側面を見事に示しています。
+
+第一に、**理論的な側面**として、UIの状態を動的に切り替えるという複雑な要求を、極めて宣言的に記述しています。
+
+第二に、**実装的な側面**として、その裏側では`DependencyCore`が`Illusion`の仕組みを通じて古い`innerTimeline`を確実に破棄しており、開発者はリソース管理を意識する必要がありません。
+
+このように、強力な理論とそれを支える堅牢な実装が両立して初めて、`bind`はその真価を発揮するのです。
 
 ## Canvasデモ
 
