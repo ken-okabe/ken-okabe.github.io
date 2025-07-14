@@ -36,7 +36,7 @@ module TL =
             |> List.iter (fun f -> f a)
     let map =
         fun f timelineA ->
-            let timelineB = Timeline (f (timelineA |> at Now))
+            let timelineB = Timeline (timelineA |> at Now |> f)
             let newFn =
                 fun valueA ->
                     timelineB
@@ -46,14 +46,12 @@ module TL =
             timelineB
     let bind =
         fun monadf timelineA ->
-            let initialInnerTimeline = monadf (timelineA |> at Now)
-            let timelineB = Timeline (initialInnerTimeline |> at Now)
-
+            let timelineB = timelineA |> at Now |> monadf
             let newFn =
                 fun valueA ->
-                    let newInnerTimeline = monadf valueA
+                    let innerTimeline = monadf valueA
                     timelineB
-                    |> define Now (newInnerTimeline |> at Now)
+                    |> define Now (innerTimeline |> at Now)
 
             timelineA._fns <- timelineA._fns @ [newFn]
             timelineB
@@ -61,6 +59,6 @@ module TL =
 
 With the automatic type annotations in VSCode:
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752468492517.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752469746138.png)
 
 :::
