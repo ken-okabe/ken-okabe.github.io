@@ -40,7 +40,7 @@ module TL =
             let newFn =
                 fun valueA ->
                     timelineB
-                    |> define Now (f valueA)
+                    |> define Now (valueA |> f)
 
             timelineA._fns <- timelineA._fns @ [newFn]
             timelineB
@@ -49,7 +49,7 @@ module TL =
             let timelineB = timelineA |> at Now |> monadf
             let newFn =
                 fun valueA ->
-                    let innerTimeline = monadf valueA
+                    let innerTimeline = valueA |> monadf
                     timelineB
                     |> define Now (innerTimeline |> at Now)
 
@@ -57,6 +57,7 @@ module TL =
             timelineB
 ```
 
+
 With the automatic type annotations in VSCode:
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752469746138.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752470188913.png)
