@@ -191,6 +191,7 @@ This style guide (covering both definition and application styles) applies to al
 Please omit change logs from comments unless otherwise instructed. All in-code comments must be written in English.
 
 ------------------------
+
 Prohibit:
 open Timeline.TL
 
@@ -212,10 +213,8 @@ Timeline
 Now
 -------------------------
 
-
 Prohibit to use Option:
 Use:
-
 
 if isNull value
 then ()

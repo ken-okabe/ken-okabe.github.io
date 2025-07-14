@@ -10,6 +10,8 @@ import starlightSidebarTopics from 'starlight-sidebar-topics';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
 
+import mermaid from 'astro-mermaid';
+
 export default defineConfig({
   // GitHub Pages configuration
   site: 'https://ken-okabe.github.io',
@@ -20,6 +22,7 @@ export default defineConfig({
     prefixDefaultLocale: true,
   },
   integrations: [
+    mermaid(), // ⚠️ Must come BEFORE starlight
     starlight({
       title: 'Experience Quality Coding for AI',
       defaultLocale: 'en',
