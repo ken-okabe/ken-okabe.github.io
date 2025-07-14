@@ -10,8 +10,6 @@ import starlightSidebarTopics from 'starlight-sidebar-topics';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
 
-import mermaid from 'astro-mermaid';
-
 import d2 from 'astro-d2';
 
 export default defineConfig({
