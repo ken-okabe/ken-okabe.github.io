@@ -28,25 +28,6 @@ console.log(labels.at(Now)); // "Score: 5"
 // ソースを更新すると、labelsも自動的に更新される
 numbers.define(Now, 100);
 console.log(labels.at(Now)); // "Score: 100"
-```txt```txt
-        +-----------------+      .map(x => `Score: ${x}`)     +-----------------+
-        | numbers         | --------------------------------> | labels          |
-        | (Timeline<number>) |                                  | (Timeline<string>) |
-        +-----------------+                                 +-----------------+
-              ^                                                     |
-              | .define(Now, 100)                                   V
-              +-------------                                 値が"Score: 100"へ伝播
-
-```
-        +-----------------+      .map(x => `Score: ${x}`)     +-----------------+
-        | numbers         | --------------------------------> | labels          |
-        | (Timeline<number>) |                                  | (Timeline<string>) |
-        +-----------------+                                 +-----------------+
-              ^                                                     |
-              | .define(Now, 100)                                   V
-              +-------------                                 値が"Score: 100"へ伝播
-
-```
 ```
 
 ## 依存グラフ (Dependency Graph)
@@ -57,6 +38,7 @@ console.log(labels.at(Now)); // "Score: 100"
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
 
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 
 このシンプルな「静的な依存関係」の概念が、後に出てくる`bind`や`using`が構築する「動的な」依存関係を理解するための基礎となります。
 

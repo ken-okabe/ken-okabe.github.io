@@ -40,6 +40,8 @@ The dependency created by `map` is **Static**. Once you define the relationship 
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
 
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
+
 This simple concept of a "static dependency" is the foundation for understanding the "dynamic" dependencies constructed by `bind` and `using`, which will be introduced later.
 
 ## Canvas Demo

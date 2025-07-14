@@ -103,18 +103,6 @@ To https://github.com/ken-okabe/ken-okabe.github.io
 
 **Atomic update** を実現している、とも表現されます。
 
------[main e684c6b] update
- 2 files changed, 8 insertions(+)
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 575 bytes | 575.00 KiB/s, done.
-Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   6660b97..e684c6b  main -> main
-
 ### 3\. Timelineライブラリのアプローチ：「そもそもDiamond問題なんて起こるほうがおかしい」という思想
 
 `Timeline`ライブラリは、上記のような低レベルな機構に頼るのではなく、より高次元な抽象化によって、この問題を根源から断ち切ります。その思想は、　**「ダイアモンド問題が起こるような設計自体が誤りであり、より優れた設計を選択すべき」** という、極めて洗練されたものです。

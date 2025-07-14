@@ -17,7 +17,23 @@ This allows us to build dynamic systems where the wiring of the dependency graph
 ##### F#: `bind: ('a -> Timeline<'b>) -> Timeline<'a> -> Timeline<'b>`
 
 ##### TS: `.bind<B>(monadf: (value: A) => Timeline<B>): Timeline<B>`
-
+Enumerating objects: 33, done.Enumerating objects: 33, done.
+Counting objects: 100% (33/33), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
+Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
+To https://github.com/ken-okabe/ken-okabe.github.io
+   675ec98..04b62da  main -> main
+Counting objects: 100% (33/33), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
+Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
+To https://github.com/ken-okabe/ken-okabe.github.io
+   675ec98..04b62da  main -> main
 The crucial difference from `.map()` is that the function it takes (`monadf`) accepts a value `A` and returns a **new `Timeline<B>`**.
 
 ## What is the use of `bind` or the Monad algebraic structure in a FRP library like Timeline?
@@ -31,7 +47,15 @@ Therefore, I would like to present a clear answer here and now.
 ## The Diamond Problem in FRP Libraries—Atomic Update
 
 ### 1. Definition of the Diamond Problem
-
+Enumerating objects: 33, done.
+Counting objects: 100% (33/33), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (18/18), 1.37 KiB | 1.37 MiB/s, done.
+Total 18 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (14/14), completed with 12 local objects.
+To https://github.com/ken-okabe/ken-okabe.github.io
+   675ec98..04b62da  main -> main
 The diamond problem in Functional Reactive Programming (FRP) refers to issues of glitches and inefficiency that arise when a dependency graph forms a diamond shape. Specifically, it occurs when a timeline `D` depends on two other timelines, `B` and `C`, both of which depend on a common source, `A`.
 
 ```
@@ -361,18 +385,6 @@ To https://github.com/ken-okabe/ken-okabe.github.io
 これらの手法は有効ですが、ライブラリの内部実装を複雑にし、開発者からは見えない挙動を生み出す原因ともなります。
 
 **Atomic update** を実現している、とも表現されます。
-
------[main e684c6b] update
- 2 files changed, 8 insertions(+)
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 575 bytes | 575.00 KiB/s, done.
-Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To https://github.com/ken-okabe/ken-okabe.github.io
-   6660b97..e684c6b  main -> main
 
 ### 3\. Timelineライブラリのアプローチ：「そもそもDiamond問題なんて起こるほうがおかしい」という思想
 
