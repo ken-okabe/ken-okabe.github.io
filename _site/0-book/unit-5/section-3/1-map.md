@@ -35,16 +35,15 @@ When you call `map`, a **Dependency** is registered internally between the two `
 
 The dependency created by `map` is **Static**. Once you define the relationship `labels = numbers.map(...)`, the rule itself—the transformation of the value—does not change later.
 
-```mermaid
-flowchart LR
-  Start --> Stop
+```d2
+Documentation -> Website: Starlight
 ```
 
 ```txt
         +-----------------+      .map(x => `Score: ${x}`)     +-----------------+
         | numbers         | --------------------------------> | labels          |
-        | (Timeline<number>) |                                  | (Timeline<string>) |
-        +-----------------+                                 +-----------------+
+        | (Timeline<number>) |                                | (Timeline<string>) |
+        +-----------------+                                   +-----------------+
               ^                                                     |
               | .define(Now, 100)                                   V
               +-------------                                 Value propagates to "Score: 100"

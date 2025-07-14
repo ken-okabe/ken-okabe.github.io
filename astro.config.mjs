@@ -12,6 +12,8 @@ import rehypeMathjax from 'rehype-mathjax';
 
 import mermaid from 'astro-mermaid';
 
+import d2 from 'astro-d2';
+
 export default defineConfig({
   // GitHub Pages configuration
   site: 'https://ken-okabe.github.io',
@@ -21,26 +23,23 @@ export default defineConfig({
   routing: {
     prefixDefaultLocale: true,
   },
-  integrations: [
-    mermaid(), // ⚠️ Must come BEFORE starlight
-    starlight({
-      title: 'Experience Quality Coding for AI',
-      defaultLocale: 'en',
-      locales: {
-        en: { label: 'English', lang: 'en' },
-        ja: { label: '日本語', lang: 'ja' }, // Label for language picker can be in Japanese
-      },
-      plugins: [
-        // Call the imported plugin as a function
-        starlightSidebarTopics(
-          generatedTopics,
-          {
-            // Plugin options here, if any
-          }
-        ),
-      ],
-    }),
-  ],
+  integrations: [ starlight({
+    title: 'Experience Quality Coding for AI',
+    defaultLocale: 'en',
+    locales: {
+      en: { label: 'English', lang: 'en' },
+      ja: { label: '日本語', lang: 'ja' }, // Label for language picker can be in Japanese
+    },
+    plugins: [
+      // Call the imported plugin as a function
+      starlightSidebarTopics(
+        generatedTopics,
+        {
+          // Plugin options here, if any
+        }
+      ),
+    ],
+  }), d2()],
   // Global Markdown configuration for Astro
   markdown: {
     remarkPlugins: [remarkMath],
