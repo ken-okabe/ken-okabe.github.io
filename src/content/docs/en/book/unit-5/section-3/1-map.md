@@ -50,6 +50,8 @@ The dependency created by `map` is **Static**. Once you define the relationship 
 
 This simple concept of a "static dependency" is the foundation for understanding the "dynamic" dependencies constructed by `bind` and `using`, which will be introduced later.
 
-## Canvas Demo (Placeholder)
+## Canvas Demo
 
-_(An interactive demo visually demonstrating the behavior of `.map()` will be placed here.)_
+### https://g.co/gemini/share/1560a1f89a35
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752462936212.png)
