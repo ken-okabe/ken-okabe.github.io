@@ -219,7 +219,7 @@ This shows that Haskell's constraints are not universal but are strictly Haskell
 
 This chapter re-examines a well-known claim in the Haskell world as a concrete "case study" of how Haskell's peculiar design philosophy generates specific issues, revealing how "mathematical facts" and "Haskell's local rules" are conflated. Within the Haskell community, the following claim is often stated authoritatively:
 
-> **"It is mathematically impossible for ZipList to become a Monad"
+> **"It is mathematically impossible for ZipList to become a Monad"**
 
 This claim is widely accepted, with Coq proofs provided on GitHub and treated as a standard example on Haskell-cafe mailing lists and StackOverflow. Indeed, it is difficult to define a `>>=` for `ZipList` that satisfies the monad laws, particularly the associativity law.
 
