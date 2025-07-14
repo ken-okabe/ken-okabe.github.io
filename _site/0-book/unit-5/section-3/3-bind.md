@@ -91,7 +91,7 @@ These techniques are effective, but they complicate the library's internal imple
 
 ### 3. The Timeline Library's Approach: "It's Wrong for the Diamond Problem to Occur in the First Place"
 
-The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."
+The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."**
 
 #### Conceptual Purity: Expressing the Essence of "Defining D from A"
 
@@ -155,7 +155,7 @@ Many other solutions are all "post-problem-fixes." They are merely symptomatic t
 
 However, `bind` enables **"a design where problems don't occur."** This is the very beauty of functional programming.
 
-`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.
+`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.**
 
 The `Timeline` library, being faithful to theory, naturally provides not only `.map` but also `.bind`. This was not intentionally designed with the thought, "this can solve the diamond problem." The Monad algebraic structure is there from the beginning.
 
@@ -416,7 +416,7 @@ const D = A.bind(a => {
 
 しかし、`bind`は **「問題が起きない設計」** を可能にします。これこそが、関数型プログラミングの美しさそのものです。
 
-`.bind`はMonad則という数学的な法則に裏打ちされており、その振る舞いは完全に予測可能です。**モナドという強力な抽象化によって、開発者は副作用（この場合は中間状態の意図しない伝播）を完全に制御し、本質的な計算だけを安全に記述できるのです。
+`.bind`はMonad則という数学的な法則に裏打ちされており、その振る舞いは完全に予測可能です。**モナドという強力な抽象化によって、開発者は副作用（この場合は中間状態の意図しない伝播）を完全に制御し、本質的な計算だけを安全に記述できるのです。**
 
 `Timeline`ライブラリは、理論に忠実なので、自然な流れで、`.map`だけでなく`.bind`を提供しています。これは別にわざわざ「ダイアモンド問題はこれで解決可能だ」と意図して設計したものではありません。Monadという代数構造は最初からそこにあるのです。
 
@@ -434,7 +434,7 @@ const D = A.bind(a => {
 
 ## `DependencyCore`
 
-この動的な依存関係の切り替えは、どのようにして実現されているのでしょうか。その答えは、`Timeline`ライブラリの心臓部である**`DependencyCore`**にあります。
+この動的な依存関係の切り替えは、どのようにして実現されているのでしょうか。その答えは、`Timeline`ライブラリの心臓部である **`DependencyCore`** にあります。
 
 `DependencyCore`は、アプリケーション内に存在する全ての`Timeline`間の依存関係を記録・管理する、目に見えない中央管理システムです。`.map()`や`.link()`が静的な依存関係を登録するのに対し、`.bind()`はこの`DependencyCore`をより高度に利用します。
 

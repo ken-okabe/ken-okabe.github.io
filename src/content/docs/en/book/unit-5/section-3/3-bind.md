@@ -93,7 +93,7 @@ These techniques are effective, but they complicate the library's internal imple
 
 ### 3. The Timeline Library's Approach: "It's Wrong for the Diamond Problem to Occur in the First Place"
 
-The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."
+The `Timeline` library, rather than relying on such low-level mechanisms, cuts this problem off at its root through a higher level of abstraction. Its philosophy is the highly refined idea that **"a design that allows the diamond problem to occur is itself flawed, and a better design should be chosen."**
 
 #### Conceptual Purity: Expressing the Essence of "Defining D from A"
 
@@ -157,7 +157,7 @@ Many other solutions are all "post-problem-fixes." They are merely symptomatic t
 
 However, `bind` enables **"a design where problems don't occur."** This is the very beauty of functional programming.
 
-`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.
+`.bind` is backed by the mathematical laws of Monad, and its behavior is completely predictable. **With the powerful abstraction of the Monad, developers can completely control side effects (in this case, the unintended propagation of intermediate states) and safely describe only the essential computation.**
 
 The `Timeline` library, being faithful to theory, naturally provides not only `.map` but also `.bind`. This was not intentionally designed with the thought, "this can solve the diamond problem." The Monad algebraic structure is there from the beginning.
 
