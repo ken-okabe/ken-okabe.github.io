@@ -4,7 +4,7 @@
 
 Timeline library is fundamentally very simple.
 
-Initially, it was an F# implementation, a mere 50 lines of code. Remarkably, this foundational skeleton is still entirely shared with the currently advanced Timeline library.
+Initially, it was an F# implementation, less than 50 lines of code. Remarkably, this foundational skeleton is still entirely shared with the currently advanced Timeline library.
 
 ```fsharp
 module Timeline
