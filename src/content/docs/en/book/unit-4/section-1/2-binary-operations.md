@@ -45,7 +45,7 @@ The binary operation between containers `(F, *)` resulting from `map2` can repre
 
 Because it can represent any binary operation, it is possible for the containers of `'a` and `'b` to be completely independent.
 
-In other words, if you think of the binary operation between containers `(F, *)` as an "aggregation task," the source data containers `'a` and `'b` are completely independent, so **parallel computing is possible.
+In other words, if you think of the binary operation between containers `(F, *)` as an "aggregation task," the source data containers `'a` and `'b` are completely independent, so **parallel computing is possible.**
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1749878635851.png)
 
