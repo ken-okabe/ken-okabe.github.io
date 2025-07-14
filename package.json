@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.3",
+    "@terrastruct/d2": "^0.1.23",
     "astro": "^5.6.1",
     "astro-d2": "^0.8.0",
     "fs-extra": "^11.3.0",
