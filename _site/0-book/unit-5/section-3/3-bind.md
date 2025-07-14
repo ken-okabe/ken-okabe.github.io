@@ -497,4 +497,10 @@ console.log("Switched user posts:", currentUserPostsTimeline.at(Now));
 
 このコード例は、`bind`の二つの側面を見事に示しています。第一に、**理論的な側面**として、UIの状態を動的に切り替えるという複雑な要求を、極めて宣言的に記述しています。第二に、**実装的な側面**として、その裏側では`DependencyCore`が`Illusion`の仕組みを通じて古い`innerTimeline`を確実に破棄しており、開発者はリソース管理を意識する必要がありません。このように、強力な理論とそれを支える堅牢な実装が両立して初めて、`bind`はその真価を発揮するのです。
 
+## Canvasデモ
+
+### https://g.co/gemini/share/cea0a51b75bd
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461477314.png)
+
 :::

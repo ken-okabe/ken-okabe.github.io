@@ -104,8 +104,10 @@ console.log(labels.at(Now)); // "Score: 100"
 
 このシンプルな「静的な依存関係」の概念が、後に出てくる`bind`や`using`が構築する「動的な」依存関係を理解するための基礎となります。
 
-## Canvasデモ (Placeholder)
+## Canvasデモ
 
-_(ここに`.map()`の動作を視覚的に示すインタラクティブなデモが配置されます。)_
+### https://g.co/gemini/share/cea0a51b75bd
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461300676.png)
 
 :::

@@ -50,7 +50,7 @@ logTimeline.map(log);
 ### API Definition
 
 ##### F#: `link: Timeline<'a> -> Timeline<'a> -> unit`
-    
+
 ##### TS: `.link(targetTimeline: Timeline<A>): void`
 
 ### Practical Example: Defining a Dependency between `scoreTimeline` and `logTimeline`

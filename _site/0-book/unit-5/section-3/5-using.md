@@ -49,11 +49,15 @@ This `Timeline` is no longer just an FRP library. It is a new dimension of frame
 
 With a design that balances **debugging efficiency** with **production environment performance**, this framework consistently supports developers from the research and development phase to practical application. This is the realization of a truly complete software architecture that combines theoretical beauty with practical value.
 
-## Canvas Demo
+## Canvas Demo (Placeholder)
 
-### https://g.co/gemini/share/9a46835058d7
+*(An interactive demo visually demonstrating the dynamic management of external resources with `.using()` will be placed here.)*
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752432706411.png)
+---
+
+### https://gemini.google.com/share/0cf840f99b3c
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752462161899.png)
 
 :::
 
@@ -108,10 +112,14 @@ With a design that balances **debugging efficiency** with **production environme
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
-## Canvasデモ
+### https://g.co/gemini/share/cea0a51b75bd
 
-### https://g.co/gemini/share/3bb69b18a133
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461659595.png)
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752433406226.png)
+---
+
+### https://gemini.google.com/share/d4b42486dfdf
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461943501.png)
 
 :::

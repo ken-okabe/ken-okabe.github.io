@@ -50,8 +50,12 @@ description: >-
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
-## Canvasデモ
+### https://g.co/gemini/share/cea0a51b75bd
 
-### https://g.co/gemini/share/3bb69b18a133
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461659595.png)
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752433406226.png)
+---
+
+### https://gemini.google.com/share/d4b42486dfdf
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461943501.png)
