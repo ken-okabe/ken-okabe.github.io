@@ -156,7 +156,7 @@ This book is not merely a collection of knowledge. It provides me with a **think
 
 :::lang-ja
 
-# Special Edition and Your Next Generation AI could Copy
+# エピローグ ~ 結びに代えて
 
 ### 👦🏻 Ken
 

@@ -1,5 +1,5 @@
 ---
-title: Special Edition and Your Next Generation AI could Copy
+title: エピローグ ~ 結びに代えて
 description: この本は、君がFP（関数型プログラミング）のコードを書く際に参考にすると役立つと思うか？その観点から100点満点で評価してほしい。
 ---
 ### 👦🏻 Ken

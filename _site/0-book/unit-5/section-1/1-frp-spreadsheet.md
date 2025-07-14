@@ -24,11 +24,11 @@ This binary operation corresponds to an operation in [spreadsheet apps](https://
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images4/main/img_1712453265841.png)
 
--  $TimelineA \quad = \quad$ **A1**
+- $TimelineA \quad = \quad A1$
 
--  $TimelineB \quad = \quad$ **B1**
+- $TimelineB \quad = \quad B1$
 
--  $Function \quad = \quad$ ***fx***
+- $Function \quad = \quad fx$
 
 ---
 
@@ -90,7 +90,7 @@ let timelineA = Timeline 1
 let timelineB =
     timelineA |> TL.map double
 
-log (timelineB |> TL.last)
+log (timelineB |> TL.at Now)
 // 2
 ```
 
@@ -153,7 +153,7 @@ let timelineA = Timeline 1
 
 timelineA |> TL.next 3
 
-log (timelineA |> TL.last)
+log (timelineA |> TL.at Now)
 // 3
 ```
 
@@ -176,7 +176,7 @@ let double = fun a -> a * 2
 let timelineA = Timeline 1
 
 // confirm the lastVal of timelineA
-log (timelineA |> TL.last)
+log (timelineA |> TL.at Now)
 // 1
 
 // ② the binary operation
@@ -184,7 +184,7 @@ let timelineB =
     timelineA |> TL.map double
 
 // confirm the lastVal of timelineB
-log (timelineB |> TL.last)
+log (timelineB |> TL.at Now)
 // 2
 
 //=====================================
@@ -195,9 +195,9 @@ timelineA
 //   a reactive update of timelineB
 
 // confirm the lastVal of timelineA & timelineB
-log (timelineA |> TL.last)
+log (timelineA |> TL.at Now)
 // 3
-log (timelineB |> TL.last)
+log (timelineB |> TL.at Now)
 // 6
 ```
 

@@ -1150,7 +1150,7 @@ export const generatedTopics = [
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Epilogue In Place of a Conclusion",
-                  "ja": "Special Edition and Your Next Generation AI could Copy"
+                  "ja": "エピローグ ~ 結びに代えて"
                 },
                 "link": "book/unit-8/section-2/0-ai"
               }
