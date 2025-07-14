@@ -67,13 +67,16 @@ step0.define(Now, "Hello!");
 This `Timeline` `bind` chain is similar to `Promise.then` in many ways.
 
 * **Sequential Execution**: The next operation starts after the previous one is complete.
-  * **Value Passing**: The result of the previous step is passed to the next step.
+
+* **Value Passing**: The result of the previous step is passed to the next step.
 
 However, there are also important differences in the fundamental approach.
 
 * **Reactive**: `Timeline` is a reactive system that automatically triggers subsequent operations in response to value changes.
-  * **Explicit Receiving Timeline**: You need to pre-define a dedicated `Timeline` to receive the result of each step.
-  * **Synchronous Return Value**: The `bind` function itself must **synchronously** return the `Timeline` to wait for next, without waiting for the asynchronous operation to complete.
+
+* **Explicit Receiving Timeline**: You need to pre-define a dedicated `Timeline` to receive the result of each step.
+
+* **Synchronous Return Value**: The `bind` function itself must **synchronously** return the `Timeline` to wait for next, without waiting for the asynchronous operation to complete.
 
 -----
 

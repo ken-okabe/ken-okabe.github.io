@@ -58,13 +58,16 @@ step0.define(Now, "Hello!");
 This `Timeline` `bind` chain is similar to `Promise.then` in many ways.
 
 * **Sequential Execution**: The next operation starts after the previous one is complete.
-  * **Value Passing**: The result of the previous step is passed to the next step.
+
+* **Value Passing**: The result of the previous step is passed to the next step.
 
 However, there are also important differences in the fundamental approach.
 
 * **Reactive**: `Timeline` is a reactive system that automatically triggers subsequent operations in response to value changes.
-  * **Explicit Receiving Timeline**: You need to pre-define a dedicated `Timeline` to receive the result of each step.
-  * **Synchronous Return Value**: The `bind` function itself must **synchronously** return the `Timeline` to wait for next, without waiting for the asynchronous operation to complete.
+
+* **Explicit Receiving Timeline**: You need to pre-define a dedicated `Timeline` to receive the result of each step.
+
+* **Synchronous Return Value**: The `bind` function itself must **synchronously** return the `Timeline` to wait for next, without waiting for the asynchronous operation to complete.
 
 -----
 
@@ -223,13 +226,16 @@ step0.define(Now, "Hello!");
 この`Timeline`の`bind`チェーンは、`Promise.then`と多くの点で似ています。
 
 * **順次実行**: 前の処理が完了してから次の処理が開始されます。
-  * **値の引き継ぎ**: 前のステップの結果が次のステップに渡されます。
+
+* **値の引き継ぎ**: 前のステップの結果が次のステップに渡されます。
 
 しかし、根本的なアプローチには重要な違いもあります。
 
 * **リアクティブ**: `Timeline`は値の変化に反応して自動的に後続処理をトリガーする、リアクティブなシステムです。
-  * **明示的な受信Timeline**: 各ステップの結果を受け取るための専用の`Timeline`を事前に定義する必要があります。
-  * **同期的な戻り値**: `bind`関数自体は、非同期処理の完了を待たず、次に待機すべき`Timeline`を**同期的**に返す必要があります。
+
+* **明示的な受信Timeline**: 各ステップの結果を受け取るための専用の`Timeline`を事前に定義する必要があります。
+
+* **同期的な戻り値**: `bind`関数自体は、非同期処理の完了を待たず、次に待機すべき`Timeline`を**同期的**に返す必要があります。
 
 -----
 

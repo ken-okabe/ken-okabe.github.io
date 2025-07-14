@@ -24,7 +24,7 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 
 ## 2. The Theoretical Pillar: From Function Pipelines to Algebraic Structures (A Revisit)
 
-Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."
+Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."**
 
 First, our starting point is the fundamental concept in functional programming: the "pipeline," where data flows through a series of functions.
 
@@ -202,13 +202,22 @@ We position this approach as a **theoretically valid path** that consciously div
 
 ## 2. 理論的支柱：関数パイプラインから代数構造へ (再訪)
 
-この「不在」を巡る議論の核心に迫る前に、我々は本書の理論的支柱となっている基本原則に立ち返る必要があります。それは、Unit 2で確立した、**「関数パイプライン」**の考え方から、いかにして**「代数構造」**の定義が自然に導かれるか、という丁寧な論理の流れです。
+この「不在」を巡る議論の核心に迫る前に、我々は本書の理論的支柱となっている基本原則に立ち返る必要があります。それは、Unit 2で確立した、**「関数パイプライン」** の考え方から、いかにして **「代数構造」** の定義が自然に導かれるか、という丁寧な論理の流れです。
 
 まず、我々の出発点は、データが関数の連なりを流れていく「パイプライン」という、関数型プログラミングの基本的な考え方です。
 
 ![Pipeline Flow](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1744449185892.png)
 
-1.  **パイプラインの構成要素**:      * すべてのパイプラインは、特定の**型 (Type)** を持つデータを扱います。      * **関数 (Function)** が、このデータを明確に定義された方法で変換します。      * これにより、我々は自然と `(Type, Function)` というペアを扱うことになります。2.  **二項演算子は関数である**:      * `1 + 2`のような一般的な二項演算も、一種の**関数**である、という視点を取り入れます。例えば、`+` という演算子は、`(int, int) -> int` という型を持つ関数と見なせます。(カリー化)3.  **型と集合の対応**:      * プログラミングにおける **型 (Type)**は、数学における**集合 (Set)** と深く対応します。`int`型は整数の集合、`bool`型は`{true, false}`という集合、`string`型はあらゆる文字列の集合と考えることができます。
+1.  **パイプラインの構成要素**:      
+    * すべてのパイプラインは、特定の**型 (Type)** を持つデータを扱います。      
+    * **関数 (Function)** が、このデータを明確に定義された方法で変換します。
+    * これにより、我々は自然と `(Type, Function)` というペアを扱うことになります。
+
+2.  **二項演算子は関数である**:      
+    * `1 + 2`のような一般的な二項演算も、一種の**関数**である、という視点を取り入れます。例えば、`+` という演算子は、`(int, int) -> int` という型を持つ関数と見なせます。(カリー化)
+
+3.  **型と集合の対応**:      
+    * プログラミングにおける **型 (Type)**は、数学における**集合 (Set)** と深く対応します。`int`型は整数の集合、`bool`型は`{true, false}`という集合、`string`型はあらゆる文字列の集合と考えることができます。
 
 これらの洞察を統合すると、我々の目の前に明確な対応関係が浮かび上がります。
 
@@ -219,7 +228,7 @@ We position this approach as a **theoretically valid path** that consciously div
 
 パイプラインで扱っていた `(Type, Function)` のペアは、数学の世界で**代数構造**と呼ばれる `(Set, Operation)` のペアと、概念的に全く同じものだったのです。
 
-結論として、代数構造とは、小難しい数学の話ではなく、**「あるデータ型（集合）と、そのデータ型上での構造を維持する一連の操作（関数）の組み合わせ」**という、我々にとって極めて身近な設計パターンのことに他なりません。
+結論として、代数構造とは、小難しい数学の話ではなく、**「あるデータ型（集合）と、そのデータ型上での構造を維持する一連の操作（関数）の組み合わせ」** という、我々にとって極めて身近な設計パターンのことに他なりません。
 
 この後の議論は、すべてこの単純かつ強力な原則の上に成り立っています。
 

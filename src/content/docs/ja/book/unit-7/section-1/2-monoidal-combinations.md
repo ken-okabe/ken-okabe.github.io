@@ -16,9 +16,9 @@ Chapter 1で学んだ`combineLatestWith`は、あらゆる2項演算を`Timeline
 
 ### 論理和: orOf
 
-#### F\#**: `orOF: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
+##### F\#: `orOF: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
 
-#### TS**: `orOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
+##### TS: `orOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
 
 <!-- end list -->
 
@@ -45,9 +45,9 @@ const orOf = (timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timel
 
 ### 論理積: andOf
 
-#### F\#**: `andOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
+##### F\#: `andOf: Timeline<bool> -> Timeline<bool> -> Timeline<bool>`
 
-#### TS**: `andOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
+##### TS: `andOf(timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timeline<boolean>`
 
 2つの`Timeline<boolean>`を論理積（`&&`）で合成します。
 
@@ -63,9 +63,9 @@ const orOf = (timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timel
 
 ### 加算: addOf
 
-#### F\#**: (F\#版には直接のヘルパーなし。`combineLatestWith (+)` を使用)
+##### F\#: (F\#版には直接のヘルパーなし。`combineLatestWith (+)` を使用)
 
-#### TS**: `addOf(timelineA: Timeline<number>, timelineB: Timeline<number>): Timeline<number>`
+##### TS: `addOf(timelineA: Timeline<number>, timelineB: Timeline<number>): Timeline<number>`
 
 2つの`Timeline<number>`を加算（`+`）で合成します。
 
@@ -81,9 +81,9 @@ const orOf = (timelineA: Timeline<boolean>, timelineB: Timeline<boolean>): Timel
 
 ### 配列の結合: concatOf
 
-**F\#**: `concatOf: Timeline<'a list> -> Timeline<'a> -> Timeline<'a list>`
+##### F\#: `concatOf: Timeline<'a list> -> Timeline<'a> -> Timeline<'a list>`
 
-**TS**: `concatOf(timelineA: Timeline<any[]>, timelineB: Timeline<any>): Timeline<any[]>`
+##### TS: `concatOf(timelineA: Timeline<any[]>, timelineB: Timeline<any>): Timeline<any[]>`
 
 `concat`は、2つの配列を結合して1つの新しい配列を作る操作です。この単純な操作もまた、極めて重要なMonoidを形成します。
 

@@ -32,7 +32,7 @@ These examples illustrate that "absence," "emptiness," or "nullity" is not merel
 
 ## 2. The Theoretical Pillar: From Function Pipelines to Algebraic Structures (A Revisit)
 
-Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."
+Before diving into the core of the "absence" debate, we must return to the theoretical pillar of this book. This is the deliberate, logical flow, established in Unit 2, of how the definition of an **"algebraic structure"** is naturally derived from the idea of a **"function pipeline."**
 
 First, our starting point is the fundamental concept in functional programming: the "pipeline," where data flows through a series of functions.
 
