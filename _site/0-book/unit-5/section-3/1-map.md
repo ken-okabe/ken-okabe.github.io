@@ -35,7 +35,7 @@ When you call `map`, a **Dependency** is registered internally between the two `
 
 The dependency created by `map` is **Static**. Once you define the relationship `labels = numbers.map(...)`, the rule itself—the transformation of the value—does not change later.
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752515316058.png)
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 
@@ -86,7 +86,7 @@ console.log(labels.at(Now)); // "Score: 100"
 
 `map`が作る依存関係は**静的 (Static)** です。一度`labels = numbers.map(...)`という関係を定義したら、`numbers`と`labels`の間の「値を変換する」というルールそのものが後から変わることはありません。
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752515316058.png)
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 

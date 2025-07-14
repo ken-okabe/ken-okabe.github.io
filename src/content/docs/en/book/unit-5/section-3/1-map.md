@@ -38,7 +38,7 @@ When you call `map`, a **Dependency** is registered internally between the two `
 
 The dependency created by `map` is **Static**. Once you define the relationship `labels = numbers.map(...)`, the rule itself—the transformation of the value—does not change later.
 
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752515316058.png)
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745662189198.png)
 
