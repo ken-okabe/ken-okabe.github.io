@@ -195,7 +195,7 @@ const using = <A, B>(
         
     2.  `Timeline` (間接)
         
-    3.  **外部リソース (直接)
+    3.  **外部リソース (直接)**
 
 ## 5. 実践シナリオ集
 
@@ -225,7 +225,6 @@ const dataTimeline: Timeline<Post[] | User[]> = sourceChoiceTimeline.bind(choice
         return fetchUsersApi(); // -> returns Timeline<User[]>
     }
 });
-
 ```
 
 #### シナリオ3: `using`が最適なケース
@@ -242,7 +241,6 @@ dynamicDataTimeline.using(items => {
         icons.forEach(icon => icon.destroy());
     });
 });
-
 ```
 
 #### シナリオ4: `bind`と`using`の組み合わせ
@@ -263,7 +261,6 @@ isVisibleTimeline.bind(isVisible => { // ★外側のbind: コンポーネント
         return createResource(dom, () => dom.remove());
     });
 });
-
 ```
 
 -   **外側の`bind`は、コンポーネント全体のライフサイクルを管理し、不要になった際に内側の`using`へのリアクティブな接続を断ち切ります**。

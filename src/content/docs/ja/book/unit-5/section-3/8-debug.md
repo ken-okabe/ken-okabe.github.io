@@ -21,7 +21,7 @@ Timelineライブラリは高機能なDebugシステムを提供しており、A
 
 デバッグモードが有効になると、`DependencyCore`は内部的な動作を詳細に記録します。
 
-* **イリュージョン（Illusion）**: `bind`や`using`などで生成される依存関係のグループが`DebugInfo`として記録されます。これには、自身のID、所属する`dependencyIds`の配列、生成時刻、そしてツリー構造を構築するための**`parentIllusion`** IDが含まれます。
+* **イリュージョン（Illusion）**: `bind`や`using`などで生成される依存関係のグループが`DebugInfo`として記録されます。これには、自身のID、所属する`dependencyIds`の配列、生成時刻、そしてツリー構造を構築するための **`parentIllusion`** IDが含まれます。
 * **依存関係（Dependency）**: 個々の依存関係は`DependencyDebugInfo`として記録されます。これには、自身のID、`sourceId`（どのタイムラインから）、`targetId`（どのタイムラインへ）、所属する`illusionId`、クリーンアップ関数の有無（`hasCleanup`）、生成時刻といった詳細なメタデータが含まれます。
 
 ---

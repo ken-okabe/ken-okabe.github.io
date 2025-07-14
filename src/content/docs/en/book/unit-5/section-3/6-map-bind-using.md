@@ -198,7 +198,7 @@ Which API you should choose is determined by how the library's underlying "depen
         
     2.  `Timeline` (Indirect)
         
-    3.  **External Resource (Direct)
+    3.  **External Resource (Direct)**
 
 ## 5. Practical Scenarios
 
@@ -267,7 +267,7 @@ isVisibleTimeline.bind(isVisible => { // ★ Outer bind: Manages the "existence"
 
 -   **The outer `bind` manages the lifecycle of the entire component and cuts the reactive connection to the inner `using` when it's no longer needed.**
     
--   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.
+-   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.**
 
 ## 6. Conclusion
 

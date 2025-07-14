@@ -193,7 +193,7 @@ Which API you should choose is determined by how the library's underlying "depen
         
     2.  `Timeline` (Indirect)
         
-    3.  **External Resource (Direct)
+    3.  **External Resource (Direct)**
 
 ## 5. Practical Scenarios
 
@@ -262,7 +262,7 @@ isVisibleTimeline.bind(isVisible => { // ★ Outer bind: Manages the "existence"
 
 -   **The outer `bind` manages the lifecycle of the entire component and cuts the reactive connection to the inner `using` when it's no longer needed.**
     
--   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.
+-   **The inner `using` executes its `cleanup` function the moment that connection is cut, safely disposing of the `DOM` elements.**
 
 ## 6. Conclusion
 
@@ -467,7 +467,7 @@ const using = <A, B>(
         
     2.  `Timeline` (間接)
         
-    3.  **外部リソース (直接)
+    3.  **外部リソース (直接)**
 
 ## 5. 実践シナリオ集
 
@@ -497,7 +497,6 @@ const dataTimeline: Timeline<Post[] | User[]> = sourceChoiceTimeline.bind(choice
         return fetchUsersApi(); // -> returns Timeline<User[]>
     }
 });
-
 ```
 
 #### シナリオ3: `using`が最適なケース
@@ -514,7 +513,6 @@ dynamicDataTimeline.using(items => {
         icons.forEach(icon => icon.destroy());
     });
 });
-
 ```
 
 #### シナリオ4: `bind`と`using`の組み合わせ
@@ -535,7 +533,6 @@ isVisibleTimeline.bind(isVisible => { // ★外側のbind: コンポーネント
         return createResource(dom, () => dom.remove());
     });
 });
-
 ```
 
 -   **外側の`bind`は、コンポーネント全体のライフサイクルを管理し、不要になった際に内側の`using`へのリアクティブな接続を断ち切ります**。
