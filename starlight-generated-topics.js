@@ -852,6 +852,14 @@ export const generatedTopics = [
                   "ja": "Chapter 0: Timeline.fs Timeline<'a> and FRP Implementation"
                 },
                 "link": "book/unit-5/section-2/0-timeline-fs"
+              },
+              {
+                "label": "FALLBACK",
+                "translations": {
+                  "en": "Timeline.fs the Minimal Code",
+                  "ja": "Timeline.fs the Minimal Code"
+                },
+                "link": "book/unit-5/section-2/1-mimimal-code"
               }
             ]
           },
