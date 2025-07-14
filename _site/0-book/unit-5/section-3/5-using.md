@@ -49,7 +49,7 @@ This `Timeline` is no longer just an FRP library. It is a new dimension of frame
 
 With a design that balances **debugging efficiency** with **production environment performance**, this framework consistently supports developers from the research and development phase to practical application. This is the realization of a truly complete software architecture that combines theoretical beauty with practical value.
 
-## Canvas Demo
+## Canvas Demo 
 
 ### https://g.co/gemini/share/1560a1f89a35
 
@@ -60,6 +60,7 @@ With a design that balances **debugging efficiency** with **production environme
 ### https://gemini.google.com/share/0cf840f99b3c
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752462161899.png)
+
 
 :::
 
@@ -114,6 +115,7 @@ With a design that balances **debugging efficiency** with **production environme
 
 **デバッグ効率**と**プロダクション環境でのパフォーマンス**を両立させる設計により、このフレームワークは研究開発段階から実用段階まで、一貫して開発者を支援します。これは、理論的な美しさと実用的な価値を兼ね備えた、真に完成されたソフトウェアアーキテクチャの実現です。
 
+
 ## Canvas デモ
 
 ### https://g.co/gemini/share/cea0a51b75bd
@@ -125,5 +127,6 @@ With a design that balances **debugging efficiency** with **production environme
 ### https://gemini.google.com/share/d4b42486dfdf
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752461943501.png)
+
 
 :::

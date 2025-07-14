@@ -54,7 +54,7 @@ This `Timeline` is no longer just an FRP library. It is a new dimension of frame
 
 With a design that balances **debugging efficiency** with **production environment performance**, this framework consistently supports developers from the research and development phase to practical application. This is the realization of a truly complete software architecture that combines theoretical beauty with practical value.
 
-## Canvas Demo
+## Canvas Demo 
 
 ### https://g.co/gemini/share/1560a1f89a35
 
