@@ -25,7 +25,7 @@ const numbers = Timeline(5);
 // Pass a function: (x: number) => string
 const labels = numbers.map(x => `Score: ${x}`);
 
-console.log(labels.at(Now)); // "Score: 5"
+console.log(labels.at(Now)); // "Score: 5"share
 
 // When the source is updated, labels is automatically updated as well
 numbers.define(Now, 100);
@@ -38,19 +38,7 @@ When you call `map`, a **Dependency** is registered internally between the two `
 
 The dependency created by `map` is **Static**. Once you define the relationship `labels = numbers.map(...)`, the rule itself—the transformation of the value—does not change later.
 
-```d2
-Documentation -> Website: Starlight
-```
-
-```txt
-        +-----------------+      .map(x => `Score: ${x}`)     +-----------------+
-        | numbers         | --------------------------------> | labels          |
-        | (Timeline<number>) |                                | (Timeline<string>) |
-        +-----------------+                                   +-----------------+
-              ^                                                     |
-              | .define(Now, 100)                                   V
-              +-------------                                 Value propagates to "Score: 100"
-```
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752494846714.png)
 
 This simple concept of a "static dependency" is the foundation for understanding the "dynamic" dependencies constructed by `bind` and `using`, which will be introduced later.
 

@@ -123,19 +123,25 @@ The benefits of this `bind` approach are numerous.
 
 As a common approach, trying to define `B` and `C` separately with `.map` and then combining them to create `D` gives rise to the "problematic structure" of a diamond. However, by using `bind`, the dependency graph changes fundamentally.
 
-Plaintext
 
-```
-+-----------+     .bind(a => { return Timeline(d); })    +-----------+
-| Timeline A| ------------------------------------------> | Timeline D|
-+-----------+                                             +-----------+
-```
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752493931653.png)
 
 There are no longer intermediate `timelineB` or `timelineC`, and the diamond structure itself is never formed. Therefore, problems like glitches and multiple updates **cannot structurally occur**. This is a solution on a different level: not fixing a problem after it occurs, but **choosing a superior design where the problem does not arise**.
 
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745716642404.png)
+
+
 #### 2. Execution Efficiency
 
-In this structure, every time `A` is updated, the function passed to `bind` is executed only once, and `D` is calculated only once. This is highly efficient.
+In this structure, e￼very time `A` is updated, the function passed to `bind` is executed only once, and `D` is calculated only once. This is highly efficient.
+
+#### 3. Complete Elimination of Transactional Processing
+
+Even more importantly, the **complex
+
+#### 2. Execution Efficiency
+
+In this structure, e￼very time `A` is updated, the function passed to `bind` is executed only once, and `D` is calculated only once. This is highly efficient.
 
 #### 3. Complete Elimination of Transactional Processing
 

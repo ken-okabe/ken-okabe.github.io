@@ -9,8 +9,7 @@ import starlightSidebarTopics from 'starlight-sidebar-topics';
 // Import MathJax plugins
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
-
-import d2 from 'astro-d2';
+ 
 
 export default defineConfig({
   // GitHub Pages configuration
@@ -37,7 +36,7 @@ export default defineConfig({
         }
       ),
     ],
-  }), d2()],
+  })],
   // Global Markdown configuration for Astro
   markdown: {
     remarkPlugins: [remarkMath],

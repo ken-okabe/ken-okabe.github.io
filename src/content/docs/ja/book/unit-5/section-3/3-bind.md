@@ -64,7 +64,17 @@ let B = A + 1;    // 期待値: 11
 let C = A * 2;    // 期待値: 20
 let D = B + C;    // 期待値: 31
 ```
-
+[main e684c6b] update
+ 2 files changed, 8 insertions(+)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 575 bytes | 575.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/ken-okabe/ken-okabe.github.io
+   6660b97..e684c6b  main -> main
 しかし、更新の伝播順序によっては、グリッチが発生します。
 
 1.  `B` が先に更新されると、`D` は `B` の新しい値(`11`)と`C`の古い値(`10`)を使って計算されてしまいます。
@@ -93,7 +103,17 @@ let D = B + C;    // 期待値: 31
 
 **Atomic update** を実現している、とも表現されます。
 
------
+-----[main e684c6b] update
+ 2 files changed, 8 insertions(+)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 575 bytes | 575.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/ken-okabe/ken-okabe.github.io
+   6660b97..e684c6b  main -> main
 
 ### 3\. Timelineライブラリのアプローチ：「そもそもDiamond問題なんて起こるほうがおかしい」という思想
 
@@ -127,16 +147,12 @@ const D = A.bind(a => {
 
 一般的なアプローチとして、`.map`で`B`と`C`を個別に定義し、それらを合成して`D`を生成しようとすると、ダイアモンドという「問題のある構造」が生まれてしまいます。しかし、`bind`を使うことで、依存グラフは根本的に変わります。
 
-Plaintext
-
-```
-+-----------+     .bind(a => { return Timeline(d); })    +-----------+
-| Timeline A| ------------------------------------------> | Timeline D|
-+-----------+                                             +-----------+
-
-```
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752493931653.png)
 
 もはやそこには中間的な`timelineB`も`timelineC`も存在せず、菱形（ダイアモンド）構造自体が生まれません。したがって、グリッチや複数回更新という問題は**構造的に発生し得ない**のです。これは、発生した問題を後から解決するのではなく、**問題が発生しない優れた設計を選ぶ**という、次元の違う解決策です。
+
+![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745716642404.png)
+
 
 #### 2\. 実行効率
 
