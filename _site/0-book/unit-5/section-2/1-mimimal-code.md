@@ -57,7 +57,6 @@ module TL =
             timelineB
 ```
 
-
 With the automatic type annotations in VSCode:
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1752470188913.png)

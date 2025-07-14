@@ -541,6 +541,7 @@ console.log(avg.at(Now)); // 20
 -----
 
 ##### F\#: `list<Timeline<'a>> -> Timeline<list<'a>>`
+
 ##### TS: `listOf<A>(timelines): Timeline<A[]>`
 
 Combines multiple timelines into a single timeline holding an array of their values.

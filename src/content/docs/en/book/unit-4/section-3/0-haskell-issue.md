@@ -32,7 +32,7 @@ The type signature of `Functor`'s `map` is `(a -> b) -> f a -> f b`. This can be
 
 ### 1-2. The Powerful "Monad" and Its "Cartesian" Destiny
 
-Next comes the `Monad`, which greatly extends the power of `Functor`. `bind` (Monad) has a type like `m a -> (a -> m b) -> m b` (known as `collect` in F# or `flatMap` in JS) and possesses the rich capability to determine not only the next computation's **value** but also its **structure** (`m b`) using the **value** `a` from the previous computation.
+Next comes the `Monad`, which greatly extends the power of `Functor`. `bind` (Monad) has a type like `(a -> m b) -> m a -> m b` (known as `collect` in F# or `flatMap` in JS) and possesses the rich capability to determine not only the next computation's **value** but also its **structure** (`m b`) using the **value** `a` from the previous computation.
 
 In the context of `List`, the "natural" implementation that satisfies the monad laws behaves like a **Cartesian product (all combinations)**. This is both the source of the `List` monad's power and the destiny that defines its "character."
 

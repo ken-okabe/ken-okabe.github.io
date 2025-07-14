@@ -24,7 +24,7 @@ The type signature of `Functor`'s `map` is `(a -> b) -> f a -> f b`. This can be
 
 ### 1-2. The Powerful "Monad" and Its "Cartesian" Destiny
 
-Next comes the `Monad`, which greatly extends the power of `Functor`. `bind` (Monad) has a type like `m a -> (a -> m b) -> m b` (known as `collect` in F# or `flatMap` in JS) and possesses the rich capability to determine not only the next computation's **value** but also its **structure** (`m b`) using the **value** `a` from the previous computation.
+Next comes the `Monad`, which greatly extends the power of `Functor`. `bind` (Monad) has a type like `(a -> m b) -> m a -> m b` (known as `collect` in F# or `flatMap` in JS) and possesses the rich capability to determine not only the next computation's **value** but also its **structure** (`m b`) using the **value** `a` from the previous computation.
 
 In the context of `List`, the "natural" implementation that satisfies the monad laws behaves like a **Cartesian product (all combinations)**. This is both the source of the `List` monad's power and the destiny that defines its "character."
 
@@ -348,7 +348,7 @@ Haskellがプログラミングの世界に与えた知的貢献は計り知れ�
 
 ### 1-2. 強力な「Monad」とその「デカルト積」的な宿命
 
-次に、`Functor`の能力を大きく拡張するのが`Monad`である。`bind`（Monad）は `m a -> (a -> m b) -> m b`（F#では`collect`、JSでは`flatMap`）のような型を持ち、前の計算結果である**値** `a` を使って、次の計算の**値**だけでなく**構造**（`m b`）まで決定できる豊かな能力を持つ。
+次に、`Functor`の能力を大きく拡張するのが`Monad`である。`bind`（Monad）は `(a -> m b) -> m a -> m b`（F#では`collect`、JSでは`flatMap`）のような型を持ち、前の計算結果である**値** `a` を使って、次の計算の**値**だけでなく**構造**（`m b`）まで決定できる豊かな能力を持つ。
 
 `List`の文脈において、モナド則を満たす「自然な」実装は、**デカルト積（全組み合わせ）** のような振る舞いとなる。これは`List`モナドの強力さの源泉であると同時に、その「性格」を決定づける宿命でもある。
 
