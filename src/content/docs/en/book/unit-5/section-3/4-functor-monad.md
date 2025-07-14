@@ -62,7 +62,7 @@ The verification of the Monad laws is done using the simpler and more essential 
 #### 1. Associativity
 
 - **Law**: `(f >>> g) >>> h` is equivalent to `f >>> (g >>> h)`.
-  - **Explanation of Inevitability**: This law is directly guaranteed by the associativity of `.bind()` itself: `m.bind(f).bind(g)` is equivalent to `m.bind(x => f(x).bind(g))`. `DependencyCore` does not care how you "group" your dependency definitions. Whether you define it in steps `A→B→C` or as a single continuous rule `A→C`, the final information flow path constructed is exactly the same. The associativity law is the mathematical expression of this self-evident principle in the dependency graph model: **"the method of defining dependencies does not affect the final flow of information."
+  - **Explanation of Inevitability**: This law is directly guaranteed by the associativity of `.bind()` itself: `m.bind(f).bind(g)` is equivalent to `m.bind(x => f(x).bind(g))`. `DependencyCore` does not care how you "group" your dependency definitions. Whether you define it in steps `A→B→C` or as a single continuous rule `A→C`, the final information flow path constructed is exactly the same. The associativity law is the mathematical expression of this self-evident principle in the dependency graph model: **"the method of defining dependencies does not affect the final flow of information."**
 
 #### 2. Left Identity
 

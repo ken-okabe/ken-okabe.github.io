@@ -59,7 +59,7 @@ The verification of the Monad laws is done using the simpler and more essential 
 #### 1. Associativity
 
 - **Law**: `(f >>> g) >>> h` is equivalent to `f >>> (g >>> h)`.
-  - **Explanation of Inevitability**: This law is directly guaranteed by the associativity of `.bind()` itself: `m.bind(f).bind(g)` is equivalent to `m.bind(x => f(x).bind(g))`. `DependencyCore` does not care how you "group" your dependency definitions. Whether you define it in steps `A→B→C` or as a single continuous rule `A→C`, the final information flow path constructed is exactly the same. The associativity law is the mathematical expression of this self-evident principle in the dependency graph model: **"the method of defining dependencies does not affect the final flow of information."
+  - **Explanation of Inevitability**: This law is directly guaranteed by the associativity of `.bind()` itself: `m.bind(f).bind(g)` is equivalent to `m.bind(x => f(x).bind(g))`. `DependencyCore` does not care how you "group" your dependency definitions. Whether you define it in steps `A→B→C` or as a single continuous rule `A→C`, the final information flow path constructed is exactly the same. The associativity law is the mathematical expression of this self-evident principle in the dependency graph model: **"the method of defining dependencies does not affect the final flow of information."**
 
 #### 2. Left Identity
 
@@ -180,7 +180,7 @@ Monad則の検証は、よりシンプルで本質的な**Kleisli合成**のア�
 #### 1. 結合法則 (Associativity)
 
 - **法則**: `(f >>> g) >>> h` は `f >>> (g >>> h)` と等価である。
-  - **必然性の解説**: この法則は、`.bind()`自体の結合法則 `m.bind(f).bind(g)` が `m.bind(x => f(x).bind(g))` と等価であることから、直接的に保証されます。`DependencyCore`は、あなたが依存関係の定義をどう「グルーピング」したかを気にしません。`A→B→C`というステップで定義しようが、`A→C`という一続きのルールで定義しようが、最終的に構築される情報のフローパスは全く同じになります。結合法則は、この\*\*「依存関係の定義方法は、最終的な情報の流れに影響を与えない」\*\*という、依存グラフモデルにおける自明の理を数学的に表現したものなのです。
+  - **必然性の解説**: この法則は、`.bind()`自体の結合法則 `m.bind(f).bind(g)` が `m.bind(x => f(x).bind(g))` と等価であることから、直接的に保証されます。`DependencyCore`は、あなたが依存関係の定義をどう「グルーピング」したかを気にしません。`A→B→C`というステップで定義しようが、`A→C`という一続きのルールで定義しようが、最終的に構築される情報のフローパスは全く同じになります。結合法則は、この**「依存関係の定義方法は、最終的な情報の流れに影響を与えない」**という、依存グラフモデルにおける自明の理を数学的に表現したものなのです。** ` `` ` 
 
 #### 2. 左単位元則 (Left Identity)
 
