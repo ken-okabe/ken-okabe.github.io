@@ -399,8 +399,8 @@ export const generatedTopics = [
           {
             "label": "FALLBACK",
             "translations": {
-              "en": "Functors",
-              "ja": "Functors"
+              "en": "Set Theory and Category Theory",
+              "ja": "Set Theory and Category Theory"
             },
             "items": [
               {
@@ -414,18 +414,27 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "Container Types: Sets in Programming",
-                  "ja": "Container Types: Sets in Programming"
+                  "en": "Category Theory",
+                  "ja": "圏論（Category Theory）"
                 },
-                "link": "book/unit-2/section-4/1-container"
-              },
+                "link": "book/unit-2/section-4/1-category-theory"
+              }
+            ]
+          },
+          {
+            "label": "FALLBACK",
+            "translations": {
+              "en": "Functors",
+              "ja": "Functors"
+            },
+            "items": [
               {
                 "label": "FALLBACK",
                 "translations": {
                   "en": "Functor: Mapping between Functions",
                   "ja": "Functor: Mapping between Functions"
                 },
-                "link": "book/unit-2/section-4/2-functor"
+                "link": "book/unit-2/section-5/0-functor"
               }
             ]
           },
@@ -442,7 +451,7 @@ export const generatedTopics = [
                   "en": "Another Bridge Between Worlds",
                   "ja": "Another Bridge Between Worlds"
                 },
-                "link": "book/unit-2/section-5/0-another-bridge"
+                "link": "book/unit-2/section-6/0-another-bridge"
               },
               {
                 "label": "FALLBACK",
@@ -450,7 +459,7 @@ export const generatedTopics = [
                   "en": "The Kleisli Arrow",
                   "ja": "The Kleisli Arrow"
                 },
-                "link": "book/unit-2/section-5/1-kleisli"
+                "link": "book/unit-2/section-6/1-kleisli"
               },
               {
                 "label": "FALLBACK",
@@ -458,7 +467,7 @@ export const generatedTopics = [
                   "en": "Monad: Another Bridge",
                   "ja": "Monad: Another Bridge"
                 },
-                "link": "book/unit-2/section-5/2-monad"
+                "link": "book/unit-2/section-6/2-monad"
               }
             ]
           },
@@ -475,7 +484,7 @@ export const generatedTopics = [
                   "en": "Bringing It All Together: Functor & Monad",
                   "ja": "Bringing It All Together: Functor & Monad"
                 },
-                "link": "book/unit-2/section-6/0-functor-monad"
+                "link": "book/unit-2/section-7/0-functor-monad"
               },
               {
                 "label": "FALLBACK",
@@ -483,7 +492,7 @@ export const generatedTopics = [
                   "en": "Beyond Simple Mapping: Preserving the Structure of Composition",
                   "ja": "Beyond Simple Mapping: Preserving the Structure of Composition"
                 },
-                "link": "book/unit-2/section-6/1-category-functor-monad"
+                "link": "book/unit-2/section-7/1-category-functor-monad"
               },
               {
                 "label": "FALLBACK",
@@ -491,7 +500,7 @@ export const generatedTopics = [
                   "en": "Understanding Functors: Preserving the Monoid of Function Composition",
                   "ja": "Understanding Functors: Preserving the Monoid of Function Composition"
                 },
-                "link": "book/unit-2/section-6/2-theory-functor"
+                "link": "book/unit-2/section-7/2-theory-functor"
               },
               {
                 "label": "FALLBACK",
@@ -499,7 +508,7 @@ export const generatedTopics = [
                   "en": "The Monad Laws: Verifying the Kleisli Composition Monoid",
                   "ja": "The Monad Laws: Verifying the Kleisli Composition Monoid"
                 },
-                "link": "book/unit-2/section-6/3-theory-monad"
+                "link": "book/unit-2/section-7/3-theory-monad"
               }
             ]
           }

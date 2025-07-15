@@ -4,19 +4,16 @@
 
 After exploring  **Monoids**  as our first algebraic structure, we now turn to another fundamental concept in functional programming: the  **Functor** .
 
+## Functor in Functional Programming
+
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-The term  **"Functor"**  originates from  **category theory** , a fascinating branch of mathematics that deals with abstract structures and their relationships. While a complete treatment of category theory would be beyond the scope of this introductory book, we will cover it in detail in a companion volume dedicated to the mathematical foundations of functional programming.
+The term  **"Functor"**  originates from  **Category theory** , and this title does not imply that the meaning or concept of Functor differs between functional programming and category theory. 
 
-Category theory is indeed a rich and profound field that deserves its own focused treatment. However, mixing its full theoretical depth with our practical introduction to functional programming could potentially overwhelm learners regarding both topics. For now, we'll focus on just the aspects of Functors that are directly relevant to everyday functional programming.
-
-Within the scope of functional programming, we've been dealing exclusively with functions and their theoretical foundation in  **set theory** . Category theory's notion of categories is highly abstract, but when we restrict ourselves to set theory (working in what mathematicians call the  **"category of sets"** ), things become much more concrete and straightforward.
+We are simply focusing on Functors within the scope of set theory(**Category of Sets**), which forms the foundation of functional programming, rather than dealing with the full breadth of category theory.
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
-## Functor in Functional Programming
-
-Note that this title does not imply that the meaning or concept of Functor differs between functional programming and category theory. Rather, as mentioned in the opening note, we are simply focusing on Functors within the scope of set theory, which forms the foundation of functional programming, rather than dealing with the full breadth of category theory.
 
 Let's recall our discussion from "Set Theory and Types: A Deeper Look". We saw this fundamental diagram of mapping:
 

@@ -8,11 +8,11 @@ To get a computer to do any work, we need to give it "instructions." There are s
 
 Imperative code is like a cooking recipe; it's a style where you instruct the computer step-by-step: "Do this, then do this, then do that..."
 
--   Step-by-Step is Fundamental:
+-   **Step-by-Step is Fundamental:**
 
     Code is basically executed line by line, in order, from top to bottom as it's physically written. The computer faithfully follows this flow of instructions, telling it what to do next.
 
--   Control Flow:
+-   **Control Flow:**
 
     Just flowing from top to bottom isn't enough for complex tasks. So, there are mechanisms to control this flow:
 
@@ -25,11 +25,11 @@ In imperative code, you describe the series of actions you want the computer to 
 
 Functional code has a different flavor compared to imperative code. Rather than giving detailed step-by-step instructions on "how to do it," it's a style that focuses on defining "what should be computed from what" using relationships, much like mathematical functions.
 
--   Computation Defined by Expressions:
+-   **Computation Defined by Expressions:**
 
     The core of functional code is the "expression." The entire computation is constructed from relationships: which expression needs to be evaluated to obtain a certain value, and on which other values or results of other expressions does that expression, in turn, depend.
 
--   Order of Computation is Determined by Dependencies:
+-   **Order of Computation is Determined by Dependencies:**
 
     The physical order in which code is written doesn't necessarily dictate the direct order of execution. Instead, if the result of computation A is needed for computation B, then computation A naturally needs to happen before computation B. The order of computation is naturally determined by these dependencies.
 

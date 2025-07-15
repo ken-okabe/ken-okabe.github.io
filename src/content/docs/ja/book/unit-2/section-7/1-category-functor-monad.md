@@ -1,7 +1,10 @@
-:::lang-en
-
-# Beyond Simple Mapping: Preserving the Structure of Composition
-
+---
+title: 'Beyond Simple Mapping: Preserving the Structure of Composition'
+description: >-
+  In our initial exploration of Functors (in Unit 2, Section 4), we used a
+  helpful analogy to build intuition. We revisited the basic concept of mapping
+  between sets:
+---
 In our initial exploration of Functors (in Unit 2, Section 4), we used a helpful analogy to build intuition. We revisited the basic concept of mapping between sets:
 
 ![Mapping between Set X and Set Y](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1745577833678.png)
@@ -68,36 +71,3 @@ Why should we care if `map` or `bind` preserves the structure of composition and
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1746225922395.png)
 
 If `map (f >> g)` is guaranteed to be the same as `map f >> map g`, it means we can reason about composing functions either *before* lifting them into the container world or *after*, and the result will be the same. This allows us to refactor code, optimize pipelines, and build complex transformations with confidence, knowing that the behavior remains consistent across these different levels of abstraction. Without this guarantee, the connection between the simple functions (`f`, `g`) and their containerized counterparts (`map f`, `map g`) becomes less predictable, making the abstractions less robust. We want our lifted functions to respect the fundamental algebraic structure of the functions they originate from.
-
-## The Origin: Category Theory and Monoids
-
-This idea of structure preservation is not arbitrary; it's a cornerstone of **Category Theory**, the branch of mathematics from which Functors and Monads originate. Category Theory studies abstract structures consisting of objects and structure-preserving maps between them (called morphisms or arrows).
-
-A fundamental requirement in Category Theory is that mappings between categories (which are called Functors) must preserve the essential structure of the source category, namely:
-
-* They must map identity morphisms to identity morphisms.
-* They must map the composition of morphisms to the composition of the mapped morphisms.
-
-This focus on preserving composition and identity is deeply related to Monoids. As Saunders MacLane, one of the founders of Category Theory, noted in his seminal text "Categories for the Working Mathematician":
-
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747107983842.png)
-
-![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747107790672.png)
-
-*(Source: Saunders MacLane, Categories for the Working Mathematician, 2nd ed., p. 7)*
-
-This highlights that the very foundation of Category Theory is built upon the Monoid concept (associative operation + identity). Therefore, it's natural that key constructs derived from it, like Functors and Monads, are defined in a way that respects and preserves this fundamental monoidal structure inherent in composition.
-
-## Formalizing Preservation: The Laws
-
-So, how do we mathematically *enforce* this requirement that `map` (for Functors) and `bind` (for Monads) preserve the structure of composition and identity? We do it through specific rules known as the **Functor Laws** and **Monad Laws**.
-
-These laws, which we will detail in the following sections are not arbitrary constraints. They are the precise mathematical formalization of the structure preservation principle we've just discussed. They guarantee that these operations behave predictably and consistently with the underlying Monoid structure of function composition.
-
-## Essence and Intuition: Structure Preservation is Key
-
-Understanding Functors and Monads primarily as **structure-preserving transformations** provides a powerful intuition. They are more than just ways to apply functions to values inside containers; they are bridges between computational contexts that respect the fundamental algebraic rules of composition and identity  the rules embodied by the Monoid structure.
-
-Thinking "Does this preserve the Monoid of composition?" is a more insightful way to approach Functors and Monads than just memorizing the specific laws. This perspective provides the conceptual foundation needed to truly understand *why* the laws exist and what guarantees they provide.
-
-:::
