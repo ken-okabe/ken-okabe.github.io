@@ -69,7 +69,7 @@ Now, let's consider the behavior of this `flippedPipeOp`.
 >
 > In other words, `flippedPipeOp` is equivalent to `fun f -> f`.
 
-> **It's the identity HOF for functions of type `'a -> 'b`.
+> **It's the identity HOF for functions of type `'a -> 'b`.**
 
 ![image](https://raw.githubusercontent.com/ken-okabe/web-images5/main/img_1747796419002.png)
 
