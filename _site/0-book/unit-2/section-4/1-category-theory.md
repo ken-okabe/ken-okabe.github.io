@@ -4,11 +4,17 @@
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-In this chapter, we will explain **Category Theory**, but understanding its content is not essential to proceed with this book.
+**Writing Structure:**
+- First present the importance of category theory's mathematical value
+- However, for the scope of functional programming theory and implementation level, set-theoretic understanding is necessary and sufficient
+- Therefore, we recommend a step-by-step approach for functional programming learning
+- Actually applying or utilizing category theory in functional programming is a separate stage of learning or research level
 
-The reason for this is simply that functional programming is built entirely within the scope of **Set Theory**, and thus does not require the further abstraction provided by category theory. (This very fact is what we will be explaining in this chapter.)
+**Purpose:**
+Rather than following the myth that "mysterious" category theory is essential for true understanding of functional programming, the goal is to demonstrate that mastering Monoids and function composition in set theory is actually far more important.
 
-However, it is an unavoidable fact that category theory itself, or concepts and terms related to it, appear frequently in the context of explaining functional programming. Therefore, we are explaining it from the stance that "knowing it will surely be helpful to avoid confusion."
+**Stance:**
+Since it is an unavoidable fact that category theory itself, or concepts and terminology related to category theory, frequently appear in the context of functional programming explanations, we explain it from the stance that "knowing it will surely be helpful to avoid confusion."
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
@@ -481,11 +487,20 @@ The broader abstraction of category theory is advanced research-level content, r
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-このチャプターでは、**圏論（Category Theory）** を解説していますが、本書を読み進めるために、この章の内容の理解は必須ではありません。
 
-その理由は、とりもなおさず、関数型プログラミングは、**集合論（Set Theory）** の範囲だけで構築されているので、圏論によるさらなる抽象化は必要としていないからです。（まさにその事実について本章では解説しています。）
+### 本章のアプローチとスタンス
 
-しかし、圏論そのもの、あるいは圏論に関する概念または用語が関数型プログラミングの解説の文脈で頻出することは事実で不可避なので、「混乱しないために知っておくと必ず役立つだろう」というスタンスで解説しています。
+**執筆構造：**
+- まず圏論の数学的価値の重要性を提示する
+- しかし、関数型プログラミング理論の範囲と実装レベルにおいては、集合論的理解が必要かつ十分である
+- したがって、関数型プログラミング学習では段階的アプローチを推奨する
+- 圏論を関数型プログラミングに実際に適用または活用することは、別段階の学習または研究レベルである
+
+**目的：**
+「神秘的な」圏論が関数型プログラミングの真の理解に必須であるという神話に従うのではなく、実際には集合論におけるMonoidと関数合成を習得する方がはるかに重要であることを実証することが目標である。
+
+**スタンス：**
+圏論そのもの、または圏論に関連する概念や用語が関数型プログラミングの説明の文脈で頻繁に現れることは避けられない事実であるため、「それを知っていれば混乱を避けるのに確実に役立つだろう」というスタンスで説明している。
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 

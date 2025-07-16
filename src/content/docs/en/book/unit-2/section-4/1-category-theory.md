@@ -1,16 +1,20 @@
 ---
 title: Category Theory
-description: >-
-  In this chapter, we will explain Category Theory, but understanding its
-  content is not essential to proceed with this book.
+description: 'Writing Structure:'
 ---
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
-In this chapter, we will explain **Category Theory**, but understanding its content is not essential to proceed with this book.
+**Writing Structure:**
+- First present the importance of category theory's mathematical value
+- However, for the scope of functional programming theory and implementation level, set-theoretic understanding is necessary and sufficient
+- Therefore, we recommend a step-by-step approach for functional programming learning
+- Actually applying or utilizing category theory in functional programming is a separate stage of learning or research level
 
-The reason for this is simply that functional programming is built entirely within the scope of **Set Theory**, and thus does not require the further abstraction provided by category theory. (This very fact is what we will be explaining in this chapter.)
+**Purpose:**
+Rather than following the myth that "mysterious" category theory is essential for true understanding of functional programming, the goal is to demonstrate that mastering Monoids and function composition in set theory is actually far more important.
 
-However, it is an unavoidable fact that category theory itself, or concepts and terms related to it, appear frequently in the context of explaining functional programming. Therefore, we are explaining it from the stance that "knowing it will surely be helpful to avoid confusion."
+**Stance:**
+Since it is an unavoidable fact that category theory itself, or concepts and terminology related to category theory, frequently appear in the context of functional programming explanations, we explain it from the stance that "knowing it will surely be helpful to avoid confusion."
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/notefooter.svg">
 
