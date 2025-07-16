@@ -4,14 +4,14 @@
 
 We stand at a significant juncture in our exploration of functional programming. Having journeyed through functions, types, algebraic structures like Monoids, and the general concepts of Functors and Monads, we are now poised to uncover a profound truth about a tool we've used from the very beginning:
 
-- **pipeline operator `|>`
+- **pipeline operator `|>`**
 
 This chapter is a culmination, revealing that the intuitive act of pipelining functions is not just a convenience but is deeply intertwined with the very essence of Functors and Monads in their most fundamental forms.
 
 We will now formally introduce and explore these:
 
 - **Identity Functor**
-- **Identity Monad
+- **Identity Monad**
 
 Prepare for a moment of surprise and deep insight as we connect the dots!
 
@@ -178,4 +178,5 @@ All of the above are identical.
 Functors and Monads are not distant, arcane concepts. Their most basic forms, the Identity Functor and Identity Monad, are already present in the very fabric of simple function application and the pipeline that we use constantly.
 
 This provides a solid conceptual bridge: these advanced abstractions generalize core, familiar ideas to work across more complex scenarios. This is one of the great "Aha!" moments in understanding the mathematical underpinnings of functional programming.
+
 :::
