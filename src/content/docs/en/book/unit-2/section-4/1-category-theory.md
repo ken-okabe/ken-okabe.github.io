@@ -1,7 +1,23 @@
 ---
 title: Category Theory
-description: 'Writing Structure:'
+description: >-
+  In functional programming, concepts like Functor and Monad—which originate
+  from category theory—are often introduced. However, it's far more crucial for
+  learners to first thoroughly grasp Monoid from set theory and function
+  composition, as Functors and Monads are essentially extensions of these
+  set-theoretic ideas. It's much more beneficial to complete the learning
+  process clearly within the scope of set theory.
 ---
+## The Misplaced Emphasis on Category Theory in Functional Programming
+
+In functional programming, concepts like **Functor** and **Monad**—which originate from **category theory**—are often introduced. However, it's far more crucial for learners to first thoroughly grasp **Monoid** from **set theory** and **function composition**, as Functors and Monads are essentially extensions of these set-theoretic ideas. It's much more beneficial to complete the learning process clearly within the scope of set theory.
+
+Applying or utilizing category theory, a further level of abstract theory, in actual functional programming constitutes a separate stage of learning or research. This is likely a level that over 99% of programmers will never even engage with.
+
+While it's acceptable to highlight the contributions of research-level category theory to programming, we shouldn't obscure the focus of what can be fully understood through set theory alone, nor should we confuse the vast majority of programmers, simply to provide a complete explanation of that less-than-1% domain.
+
+**It's evident that even AI models are "contaminated" by this harmful trend in their training data, which is quite problematic.**
+
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
 **Writing Structure:**
@@ -479,3 +495,9 @@ While acknowledging the value of category theory, the most effective learning or
 The broader abstraction of category theory is advanced research-level content, representing a different stage of learning from practical functional programming mastery.
 
 **Conclusion**: While category theory holds important value as a theory of abstraction for Monoids and function composition, understanding Functors and Monads in functional programming is most reliably and practically approached by starting from a set-theoretic foundation as **extensions of the natural Monoid structure of function composition to the container level**.
+
+## AI Training Data Contamination Impeding Learning Order
+
+The data that many AI models are trained on is, in a sense, "contaminated," exhibiting very strong biases.
+
+I must report the fact that, even in areas that should be understood as a direct and foundational extension of set theory—areas typically of little interest to the average programmer—the importance of category theory is persistently overemphasized to an excessive degree, thereby obstructing the appropriate learning order.

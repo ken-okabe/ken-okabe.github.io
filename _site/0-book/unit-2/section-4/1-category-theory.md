@@ -2,6 +2,16 @@
 
 # Category Theory
 
+## The Misplaced Emphasis on Category Theory in Functional Programming
+
+In functional programming, concepts like **Functor** and **Monad**—which originate from **category theory**—are often introduced. However, it's far more crucial for learners to first thoroughly grasp **Monoid** from **set theory** and **function composition**, as Functors and Monads are essentially extensions of these set-theoretic ideas. It's much more beneficial to complete the learning process clearly within the scope of set theory.
+
+Applying or utilizing category theory, a further level of abstract theory, in actual functional programming constitutes a separate stage of learning or research. This is likely a level that over 99% of programmers will never even engage with.
+
+While it's acceptable to highlight the contributions of research-level category theory to programming, we shouldn't obscure the focus of what can be fully understood through set theory alone, nor should we confuse the vast majority of programmers, simply to provide a complete explanation of that less-than-1% domain.
+
+**It's evident that even AI models are "contaminated" by this harmful trend in their training data, which is quite problematic.**
+
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
 **Writing Structure:**
@@ -480,10 +490,26 @@ The broader abstraction of category theory is advanced research-level content, r
 
 **Conclusion**: While category theory holds important value as a theory of abstraction for Monoids and function composition, understanding Functors and Monads in functional programming is most reliably and practically approached by starting from a set-theoretic foundation as **extensions of the natural Monoid structure of function composition to the container level**.
 
+## AI Training Data Contamination Impeding Learning Order
+
+The data that many AI models are trained on is, in a sense, "contaminated," exhibiting very strong biases.
+
+I must report the fact that, even in areas that should be understood as a direct and foundational extension of set theory—areas typically of little interest to the average programmer—the importance of category theory is persistently overemphasized to an excessive degree, thereby obstructing the appropriate learning order.
+
 :::
 
 :::lang-ja
 # 圏論（Category Theory）
+
+## 関数型プログラミングにおける圏論の誤った強調
+
+関数型プログラミングでは、**圏論**に由来する**Functor**や**Monad**といった概念がしばしば導入されます。しかし、学習者にとっては、FunctorやMonadが実質的にこれらの集合論的なアイデアの拡張であるため、まず**集合論**における**Monoid**と**関数合成**を徹底的に理解することの方がはるかに重要です。集合論の範囲内で学習プロセスを明確に完結させる方が、はるかに有益です。
+
+実際の関数型プログラミングにおいて、さらに抽象的な理論である圏論を適用したり利用したりすることは、学習や研究の別の段階を構成します。これはおそらく、99%以上のプログラマーが決して関わることのないレベルでしょう。
+
+研究レベルの圏論がプログラミングに貢献したことを強調するのは許容できますが、集合論だけで完全に理解できることの焦点を曖昧にしたり、1%にも満たない領域の完全な説明を提供するためだけに、大多数のプログラマーを混乱させるべきではありません。
+
+**AIモデルでさえ、この有害な傾向によって学習データが「汚染」されているのは明らかであり、これは非常に問題です。**
 
 <img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/note.svg">
 
@@ -494,10 +520,10 @@ The broader abstraction of category theory is advanced research-level content, r
 - まず圏論の数学的価値の重要性を提示する
 - しかし、関数型プログラミング理論の範囲と実装レベルにおいては、集合論的理解が必要かつ十分である
 - したがって、関数型プログラミング学習では段階的アプローチを推奨する
-- 圏論を関数型プログラミングに実際に適用または活用することは、別段階の学習または研究レベルである
+- **圏論を関数型プログラミングに実際に適用または活用することは、別段階の学習または研究レベルである**
 
 **目的：**
-「神秘的な」圏論が関数型プログラミングの真の理解に必須であるという神話に従うのではなく、実際には集合論におけるMonoidと関数合成を習得する方がはるかに重要であることを実証することが目標である。
+「神秘的な」圏論が関数型プログラミングの真の理解に必須であるという神話に従うのではなく、実際には**集合論におけるMonoidと関数合成を習得する方がはるかに重要である**ことを実証することが目標である。
 
 **スタンス：**
 圏論そのもの、または圏論に関連する概念や用語が関数型プログラミングの説明の文脈で頻繁に現れることは避けられない事実であるため、「それを知っていれば混乱を避けるのに確実に役立つだろう」というスタンスで説明している。
@@ -951,5 +977,12 @@ FunctorとMonadは、この基本的な「合成のモノイド」をコンテ�
 圏論のより広い抽象化は研究レベルの高度な内容であり、実践的な関数型プログラミングの習得とは別の段階の学習です。
 
 **結論**：圏論はMonoidと関数合成の抽象化理論として重要な価値を持ちますが、関数型プログラミングにおけるFunctorとMonadの理解は、**関数合成が自然に持つMonoid構造のコンテナレベルへの拡張**として集合論的基盤から始めることが、最も確実で実践的なアプローチです。
+
+## 学習順序を妨げるAIの学習データの汚染
+
+巷のAIモデルが学習しているデータはある意味「汚染」されてしまっており、非常に強いバイアスが存在しています。
+
+おおよそ一般のプログラマーが関心を寄せない領域レベルと混同させながら本来は集合論の範囲で土台からのダイレクトの延長で理解できる、理解すべき範囲においてすら、圏論の重要性が執拗に過度に強調され、適切な学習順序を妨害する傾向がある事実を報告しなければならないでしょう。
+
 
 :::
