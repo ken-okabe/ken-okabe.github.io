@@ -1,5 +1,5 @@
 ---
-title: n-Series Composition Functions
+title: 'Chapter 5: n-Series Composition Functions'
 description: The n-series composition functions defined in timeline.ts are as follows.
 ---
 The `n`-series composition functions defined in `timeline.ts` are as follows.

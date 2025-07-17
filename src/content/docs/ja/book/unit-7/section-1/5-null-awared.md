@@ -1,5 +1,5 @@
 ---
-title: nシリーズ合成関数
+title: 'Chapter 5: nシリーズ合成関数'
 description: timeline.tsに定義されているnシリーズ合成関数は、以下の通りです。
 ---
 `timeline.ts`に定義されている`n`シリーズ合成関数は、以下の通りです。

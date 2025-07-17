@@ -1,6 +1,6 @@
 :::lang-en
 
-# `n`-Series Composition Functions
+# Chapter 5: `n`-Series Composition Functions
 
 The `n`-series composition functions defined in `timeline.ts` are as follows.
 
@@ -23,7 +23,7 @@ The `n`-series composition functions defined in `timeline.ts` are as follows.
 
 :::lang-ja
 
-# `n`シリーズ合成関数
+# Chapter 5: `n`シリーズ合成関数
 
 `timeline.ts`に定義されている`n`シリーズ合成関数は、以下の通りです。
 

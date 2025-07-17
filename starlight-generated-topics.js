@@ -1114,8 +1114,8 @@ export const generatedTopics = [
               {
                 "label": "FALLBACK",
                 "translations": {
-                  "en": "n-Series Composition Functions",
-                  "ja": "nシリーズ合成関数"
+                  "en": "Chapter 5: n-Series Composition Functions",
+                  "ja": "Chapter 5: nシリーズ合成関数"
                 },
                 "link": "book/unit-7/section-1/5-null-awared"
               }
