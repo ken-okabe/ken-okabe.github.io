@@ -16,7 +16,7 @@ Through this unit, you will move from the art of manipulating a single `Timeline
 
 # 🔍 Overview - Unit 7
 
-このユニットのテーマは**「合成」**だ。複数の`Timeline`を組み合わせて、一つの新しい`Timeline`を創り出すための、階層的かつ数学的に美しいAPI群を解説する。
+このユニットのテーマは **「合成」** だ。複数の`Timeline`を組み合わせて、一つの新しい`Timeline`を創り出すための、階層的かつ数学的に美しいAPI群を解説する。
 
 このUnitは、すべての合成の基礎となる`combineLatestWith`から始まる。これは、Unit 4で学んだApplicative Functorの具体的な実装に他ならない。
 
